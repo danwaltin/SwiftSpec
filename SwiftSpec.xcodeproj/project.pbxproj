@@ -53,6 +53,18 @@
 		37993B851DFD584C00CD80F9 /* TestExecutionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B7A1DFD584C00CD80F9 /* TestExecutionError.swift */; };
 		37993B861DFD584C00CD80F9 /* TestRunner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B7B1DFD584C00CD80F9 /* TestRunner.swift */; };
 		37993B881DFD589400CD80F9 /* Reflection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B871DFD589400CD80F9 /* Reflection.swift */; };
+		37993B911DFD5A9A00CD80F9 /* ContentOfGeneratedUnitTestFilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B8A1DFD5A9A00CD80F9 /* ContentOfGeneratedUnitTestFilesTests.swift */; };
+		37993B921DFD5A9A00CD80F9 /* GeneratedUnitTestFilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B8B1DFD5A9A00CD80F9 /* GeneratedUnitTestFilesTests.swift */; };
+		37993B931DFD5A9A00CD80F9 /* MockFeatureParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B8C1DFD5A9A00CD80F9 /* MockFeatureParser.swift */; };
+		37993B941DFD5A9A00CD80F9 /* MockFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B8D1DFD5A9A00CD80F9 /* MockFileSystem.swift */; };
+		37993B951DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B8E1DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift */; };
+		37993B961DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B8F1DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift */; };
+		37993B971DFD5A9A00CD80F9 /* TestFileGenerationBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B901DFD5A9A00CD80F9 /* TestFileGenerationBase.swift */; };
+		37993B9C1DFD5AF300CD80F9 /* CocoaFileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B981DFD5AF300CD80F9 /* CocoaFileSystem.swift */; };
+		37993B9D1DFD5AF300CD80F9 /* FileSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B991DFD5AF300CD80F9 /* FileSystem.swift */; };
+		37993B9E1DFD5AF300CD80F9 /* UnitTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B9A1DFD5AF300CD80F9 /* UnitTestGenerator.swift */; };
+		37993B9F1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B9B1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift */; };
+		37993BA11DFD5BAD00CD80F9 /* TestFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BA01DFD5BAD00CD80F9 /* TestFileWriter.swift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
 
@@ -114,6 +126,18 @@
 		37993B7A1DFD584C00CD80F9 /* TestExecutionError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestExecutionError.swift; sourceTree = "<group>"; };
 		37993B7B1DFD584C00CD80F9 /* TestRunner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestRunner.swift; sourceTree = "<group>"; };
 		37993B871DFD589400CD80F9 /* Reflection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reflection.swift; sourceTree = "<group>"; };
+		37993B8A1DFD5A9A00CD80F9 /* ContentOfGeneratedUnitTestFilesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentOfGeneratedUnitTestFilesTests.swift; sourceTree = "<group>"; };
+		37993B8B1DFD5A9A00CD80F9 /* GeneratedUnitTestFilesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GeneratedUnitTestFilesTests.swift; sourceTree = "<group>"; };
+		37993B8C1DFD5A9A00CD80F9 /* MockFeatureParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFeatureParser.swift; sourceTree = "<group>"; };
+		37993B8D1DFD5A9A00CD80F9 /* MockFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockFileSystem.swift; sourceTree = "<group>"; };
+		37993B8E1DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockUnitTestGenerator.swift; sourceTree = "<group>"; };
+		37993B8F1DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContentUnitTestTests.swift; sourceTree = "<group>"; };
+		37993B901DFD5A9A00CD80F9 /* TestFileGenerationBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFileGenerationBase.swift; sourceTree = "<group>"; };
+		37993B981DFD5AF300CD80F9 /* CocoaFileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CocoaFileSystem.swift; sourceTree = "<group>"; };
+		37993B991DFD5AF300CD80F9 /* FileSystem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileSystem.swift; sourceTree = "<group>"; };
+		37993B9A1DFD5AF300CD80F9 /* UnitTestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestGenerator.swift; sourceTree = "<group>"; };
+		37993B9B1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUnitTestGenerator.swift; sourceTree = "<group>"; };
+		37993BA01DFD5BAD00CD80F9 /* TestFileWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFileWriter.swift; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -151,9 +175,14 @@
 		37993B2D1DFD52F100CD80F9 /* SwiftSpec */ = {
 			isa = PBXGroup;
 			children = (
+				37993B981DFD5AF300CD80F9 /* CocoaFileSystem.swift */,
+				37993B991DFD5AF300CD80F9 /* FileSystem.swift */,
+				37993B9A1DFD5AF300CD80F9 /* UnitTestGenerator.swift */,
+				37993B9B1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift */,
 				37993B871DFD589400CD80F9 /* Reflection.swift */,
 				37993B631DFD577700CD80F9 /* ScenarioContext.swift */,
 				37993B5D1DFD566500CD80F9 /* StringExtension.swift */,
+				37993BA01DFD5BAD00CD80F9 /* TestFileWriter.swift */,
 				37993B701DFD584C00CD80F9 /* TestRunner */,
 				37993B2E1DFD52F100CD80F9 /* Entities */,
 				37993B4A1DFD563B00CD80F9 /* Parsing */,
@@ -234,6 +263,20 @@
 			path = TestRunner;
 			sourceTree = "<group>";
 		};
+		37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */ = {
+			isa = PBXGroup;
+			children = (
+				37993B8A1DFD5A9A00CD80F9 /* ContentOfGeneratedUnitTestFilesTests.swift */,
+				37993B8B1DFD5A9A00CD80F9 /* GeneratedUnitTestFilesTests.swift */,
+				37993B8C1DFD5A9A00CD80F9 /* MockFeatureParser.swift */,
+				37993B8D1DFD5A9A00CD80F9 /* MockFileSystem.swift */,
+				37993B8E1DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift */,
+				37993B8F1DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift */,
+				37993B901DFD5A9A00CD80F9 /* TestFileGenerationBase.swift */,
+			);
+			path = UnitTestFileGenerationTests;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +290,7 @@
 			children = (
 				37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */,
 				37993B601DFD574C00CD80F9 /* StringExtensionTests.swift */,
+				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
 				37993B651DFD583600CD80F9 /* TestExecutionTests */,
 				37993B331DFD55CF00CD80F9 /* ParsingTests */,
 				37993B261DFD51A600CD80F9 /* TableTests */,
@@ -365,7 +409,9 @@
 				37993B591DFD563B00CD80F9 /* ScenarioScanner.swift in Sources */,
 				37993B491DFD55FE00CD80F9 /* Taggable.swift in Sources */,
 				37993B851DFD584C00CD80F9 /* TestExecutionError.swift in Sources */,
+				37993B9E1DFD5AF300CD80F9 /* UnitTestGenerator.swift in Sources */,
 				37993B551DFD563B00CD80F9 /* FeatureScanner.swift in Sources */,
+				37993B9D1DFD5AF300CD80F9 /* FileSystem.swift in Sources */,
 				37993B7D1DFD584C00CD80F9 /* BindingsParameters.swift in Sources */,
 				37993B5E1DFD566500CD80F9 /* StringExtension.swift in Sources */,
 				37993B7C1DFD584C00CD80F9 /* Bindings.swift in Sources */,
@@ -377,9 +423,12 @@
 				37993B581DFD563B00CD80F9 /* ScenarioOutlineScanner.swift in Sources */,
 				37993B5B1DFD563B00CD80F9 /* TableScanner.swift in Sources */,
 				37993B561DFD563B00CD80F9 /* GherkinFeatureParser.swift in Sources */,
+				37993B9C1DFD5AF300CD80F9 /* CocoaFileSystem.swift in Sources */,
 				37993B841DFD584C00CD80F9 /* StepBindingImplementation.swift in Sources */,
 				37993B5A1DFD563B00CD80F9 /* StepScanner.swift in Sources */,
+				37993B9F1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift in Sources */,
 				37993B541DFD563B00CD80F9 /* FeatureParser.swift in Sources */,
+				37993BA11DFD5BAD00CD80F9 /* TestFileWriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -392,6 +441,8 @@
 				37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */,
 				37993B621DFD574C00CD80F9 /* StringExtensionTests.swift in Sources */,
 				37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */,
+				37993B961DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift in Sources */,
+				37993B931DFD5A9A00CD80F9 /* MockFeatureParser.swift in Sources */,
 				37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */,
 				37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */,
 				37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */,
@@ -399,9 +450,14 @@
 				37993B3D1DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift in Sources */,
 				37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */,
 				37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */,
+				37993B951DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift in Sources */,
 				37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */,
 				37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */,
+				37993B971DFD5A9A00CD80F9 /* TestFileGenerationBase.swift in Sources */,
 				37993B6E1DFD583600CD80F9 /* MockBindingsRepository.swift in Sources */,
+				37993B921DFD5A9A00CD80F9 /* GeneratedUnitTestFilesTests.swift in Sources */,
+				37993B911DFD5A9A00CD80F9 /* ContentOfGeneratedUnitTestFilesTests.swift in Sources */,
+				37993B941DFD5A9A00CD80F9 /* MockFileSystem.swift in Sources */,
 				37993B6D1DFD583600CD80F9 /* MatchesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
