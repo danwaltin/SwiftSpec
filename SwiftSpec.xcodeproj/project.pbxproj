@@ -33,6 +33,9 @@
 		37993B5B1DFD563B00CD80F9 /* TableScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B521DFD563B00CD80F9 /* TableScanner.swift */; };
 		37993B5C1DFD563B00CD80F9 /* TagScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B531DFD563B00CD80F9 /* TagScanner.swift */; };
 		37993B5E1DFD566500CD80F9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B5D1DFD566500CD80F9 /* StringExtension.swift */; };
+		37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */; };
+		37993B621DFD574C00CD80F9 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B601DFD574C00CD80F9 /* StringExtensionTests.swift */; };
+		37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B631DFD577700CD80F9 /* ScenarioContext.swift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
 
@@ -74,6 +77,9 @@
 		37993B521DFD563B00CD80F9 /* TableScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableScanner.swift; sourceTree = "<group>"; };
 		37993B531DFD563B00CD80F9 /* TagScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagScanner.swift; sourceTree = "<group>"; };
 		37993B5D1DFD566500CD80F9 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAndGetScenarioContextValuesTests.swift; sourceTree = "<group>"; };
+		37993B601DFD574C00CD80F9 /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
+		37993B631DFD577700CD80F9 /* ScenarioContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContext.swift; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -111,6 +117,7 @@
 		37993B2D1DFD52F100CD80F9 /* SwiftSpec */ = {
 			isa = PBXGroup;
 			children = (
+				37993B631DFD577700CD80F9 /* ScenarioContext.swift */,
 				37993B5D1DFD566500CD80F9 /* StringExtension.swift */,
 				37993B2E1DFD52F100CD80F9 /* Entities */,
 				37993B4A1DFD563B00CD80F9 /* Parsing */,
@@ -172,6 +179,8 @@
 		OBJ_11 /* SwiftSpecTests */ = {
 			isa = PBXGroup;
 			children = (
+				37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */,
+				37993B601DFD574C00CD80F9 /* StringExtensionTests.swift */,
 				37993B331DFD55CF00CD80F9 /* ParsingTests */,
 				37993B261DFD51A600CD80F9 /* TableTests */,
 			);
@@ -275,6 +284,7 @@
 			buildActionMask = 0;
 			files = (
 				37993B451DFD55FE00CD80F9 /* Feature.swift in Sources */,
+				37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */,
 				37993B5C1DFD563B00CD80F9 /* TagScanner.swift in Sources */,
 				37993B301DFD52F100CD80F9 /* Table.swift in Sources */,
 				37993B571DFD563B00CD80F9 /* ScanningStringExtension.swift in Sources */,
@@ -300,6 +310,7 @@
 			files = (
 				37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */,
 				37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */,
+				37993B621DFD574C00CD80F9 /* StringExtensionTests.swift in Sources */,
 				37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */,
 				37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */,
 				37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */,
@@ -307,6 +318,7 @@
 				37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */,
 				37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */,
 				37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */,
+				37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
