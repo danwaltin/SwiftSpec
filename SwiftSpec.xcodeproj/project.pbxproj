@@ -65,6 +65,17 @@
 		37993B9E1DFD5AF300CD80F9 /* UnitTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B9A1DFD5AF300CD80F9 /* UnitTestGenerator.swift */; };
 		37993B9F1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B9B1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift */; };
 		37993BA11DFD5BAD00CD80F9 /* TestFileWriter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BA01DFD5BAD00CD80F9 /* TestFileWriter.swift */; };
+		37993BA31E052F5A00CD80F9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BA21E052F5A00CD80F9 /* main.swift */; };
+		37993BB61E06796000CD80F9 /* BasicFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BA61E06796000CD80F9 /* BasicFeatureTests.swift */; };
+		37993BB71E06796000CD80F9 /* BasicFeatureBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BA81E06796000CD80F9 /* BasicFeatureBindings.swift */; };
+		37993BB81E06796000CD80F9 /* ScenarioContextBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BA91E06796000CD80F9 /* ScenarioContextBindings.swift */; };
+		37993BB91E06796000CD80F9 /* StepParameterBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BAA1E06796000CD80F9 /* StepParameterBindings.swift */; };
+		37993BBA1E06796000CD80F9 /* TagsBindings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BAB1E06796000CD80F9 /* TagsBindings.swift */; };
+		37993BBB1E06796000CD80F9 /* IgnoredFeatureTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BAD1E06796000CD80F9 /* IgnoredFeatureTests.swift */; };
+		37993BBC1E06796000CD80F9 /* IgnoredScenarioTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BAF1E06796000CD80F9 /* IgnoredScenarioTests.swift */; };
+		37993BBD1E06796000CD80F9 /* ScenarioContextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BB11E06796000CD80F9 /* ScenarioContextTests.swift */; };
+		37993BBE1E06796000CD80F9 /* StepParametersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BB31E06796000CD80F9 /* StepParametersTests.swift */; };
+		37993BBF1E06796000CD80F9 /* TagsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993BB51E06796000CD80F9 /* TagsTests.swift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +149,23 @@
 		37993B9A1DFD5AF300CD80F9 /* UnitTestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UnitTestGenerator.swift; sourceTree = "<group>"; };
 		37993B9B1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XCUnitTestGenerator.swift; sourceTree = "<group>"; };
 		37993BA01DFD5BAD00CD80F9 /* TestFileWriter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestFileWriter.swift; sourceTree = "<group>"; };
+		37993BA21E052F5A00CD80F9 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		37993BA51E06796000CD80F9 /* BasicFeature.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = BasicFeature.feature; sourceTree = "<group>"; };
+		37993BA61E06796000CD80F9 /* BasicFeatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicFeatureTests.swift; sourceTree = "<group>"; };
+		37993BA81E06796000CD80F9 /* BasicFeatureBindings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BasicFeatureBindings.swift; sourceTree = "<group>"; };
+		37993BA91E06796000CD80F9 /* ScenarioContextBindings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContextBindings.swift; sourceTree = "<group>"; };
+		37993BAA1E06796000CD80F9 /* StepParameterBindings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepParameterBindings.swift; sourceTree = "<group>"; };
+		37993BAB1E06796000CD80F9 /* TagsBindings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsBindings.swift; sourceTree = "<group>"; };
+		37993BAC1E06796000CD80F9 /* IgnoredFeature.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IgnoredFeature.feature; sourceTree = "<group>"; };
+		37993BAD1E06796000CD80F9 /* IgnoredFeatureTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoredFeatureTests.swift; sourceTree = "<group>"; };
+		37993BAE1E06796000CD80F9 /* IgnoredScenario.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = IgnoredScenario.feature; sourceTree = "<group>"; };
+		37993BAF1E06796000CD80F9 /* IgnoredScenarioTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IgnoredScenarioTests.swift; sourceTree = "<group>"; };
+		37993BB01E06796000CD80F9 /* ScenarioContext.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = ScenarioContext.feature; sourceTree = "<group>"; };
+		37993BB11E06796000CD80F9 /* ScenarioContextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContextTests.swift; sourceTree = "<group>"; };
+		37993BB21E06796000CD80F9 /* StepParameters.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = StepParameters.feature; sourceTree = "<group>"; };
+		37993BB31E06796000CD80F9 /* StepParametersTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepParametersTests.swift; sourceTree = "<group>"; };
+		37993BB41E06796000CD80F9 /* Tags.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Tags.feature; sourceTree = "<group>"; };
+		37993BB51E06796000CD80F9 /* TagsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagsTests.swift; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -186,6 +214,7 @@
 				37993B701DFD584C00CD80F9 /* TestRunner */,
 				37993B2E1DFD52F100CD80F9 /* Entities */,
 				37993B4A1DFD563B00CD80F9 /* Parsing */,
+				37993BA21E052F5A00CD80F9 /* main.swift */,
 			);
 			path = SwiftSpec;
 			sourceTree = "<group>";
@@ -277,9 +306,42 @@
 			path = UnitTestFileGenerationTests;
 			sourceTree = "<group>";
 		};
+		37993BA41E06796000CD80F9 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				37993BA51E06796000CD80F9 /* BasicFeature.feature */,
+				37993BA61E06796000CD80F9 /* BasicFeatureTests.swift */,
+				37993BA71E06796000CD80F9 /* Bindings */,
+				37993BAC1E06796000CD80F9 /* IgnoredFeature.feature */,
+				37993BAD1E06796000CD80F9 /* IgnoredFeatureTests.swift */,
+				37993BAE1E06796000CD80F9 /* IgnoredScenario.feature */,
+				37993BAF1E06796000CD80F9 /* IgnoredScenarioTests.swift */,
+				37993BB01E06796000CD80F9 /* ScenarioContext.feature */,
+				37993BB11E06796000CD80F9 /* ScenarioContextTests.swift */,
+				37993BB21E06796000CD80F9 /* StepParameters.feature */,
+				37993BB31E06796000CD80F9 /* StepParametersTests.swift */,
+				37993BB41E06796000CD80F9 /* Tags.feature */,
+				37993BB51E06796000CD80F9 /* TagsTests.swift */,
+			);
+			name = Features;
+			path = SwiftSpecTests/Features;
+			sourceTree = "<group>";
+		};
+		37993BA71E06796000CD80F9 /* Bindings */ = {
+			isa = PBXGroup;
+			children = (
+				37993BA81E06796000CD80F9 /* BasicFeatureBindings.swift */,
+				37993BA91E06796000CD80F9 /* ScenarioContextBindings.swift */,
+				37993BAA1E06796000CD80F9 /* StepParameterBindings.swift */,
+				37993BAB1E06796000CD80F9 /* TagsBindings.swift */,
+			);
+			path = Bindings;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
+				37993BA41E06796000CD80F9 /* Features */,
 				OBJ_11 /* SwiftSpecTests */,
 			);
 			path = Tests;
@@ -396,6 +458,7 @@
 			files = (
 				37993B451DFD55FE00CD80F9 /* Feature.swift in Sources */,
 				37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */,
+				37993BA31E052F5A00CD80F9 /* main.swift in Sources */,
 				37993B5C1DFD563B00CD80F9 /* TagScanner.swift in Sources */,
 				37993B831DFD584C00CD80F9 /* StepBinding.swift in Sources */,
 				37993B301DFD52F100CD80F9 /* Table.swift in Sources */,
@@ -436,29 +499,39 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				37993BB91E06796000CD80F9 /* StepParameterBindings.swift in Sources */,
 				37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */,
 				37993B6F1DFD583600CD80F9 /* MockStepBinding.swift in Sources */,
 				37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */,
 				37993B621DFD574C00CD80F9 /* StringExtensionTests.swift in Sources */,
+				37993BBB1E06796000CD80F9 /* IgnoredFeatureTests.swift in Sources */,
 				37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */,
+				37993BBD1E06796000CD80F9 /* ScenarioContextTests.swift in Sources */,
 				37993B961DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift in Sources */,
 				37993B931DFD5A9A00CD80F9 /* MockFeatureParser.swift in Sources */,
 				37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */,
+				37993BBC1E06796000CD80F9 /* IgnoredScenarioTests.swift in Sources */,
 				37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */,
 				37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */,
 				37993B6C1DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift in Sources */,
 				37993B3D1DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift in Sources */,
 				37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */,
+				37993BBA1E06796000CD80F9 /* TagsBindings.swift in Sources */,
 				37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */,
 				37993B951DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift in Sources */,
 				37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */,
 				37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */,
 				37993B971DFD5A9A00CD80F9 /* TestFileGenerationBase.swift in Sources */,
+				37993BBE1E06796000CD80F9 /* StepParametersTests.swift in Sources */,
 				37993B6E1DFD583600CD80F9 /* MockBindingsRepository.swift in Sources */,
+				37993BB61E06796000CD80F9 /* BasicFeatureTests.swift in Sources */,
 				37993B921DFD5A9A00CD80F9 /* GeneratedUnitTestFilesTests.swift in Sources */,
 				37993B911DFD5A9A00CD80F9 /* ContentOfGeneratedUnitTestFilesTests.swift in Sources */,
+				37993BB71E06796000CD80F9 /* BasicFeatureBindings.swift in Sources */,
+				37993BB81E06796000CD80F9 /* ScenarioContextBindings.swift in Sources */,
 				37993B941DFD5A9A00CD80F9 /* MockFileSystem.swift in Sources */,
 				37993B6D1DFD583600CD80F9 /* MatchesTests.swift in Sources */,
+				37993BBF1E06796000CD80F9 /* TagsTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
