@@ -15,7 +15,7 @@ This section describes setup for using SwiftSpec in an XCode 8 project.
 3. Use in the XCode project
 
 ### Download
-Download SwiftSpec, eihter by cloning the repository or by downloading a specific [release] [5].
+Download SwiftSpec, eihter by cloning the repository or by downloading a specific [release][5].
 
 ### Compile
 
