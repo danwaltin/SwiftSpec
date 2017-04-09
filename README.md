@@ -1,6 +1,6 @@
 # SwiftSpec
 
-A [Swift] [1] package for [BDD] [2]/[Specification by example] [3] à la [Gherkin] [4]. 
+A [Swift][1] package for [BDD][2]/[Specification by example][3] à la [Gherkin][4]. 
 
 ## Table of Contents
 1. [Setup](#setup)
