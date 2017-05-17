@@ -38,7 +38,7 @@ In the test target of your project
 ## Usage
 
 1. Write feature files
-2. Generate XCTest test files using the SwiftSpec command line tool, found under `.build/debug/SwiftSpec`
+2. Generate XCTest test files using the SwiftSpec command line tool, found under `.build/debug/SwiftSpecConsole`
 3. Add the test files to the XCode project
 4. Write bindings
 5. Implement the code
