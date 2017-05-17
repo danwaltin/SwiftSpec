@@ -148,7 +148,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 	}
 	
 	private func when_generateUnitTests(baseDirectory: String = "default") {
-		let generator = TestFileWriter(
+		let generator = TestFileWriterImplementation(
 			fileSystem: mockFileSystem,
 			featureParser: mockFeatureParser,
 			unitTestGenerator: mockUnitTestGenerator)
