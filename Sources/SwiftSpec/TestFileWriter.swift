@@ -11,7 +11,7 @@ import Foundation
 let FEATURE_FILE_EXTENSION = "feature"
 
 public protocol TestFileWriter {
-	func generateUnitTestsFromFeatureFiles(baseDirectory: String, timestamp: Date)
+	func generateUnitTestsFromFeatureFiles(baseDirectory: String)
 }
 
 class TestFileWriterImplementation : TestFileWriter {
@@ -29,13 +29,13 @@ class TestFileWriterImplementation : TestFileWriter {
 		self.unitTestGenerator = unitTestGenerator
 	}
 	
-	func generateUnitTestsFromFeatureFiles(baseDirectory: String, timestamp: Date) {
+	func generateUnitTestsFromFeatureFiles(baseDirectory: String) {
 		for featureFile in featureFiles(baseDirectory) {
 			
 			let path = unitTestFileName(featureFile: featureFile)
 			let lines = try! fileSystem.readAllLines(atPath: featureFile)
 			let feature = featureParser.parse(lines: lines)
-			let content = unitTestGenerator.generateUnitTest(feature: feature, timestamp: timestamp)
+			let content = unitTestGenerator.generateUnitTest(feature: feature)
 			
 			try! fileSystem.writeFile(
 				path: path,

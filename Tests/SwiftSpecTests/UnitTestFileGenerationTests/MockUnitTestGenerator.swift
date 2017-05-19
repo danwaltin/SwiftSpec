@@ -13,7 +13,7 @@ class MockUnitTestGenerator : UnitTestGenerator {
 	var generatedUnitTest = ""
 	var lastParsedFeature: Feature!
 	
-	func generateUnitTest(feature: Feature, timestamp: Date) -> String {
+	func generateUnitTest(feature: Feature) -> String {
 		lastParsedFeature = feature
 		return generatedUnitTest
 	}

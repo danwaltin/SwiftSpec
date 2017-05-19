@@ -153,8 +153,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 			featureParser: mockFeatureParser,
 			unitTestGenerator: mockUnitTestGenerator)
 		
-		let t = Date.init(timeIntervalSinceReferenceDate: TimeInterval(0))
-		generator.generateUnitTestsFromFeatureFiles(baseDirectory: baseDirectory, timestamp: t)
+		generator.generateUnitTestsFromFeatureFiles(baseDirectory: baseDirectory)
 	}
 
 	private func then_theZeroUnitTestFilesShouldBeCreated() {

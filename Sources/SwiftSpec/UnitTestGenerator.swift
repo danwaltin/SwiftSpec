@@ -9,5 +9,5 @@
 import Foundation
 
 protocol UnitTestGenerator {
-	func generateUnitTest(feature: Feature, timestamp: Date) -> String
+	func generateUnitTest(feature: Feature) -> String
 }

@@ -13,4 +13,4 @@ let builder = XBuilder()
 let writer = builder.buildTestFileWriter()
 let path = CommandLine.arguments[1]
 
-writer.generateUnitTestsFromFeatureFiles(baseDirectory: path, timestamp: Date())
+writer.generateUnitTestsFromFeatureFiles(baseDirectory: path)
