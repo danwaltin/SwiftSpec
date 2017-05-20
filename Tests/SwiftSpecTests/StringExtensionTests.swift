@@ -26,62 +26,56 @@ import XCTest
 
 class StringExtensionsTest: XCTestCase {
 	
-	// MARK:
 	func test_trim() {
-		XCTAssertEqual("",     "".trim())
-		XCTAssertEqual("line", "line".trim())
-		XCTAssertEqual("line", "line ".trim())
-		XCTAssertEqual("line", " line".trim())
-		XCTAssertEqual("line", " line".trim())
-		XCTAssertEqual("line", " line ".trim())
+		XCTAssertEqual(     "".trim(),  "")
+		XCTAssertEqual("line".trim(),   "line")
+		XCTAssertEqual("line ".trim(),  "line")
+		XCTAssertEqual(" line".trim(),  "line")
+		XCTAssertEqual(" line".trim(),  "line")
+		XCTAssertEqual(" line ".trim(), "line")
 	}
 	
-	// MARK:
 	func test_appendLine() {
-		XCTAssertEqual("",         "".appendLine(""))
-		XCTAssertEqual("line",     "".appendLine("line"))
-		XCTAssertEqual("one\ntwo", "one".appendLine("two"))
-		XCTAssertEqual("line\n",   "line".appendLine())
+		XCTAssertEqual(""    .appendLine(""),     "")
+		XCTAssertEqual(""    .appendLine("line"), "line")
+		XCTAssertEqual("one" .appendLine("two"),  "one\ntwo")
+		XCTAssertEqual("line".appendLine(),       "line\n")
 	}
 	
-	// MARK:
 	func test_compactWhitespace() {
-		XCTAssertEqual("",        "".compactWhitespace())
-		XCTAssertEqual(" ",       "  ".compactWhitespace())
-		XCTAssertEqual(" ",       "   ".compactWhitespace())
-		XCTAssertEqual("one ",    "one  ".compactWhitespace())
-		XCTAssertEqual("one two", "one two".compactWhitespace())
-		XCTAssertEqual("one two", "one  two".compactWhitespace())
-		XCTAssertEqual("one two", "one   two".compactWhitespace())
-		XCTAssertEqual("1 2 3",   "1  2   3".compactWhitespace())
+		XCTAssertEqual(""         .compactWhitespace(), "")
+		XCTAssertEqual("  "       .compactWhitespace(), " ")
+		XCTAssertEqual("   "      .compactWhitespace(), " ")
+		XCTAssertEqual("one  "    .compactWhitespace(), "one ")
+		XCTAssertEqual("one two"  .compactWhitespace(), "one two")
+		XCTAssertEqual("one  two" .compactWhitespace(), "one two")
+		XCTAssertEqual("one   two".compactWhitespace(), "one two")
+		XCTAssertEqual("1  2   3" .compactWhitespace(), "1 2 3")
 	}
 	
-	// MARK:
 	func test_camelCaseify() {
-		XCTAssertEqual("",         "".camelCaseify())
+		XCTAssertEqual(""              .camelCaseify(), "")
 		
-		XCTAssertEqual("Word",     "word".camelCaseify())
-		XCTAssertEqual("Word",     "Word".camelCaseify())
-		XCTAssertEqual("Word",     "WORD".camelCaseify())
+		XCTAssertEqual("word"          .camelCaseify(), "Word")
+		XCTAssertEqual("Word"          .camelCaseify(), "Word")
+		XCTAssertEqual("WORD"          .camelCaseify(), "Word")
 
-		XCTAssertEqual("OneTwo", "one two".camelCaseify())
-		XCTAssertEqual("OneTwoThree", "one two  three".camelCaseify())
+		XCTAssertEqual("one two"       .camelCaseify(), "OneTwo")
+		XCTAssertEqual("one two  three".camelCaseify(), "OneTwoThree")
 	}
 
-	// MARK:
 	func test_deleteText() {
-		XCTAssertEqual("title", "Feature:title".deleteText("Feature:"))
+		XCTAssertEqual("Feature:title".deleteText("Feature:"), "title")
 	}
 	
-	// MARK:
 	func test_allLines() {
-		XCTAssertEqual([],              ""        .allLines())
-		XCTAssertEqual([" "],           " "       .allLines())
-		XCTAssertEqual(["line"],        "line"    .allLines())
-		XCTAssertEqual(["one two"],     "one two" .allLines())
-		XCTAssertEqual(["one", "two"],  "one\ntwo".allLines())
-		XCTAssertEqual(["1", "2", "3"], "1\n2\n3" .allLines())
-		XCTAssertEqual(["", "line"],    "\nline"  .allLines())
-		XCTAssertEqual(["line", ""],    "line\n"  .allLines())
+		XCTAssertEqual(""        .allLines(), [])
+		XCTAssertEqual(" "       .allLines(), [" "])
+		XCTAssertEqual("line"    .allLines(), ["line"])
+		XCTAssertEqual("one two" .allLines(), ["one two"])
+		XCTAssertEqual("one\ntwo".allLines(), ["one", "two"])
+		XCTAssertEqual("1\n2\n3" .allLines(), ["1", "2", "3"])
+		XCTAssertEqual("\nline"  .allLines(), ["", "line"])
+		XCTAssertEqual("line\n"  .allLines(), ["line", ""])
 	}
 }
