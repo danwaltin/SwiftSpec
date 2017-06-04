@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import DWExtensions
+
 let tagToken = "@"
 let keywordFeature = "Feature:"
 let keywordScenarioOutline = "Scenario Outline:"

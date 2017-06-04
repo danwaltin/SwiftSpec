@@ -27,5 +27,8 @@ let package = Package(
     name: "SwiftSpec",
     targets: [
       Target(name: "SwiftSpec"),
-      Target(name: "SwiftSpecConsole", dependencies: ["SwiftSpec"])]
+      Target(name: "SwiftSpecConsole", dependencies: ["SwiftSpec"])],
+    dependencies: [
+		.Package(url: "https://github.com/danwaltin/DWExtensions.git", majorVersion: 2, minor: 1)
+		]
 )

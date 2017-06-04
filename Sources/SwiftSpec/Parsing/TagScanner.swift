@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import DWExtensions
+
 class TagScanner {
 
 	var tags = [String]()

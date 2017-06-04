@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import DWExtensions
+
 class  StepScanner {
 	var text = ""
 	var step: Step!

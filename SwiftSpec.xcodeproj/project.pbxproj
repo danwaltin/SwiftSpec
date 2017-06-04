@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		378285651EE3EF1500728165 /* DWExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378285641EE3EF1500728165 /* DWExtensions.framework */; };
+		378285661EE3EF7100728165 /* DWExtensions.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 378285641EE3EF1500728165 /* DWExtensions.framework */; };
 		37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */; };
 		37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */; };
 		37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B291DFD51D200CD80F9 /* TableRowsTests.swift */; };
@@ -32,9 +34,7 @@
 		37993B5A1DFD563B00CD80F9 /* StepScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B511DFD563B00CD80F9 /* StepScanner.swift */; };
 		37993B5B1DFD563B00CD80F9 /* TableScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B521DFD563B00CD80F9 /* TableScanner.swift */; };
 		37993B5C1DFD563B00CD80F9 /* TagScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B531DFD563B00CD80F9 /* TagScanner.swift */; };
-		37993B5E1DFD566500CD80F9 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B5D1DFD566500CD80F9 /* StringExtension.swift */; };
 		37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */; };
-		37993B621DFD574C00CD80F9 /* StringExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B601DFD574C00CD80F9 /* StringExtensionTests.swift */; };
 		37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B631DFD577700CD80F9 /* ScenarioContext.swift */; };
 		37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B661DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift */; };
 		37993B6C1DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B671DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift */; };
@@ -91,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		378285641EE3EF1500728165 /* DWExtensions.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DWExtensions.framework; path = Dependencies/DWExtensions_2_1_0/DWExtensions.framework; sourceTree = "<group>"; };
 		37993B241DFD48DE00CD80F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableColumnsTests.swift; sourceTree = "<group>"; };
 		37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableEqualityTests.swift; sourceTree = "<group>"; };
@@ -117,9 +118,7 @@
 		37993B511DFD563B00CD80F9 /* StepScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepScanner.swift; sourceTree = "<group>"; };
 		37993B521DFD563B00CD80F9 /* TableScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableScanner.swift; sourceTree = "<group>"; };
 		37993B531DFD563B00CD80F9 /* TagScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagScanner.swift; sourceTree = "<group>"; };
-		37993B5D1DFD566500CD80F9 /* StringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAndGetScenarioContextValuesTests.swift; sourceTree = "<group>"; };
-		37993B601DFD574C00CD80F9 /* StringExtensionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensionTests.swift; sourceTree = "<group>"; };
 		37993B631DFD577700CD80F9 /* ScenarioContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContext.swift; sourceTree = "<group>"; };
 		37993B661DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteRegistredBindingTests.swift; sourceTree = "<group>"; };
 		37993B671DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteStepBindingFunctionTests.swift; sourceTree = "<group>"; };
@@ -179,6 +178,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				378285651EE3EF1500728165 /* DWExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,12 +187,21 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_30 /* SwiftSpec.framework in Frameworks */,
+				378285661EE3EF7100728165 /* DWExtensions.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		378285631EE3EF1500728165 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				378285641EE3EF1500728165 /* DWExtensions.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		37993B261DFD51A600CD80F9 /* TableTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -213,7 +222,6 @@
 				37993B9B1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift */,
 				37993B871DFD589400CD80F9 /* Reflection.swift */,
 				37993B631DFD577700CD80F9 /* ScenarioContext.swift */,
-				37993B5D1DFD566500CD80F9 /* StringExtension.swift */,
 				37993BA01DFD5BAD00CD80F9 /* TestFileWriter.swift */,
 				37993B701DFD584C00CD80F9 /* TestRunner */,
 				37993B2E1DFD52F100CD80F9 /* Entities */,
@@ -362,7 +370,6 @@
 			isa = PBXGroup;
 			children = (
 				37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */,
-				37993B601DFD574C00CD80F9 /* StringExtensionTests.swift */,
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
 				37993B651DFD583600CD80F9 /* TestExecutionTests */,
 				37993B331DFD55CF00CD80F9 /* ParsingTests */,
@@ -390,6 +397,7 @@
 				OBJ_7 /* Sources */,
 				OBJ_10 /* Tests */,
 				OBJ_13 /* Products */,
+				378285631EE3EF1500728165 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -489,7 +497,6 @@
 				37993B551DFD563B00CD80F9 /* FeatureScanner.swift in Sources */,
 				37993B9D1DFD5AF300CD80F9 /* FileSystem.swift in Sources */,
 				37993B7D1DFD584C00CD80F9 /* BindingsParameters.swift in Sources */,
-				37993B5E1DFD566500CD80F9 /* StringExtension.swift in Sources */,
 				37993B7C1DFD584C00CD80F9 /* Bindings.swift in Sources */,
 				37993B471DFD55FE00CD80F9 /* Scenario.swift in Sources */,
 				37993B7F1DFD584C00CD80F9 /* BindingsRegistryImplementation.swift in Sources */,
@@ -517,7 +524,6 @@
 				37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */,
 				37993B6F1DFD583600CD80F9 /* MockStepBinding.swift in Sources */,
 				37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */,
-				37993B621DFD574C00CD80F9 /* StringExtensionTests.swift in Sources */,
 				37993BBB1E06796000CD80F9 /* IgnoredFeatureTests.swift in Sources */,
 				37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */,
 				37993BBD1E06796000CD80F9 /* ScenarioContextTests.swift in Sources */,
@@ -564,7 +570,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Dependencies/DWExtensions_2_1_0",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SwiftSpec.xcodeproj/SwiftSpec_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -584,7 +593,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Dependencies/DWExtensions_2_1_0",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SwiftSpec.xcodeproj/SwiftSpec_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
@@ -605,7 +617,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Dependencies/DWExtensions_2_1_0",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SwiftSpec.xcodeproj/SwiftSpecTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
@@ -623,7 +638,10 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
-				FRAMEWORK_SEARCH_PATHS = "$(PLATFORM_DIR)/Developer/Library/Frameworks";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+					"$(PROJECT_DIR)/Dependencies/DWExtensions_2_1_0",
+				);
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SwiftSpec.xcodeproj/SwiftSpecTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";

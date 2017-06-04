@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import DWExtensions
+
 import Foundation
 
 let ignoreTag = "ignore"

@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import DWExtensions
+
 class TableScanner {
 	
 	var hasScannedColumns = false
