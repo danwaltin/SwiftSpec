@@ -22,7 +22,6 @@
 // ------------------------------------------------------------------------
 
 import Foundation
-import DWExtensions
 
 let FEATURE_FILE_EXTENSION = "feature"
 

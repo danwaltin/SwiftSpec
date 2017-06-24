@@ -22,7 +22,6 @@
 // ------------------------------------------------------------------------
 
 import Foundation
-import DWExtensions
 
 class CocoaFileSystem : FileSystem {
 	func subpathsOfDirectory(atPath path: String) throws -> [String] {

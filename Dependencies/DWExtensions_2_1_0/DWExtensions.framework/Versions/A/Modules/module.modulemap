@@ -1,3 +1,0 @@
-framework module DWExtensions {
-    header "DWExtensions-Swift.h"
-}

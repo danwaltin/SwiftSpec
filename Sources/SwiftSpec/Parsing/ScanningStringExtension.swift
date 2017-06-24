@@ -21,7 +21,6 @@
 //
 // ------------------------------------------------------------------------
 
-import DWExtensions
 
 let tagToken = "@"
 let keywordFeature = "Feature:"

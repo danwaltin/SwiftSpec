@@ -21,7 +21,6 @@
 //
 // ------------------------------------------------------------------------
 
-import DWExtensions
 
 class ScenarioOutlineScanner : ScenarioScanner {
 	var isScanningExamples = false
