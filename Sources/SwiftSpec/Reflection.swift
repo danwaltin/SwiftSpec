@@ -48,7 +48,7 @@ public class Reflection<T> {
 		var matches:[AnyObject] = []
 		let numberOfRegisteredClasses = objc_getClassList(nil, 0)
 		let allClasses = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(numberOfRegisteredClasses))
-		let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer<AnyClass?>(allClasses)
+		let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer<AnyClass>(allClasses)
 		let actualClassCount = objc_getClassList(autoreleasingAllClasses, numberOfRegisteredClasses)
 		
 		for i in 0..<actualClassCount {

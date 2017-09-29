@@ -57,7 +57,7 @@ class StepBindingImplementation: StepBinding {
 		if let matches = matches(text) {
 			var ranges = [NSRange]()
 			for i in 1..<matches.numberOfRanges {
-				ranges.append(matches.rangeAt(i))
+				ranges.append(matches.range(at: i))
 			}
 			
 			return ranges

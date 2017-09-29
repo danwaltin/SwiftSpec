@@ -1,3 +1,4 @@
+// swift-tools-version:4.0
 // ------------------------------------------------------------------------
 // Copyright 2017 Dan Waltin
 //
@@ -24,11 +25,12 @@
 import PackageDescription
 
 let package = Package(
-    name: "SwiftSpec",
+	name: "SwiftSpec",
+	dependencies: [
+		.package(url: "https://github.com/danwaltin/DWExtensions.git", from: "2.1.0")
+	],
     targets: [
-      Target(name: "SwiftSpec"),
-      Target(name: "SwiftSpecConsole", dependencies: ["SwiftSpec"])],
-    dependencies: [
-		.Package(url: "https://github.com/danwaltin/DWExtensions.git", majorVersion: 2, minor: 1)
-		]
+      .target(name: "SwiftSpec"),
+      .target(name: "SwiftSpecConsole", dependencies: ["SwiftSpec"]),
+      .testTarget(name: "SwiftSpecTests", dependencies: ["SwiftSpec"])]
 )
