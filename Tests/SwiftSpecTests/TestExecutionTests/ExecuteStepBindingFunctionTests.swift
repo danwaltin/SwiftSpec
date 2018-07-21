@@ -46,8 +46,7 @@ class ExecuteStepBindingFunctionTests : XCTestCase {
 		XCTAssertEqual(parameters, BindingsParameters(table: Table(columns: ["c"])))
 	}
 
-	// MARK:
-	// MARK: Factory methods
+	// MARK: - Factory methods
 	private func step(_ function: @escaping (BindingsParameters) -> ()) -> StepBindingImplementation {
 		return StepBindingImplementation(stepText: "text", function: function)
 	}

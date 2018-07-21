@@ -28,8 +28,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	
 	var scenarioToUse: Scenario!
 	
-	// MARK:
-	// MARK: Scenario test method name
+	// MARK: - Scenario test method name
 	func test_oneWordTitle() {
 		given_scenarioWithTitle("Title")
 		
@@ -76,8 +75,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 	}
 	
-	// MARK:
-	// MARK: Tags
+	// MARK: - Tags
 	func test_scenarioWithZeroTags() {
 		given_scenario(
 			scenario("title", tags: []
@@ -119,8 +117,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 	}
 
-	// MARK:
-	// MARK: Steps
+	// MARK: - Steps
 	func test_scenarioWithOneGivenStep() {
 		given_scenario(
 			scenario("title", [
@@ -197,8 +194,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 	}
 
-	// MARK:
-	// MARK: Steps with table arguments
+	// MARK: - Steps with table arguments
 	func test_scenarioWithGivenStep_withTableArgumentWithOneRow() {
 		given_scenario(
 			scenario("title", [
@@ -286,8 +282,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 	}
 
-	// MARK:
-	// MARK: givens, whens thens
+	// MARK: - givens, whens thens
 	func given_scenarioWithTitle(_ title: String, hasIgnoreTag: Bool = false) {
 		given_scenario(scenario(title, hasIgnoreTag))
 	}
@@ -303,8 +298,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		XCTAssertEqual(actual, expected)
 	}
 	
-	// MARK:
-	// MARK: Factory methods
+	// MARK: - Factory methods
 	
 	private func instanceToTest() -> XCUnitTestGenerator {
 		return XCUnitTestGenerator()
@@ -353,6 +347,4 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		}
 		return s
 	}
-	
-	
 }

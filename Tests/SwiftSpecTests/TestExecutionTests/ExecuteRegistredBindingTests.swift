@@ -45,8 +45,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		mockBindingsRepository = nil
 	}
 	
-	// MARK:
-	// MARK: binding not found, or too many bindings found
+	// MARK: - binding not found, or too many bindings found
 	func test_zeroExistingBinding_shouldThrowStepBindingNotFound() {
 		given_zeroStepBindings()
 		

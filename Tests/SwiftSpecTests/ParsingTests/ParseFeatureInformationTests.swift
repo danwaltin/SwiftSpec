@@ -58,8 +58,7 @@ class ParseFeatureInformationTests: TestParseBase {
 		XCTAssertEqual("two", two.title)
 	}
 	
-	// MARK:
-	// MARK: Givens, whens, thens	
+	// MARK: - Givens, whens, thens
 	private func then_featureTitleShouldBe(_ title: String) {
 		XCTAssertEqual(actualFeature.title, title)
 	}

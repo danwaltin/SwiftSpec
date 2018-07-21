@@ -25,8 +25,7 @@ import XCTest
 @testable import SwiftSpec
 
 class MatchesTests : XCTestCase {
-	// MARK:
-	// MARK: Matches step
+	// MARK: - Matches step
 	func test_stepWithEmptyText_whenMatchingNonEmptyTest_shouldReturnFalse() {
 		assertNoMatch(stepText: "", text: "text")
 	}
@@ -55,8 +54,7 @@ class MatchesTests : XCTestCase {
 		assertMatch(stepText: "step with parameters '(.*)' and (.*)", text: "step with parameters 'foo' and bar")
 	}
 
-	// MARK:
-	// MARK: Getting matched parameters
+	// MARK: - Getting matched parameters
 	func test_oneMatchedParameter() {
 		let actual = step("step with parameter '(.*)'")
 			.matchParameters(text: "step with parameter 'value'")
@@ -71,8 +69,7 @@ class MatchesTests : XCTestCase {
 		XCTAssertEqual(actual, ["foo", "bar"])
 	}
 
-	// MARK:
-	// MARK: Factory methods
+	// MARK: - Factory methods
 	private func step(_ text: String) -> StepBindingImplementation {
 		return StepBindingImplementation(stepText: text, function: {_ in })
 	}

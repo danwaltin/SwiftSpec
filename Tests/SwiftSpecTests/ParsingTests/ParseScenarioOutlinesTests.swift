@@ -86,8 +86,7 @@ class ParseScenarioOutlinesTests: TestParseBase {
 		)
 	}
 
-	// MARK:
-	// MARK: Replacing keys with examples in steps
+	// MARK: - Replacing keys with examples in steps
 	
 	func test_oneKeyOneExample() {
 		when_parsingFeature([
@@ -197,8 +196,7 @@ class ParseScenarioOutlinesTests: TestParseBase {
 		)
 	}
 	
-	// MARK:
-	// MARK: Replacing keys with value in table parameters
+	// MARK: - Replacing keys with value in table parameters
 	
 	func test_oneColumnOneRow_oneKeyOneExample_replaceCell() {
 		when_parsingFeature([
@@ -306,8 +304,7 @@ class ParseScenarioOutlinesTests: TestParseBase {
 		)
 	}
 	
-	// MARK:
-	// MARK: Givens, whens, thens
+	// MARK: - Givens, whens, thens
 	
 	func then_shouldReturnScenarioWithSteps(_ steps: [Step]) {
 		XCTAssertEqual(scenario(at: 0).steps, steps)

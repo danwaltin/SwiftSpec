@@ -95,8 +95,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		)
 	}
 
-	// MARK:
-	// MARK: integrations
+	// MARK: - integrations
 
 	func test_shouldParseLinesFromFile() {
 		given_files(
@@ -137,8 +136,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		then_theUnitTestFileContentShouldBe("unit test content")
 	}
 	
-	// MARK:
-	// MARK: givens, whens and thens
+	// MARK: - givens, whens and thens
 
 	private func given_zeroFiles() {
 		given_files(

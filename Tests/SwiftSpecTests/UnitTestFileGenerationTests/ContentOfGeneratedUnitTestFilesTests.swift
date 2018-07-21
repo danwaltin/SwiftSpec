@@ -28,8 +28,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 
 	private var feature: Feature!
 	
-	// MARK:
-	// MARK: header
+	// MARK: - header
 	func test_header() {
 		given_feature(defaultFeature())
 		
@@ -53,8 +52,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 
 	}
 
-	// MARK:
-	// MARK: Feature test class name
+	// MARK: - Feature test class name
 	func test_featureClass_oneWordTitle_ShouldReturnTestFileInterface() {
 		given_featureWithTitle("Title")
 		
@@ -85,8 +83,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		then_featureClassShouldBe("class XaXaXoAxAxOxTests : XCTestCase {")
 	}
 
-	// MARK:
-	// MARK: Setup and tear down
+	// MARK: - Setup and tear down
 
 	func testSetupAndTearDown() {
 		given_featureWithTags([])
@@ -137,14 +134,12 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		
 	}
 	
-	// MARK:
-	// MARK: Footer
+	// MARK: - Footer
 	func testFooter_ShouldReturnEndTestClass() {
 		XCTAssertEqual("}", instanceToTest().footer())
 	}
 
-	// MARK:
-	// MARK: givens, whens thens
+	// MARK: - givens, whens thens
 	func given_featureWithTitle(_ title: String, hasIgnoreTag: Bool = false) {
 		given_feature(Feature(title: title, tags: tags(hasIgnoreTag)))
 	}
@@ -163,8 +158,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		XCTAssertEqual(expected, actual)
 	}
 
-	// MARK:
-	// MARK: Factory methods
+	// MARK: - Factory methods
 
 	private func defaultFeature() -> Feature {
 		return Feature(title: "default title")

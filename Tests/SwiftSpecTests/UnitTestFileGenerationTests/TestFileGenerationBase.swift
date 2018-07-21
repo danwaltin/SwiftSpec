@@ -26,8 +26,7 @@ import XCTest
 
 class TestFileGenerationBase : XCTestCase {
 
-	// MARK:
-	// MARK: Factory methods
+	// MARK: - Factory methods
 	
 	func tags(_ hasIgnoreTag: Bool) -> [String] {
 		if hasIgnoreTag {

@@ -51,8 +51,7 @@ class TestParseBase: XCTestCase {
 		return scenarios()[index]
 	}
 
-	// MARK:
-	// MARK: Factory methods
+	// MARK: - Factory methods
 	func table(_ col: String,
 	           _ r1c1: String) -> Table {
 		return Table(columns: [col])

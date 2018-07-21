@@ -26,8 +26,7 @@ import XCTest
 
 class ParseTagsTest : TestParseBase {
 
-	// MARK:
-	// MARK: Feature tags
+	// MARK: - Feature tags
 	func test_parseFeatureWithZeroTags_shouldHaveEmptyListOfTags() {
 		when_parsingFeature([
 			"Feature: feature without tags"])
@@ -93,8 +92,7 @@ class ParseTagsTest : TestParseBase {
 		then_feature(shouldHaveTags: ["one", "two"])
 	}
 	
-	// MARK:
-	// MARK: Scenario tags
+	// MARK: - Scenario tags
 	func test_scenarioWithOneTag() {
 		when_parsingFeature([
 			"Feature: feature",
@@ -136,8 +134,7 @@ class ParseTagsTest : TestParseBase {
 		then_scenario(shouldHaveTags: ["one", "two"])
 	}
 
-	// MARK:
-	// MARK: Scenario Outline tags
+	// MARK: - Scenario Outline tags
 	func test_scenarioOutlineWithOneTag() {
 		when_parsingFeature([
 			"Feature: feature          ",
@@ -206,8 +203,7 @@ class ParseTagsTest : TestParseBase {
 		then_scenario(shouldHaveTags: ["one", "two"])
 	}
 
-	// MARK: 
-	// MARK: Feature, scenario and scenario outline tags
+	// MARK: - Feature, scenario and scenario outline tags
 	func test_featureWithThreeTags_andTwoScenariosWithThreeTagsEach() {
 		when_parsingFeature([
 			"@f1 @f2              ",
@@ -240,8 +236,7 @@ class ParseTagsTest : TestParseBase {
 		then_scenario(3, shouldHaveTags: ["s3.1", "s3.2", "s3.3"])
 	}
 	
-	// MARK:
-	// MARK: Givens, whens, thens
+	// MARK: - Givens, whens, thens
 
 	private func then_feature(shouldHaveTags tags: [String]) {
 		XCTAssertEqual(actualFeature.tags, tags)

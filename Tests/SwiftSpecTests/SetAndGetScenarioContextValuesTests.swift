@@ -25,8 +25,7 @@ import XCTest
 @testable import SwiftSpec
 
 class SetAndGetScenarioContextValuesTests : XCTestCase {
-	// MARK:
-	// MARK: String values
+	// MARK: - String values
 	func test_setAndRetrieveValues() {
 		ScenarioContext.current["one"] = "alpha"
 		ScenarioContext.current["two"] = SomeStruct(4711)
@@ -54,14 +53,12 @@ class SetAndGetScenarioContextValuesTests : XCTestCase {
 		XCTAssertEqual(ScenarioContext.current["key"] as! String, "new value")
 	}
 
-	// MARK:
-	// MARK: Access non existing key
+	// MARK: - Access non existing key
 	func test_accessingANonExistingKeyReturnsNil() {
 		XCTAssertNil(ScenarioContext.current["key not set"])
 	}
 
-	// MARK:
-	// MARK: Reset context
+	// MARK: - Reset context
 	func test_whenResettingContext_oldValuesAreCleared() {
 		ScenarioContext.current["string"] = "alpha"
 		ScenarioContext.current["struct"] = SomeStruct(4711)
