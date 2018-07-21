@@ -1,1 +1,1 @@
-* Possibility to suppress date of test file generation, as a command line parameter to the cli
+* Handle parallell testing
