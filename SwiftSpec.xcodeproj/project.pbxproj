@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		371F3D9C2103467600F2B87E /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F3D9B2103467600F2B87E /* ReflectionTests.swift */; };
 		37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */; };
 		37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */; };
 		37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B291DFD51D200CD80F9 /* TableRowsTests.swift */; };
@@ -90,6 +91,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		371F3D9B2103467600F2B87E /* ReflectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionTests.swift; sourceTree = "<group>"; };
 		37993B241DFD48DE00CD80F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableColumnsTests.swift; sourceTree = "<group>"; };
 		37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableEqualityTests.swift; sourceTree = "<group>"; };
@@ -367,6 +369,7 @@
 			isa = PBXGroup;
 			children = (
 				37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */,
+				371F3D9B2103467600F2B87E /* ReflectionTests.swift */,
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
 				37993B651DFD583600CD80F9 /* TestExecutionTests */,
 				37993B331DFD55CF00CD80F9 /* ParsingTests */,
@@ -558,6 +561,7 @@
 				37993B941DFD5A9A00CD80F9 /* MockFileSystem.swift in Sources */,
 				37993B6D1DFD583600CD80F9 /* MatchesTests.swift in Sources */,
 				37993BBF1E06796000CD80F9 /* TagsTests.swift in Sources */,
+				371F3D9C2103467600F2B87E /* ReflectionTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
