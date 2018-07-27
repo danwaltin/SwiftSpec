@@ -28,6 +28,7 @@ public class Reflection<T> {
 		
 	}
 	
+	
 	public func allSubclasses() -> [T.Type] {
 		let matches = allSubclassesAsAnyObject()
 		
@@ -49,9 +50,12 @@ public class Reflection<T> {
 		let numberOfRegisteredClasses = objc_getClassList(nil, 0)
 		let allClasses = UnsafeMutablePointer<AnyClass?>.allocate(capacity: Int(numberOfRegisteredClasses))
 		let autoreleasingAllClasses = AutoreleasingUnsafeMutablePointer<AnyClass>(allClasses)
-		let actualClassCount = objc_getClassList(autoreleasingAllClasses, numberOfRegisteredClasses)
 		
-		for i in 0..<actualClassCount {
+		let actualNumberOfClasses = objc_getClassList(autoreleasingAllClasses, numberOfRegisteredClasses)
+		
+		let iterationCount = actualNumberOfClasses < numberOfRegisteredClasses ? actualNumberOfClasses : numberOfRegisteredClasses
+		
+		for i in 0..<iterationCount {
 			if let currentClass = allClasses[Int(i)] {
 				let superclass: AnyClass? = class_getSuperclass(currentClass)
 				
@@ -61,7 +65,7 @@ public class Reflection<T> {
 			}
 		}
 		
-		allClasses.deallocate(capacity: Int(numberOfRegisteredClasses))
+		allClasses.deallocate()
 		
 		return matches
 	}
