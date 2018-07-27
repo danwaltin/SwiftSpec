@@ -50,7 +50,7 @@ public extension String {
 	}
 	
 	private func _remove(_ whitespace: String) -> String {
-		if self.characters.count < whitespace.characters.count {
+		if self.count < whitespace.count {
 			return self
 		}
 		

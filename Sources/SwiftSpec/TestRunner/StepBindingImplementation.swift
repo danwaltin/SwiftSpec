@@ -68,7 +68,7 @@ class StepBindingImplementation: StepBinding {
 	}
 	
 	private func matches(_ text: String) -> NSTextCheckingResult? {
-		let range = NSMakeRange(0, text.characters.count)
+		let range = NSMakeRange(0, text.count)
 		let regex = try! NSRegularExpression(pattern: stepText, options: .caseInsensitive)
 		
 		return regex.firstMatch(in: text, options: [], range: range)
