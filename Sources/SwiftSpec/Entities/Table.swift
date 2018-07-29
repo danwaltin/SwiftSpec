@@ -41,7 +41,16 @@ public struct Table : Equatable {
 		
 		return Table(columns: self.columns, rows: copyOfCurrentRows)
 	}
-	
+
+	public func addingRow(cells: [String: String]) -> Table {
+		assertValidAddedColumns(Array(cells.keys))
+
+		var copyOfCurrentRows = self.rows
+		copyOfCurrentRows.append(TableRow(cells: cells))
+
+		return Table(columns: self.columns, rows: copyOfCurrentRows)
+	}
+
 	private func tableRow(_ cellValues: [String]) -> TableRow {
 		var newRowContent = [String: String]()
 		for i in 0...columns.count-1 {
@@ -49,6 +58,14 @@ public struct Table : Equatable {
 		}
 		
 		return TableRow(cells: newRowContent)
+	}
+	
+	private func assertValidAddedColumns(_ addedColumns: [String]) {
+		assert(addedColumns.count == columns.count, "Wrong number of added columns. Expected \(columns.count) but got \(addedColumns.count)")
+
+		for added in addedColumns {
+			assert(columns.contains(added), "Added column '\(added)' not present in table. Valid columns: \(columns)")
+		}
 	}
 }
 

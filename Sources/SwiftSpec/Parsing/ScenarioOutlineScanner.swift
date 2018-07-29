@@ -77,16 +77,35 @@ class ScenarioOutlineScanner : ScenarioScanner {
 			return nil
 		}
 		
-		var t = Table(columns: replacePlaceHolders(table!.columns, examplesRow))
+		var newTable = Table(columns: replacePlaceHolders(table!.columns, examplesRow))
 		for row in table!.rows {
-			t = t.addingRow(cells: replacePlaceHolders(row, examplesRow))
+			let keys = cellsWithReplacedKeys(row, examplesRow)
+			let values = replacePlaceHolders(keys, examplesRow)
+			newTable = newTable.addingRow(cells: values)
 		}
-		return t
+		return newTable
 	}
 	
-	private func replacePlaceHolders(_ row: TableRow, _ examplesRow: TableRow) -> [String] {
-		let rowCellValues = [String](row.cells.values)
-		return replacePlaceHolders(rowCellValues, examplesRow)
+	private func cellsWithReplacedKeys(_ row: TableRow, _ examplesRow: TableRow) -> [String: String] {
+		let rowCells = row.cells
+		var rowCellsWithReplacedKeys = [String: String]()
+		for oldKey in rowCells.keys {
+			let newKey = replacePlaceHolders(oldKey, examplesRow)
+			let value = rowCells[oldKey]
+			rowCellsWithReplacedKeys[newKey] = value
+		}
+
+		return rowCellsWithReplacedKeys
+	}
+	
+	private func replacePlaceHolders(_ cells: [String: String], _ examplesRow: TableRow) -> [String: String] {
+		var replaced = [String: String]()
+
+		for cell in cells {
+			let newValue = replacePlaceHolders(cell.value, examplesRow)
+			replaced[cell.key] = newValue
+		}
+		return replaced
 	}
 	
 	private func replacePlaceHolders(_ items: [String], _ examplesRow: TableRow) -> [String] {
