@@ -169,6 +169,7 @@
 		3799842C1ECCCAE100784AB7 /* Builder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Builder.swift; sourceTree = "<group>"; };
 		3799BB571EFE8DCA00E98071 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		37A7F6471E165E8900DDB78B /* Todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Todo.txt; sourceTree = "<group>"; };
+		37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftSpecPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -391,6 +392,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */,
 				37A7F6471E165E8900DDB78B /* Todo.txt */,
 				37993B241DFD48DE00CD80F9 /* README.md */,
 				OBJ_6 /* Package.swift */,

@@ -27,46 +27,60 @@ import XCTest
 class SetAndGetScenarioContextValuesTests : XCTestCase {
 	// MARK: - String values
 	func test_setAndRetrieveValues() {
-		ScenarioContext.current["one"] = "alpha"
-		ScenarioContext.current["two"] = SomeStruct(4711)
-		ScenarioContext.current["three"] = 42
+		let context = ScenarioContext.current
+
+		context["one"] = "alpha"
+		context["two"] = SomeStruct(4711)
+		context["three"] = 42
 		
-		XCTAssertEqual(ScenarioContext.current["one"] as! String, "alpha")
-		XCTAssertEqual(ScenarioContext.current["two"] as! SomeStruct, SomeStruct(4711))
-		XCTAssertEqual(ScenarioContext.current["three"] as! Int, 42)
+		XCTAssertEqual(context["one"] as! String, "alpha")
+		XCTAssertEqual(context["two"] as! SomeStruct, SomeStruct(4711))
+		XCTAssertEqual(context["three"] as! Int, 42)
 	}
 
 	func test_setAndRetrieveValuesUsingConvenienceClass() {
-		ScenarioContext.current["one"] = "alpha"
-		ScenarioContext.current["two"] = SomeStruct(4711)
-		ScenarioContext.current["three"] = 42
+		let context = ScenarioContext.current
+
+		context["one"] = "alpha"
+		context["two"] = SomeStruct(4711)
+		context["three"] = 42
 		
-		XCTAssertEqual(CurrentScenario<String>()["one"], "alpha")
-		XCTAssertEqual(CurrentScenario<SomeStruct>()["two"], SomeStruct(4711))
-		XCTAssertEqual(CurrentScenario<Int>()["three"], 42)
+		let asString: String = context.get("one")
+		let asStruct: SomeStruct = context.get("two")
+		let asInt: Int = context.get("three")
+		
+		XCTAssertEqual(asString, "alpha")
+		XCTAssertEqual(asStruct, SomeStruct(4711))
+		XCTAssertEqual(asInt, 42)
 	}
 
 	func test_setANewStringValueForTheSameKeyWillReplaceTheOldValue() {
-		ScenarioContext.current["key"] = "old value"
-		ScenarioContext.current["key"] = "new value"
+		let context = ScenarioContext.current
+
+		context["key"] = "old value"
+		context["key"] = "new value"
 		
-		XCTAssertEqual(ScenarioContext.current["key"] as! String, "new value")
+		XCTAssertEqual(context["key"] as! String, "new value")
 	}
 
 	// MARK: - Access non existing key
 	func test_accessingANonExistingKeyReturnsNil() {
-		XCTAssertNil(ScenarioContext.current["key not set"])
+		let context = ScenarioContext.current
+
+		XCTAssertNil(context["key not set"])
 	}
 
 	// MARK: - Reset context
 	func test_whenResettingContext_oldValuesAreCleared() {
-		ScenarioContext.current["string"] = "alpha"
-		ScenarioContext.current["struct"] = SomeStruct(4711)
+		let context = ScenarioContext.current
 
-		ScenarioContext.reset()
+		context["string"] = "alpha"
+		context["struct"] = SomeStruct(4711)
 
-		XCTAssertNil(ScenarioContext.current["string"])
-		XCTAssertNil(ScenarioContext.current["struct"])
+		context.reset()
+
+		XCTAssertNil(context["string"])
+		XCTAssertNil(context["struct"])
 	}
 }
 

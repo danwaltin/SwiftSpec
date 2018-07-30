@@ -33,7 +33,7 @@ class BasicFeatureBindings: Bindings {
 		
 		addBinding(stepText: "the result should be '(.*)'") {
 			let result = Int($0.matchedParameters[0])!
-			let actual = CurrentScenario<Int>()["addResult"]
+			let actual: Int = ScenarioContext.current.get("addResult")
 			
 			XCTAssertEqual(actual, result)
 		}

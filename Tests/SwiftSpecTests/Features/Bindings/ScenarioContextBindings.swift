@@ -20,8 +20,9 @@ class ScenarioContextBindings: Bindings {
 			//no-op
 		}
 		
-		addBinding(stepText: "the current scenario context returns the value 'foo' for the key 'bar'") {_ in 
-			XCTAssertEqual(CurrentScenario<String>()["bar"], "foo")
+		addBinding(stepText: "the current scenario context returns the value 'foo' for the key 'bar'") {_ in
+			let actual: String = ScenarioContext.current.get("bar")
+			XCTAssertEqual(actual, "foo")
 		}
 
 		addBinding(stepText: "the current scenario context returns nil for the key 'bar'") {_ in 

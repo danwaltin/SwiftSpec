@@ -29,6 +29,10 @@ public class ScenarioContext {
 		_currentScenarioContext = ScenarioContext()
 	}
 
+	public func reset() {
+		objects = Dictionary<String, Any>()
+	}
+
 	public var tags = [String]()
 	public var featureTags = [String]()
 
@@ -51,19 +55,8 @@ public class ScenarioContext {
 			objects[key] = newValue
 		}
 	}
-}
-
-public class CurrentScenario<T> {
-	public init() {
-		
-	}
 	
-	public subscript(key: String) -> T? {
-		get {
-			return ScenarioContext.current[key] as? T
-		}
-		set(newValue) {
-			ScenarioContext.current[key] = newValue
-		}
-	}	
+	public func get<T>(_ key: String) -> T {
+		return self[key] as! T
+	}
 }
