@@ -196,7 +196,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 	// MARK:
 	// MARK: Factory methods 
 	private func instance() -> TestRunner {
-		return TestRunner(registry: bindingsRegistry)
+		return TestRunner(registry: bindingsRegistry, scenarioContext: ScenarioContextImplementation())
 	}
 	
 	private func matching(evaluatedValues: [String] = []) -> MockStepBinding {

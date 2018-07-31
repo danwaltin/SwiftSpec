@@ -16,9 +16,7 @@ var testRunner:TestRunner!
 
 override func setUp() {
 super.setUp()
-testRunner = TestRunner()
-ScenarioContext.reset()
-ScenarioContext.current.featureTags = ["featureTag"]
+	testRunner = TestRunner(scenarioContext: ScenarioContextImplementation())
 }
 
 override func tearDown() {
@@ -34,7 +32,6 @@ XCTFail("\(error)")
 }
 }
 func testAScenarioCanHaveTagsTests() {
-ScenarioContext.current.tags = ["one", "two", "three"]
 do {
 try testRunner.executeStep(.Then, "this scenario have the tags 'one', 'two' and 'three'")
 } catch {

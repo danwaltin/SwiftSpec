@@ -16,8 +16,7 @@ var testRunner:TestRunner!
 
 override func setUp() {
 super.setUp()
-testRunner = TestRunner()
-ScenarioContext.reset()
+testRunner = TestRunner(scenarioContext: ScenarioContextImplementation())
 
 }
 
@@ -27,7 +26,6 @@ super.tearDown()
 }
 
 func IGNORE_testThisScenarioWouldFailIfExecutedTests() {
-ScenarioContext.current.tags = ["ignore"]
 do {
 try testRunner.executeStep(.When, "executing a step that fails")
 } catch {

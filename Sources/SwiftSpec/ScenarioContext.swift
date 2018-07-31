@@ -22,11 +22,21 @@
 // ------------------------------------------------------------------------
 
 
-public class ScenarioContext {
+public protocol ScenarioContext {
+	subscript(_ key: String) -> Any? { get set }
+	func get<T>(_ key: String) -> T
+	var tags: [String] { get }
+	var featureTags: [String] { get }
+}
+
+public class ScenarioContextImplementation : ScenarioContext {
+	
 	private static var _currentScenarioContext: ScenarioContext! = nil
+
+	public init() {}
 	
 	public class func reset() {
-		_currentScenarioContext = ScenarioContext()
+		_currentScenarioContext = ScenarioContextImplementation()
 	}
 
 	public func reset() {
@@ -39,7 +49,7 @@ public class ScenarioContext {
 	public static var current: ScenarioContext {
 		get {
 			if _currentScenarioContext == nil {
-				_currentScenarioContext = ScenarioContext()
+				_currentScenarioContext = ScenarioContextImplementation()
 			}
 			return _currentScenarioContext
 		}
@@ -47,7 +57,7 @@ public class ScenarioContext {
 	
 	private var objects = Dictionary<String, Any>()
 
-	public subscript(key: String) -> Any? {
+	public subscript(_ key: String) -> Any? {
 		get {
 			return objects[key]
 		}

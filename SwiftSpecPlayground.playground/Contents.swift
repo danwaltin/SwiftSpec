@@ -45,3 +45,22 @@ class Rectangle : Shape {
 
 let r = Rectangle(color: NSColor.blue)
 
+
+protocol P {
+	subscript(key: String) -> Any? {get set}
+}
+
+class Q : P {
+	subscript(key: String) -> Any? {
+		get {
+			return ""
+		}
+		set {
+			// foo bar
+		}
+	}
+}
+
+var q = Q()
+q["x"] = "y"
+

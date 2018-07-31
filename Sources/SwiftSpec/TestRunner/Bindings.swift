@@ -25,7 +25,7 @@ import Foundation
 
 open class Bindings {
 	private var bindings = [StepBinding]()
-	open let scenarioContext: ScenarioContext
+	public var scenarioContext: ScenarioContext
 	
 	required public init(scenarionContext: ScenarioContext) {
 		self.scenarioContext = scenarionContext

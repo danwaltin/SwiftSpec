@@ -16,8 +16,7 @@ var testRunner:TestRunner!
 
 override func setUp() {
 super.setUp()
-testRunner = TestRunner()
-ScenarioContext.reset()
+	testRunner = TestRunner(scenarioContext: ScenarioContextImplementation())
 
 }
 

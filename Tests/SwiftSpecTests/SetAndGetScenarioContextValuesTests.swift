@@ -27,7 +27,7 @@ import XCTest
 class SetAndGetScenarioContextValuesTests : XCTestCase {
 	// MARK: - String values
 	func test_setAndRetrieveValues() {
-		let context = ScenarioContext.current
+		var context = scenarioContext()
 
 		context["one"] = "alpha"
 		context["two"] = SomeStruct(4711)
@@ -39,7 +39,7 @@ class SetAndGetScenarioContextValuesTests : XCTestCase {
 	}
 
 	func test_setAndRetrieveValuesUsingConvenienceClass() {
-		let context = ScenarioContext.current
+		var context = scenarioContext()
 
 		context["one"] = "alpha"
 		context["two"] = SomeStruct(4711)
@@ -55,7 +55,7 @@ class SetAndGetScenarioContextValuesTests : XCTestCase {
 	}
 
 	func test_setANewStringValueForTheSameKeyWillReplaceTheOldValue() {
-		let context = ScenarioContext.current
+		var context = scenarioContext()
 
 		context["key"] = "old value"
 		context["key"] = "new value"
@@ -65,22 +65,14 @@ class SetAndGetScenarioContextValuesTests : XCTestCase {
 
 	// MARK: - Access non existing key
 	func test_accessingANonExistingKeyReturnsNil() {
-		let context = ScenarioContext.current
+		let context = scenarioContext()
 
 		XCTAssertNil(context["key not set"])
 	}
 
-	// MARK: - Reset context
-	func test_whenResettingContext_oldValuesAreCleared() {
-		let context = ScenarioContext.current
-
-		context["string"] = "alpha"
-		context["struct"] = SomeStruct(4711)
-
-		context.reset()
-
-		XCTAssertNil(context["string"])
-		XCTAssertNil(context["struct"])
+	// MARK: - Helpers
+	private func scenarioContext() -> ScenarioContext {
+		return ScenarioContextImplementation.current
 	}
 }
 

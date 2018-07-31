@@ -25,17 +25,21 @@ import Foundation
 
 public class TestRunner {
 	private let registry: BindingsRegistry
+	private let scenarioContext: ScenarioContext
 	
-	public convenience init() {
-		self.init(registry: BindingsRegistryImplementation(bindingsRepository: BindingsRepositoryImplementation()))
+	public convenience init(scenarioContext: ScenarioContext) {
+		self.init(
+			registry: BindingsRegistryImplementation(bindingsRepository: BindingsRepositoryImplementation()),
+			scenarioContext: scenarioContext)
 	}
 	
-	internal init(registry: BindingsRegistry) {
+	internal init(registry: BindingsRegistry, scenarioContext: ScenarioContext) {
 		self.registry = registry
+		self.scenarioContext = scenarioContext
 	}
 	
 	public func executeStep(_ type: StepType, _ text: String, _ table: Table? = nil) throws {
-		let stepBinding = try registry.bindingForStep(stepType: type, stepText: text, scenarionContext: ScenarioContext.current)
+		let stepBinding = try registry.bindingForStep(stepType: type, stepText: text, scenarionContext: scenarioContext)
 		let matchedParameters = stepBinding.matchParameters(text: text)
 		try stepBinding.execute(BindingsParameters(table: table, matchedParameters: matchedParameters))
 	}

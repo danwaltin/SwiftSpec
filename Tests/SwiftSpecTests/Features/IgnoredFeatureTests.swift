@@ -16,9 +16,7 @@ var testRunner:TestRunner!
 
 override func setUp() {
 super.setUp()
-testRunner = TestRunner()
-ScenarioContext.reset()
-ScenarioContext.current.featureTags = ["ignore"]
+testRunner = TestRunner(scenarioContext: ScenarioContextImplementation())
 }
 
 override func tearDown() {
