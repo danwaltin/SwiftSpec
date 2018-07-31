@@ -26,7 +26,7 @@
 class MockBindingsRepository : BindingsRepository {
 	var stepBindings: [StepBinding] = []
 	
-	func allBindings() -> [StepBinding] {
+	func allBindings(scenarionContext: ScenarioContext) -> [StepBinding] {
 		return stepBindings
 	}
 }

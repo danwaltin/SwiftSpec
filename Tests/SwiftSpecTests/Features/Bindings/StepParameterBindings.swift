@@ -47,11 +47,11 @@ class StepParameterBindings : Bindings {
 	
 	private var accounts: [Account] {
 		get {
-			let accounts: [Account] = ScenarioContext.current.get("accounts")
+			let accounts: [Account] = scenarioContext.get("accounts")
 			return accounts
 		}
 		set(newValue) {
-			ScenarioContext.current["accounts"] = newValue
+			scenarioContext["accounts"] = newValue
 		}
 	}
 	

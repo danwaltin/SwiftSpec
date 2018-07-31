@@ -29,8 +29,8 @@ class BindingsRegistryImplementation : BindingsRegistry {
 		self.bindingsRepository = bindingsRepository
 	}
 	
-	func bindingForStep(stepType: StepType, stepText: String) throws -> StepBinding {
-		let bindings = matchedBindings(stepText)
+	func bindingForStep(stepType: StepType, stepText: String, scenarionContext: ScenarioContext) throws -> StepBinding {
+		let bindings = matchedBindings(stepText, scenarionContext: scenarionContext)
 
 		if bindings.count == 0 {
 			throw StepExecutionError.NoStepBindingFoundForStep(stepText: stepText)
@@ -43,8 +43,8 @@ class BindingsRegistryImplementation : BindingsRegistry {
 		return bindings.first!
 	}
 	
-	private func matchedBindings(_ stepText: String) -> [StepBinding] {
-		let allBindings = bindingsRepository.allBindings()
+	private func matchedBindings(_ stepText: String, scenarionContext: ScenarioContext) -> [StepBinding] {
+		let allBindings = bindingsRepository.allBindings(scenarionContext: scenarionContext)
 		return allBindings.filter {$0.matches(text: stepText)}
 	}
 }

@@ -20,11 +20,11 @@ class TagsBindings: Bindings {
 		}
 		
 		addBinding(stepText: "this feature has the tag 'featureTag'") {_ in 
-			XCTAssertEqual(ScenarioContext.current.featureTags, ["featureTag"])
+			XCTAssertEqual(self.scenarioContext.featureTags, ["featureTag"])
 		}
 		
 		addBinding(stepText: "this scenario have the tags 'one', 'two' and 'three'") {_ in 
-			XCTAssertEqual(ScenarioContext.current.tags, ["one", "two", "three"])
+			XCTAssertEqual(self.scenarioContext.tags, ["one", "two", "three"])
 		}
 	}
 }

@@ -22,5 +22,5 @@
 // ------------------------------------------------------------------------
 
 protocol BindingsRepository {
-	func allBindings() -> [StepBinding]
+	func allBindings(scenarionContext: ScenarioContext) -> [StepBinding]
 }

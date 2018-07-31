@@ -33,3 +33,15 @@ monkey.set("fun", Thing(stuff: 42))
 let t: Thing = monkey.getThing("fun")
 
 
+
+class Shape {
+	init(color: NSColor) {
+		
+	}
+}
+
+class Rectangle : Shape {
+}
+
+let r = Rectangle(color: NSColor.blue)
+

@@ -27,37 +27,14 @@ class BindingsRepositoryImplementation: BindingsRepository {
 	
 	private var stepBindings: [StepBinding]?
 	
-	func allBindings() -> [StepBinding] {
-		//assureBindings()
-		//return stepBindings!
-		
+	func allBindings(scenarionContext: ScenarioContext) -> [StepBinding] {
 		let reflector = Reflection<Bindings>()
 		let allBindingsClasses = reflector.allSubclasses()
 		
 		var bindings = [StepBinding]()
 		
 		for c in allBindingsClasses {
-			let instance = c.init()
-			instance.defineBindings()
-			bindings.append(contentsOf: instance.getAllDefinedBindings())
-		}
-		return bindings
-	}
-	
-	private func assureBindings() {
-		if stepBindings == nil {
-			stepBindings = createBindings()
-		}
-	}
-	
-	private func createBindings() -> [StepBinding] {
-		let reflector = Reflection<Bindings>()
-		let allBindingsClasses = reflector.allSubclasses()
-		
-		var bindings = [StepBinding]()
-		
-		for c in allBindingsClasses {
-			let instance = c.init()
+			let instance = c.init(scenarionContext: scenarionContext)
 			instance.defineBindings()
 			bindings.append(contentsOf: instance.getAllDefinedBindings())
 		}

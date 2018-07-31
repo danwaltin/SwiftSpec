@@ -29,6 +29,6 @@ protocol BindingsRegistry {
 	// this method should be called as follows
 	//		bindingForStep(stepType: .Given, stepText: "something")
 	//
-	func bindingForStep(stepType: StepType, stepText: String) throws -> StepBinding
+	func bindingForStep(stepType: StepType, stepText: String, scenarionContext: ScenarioContext) throws -> StepBinding
 }
 

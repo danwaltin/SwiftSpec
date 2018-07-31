@@ -13,7 +13,7 @@ class ScenarioContextBindings: Bindings {
 	
 	override func defineBindings() {
 		addBinding(stepText: "that the value 'foo' is added to the current scenario context using the key 'bar'") {_ in 
-			ScenarioContext.current["bar"] = "foo"
+			self.scenarioContext["bar"] = "foo"
 		}
 		
 		addBinding(stepText: "a new scenario") {_ in 
@@ -21,12 +21,12 @@ class ScenarioContextBindings: Bindings {
 		}
 		
 		addBinding(stepText: "the current scenario context returns the value 'foo' for the key 'bar'") {_ in
-			let actual: String = ScenarioContext.current.get("bar")
+			let actual: String = self.scenarioContext.get("bar")
 			XCTAssertEqual(actual, "foo")
 		}
 
 		addBinding(stepText: "the current scenario context returns nil for the key 'bar'") {_ in 
-			XCTAssertNil(ScenarioContext.current["bar"])
+			XCTAssertNil(self.scenarioContext["bar"])
 		}
 	}
 }

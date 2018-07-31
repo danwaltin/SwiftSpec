@@ -28,12 +28,12 @@ class BasicFeatureBindings: Bindings {
 			let arg1 = Int($0.matchedParameters[0])!
 			let arg2 = Int($0.matchedParameters[1])!
 			
-			ScenarioContext.current["addResult"] = arg1 + arg2
+			self.scenarioContext["addResult"] = arg1 + arg2
 		}
 		
 		addBinding(stepText: "the result should be '(.*)'") {
 			let result = Int($0.matchedParameters[0])!
-			let actual: Int = ScenarioContext.current.get("addResult")
+			let actual: Int = self.scenarioContext.get("addResult")
 			
 			XCTAssertEqual(actual, result)
 		}
