@@ -25,8 +25,8 @@
 public protocol ScenarioContext {
 	subscript(_ key: String) -> Any? { get set }
 	func get<T>(_ key: String) -> T
-	var tags: [String] { get }
-	var featureTags: [String] { get }
+	var tags: [String] { get set }
+	var featureTags: [String] { get set }
 }
 
 public class ScenarioContextImplementation : ScenarioContext {
