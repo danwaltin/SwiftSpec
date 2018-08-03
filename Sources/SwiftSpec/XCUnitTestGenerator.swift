@@ -63,16 +63,18 @@ class XCUnitTestGenerator: UnitTestGenerator {
 	func setupAndTearDown(feature: Feature) -> String {
 		return lines([
 			"var testRunner:TestRunner!",
+			"var scenarioContext:ScenarioContext!",
 			"",
 			"override func setUp() {",
 			"super.setUp()",
-			"testRunner = TestRunner()",
-			"ScenarioContext.reset()",
-			featureTags(feature),
+			"scenarioContext = ScenarioContextImplementation()",
+			"scenarioContext.featureTags = \(featureTags(feature))",
+			"testRunner = TestRunner(scenarioContext: scenarioContext)",
 			"}",
 			"",
 			"override func tearDown() {",
 			"testRunner = nil",
+			"scenarioContext = nil",
 			"super.tearDown()",
 			"}",
 			""])
@@ -175,10 +177,10 @@ class XCUnitTestGenerator: UnitTestGenerator {
 
 	private func featureTags(_ taggable: Taggable) -> String {
 		if taggable.tags.count == 0 {
-			return ""
+			return "[]"
 		}
 		
-		return "ScenarioContext.current.featureTags = \(tagsArray(taggable))"
+		return "\(tagsArray(taggable))"
 	}
 
 	private func scenarioTags(_ taggable: Taggable) -> String {
@@ -186,7 +188,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 			return ""
 		}
 
-		return line("ScenarioContext.current.tags = \(tagsArray(taggable))")
+		return line("scenarioContext.tags = \(tagsArray(taggable))")
 	}
 	
 	private func tagsArray(_ taggable: Taggable) -> String {

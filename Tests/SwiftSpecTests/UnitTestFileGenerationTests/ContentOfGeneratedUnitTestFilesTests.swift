@@ -89,20 +89,22 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		given_featureWithTags([])
 
 		let expected = stringWithTrimmedLines([
-			"var testRunner:TestRunner!    ",
-			"                              ",
-			"override func setUp() {       ",
-			"    super.setUp()             ",
-			"    testRunner = TestRunner() ",
-			"    ScenarioContext.reset()   ",
-			"                              ",
-			"}                             ",
-			"                              ",
-			"override func tearDown() {    ",
-			"    testRunner = nil          ",
-			"    super.tearDown()          ",
-			"}                             ",
-			"                              "])
+			"var testRunner:TestRunner!                                   ",
+			"var scenarioContext:ScenarioContext!                         ",
+			"                                                             ",
+			"override func setUp() {                                      ",
+			"    super.setUp()                                            ",
+			"    scenarioContext = ScenarioContextImplementation()        ",
+			"    scenarioContext.featureTags = []                         ",
+			"    testRunner = TestRunner(scenarioContext: scenarioContext)",
+			"}                                                            ",
+			"                                                             ",
+			"override func tearDown() {                                   ",
+			"    testRunner = nil                                         ",
+			"    scenarioContext = nil                                    ",
+			"    super.tearDown()                                         ",
+			"}                                                            ",
+			"                                                             "])
 
 		let i = instanceToTest()
 		let s = i.setupAndTearDown(feature: feature)
@@ -113,21 +115,23 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		given_featureWithTags(["one", "two"])
 		
 		let expected = stringWithTrimmedLines([
-			"var testRunner:TestRunner!                                  ",
-			"                                                            ",
-			"override func setUp() {                                     ",
-			"    super.setUp()                                           ",
-			"    testRunner = TestRunner()                               ",
-			"    ScenarioContext.reset()                                 ",
-			"    ScenarioContext.current.featureTags = [\"one\", \"two\"]",
-			"}                                                           ",
-			"                                                            ",
-			"override func tearDown() {                                  ",
-			"    testRunner = nil                                        ",
-			"    super.tearDown()                                        ",
-			"}                                                           ",
-			"                                                            "])
-		
+			"var testRunner:TestRunner!                                   ",
+			"var scenarioContext:ScenarioContext!                         ",
+			"                                                             ",
+			"override func setUp() {                                      ",
+			"    super.setUp()                                            ",
+			"    scenarioContext = ScenarioContextImplementation()        ",
+			"    scenarioContext.featureTags = [\"one\", \"two\"]         ",
+			"    testRunner = TestRunner(scenarioContext: scenarioContext)",
+			"}                                                            ",
+			"                                                             ",
+			"override func tearDown() {                                   ",
+			"    testRunner = nil                                         ",
+			"    scenarioContext = nil                                    ",
+			"    super.tearDown()                                         ",
+			"}                                                            ",
+			"                                                             "])
+
 		let i = instanceToTest()
 		let s = i.setupAndTearDown(feature: feature)
 		XCTAssertEqual(s, expected)

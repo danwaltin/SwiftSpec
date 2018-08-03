@@ -1,1 +1,2 @@
 * Handle parallell testing
+* Show error on correct line in correct file

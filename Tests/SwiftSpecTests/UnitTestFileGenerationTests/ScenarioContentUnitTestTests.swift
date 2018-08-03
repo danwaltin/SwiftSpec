@@ -70,7 +70,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		
 		then_scenarioShouldBe([
 			"func IGNORE_testTitleTests() {",
-			"ScenarioContext.current.tags = [\"\(ignoreTag)\"]",
+			"scenarioContext.tags = [\"\(ignoreTag)\"]",
 			"}"]
 		)
 	}
@@ -97,7 +97,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		
 		then_scenarioShouldBe([
 			"func testTitleTests() {",
-			"ScenarioContext.current.tags = [\"tag\"]",
+			"scenarioContext.tags = [\"tag\"]",
 			"}"]
 		)
 	}
@@ -112,7 +112,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		
 		then_scenarioShouldBe([
 			"func testTitleTests() {",
-			"ScenarioContext.current.tags = [\"one\", \"two\"]",
+			"scenarioContext.tags = [\"one\", \"two\"]",
 			"}"]
 		)
 	}
