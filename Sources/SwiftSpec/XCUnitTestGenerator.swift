@@ -223,7 +223,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 		var toString = fromString
 		
 		for (from, to) in replacements {
-			toString = toString.asNSString().replacingOccurrences(of: from, with: to)
+			toString = toString.replacingOccurrences(of: from, with: to)
 		}
 		
 		return toString

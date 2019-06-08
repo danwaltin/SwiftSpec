@@ -63,7 +63,7 @@ class TableScanner {
 	}
 	
 	private func lineItems(_ line: String) -> [String] {
-		var v = line.asNSString().components(separatedBy: tableSeparator)
+		var v = line.components(separatedBy: tableSeparator)
 		v.removeLast()
 		v.remove(at: 0)
 		

@@ -42,7 +42,7 @@ class ScenarioOutlineScanner : ScenarioScanner {
 	}
 	
 	override func getScenarios() -> [Scenario] {
-		var titles = scenarioTitles()
+		let titles = scenarioTitles()
 		
 		var scenarios = [Scenario]()
 		

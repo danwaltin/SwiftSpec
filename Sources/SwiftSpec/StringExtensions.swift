@@ -31,7 +31,7 @@ internal let singleWhitespace = " "
 public extension String {
 	
 	func trim() -> String {
-		return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
+		return trimmingCharacters(in: NSCharacterSet.whitespaces)
 	}
 	
 	func appendLine() -> String {
@@ -50,23 +50,23 @@ public extension String {
 	}
 	
 	private func _remove(_ whitespace: String) -> String {
-		if self.count < whitespace.count {
+		if count < whitespace.count {
 			return self
 		}
 		
-		if !self.contains(whitespace) {
+		if !contains(whitespace) {
 			return self
 		}
 		
-		return self.replacingOccurrences(of: whitespace, with: singleWhitespace)
+		return replacingOccurrences(of: whitespace, with: singleWhitespace)
 	}
 	
 	func camelCaseify() -> String {
-		let words = asNSString().components(separatedBy: NSCharacterSet.whitespaces)
+		let words = components(separatedBy: NSCharacterSet.whitespaces)
 		
 		var output = ""
 		for word in words {
-			output += word.asNSString().capitalized
+			output += word.capitalized
 		}
 		
 		return output
@@ -77,11 +77,11 @@ public extension String {
 			return []
 		}
 		
-		return self.asNSString().components(separatedBy: newLine)
+		return components(separatedBy: newLine)
 	}
 	
 	func deleteText(_ text: String) -> String {
-		return self.asNSString().replacingOccurrences(of: text, with: "")
+		return replacingOccurrences(of: text, with: "")
 	}
 }
 
