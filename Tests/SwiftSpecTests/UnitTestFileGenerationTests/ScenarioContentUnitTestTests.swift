@@ -291,11 +291,11 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		self.scenarioToUse = scenario
 	}
 	
-	private func then_scenarioShouldBe(_ lines: [String]) {
+	private func then_scenarioShouldBe(_ lines: [String], file: StaticString = #file, line: UInt = #line) {
 		let expected = stringWithLines(lines)
 		let actual = instanceToTest().scenario(scenario: scenarioToUse)
 		
-		XCTAssertEqual(actual, expected)
+		XCTAssertEqual(actual, expected, file: file, line: line)
 	}
 	
 	// MARK: - Factory methods

@@ -158,8 +158,8 @@ class ParseScenariosTests: TestParseBase {
 
 	// MARK: - Givens, whens, thens
 	
-	func then_shouldReturnScenarioWithSteps(_ steps: [Step]) {
-		XCTAssertEqual(scenario(at: 0).steps, steps)
+	func then_shouldReturnScenarioWithSteps(_ steps: [Step], file: StaticString = #file, line: UInt = #line) {
+		XCTAssertEqual(scenario(at: 0).steps, steps, file: file, line: line)
 	}
 }
 

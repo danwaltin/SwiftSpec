@@ -185,12 +185,12 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		}
 	}
 
-	private func then_shouldThrowStepNotFoundError(forText text: String) {
-		XCTAssertEqual(stepNotFoundText, text)
+	private func then_shouldThrowStepNotFoundError(forText text: String, file: StaticString = #file, line: UInt = #line) {
+		XCTAssertEqual(stepNotFoundText, text, file: file, line: line)
 	}
 
-	private func then_shouldThrowMoreThanOneStepFoundError(forText text: String) {
-		XCTAssertEqual(moreThanOneStepFoundText, text)
+	private func then_shouldThrowMoreThanOneStepFoundError(forText text: String, file: StaticString = #file, line: UInt = #line) {
+		XCTAssertEqual(moreThanOneStepFoundText, text, file: file, line: line)
 	}
 
 	// MARK:

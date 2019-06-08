@@ -169,14 +169,14 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		generator.generateUnitTestsFromFeatureFiles(baseDirectory: baseDirectory)
 	}
 
-	private func then_theZeroUnitTestFilesShouldBeCreated() {
+	private func then_theZeroUnitTestFilesShouldBeCreated(file: StaticString = #file, line: UInt = #line) {
 		then_theFollowingUnitTestFilesShouldBeCreated(
-			[]
+			[], file: file, line: line
 		)
 	}
 
-	private func then_theFollowingUnitTestFilesShouldBeCreated(_ files: [String]) {
-		XCTAssertEqual(files, mockFileSystem.writtenFiles)
+	private func then_theFollowingUnitTestFilesShouldBeCreated(_ files: [String], file: StaticString = #file, line: UInt = #line) {
+		XCTAssertEqual(files, mockFileSystem.writtenFiles, file: file, line: line)
 	}
 	
 	private func then_theUnitTestFileContentShouldBe(_ content: String) {
