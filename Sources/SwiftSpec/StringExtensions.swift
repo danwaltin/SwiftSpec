@@ -30,22 +30,22 @@ internal let singleWhitespace = " "
 
 public extension String {
 	
-	public func trim() -> String {
+	func trim() -> String {
 		return self.trimmingCharacters(in: NSCharacterSet.whitespaces)
 	}
 	
-	public func appendLine() -> String {
+	func appendLine() -> String {
 		return self + newLine
 	}
 	
-	public func appendLine(_ line: String) -> String {
+	func appendLine(_ line: String) -> String {
 		if self == "" {
 			return self + line
 		}
 		return self + newLine + line
 	}
 	
-	public func compactWhitespace() -> String {
+	func compactWhitespace() -> String {
 		return _remove(tripleWhitespace)._remove(doubleWhitespace)
 	}
 	
@@ -61,7 +61,7 @@ public extension String {
 		return self.replacingOccurrences(of: whitespace, with: singleWhitespace)
 	}
 	
-	public func camelCaseify() -> String {
+	func camelCaseify() -> String {
 		let words = asNSString().components(separatedBy: NSCharacterSet.whitespaces)
 		
 		var output = ""
@@ -72,7 +72,7 @@ public extension String {
 		return output
 	}
 	
-	public func allLines() -> [String] {
+	func allLines() -> [String] {
 		if self == "" {
 			return []
 		}
@@ -80,21 +80,21 @@ public extension String {
 		return self.asNSString().components(separatedBy: newLine)
 	}
 	
-	public func deleteText(_ text: String) -> String {
+	func deleteText(_ text: String) -> String {
 		return self.asNSString().replacingOccurrences(of: text, with: "")
 	}
 }
 
 public extension String {
-	public func pathExtension() -> String {
+	func pathExtension() -> String {
 		return asNSString().pathExtension
 	}
 	
-	public func stringByDeletingPathExtension() -> String {
+	func stringByDeletingPathExtension() -> String {
 		return asNSString().deletingPathExtension
 	}
 	
-	public func asNSString() -> NSString {
+	func asNSString() -> NSString {
 		return NSString(string: self)
 	}
 }
