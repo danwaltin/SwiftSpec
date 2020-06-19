@@ -20,6 +20,7 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
+import  GherkinSwift
 
 protocol FeatureParser {
 	func parse(lines: [String]) -> Feature

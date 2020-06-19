@@ -20,8 +20,8 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
-
 import Foundation
+import  GherkinSwift
 
 protocol UnitTestGenerator {
 	func generateUnitTest(feature: Feature) -> String

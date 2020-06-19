@@ -20,9 +20,9 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
-
 import XCTest
 @testable import SwiftSpec
+import  GherkinSwift
 
 class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 

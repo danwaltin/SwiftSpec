@@ -20,8 +20,8 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
-
 @testable import SwiftSpec
+import  GherkinSwift
 
 class MockFeatureParser : FeatureParser {
 	var parsedLines: [String] = []
