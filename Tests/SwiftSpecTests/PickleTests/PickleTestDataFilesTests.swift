@@ -7,6 +7,7 @@
 
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class PickleTestDataFilesTests: XCTestCase {	
 	func test_goodTestDataFiles() {
@@ -22,7 +23,7 @@ class PickleTestDataFilesTests: XCTestCase {
 		
 		let actual = GherkinDocument.from(feature: f)
 
-		let expected = try! JSONDecoder().decode(GherkinFeatureFile.self, from: expectedFileContent).gherkinDocument
+		let expected = try! JSONDecoder().decode(GherkinFile.self, from: expectedFileContent).gherkinDocument
 		
 		XCTAssertEqual(actual, expected)
 	}
