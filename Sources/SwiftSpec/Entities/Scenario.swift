@@ -25,10 +25,4 @@ struct Scenario : Equatable, Taggable, HasTitle {
 	let title: String
 	let tags: [String]
 	let steps: [Step]
-	
-	init(title: String, tags: [String] = [], steps: [Step]) {
-		self.title = title
-		self.tags = tags
-		self.steps = steps
-	}
 }

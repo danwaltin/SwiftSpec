@@ -40,10 +40,4 @@ struct Step : Equatable {
 	static func then(_ text: String, _ table: Table? = nil) -> Step {
 		return Step(type: .Then, text: text, tableParameter: table)
 	}
-
-	init(type: StepType, text: String, tableParameter: Table? = nil) {
-		self.type = type
-		self.text = text
-		self.tableParameter = tableParameter
-	}
 }
