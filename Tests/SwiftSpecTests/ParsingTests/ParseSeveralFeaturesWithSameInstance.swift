@@ -20,10 +20,9 @@
 //  Created by Dan Waltin on 2016-07-04.
 //
 // ------------------------------------------------------------------------
-
-
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class ParseSeveralFeaturesWithSameInstance : TestParseBase {
 

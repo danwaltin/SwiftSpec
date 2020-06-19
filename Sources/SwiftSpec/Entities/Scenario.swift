@@ -20,6 +20,7 @@
 //  Created by Dan Waltin on 2016-07-03.
 //
 // ------------------------------------------------------------------------
+import GherkinSwift
 
 struct Scenario : Equatable, Taggable, HasTitle {
 	let title: String

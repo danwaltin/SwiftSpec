@@ -20,9 +20,9 @@
 //  Created by Dan Waltin on 2016-07-03.
 //
 // ------------------------------------------------------------------------
-
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class ParseScenariosTests: TestParseBase {
 	func test_oneScenarioShouldReturnScenarioWithTitle() {

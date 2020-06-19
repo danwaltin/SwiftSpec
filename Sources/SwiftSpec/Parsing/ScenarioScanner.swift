@@ -20,6 +20,7 @@
 //  Created by Dan Waltin on 2016-07-08.
 //
 // ------------------------------------------------------------------------
+import GherkinSwift
 
 class ScenarioScanner {
 	var title = ""

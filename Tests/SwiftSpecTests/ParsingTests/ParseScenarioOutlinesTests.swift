@@ -23,6 +23,7 @@
 
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class ParseScenarioOutlinesTests: TestParseBase {
 	func test_oneScenarioOutlineWithOneExampleShouldReturnScenarioWithTitle() {

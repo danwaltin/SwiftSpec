@@ -20,7 +20,6 @@
 		37993B451DFD55FE00CD80F9 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B401DFD55FE00CD80F9 /* Feature.swift */; };
 		37993B461DFD55FE00CD80F9 /* HasTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B411DFD55FE00CD80F9 /* HasTitle.swift */; };
 		37993B471DFD55FE00CD80F9 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B421DFD55FE00CD80F9 /* Scenario.swift */; };
-		37993B481DFD55FE00CD80F9 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B431DFD55FE00CD80F9 /* Step.swift */; };
 		37993B491DFD55FE00CD80F9 /* Taggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B441DFD55FE00CD80F9 /* Taggable.swift */; };
 		37993B541DFD563B00CD80F9 /* FeatureParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4B1DFD563B00CD80F9 /* FeatureParser.swift */; };
 		37993B551DFD563B00CD80F9 /* FeatureScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4C1DFD563B00CD80F9 /* FeatureScanner.swift */; };
@@ -77,7 +76,7 @@
 		3799BB581EFE8DCA00E98071 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB571EFE8DCA00E98071 /* StringExtensions.swift */; };
 		37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */; };
 		37E9E855249CFCD10015FAC2 /* PickledFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9E854249CFCD10015FAC2 /* PickledFeature.swift */; };
-		37E9E859249D13F30015FAC2 /* GherkinSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37E9E858249D13F30015FAC2 /* GherkinSwift */; };
+		37E9E85C249D297F0015FAC2 /* GherkinSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37E9E85B249D297F0015FAC2 /* GherkinSwift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
 
@@ -106,7 +105,6 @@
 		37993B401DFD55FE00CD80F9 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
 		37993B411DFD55FE00CD80F9 /* HasTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasTitle.swift; sourceTree = "<group>"; };
 		37993B421DFD55FE00CD80F9 /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
-		37993B431DFD55FE00CD80F9 /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
 		37993B441DFD55FE00CD80F9 /* Taggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taggable.swift; sourceTree = "<group>"; };
 		37993B4B1DFD563B00CD80F9 /* FeatureParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureParser.swift; sourceTree = "<group>"; };
 		37993B4C1DFD563B00CD80F9 /* FeatureScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureScanner.swift; sourceTree = "<group>"; };
@@ -187,7 +185,7 @@
 		37E9E851249CEB9F0015FAC2 /* background.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature.ast.ndjson; sourceTree = "<group>"; };
 		37E9E853249CEC7E0015FAC2 /* background.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature; sourceTree = "<group>"; };
 		37E9E854249CFCD10015FAC2 /* PickledFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickledFeature.swift; sourceTree = "<group>"; };
-		37E9E856249D13330015FAC2 /* GherkinSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GherkinSwift; path = ../GherkinSwift; sourceTree = "<group>"; };
+		37E9E861249D29B90015FAC2 /* GherkinSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GherkinSwift; path = ../GherkinSwift; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -198,7 +196,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				37E9E859249D13F30015FAC2 /* GherkinSwift in Frameworks */,
+				37E9E85C249D297F0015FAC2 /* GherkinSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,7 +253,6 @@
 				37993B401DFD55FE00CD80F9 /* Feature.swift */,
 				37993B411DFD55FE00CD80F9 /* HasTitle.swift */,
 				37993B421DFD55FE00CD80F9 /* Scenario.swift */,
-				37993B431DFD55FE00CD80F9 /* Step.swift */,
 				37993B441DFD55FE00CD80F9 /* Taggable.swift */,
 				37E9E854249CFCD10015FAC2 /* PickledFeature.swift */,
 			);
@@ -459,7 +456,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				37E9E856249D13330015FAC2 /* GherkinSwift */,
+				37E9E861249D29B90015FAC2 /* GherkinSwift */,
 				37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */,
 				37A7F6471E165E8900DDB78B /* Todo.txt */,
 				37993B241DFD48DE00CD80F9 /* README.md */,
@@ -496,7 +493,7 @@
 			);
 			name = SwiftSpec;
 			packageProductDependencies = (
-				37E9E858249D13F30015FAC2 /* GherkinSwift */,
+				37E9E85B249D297F0015FAC2 /* GherkinSwift */,
 			);
 			productName = SwiftSpec;
 			productReference = OBJ_14 /* SwiftSpec.framework */;
@@ -545,7 +542,7 @@
 			);
 			mainGroup = OBJ_5;
 			packageReferences = (
-				37E9E857249D13F30015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */,
+				37E9E85A249D297F0015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */,
 			);
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
@@ -587,7 +584,6 @@
 				37993B7F1DFD584C00CD80F9 /* BindingsRegistryImplementation.swift in Sources */,
 				37993B461DFD55FE00CD80F9 /* HasTitle.swift in Sources */,
 				37993B861DFD584C00CD80F9 /* TestRunner.swift in Sources */,
-				37993B481DFD55FE00CD80F9 /* Step.swift in Sources */,
 				37993B581DFD563B00CD80F9 /* ScenarioOutlineScanner.swift in Sources */,
 				37993B5B1DFD563B00CD80F9 /* TableScanner.swift in Sources */,
 				37993B561DFD563B00CD80F9 /* GherkinFeatureParser.swift in Sources */,
@@ -798,7 +794,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		37E9E857249D13F30015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */ = {
+		37E9E85A249D297F0015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/danwaltin/GherkinSwift.git";
 			requirement = {
@@ -809,9 +805,9 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		37E9E858249D13F30015FAC2 /* GherkinSwift */ = {
+		37E9E85B249D297F0015FAC2 /* GherkinSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 37E9E857249D13F30015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */;
+			package = 37E9E85A249D297F0015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */;
 			productName = GherkinSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
