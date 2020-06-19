@@ -77,6 +77,8 @@
 		3799842B1ECBA16000784AB7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799842A1ECBA16000784AB7 /* main.swift */; };
 		3799842D1ECCCAE100784AB7 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799842C1ECCCAE100784AB7 /* Builder.swift */; };
 		3799BB581EFE8DCA00E98071 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB571EFE8DCA00E98071 /* StringExtensions.swift */; };
+		37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */; };
+		37E9E855249CFCD10015FAC2 /* PickledFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9E854249CFCD10015FAC2 /* PickledFeature.swift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
 
@@ -170,6 +172,24 @@
 		3799BB571EFE8DCA00E98071 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		37A7F6471E165E8900DDB78B /* Todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Todo.txt; sourceTree = "<group>"; };
 		37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftSpecPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickleTestDataFilesTests.swift; sourceTree = "<group>"; };
+		37E9E788249CEB7A0015FAC2 /* single_parser_error.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = single_parser_error.feature; sourceTree = "<group>"; };
+		37E9E789249CEB7A0015FAC2 /* invalid_language.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid_language.feature; sourceTree = "<group>"; };
+		37E9E78A249CEB7A0015FAC2 /* invalid_language.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid_language.feature.errors.ndjson; sourceTree = "<group>"; };
+		37E9E78B249CEB7A0015FAC2 /* unexpected_eof.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unexpected_eof.feature; sourceTree = "<group>"; };
+		37E9E78C249CEB7A0015FAC2 /* inconsistent_cell_count.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = inconsistent_cell_count.feature.errors.ndjson; sourceTree = "<group>"; };
+		37E9E78D249CEB7A0015FAC2 /* not_gherkin.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = not_gherkin.feature; sourceTree = "<group>"; };
+		37E9E78E249CEB7A0015FAC2 /* inconsistent_cell_count.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = inconsistent_cell_count.feature; sourceTree = "<group>"; };
+		37E9E78F249CEB7A0015FAC2 /* multiple_parser_errors.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multiple_parser_errors.feature; sourceTree = "<group>"; };
+		37E9E790249CEB7A0015FAC2 /* whitespace_in_tags.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = whitespace_in_tags.feature; sourceTree = "<group>"; };
+		37E9E791249CEB7A0015FAC2 /* whitespace_in_tags.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = whitespace_in_tags.feature.errors.ndjson; sourceTree = "<group>"; };
+		37E9E792249CEB7A0015FAC2 /* not_gherkin.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = not_gherkin.feature.errors.ndjson; sourceTree = "<group>"; };
+		37E9E793249CEB7A0015FAC2 /* unexpected_eof.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unexpected_eof.feature.errors.ndjson; sourceTree = "<group>"; };
+		37E9E794249CEB7A0015FAC2 /* single_parser_error.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = single_parser_error.feature.errors.ndjson; sourceTree = "<group>"; };
+		37E9E795249CEB7A0015FAC2 /* multiple_parser_errors.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multiple_parser_errors.feature.errors.ndjson; sourceTree = "<group>"; };
+		37E9E851249CEB9F0015FAC2 /* background.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature.ast.ndjson; sourceTree = "<group>"; };
+		37E9E853249CEC7E0015FAC2 /* background.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature; sourceTree = "<group>"; };
+		37E9E854249CFCD10015FAC2 /* PickledFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickledFeature.swift; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -240,6 +260,7 @@
 				37993B2F1DFD52F100CD80F9 /* Table.swift */,
 				37993B311DFD53FF00CD80F9 /* TableRow.swift */,
 				37993B441DFD55FE00CD80F9 /* Taggable.swift */,
+				37E9E854249CFCD10015FAC2 /* PickledFeature.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -357,6 +378,53 @@
 			path = SwiftSpecConsole;
 			sourceTree = "<group>";
 		};
+		37E9E783249CEA710015FAC2 /* PickleTests */ = {
+			isa = PBXGroup;
+			children = (
+				37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */,
+			);
+			path = PickleTests;
+			sourceTree = "<group>";
+		};
+		37E9E786249CEB7A0015FAC2 /* testdata */ = {
+			isa = PBXGroup;
+			children = (
+				37E9E787249CEB7A0015FAC2 /* bad */,
+				37E9E796249CEB7A0015FAC2 /* good */,
+			);
+			path = testdata;
+			sourceTree = "<group>";
+		};
+		37E9E787249CEB7A0015FAC2 /* bad */ = {
+			isa = PBXGroup;
+			children = (
+				37E9E788249CEB7A0015FAC2 /* single_parser_error.feature */,
+				37E9E789249CEB7A0015FAC2 /* invalid_language.feature */,
+				37E9E78A249CEB7A0015FAC2 /* invalid_language.feature.errors.ndjson */,
+				37E9E78B249CEB7A0015FAC2 /* unexpected_eof.feature */,
+				37E9E78C249CEB7A0015FAC2 /* inconsistent_cell_count.feature.errors.ndjson */,
+				37E9E78D249CEB7A0015FAC2 /* not_gherkin.feature */,
+				37E9E78E249CEB7A0015FAC2 /* inconsistent_cell_count.feature */,
+				37E9E78F249CEB7A0015FAC2 /* multiple_parser_errors.feature */,
+				37E9E790249CEB7A0015FAC2 /* whitespace_in_tags.feature */,
+				37E9E791249CEB7A0015FAC2 /* whitespace_in_tags.feature.errors.ndjson */,
+				37E9E792249CEB7A0015FAC2 /* not_gherkin.feature.errors.ndjson */,
+				37E9E793249CEB7A0015FAC2 /* unexpected_eof.feature.errors.ndjson */,
+				37E9E794249CEB7A0015FAC2 /* single_parser_error.feature.errors.ndjson */,
+				37E9E795249CEB7A0015FAC2 /* multiple_parser_errors.feature.errors.ndjson */,
+			);
+			path = bad;
+			sourceTree = "<group>";
+		};
+		37E9E796249CEB7A0015FAC2 /* good */ = {
+			isa = PBXGroup;
+			children = (
+				37E9E853249CEC7E0015FAC2 /* background.feature */,
+				37E9E851249CEB9F0015FAC2 /* background.feature.ast.ndjson */,
+			);
+			path = good;
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -369,6 +437,8 @@
 		OBJ_11 /* SwiftSpecTests */ = {
 			isa = PBXGroup;
 			children = (
+				37E9E786249CEB7A0015FAC2 /* testdata */,
+				37E9E783249CEA710015FAC2 /* PickleTests */,
 				37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */,
 				371F3D9B2103467600F2B87E /* ReflectionTests.swift */,
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
@@ -497,6 +567,7 @@
 				37993B7E1DFD584C00CD80F9 /* BindingsRegistry.swift in Sources */,
 				37993B811DFD584C00CD80F9 /* BindingsRepositoryImplementation.swift in Sources */,
 				37993B821DFD584C00CD80F9 /* Ignore.swift in Sources */,
+				37E9E855249CFCD10015FAC2 /* PickledFeature.swift in Sources */,
 				37993B881DFD589400CD80F9 /* Reflection.swift in Sources */,
 				37993B571DFD563B00CD80F9 /* ScanningStringExtension.swift in Sources */,
 				37993B801DFD584C00CD80F9 /* BindingsRepository.swift in Sources */,
@@ -533,6 +604,7 @@
 			buildActionMask = 0;
 			files = (
 				37993BB91E06796000CD80F9 /* StepParameterBindings.swift in Sources */,
+				37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */,
 				37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */,
 				37993B6F1DFD583600CD80F9 /* MockStepBinding.swift in Sources */,
 				37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */,
