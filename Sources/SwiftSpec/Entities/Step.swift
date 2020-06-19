@@ -47,10 +47,3 @@ struct Step : Equatable {
 		self.tableParameter = tableParameter
 	}
 }
-
-func == (lhs: Step, rhs: Step) -> Bool {
-	return
-		lhs.type == rhs.type &&
-		lhs.text == rhs.text &&
-		lhs.tableParameter == rhs.tableParameter
-}

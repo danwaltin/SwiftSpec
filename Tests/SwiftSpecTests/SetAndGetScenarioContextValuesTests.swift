@@ -84,6 +84,3 @@ struct SomeStruct : Equatable {
 	}
 }
 
-func ==(lhs: SomeStruct, rhs: SomeStruct) -> Bool {
-	return lhs.field == rhs.field
-}

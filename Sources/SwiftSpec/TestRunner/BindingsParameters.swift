@@ -32,7 +32,3 @@ public struct BindingsParameters : Equatable {
 		self.matchedParameters = matchedParameters
 	}
 }
-
-public func ==(lhs: BindingsParameters, rhs: BindingsParameters) -> Bool {
-	return lhs.table == rhs.table && lhs.matchedParameters == rhs.matchedParameters
-}

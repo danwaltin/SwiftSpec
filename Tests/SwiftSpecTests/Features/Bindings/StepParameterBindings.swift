@@ -74,6 +74,3 @@ struct Account : Equatable {
 	var balance = 0
 }
 
-func ==(lhs: Account, rhs: Account) -> Bool {
-	return lhs.name == rhs.name && lhs.balance == rhs.balance
-}

@@ -32,11 +32,3 @@ struct Scenario : Equatable, Taggable, HasTitle {
 		self.steps = steps
 	}
 }
-
-func == (lhs: Scenario, rhs: Scenario) -> Bool {
-	return
-		lhs.title == rhs.title &&
-		lhs.tags == rhs.tags &&
-		lhs.steps == rhs.steps
-	
-}

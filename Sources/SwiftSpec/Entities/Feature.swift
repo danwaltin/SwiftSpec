@@ -32,10 +32,3 @@ struct Feature : Equatable, Taggable, HasTitle {
 		self.scenarios = scenarios
 	}
 }
-
-func == (lhs: Feature, rhs: Feature) -> Bool {
-	return
-		lhs.title == rhs.title &&
-		lhs.tags == rhs.tags &&
-		lhs.scenarios == rhs.scenarios
-}
