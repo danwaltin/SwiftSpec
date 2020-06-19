@@ -20,6 +20,7 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
+import GherkinSwift
 
 struct Feature : Equatable, Taggable, HasTitle {
 	let title: String
