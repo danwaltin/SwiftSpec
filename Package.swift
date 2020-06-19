@@ -1,4 +1,4 @@
-// swift-tools-version:4.0
+// swift-tools-version:5.2
 // ------------------------------------------------------------------------
 // Copyright 2017 Dan Waltin
 //
@@ -26,6 +26,9 @@ import PackageDescription
 
 let package = Package(
 	name: "SwiftSpec",
+	dependencies: [
+		.package(url: "https://github.com/danwaltin/GherkinSwift", .branch("master"))
+	],
     targets: [
       .target(name: "SwiftSpec"),
       .target(name: "SwiftSpecConsole", dependencies: ["SwiftSpec"]),
