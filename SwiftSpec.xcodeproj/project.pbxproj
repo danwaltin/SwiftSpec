@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -79,6 +79,7 @@
 		3799BB581EFE8DCA00E98071 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB571EFE8DCA00E98071 /* StringExtensions.swift */; };
 		37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */; };
 		37E9E855249CFCD10015FAC2 /* PickledFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9E854249CFCD10015FAC2 /* PickledFeature.swift */; };
+		37E9E859249D13F30015FAC2 /* GherkinSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37E9E858249D13F30015FAC2 /* GherkinSwift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
 
@@ -190,6 +191,7 @@
 		37E9E851249CEB9F0015FAC2 /* background.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature.ast.ndjson; sourceTree = "<group>"; };
 		37E9E853249CEC7E0015FAC2 /* background.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature; sourceTree = "<group>"; };
 		37E9E854249CFCD10015FAC2 /* PickledFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickledFeature.swift; sourceTree = "<group>"; };
+		37E9E856249D13330015FAC2 /* GherkinSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GherkinSwift; path = ../GherkinSwift; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -200,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				37E9E859249D13F30015FAC2 /* GherkinSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +465,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				37E9E856249D13330015FAC2 /* GherkinSwift */,
 				37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */,
 				37A7F6471E165E8900DDB78B /* Todo.txt */,
 				37993B241DFD48DE00CD80F9 /* README.md */,
@@ -497,6 +501,9 @@
 			dependencies = (
 			);
 			name = SwiftSpec;
+			packageProductDependencies = (
+				37E9E858249D13F30015FAC2 /* GherkinSwift */,
+			);
 			productName = SwiftSpec;
 			productReference = OBJ_14 /* SwiftSpec.framework */;
 			productType = "com.apple.product-type.framework";
@@ -543,6 +550,9 @@
 				en,
 			);
 			mainGroup = OBJ_5;
+			packageReferences = (
+				37E9E857249D13F30015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */,
+			);
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -794,6 +804,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37E9E857249D13F30015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danwaltin/GherkinSwift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37E9E858249D13F30015FAC2 /* GherkinSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37E9E857249D13F30015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */;
+			productName = GherkinSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = OBJ_1 /* Project object */;
 }

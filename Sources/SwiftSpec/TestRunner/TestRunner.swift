@@ -22,6 +22,7 @@
 // ------------------------------------------------------------------------
 
 import Foundation
+import GherkinSwift
 
 public class TestRunner {
 	private let registry: BindingsRegistry
