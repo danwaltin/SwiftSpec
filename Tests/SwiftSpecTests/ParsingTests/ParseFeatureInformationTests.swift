@@ -26,40 +26,40 @@ import XCTest
 
 class ParseFeatureInformationTests: TestParseBase {
 
-	func test_parseFeature_shouldReturnFeatureWithTitle() {
+	func test_parseFeature_shouldReturnFeatureWithName() {
 		when_parsingFeature([
-			"Feature: feature title"])
+			"Feature: feature name"])
 		
-		then_featureTitleShouldBe("feature title")
+		then_featureNameShouldBe("feature name")
 	}
 
-	func test_parseFeature_whitespaceIsTrimmedFromTitle() {
+	func test_parseFeature_whitespaceIsTrimmedFromName() {
 		when_parsingFeature([
-			"Feature: title with white space at end   "])
+			"Feature: name with white space at end   "])
 		
-		then_featureTitleShouldBe("title with white space at end")
+		then_featureNameShouldBe("name with white space at end")
 	}
 
-	func test_parseFeature_withEmptyLine_shouldReturnFeatureWithTitle() {
+	func test_parseFeature_withEmptyLine_shouldReturnFeatureWithName() {
 		when_parsingFeature([
-			"Feature: feature title",
+			"Feature: feature name",
 			""])
 		
-		then_featureTitleShouldBe("feature title")
+		then_featureNameShouldBe("feature name")
 	}
 
 	func test_parsingTwoFeaturesWithTheSameParserInstance() {
 		let instance = parser()
 		
 		let one = instance.parse(lines: ["Feature: one"])
-		XCTAssertEqual("one", one.title)
+		XCTAssertEqual("one", one.name)
 
 		let two = instance.parse(lines: ["Feature: two"])
-		XCTAssertEqual("two", two.title)
+		XCTAssertEqual("two", two.name)
 	}
 	
 	// MARK: - Givens, whens, thens
-	private func then_featureTitleShouldBe(_ title: String, file: StaticString = #file, line: UInt = #line) {
-		XCTAssertEqual(actualFeature.title, title, file: file, line: line)
+	private func then_featureNameShouldBe(_ name: String, file: StaticString = #file, line: UInt = #line) {
+		XCTAssertEqual(actualFeature.name, name, file: file, line: line)
 	}
 }

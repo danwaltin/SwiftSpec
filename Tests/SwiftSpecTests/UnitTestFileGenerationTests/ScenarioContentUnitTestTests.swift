@@ -30,17 +30,17 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	var scenarioToUse: Scenario!
 	
 	// MARK: - Scenario test method name
-	func test_oneWordTitle() {
-		given_scenarioWithTitle("Title")
+	func test_oneWordName() {
+		given_scenarioWithName("Name")
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"}"]
 		)
 	}
 	
-	func test_twoWordsTitle() {
-		given_scenarioWithTitle("one two")
+	func test_twoWordsName() {
+		given_scenarioWithName("one two")
 		
 		then_scenarioShouldBe([
 			"func testOneTwoTests() {",
@@ -48,17 +48,17 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 	}
 	
-	func test_scenarioWithDashInTitle() {
-		given_scenarioWithTitle("Scenario-title")
+	func test_scenarioWithDashInName() {
+		given_scenarioWithName("Scenario-name")
 		
 		then_scenarioShouldBe([
-			"func testScenarioTitleTests() {",
+			"func testScenarioNameTests() {",
 			"}"]
 		)
 	}
 	
 	func test_scenarioWithSwedishCharacters_ShouldReplaceWithAscii() {
-		given_scenarioWithTitle("Xå Xä Xö Åx Äx Öx")
+		given_scenarioWithName("Xå Xä Xö Åx Äx Öx")
 		
 		then_scenarioShouldBe([
 			"func testXaXaXoAxAxOxTests() {",
@@ -67,10 +67,10 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 	
 	func test_ignoredScenario() {
-		given_scenarioWithTitle("Title", hasIgnoreTag: true)
+		given_scenarioWithName("Name", hasIgnoreTag: true)
 		
 		then_scenarioShouldBe([
-			"func IGNORE_testTitleTests() {",
+			"func IGNORE_testNameTests() {",
 			"scenarioContext.tags = [\"\(ignoreTag)\"]",
 			"}"]
 		)
@@ -79,25 +79,25 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	// MARK: - Tags
 	func test_scenarioWithZeroTags() {
 		given_scenario(
-			scenario("title", tags: []
+			scenario("name", tags: []
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"}"]
 		)
 	}
 
 	func test_scenarioWithOneTag() {
 		given_scenario(
-			scenario("title", tags: [
+			scenario("name", tags: [
 				"tag"]
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"scenarioContext.tags = [\"tag\"]",
 			"}"]
 		)
@@ -105,14 +105,14 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	func test_scenarioWithTwoTags() {
 		given_scenario(
-			scenario("title", tags: [
+			scenario("name", tags: [
 				"one",
 				"two"]
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"scenarioContext.tags = [\"one\", \"two\"]",
 			"}"]
 		)
@@ -121,13 +121,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	// MARK: - Steps
 	func test_scenarioWithOneGivenStep() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				given("something")]
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"try testRunner.executeStep(.Given, \"something\")",
 			"} catch {",
@@ -139,13 +139,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	func test_scenarioWithOneWhenStep() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				when("something")]
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"try testRunner.executeStep(.When, \"something\")",
 			"} catch {",
@@ -157,13 +157,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	func test_scenarioWithOneThenStep() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				then("something")]
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"try testRunner.executeStep(.Then, \"something\")",
 			"} catch {",
@@ -175,7 +175,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	func test_scenarioWithGivenWhenThenSteps() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				given("a"),
 				when("b"),
 				then("c")]
@@ -183,7 +183,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"try testRunner.executeStep(.Given, \"a\")",
 			"try testRunner.executeStep(.When, \"b\")",
@@ -198,13 +198,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	// MARK: - Steps with table arguments
 	func test_scenarioWithGivenStep_withTableArgumentWithOneRow() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				given("a", table("col", "r1c1"))]
 			)
 		)
 
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"let table1 = Table(columns: [\"col\"])",
 			".addingRow(cells: [\"r1c1\"])",
@@ -218,13 +218,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	func test_scenarioWithWhenStep_withTableArgumentWithTwoRows() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				when("a", table("col", "r1c1", "r2c1"))]
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"let table1 = Table(columns: [\"col\"])",
 			".addingRow(cells: [\"r1c1\"])",
@@ -239,13 +239,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	func test_scenarioWithThenStep_withTableArgumentWithTwoColumns() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				then("a", table("c1", "c2", "r1c1", "r1c2"))]
 			)
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"let table1 = Table(columns: [\"c1\", \"c2\"])",
 			".addingRow(cells: [\"r1c1\", \"r1c2\"])",
@@ -259,7 +259,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	func test_scenarioWithThreeSteps_firstAndLastWithTableParameters() {
 		given_scenario(
-			scenario("title", [
+			scenario("name", [
 				given("g", table("c1", "v1")),
 				when("w"),
 				then("t", table("c2", "v2"))]
@@ -267,7 +267,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 		
 		then_scenarioShouldBe([
-			"func testTitleTests() {",
+			"func testNameTests() {",
 			"do {",
 			"let table1 = Table(columns: [\"c1\"])",
 			".addingRow(cells: [\"v1\"])",
@@ -284,8 +284,8 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	// MARK: - givens, whens thens
-	func given_scenarioWithTitle(_ title: String, hasIgnoreTag: Bool = false) {
-		given_scenario(scenario(title, hasIgnoreTag))
+	func given_scenarioWithName(_ name: String, hasIgnoreTag: Bool = false) {
+		given_scenario(scenario(name, hasIgnoreTag))
 	}
 	
 	private func given_scenario(_ scenario: Scenario) {
@@ -305,16 +305,16 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		return XCUnitTestGenerator()
 	}
 	
-	private func scenario(_ title: String, tags: [String] = []) -> Scenario {
-		return Scenario(title: title, tags: tags, steps: [])
+	private func scenario(_ name: String, tags: [String] = []) -> Scenario {
+		return Scenario(name: name, tags: tags, steps: [])
 	}
 
-	private func scenario(_ title: String, _ steps: [Step] = []) -> Scenario {
-		return scenario(title, false, steps)
+	private func scenario(_ name: String, _ steps: [Step] = []) -> Scenario {
+		return scenario(name, false, steps)
 	}
 
-	private func scenario(_ title: String, _ hasIgnoreTag: Bool, _ steps: [Step] = []) -> Scenario {
-		return Scenario(title: title, tags: tags(hasIgnoreTag), steps: steps)
+	private func scenario(_ name: String, _ hasIgnoreTag: Bool, _ steps: [Step] = []) -> Scenario {
+		return Scenario(name: name, tags: tags(hasIgnoreTag), steps: steps)
 	}
 	
 	private func given(_ text: String, _ table: Table? = nil) -> Step {

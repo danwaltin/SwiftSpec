@@ -23,9 +23,9 @@
 import GherkinSwift
 
 class ScenarioScanner {
-	var title = ""
+	var name = ""
 	
-	var hasScannedTitle = false
+	var hasScannedName = false
 	var isScanningStep = false
 	var currentStepScanner: StepScanner!
 	var stepScanners = [StepScanner]()
@@ -39,7 +39,7 @@ class ScenarioScanner {
 	func scan(line: String) {
 		
 		if line.isScenario() {
-			title = line.removeKeyword(keywordScenario)
+			name = line.removeKeyword(keywordScenario)
 		
 		} else if line.isStep() {
 			isScanningStep = true
@@ -53,7 +53,7 @@ class ScenarioScanner {
 	}
 	
 	func getScenarios() -> [Scenario] {
-		return [Scenario(title: title, tags: scenarioTags, steps: steps())]
+		return [Scenario(name: name, tags: scenarioTags, steps: steps())]
 	}
 
 	func steps() -> [Step] {

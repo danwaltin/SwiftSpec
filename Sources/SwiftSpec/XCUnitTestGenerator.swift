@@ -156,8 +156,8 @@ class XCUnitTestGenerator: UnitTestGenerator {
 		return s.appendLine()
 	}
 	
-	private func testEntityName(_ entity: HasTitle) -> String {
-		return replaceSpecialCharacters(entity.title).camelCaseify()
+	private func testEntityName(_ entity: HasName) -> String {
+		return replaceSpecialCharacters(entity.name).camelCaseify()
 	}
 	
 	private func ignorePrefix(_ entity: Taggable) -> String {

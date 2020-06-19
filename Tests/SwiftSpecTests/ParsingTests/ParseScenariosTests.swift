@@ -25,23 +25,23 @@ import XCTest
 import GherkinSwift
 
 class ParseScenariosTests: TestParseBase {
-	func test_oneScenarioShouldReturnScenarioWithTitle() {
+	func test_oneScenarioShouldReturnScenarioWithName() {
 		when_parsingFeature([
-			"Feature: feature title  ",
-			"Scenario: scenario title"])
+			"Feature: feature name  ",
+			"Scenario: scenario name"])
 		
-		then_shouldReturnScenariosWithTitles([
-			"scenario title"]
+		then_shouldReturnScenariosWithNames([
+			"scenario name"]
 		)
 	}
 
-	func test_twoScenariosShouldReturnScenariosWithTitles() {
+	func test_twoScenariosShouldReturnScenariosWithNames() {
 		when_parsingFeature([
-			"Feature: feature title",
+			"Feature: feature name",
 			"Scenario: scenario one",
 			"Scenario: scenario two"])
 		
-		then_shouldReturnScenariosWithTitles([
+		then_shouldReturnScenariosWithNames([
 			"scenario one",
 			"scenario two"]
 		)

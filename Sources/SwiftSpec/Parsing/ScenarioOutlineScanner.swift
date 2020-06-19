@@ -28,7 +28,7 @@ class ScenarioOutlineScanner : ScenarioScanner {
 	
 	override func scan(line: String) {
 		if line.isScenarioOutline() {
-			title = line.removeKeyword(keywordScenarioOutline)
+			name = line.removeKeyword(keywordScenarioOutline)
 			
 		} else if isScanningExamples && !line.trim().isEmpty{
 			tableScanner.scanLine(line: line)
@@ -42,7 +42,7 @@ class ScenarioOutlineScanner : ScenarioScanner {
 	}
 	
 	override func getScenarios() -> [Scenario] {
-		let titles = scenarioTitles()
+		let names = scenarioNames()
 		
 		var scenarios = [Scenario]()
 		
@@ -53,7 +53,7 @@ class ScenarioOutlineScanner : ScenarioScanner {
 				replacePlaceHolders($0, examplesRow)
 			}
 			
-			scenarios.append(Scenario(title: titles[index], tags: scenarioTags, steps: newSteps))
+			scenarios.append(Scenario(name: names[index], tags: scenarioTags, steps: newSteps))
 			index += 1
 		}
 		
@@ -67,9 +67,9 @@ class ScenarioOutlineScanner : ScenarioScanner {
 			tableParameter: replacePlaceHolders(step.tableParameter, examplesRow))
 	}
 	
-	private func scenarioTitles() -> [String] {
+	private func scenarioNames() -> [String] {
 		let indices = 0...(tableScanner.rows.count-1)
-		return indices.map {"\(title)_\($0)"}
+		return indices.map {"\(name)_\($0)"}
 	}
 
 	private func replacePlaceHolders(_ table: Table?, _ examplesRow: TableRow) -> Table? {

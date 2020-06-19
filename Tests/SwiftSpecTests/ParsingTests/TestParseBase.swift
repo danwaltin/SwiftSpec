@@ -20,7 +20,6 @@
 //  Created by Dan Waltin on 2016-07-03.
 //
 // ------------------------------------------------------------------------
-
 import XCTest
 @testable import SwiftSpec
 import GherkinSwift
@@ -32,11 +31,11 @@ class TestParseBase: XCTestCase {
 		actualFeature = parser().parse(lines: lines)
 	}
 	
-	func then_shouldReturnScenariosWithTitles(_ titles: [String]) {
-		let actualTitles = scenarios().map{s in
-			s.title
+	func then_shouldReturnScenariosWithNames(_ names: [String]) {
+		let actualNames = scenarios().map{ s in
+			s.name
 		}
-		XCTAssertEqual(actualTitles, titles)
+		XCTAssertEqual(actualNames, names)
 	}
 
 	func parser() -> GherkinFeatureParser {

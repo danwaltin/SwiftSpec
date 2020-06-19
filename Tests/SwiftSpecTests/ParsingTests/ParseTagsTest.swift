@@ -37,7 +37,7 @@ class ParseTagsTest : TestParseBase {
 	func test_parseFeatureWithOneTag() {
 		when_parsingFeature([
 			"@tag",
-			"Feature: title"])
+			"Feature: name"])
 		
 		then_feature(shouldHaveTags: ["tag"])
 	}
@@ -45,7 +45,7 @@ class ParseTagsTest : TestParseBase {
 	func test_parseFeatureWithTwoTags_onOneRow() {
 		when_parsingFeature([
 			"@one @two",
-			"Feature: title"])
+			"Feature: name"])
 		
 		then_feature(shouldHaveTags: ["one", "two"])
 	}
@@ -53,7 +53,7 @@ class ParseTagsTest : TestParseBase {
 	func test_parseFeatureWithTwoTags_extraSpaceAfter() {
 		when_parsingFeature([
 			"@one @two   ",
-			"Feature: title"])
+			"Feature: name"])
 		
 		then_feature(shouldHaveTags: ["one", "two"])
 	}
@@ -62,7 +62,7 @@ class ParseTagsTest : TestParseBase {
 		when_parsingFeature([
 			"@one",
 			"@two",
-			"Feature: title"])
+			"Feature: name"])
 		
 		then_feature(shouldHaveTags: ["one", "two"])
 	}
@@ -71,7 +71,7 @@ class ParseTagsTest : TestParseBase {
 		when_parsingFeature([
 			"@one @two",
 			"@three @four",
-			"Feature: title"])
+			"Feature: name"])
 		
 		then_feature(shouldHaveTags: ["one", "two", "three", "four"])
 	}
@@ -79,7 +79,7 @@ class ParseTagsTest : TestParseBase {
 	func test_parseFeatureWithTwoTags_extraSpaceBetween() {
 		when_parsingFeature([
 			"@one  @two",
-			"Feature: title"])
+			"Feature: name"])
 		
 		then_feature(shouldHaveTags: ["one", "two"])
 	}
@@ -87,7 +87,7 @@ class ParseTagsTest : TestParseBase {
 	func test_parseFeatureWithTwoTags_extraTabBetween() {
 		when_parsingFeature([
 			"@one\t@two",
-			"Feature: title"])
+			"Feature: name"])
 		
 		then_feature(shouldHaveTags: ["one", "two"])
 	}

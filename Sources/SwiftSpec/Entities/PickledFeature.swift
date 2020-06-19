@@ -11,7 +11,7 @@ import GherkinSwift
 struct GherkinDocument : Equatable, Decodable {
 	static func from(feature: Feature) -> GherkinDocument {
 		
-		return GherkinDocument(feature: PickledFeature(name: feature.title))
+		return GherkinDocument(feature: PickledFeature(name: feature.name))
 	}
 
 	let feature: PickledFeature

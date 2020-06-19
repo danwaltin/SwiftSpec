@@ -20,47 +20,46 @@
 //  Created by Dan Waltin on 2016-08-05.
 //
 // ------------------------------------------------------------------------
-
 import XCTest
 @testable import SwiftSpec
 import GherkinSwift
 
 class ParseScenarioOutlinesTests: TestParseBase {
-	func test_oneScenarioOutlineWithOneExampleShouldReturnScenarioWithTitle() {
+	func test_oneScenarioOutlineWithOneExampleShouldReturnScenarioWithName() {
 		when_parsingFeature([
-			"Feature: feature title          ",
-			"Scenario Outline: scenario title",
-			"    Given <key>                 ",
-			"                                ",
-			"    Examples:                   ",
-			"        | key |                 ",
-			"        | one |                 "])
+			"Feature: feature name          ",
+			"Scenario Outline: scenario name",
+			"    Given <key>                ",
+			"                               ",
+			"    Examples:                  ",
+			"        | key |                ",
+			"        | one |                "])
 		
-		then_shouldReturnScenariosWithTitles([
-			"scenario title_0"]
+		then_shouldReturnScenariosWithNames([
+			"scenario name_0"]
 		)
 	}
 	
 	func test_oneScenarioOutlineWithTwoExamplesShouldReturnTwoScenarios() {
 		when_parsingFeature([
-			"Feature: feature title          ",
-			"Scenario Outline: scenario title",
-			"    Given <key>                 ",
-			"                                ",
-			"    Examples:                   ",
-			"        | key |                 ",
-			"        | one |                 ",
-			"        | two |                 "])
+			"Feature: feature name          ",
+			"Scenario Outline: scenario name",
+			"    Given <key>                ",
+			"                               ",
+			"    Examples:                  ",
+			"        | key |                ",
+			"        | one |                ",
+			"        | two |                "])
 		
-		then_shouldReturnScenariosWithTitles([
-			"scenario title_0",
-			"scenario title_1"]
+		then_shouldReturnScenariosWithNames([
+			"scenario name_0",
+			"scenario name_1"]
 		)
 	}
 
 	func test_twoScenarioOutlinesWithTwoAndThreeExamplesShouldReturnFiveScenarios() {
 		when_parsingFeature([
-			"Feature: feature title        ",
+			"Feature: feature name         ",
 			"Scenario Outline: scenario one",
 			"    Given <key>               ",
 			"                              ",
@@ -78,7 +77,7 @@ class ParseScenarioOutlinesTests: TestParseBase {
 			"        | two   |             ",
 			"        | three |             "])
 		
-		then_shouldReturnScenariosWithTitles([
+		then_shouldReturnScenariosWithNames([
 			"scenario one_0",
 			"scenario one_1",
 			"scenario two_0",
@@ -91,13 +90,13 @@ class ParseScenarioOutlinesTests: TestParseBase {
 	
 	func test_oneKeyOneExample() {
 		when_parsingFeature([
-			"Feature: feature title          ",
-			"Scenario Outline: scenario title",
-			"    Given the key <key>         ",
-			"                                ",
-			"    Examples:                   ",
-			"        | key   |               ",
-			"        | value |               "])
+			"Feature: feature name          ",
+			"Scenario Outline: scenario name",
+			"    Given the key <key>        ",
+			"                               ",
+			"    Examples:                  ",
+			"        | key   |              ",
+			"        | value |              "])
 		
 		then_shouldReturnScenarioWithSteps([
 			Step.given("the key value")]
@@ -106,13 +105,13 @@ class ParseScenarioOutlinesTests: TestParseBase {
 
 	func test_oneKeyInTwoInstancesInOneStepsOneExample() {
 		when_parsingFeature([
-			"Feature: feature title          ",
-			"Scenario Outline: scenario title",
-			"    Then foo <key> bar '<key>'  ",
-			"                                ",
-			"    Examples:                   ",
-			"        | key   |               ",
-			"        | value |               "])
+			"Feature: feature name          ",
+			"Scenario Outline: scenario name",
+			"    Then foo <key> bar '<key>' ",
+			"                               ",
+			"    Examples:                  ",
+			"        | key   |              ",
+			"        | value |              "])
 		
 		then_shouldReturnScenarioWithSteps([
 			Step.then("foo value bar 'value'")]
@@ -121,8 +120,8 @@ class ParseScenarioOutlinesTests: TestParseBase {
 
 	func test_twoKeyInInOneStepsOneExample() {
 		when_parsingFeature([
-			"Feature: feature title                ",
-			"Scenario Outline: scenario title      ",
+			"Feature: feature name                 ",
+			"Scenario Outline: scenario name       ",
 			"    Then foo <key one> bar '<key two>'",
 			"                                      ",
 			"    Examples:                         ",
@@ -136,14 +135,14 @@ class ParseScenarioOutlinesTests: TestParseBase {
 
 	func test_oneKeyInTwoStepsOneExample() {
 		when_parsingFeature([
-			"Feature: feature title          ",
-			"Scenario Outline: scenario title",
-			"    Given foo <key>             ",
-			"    When <key> bar              ",
-			"                                ",
-			"    Examples:                   ",
-			"        | key   |               ",
-			"        | value |               "])
+			"Feature: feature name          ",
+			"Scenario Outline: scenario name",
+			"    Given foo <key>            ",
+			"    When <key> bar             ",
+			"                               ",
+			"    Examples:                  ",
+			"        | key   |              ",
+			"        | value |              "])
 		
 		then_shouldReturnScenarioWithSteps([
 			Step.given("foo value"),
@@ -153,8 +152,8 @@ class ParseScenarioOutlinesTests: TestParseBase {
 
 	func test_threeKeysInThreeStepsOneExample() {
 		when_parsingFeature([
-			"Feature: feature title                    ",
-			"Scenario Outline: scenario title          ",
+			"Feature: feature name                     ",
+			"Scenario Outline: scenario name           ",
 			"    Given foo <key one>                   ",
 			"    When <key two> bar                    ",
 			"    Then <key three>                      ",
@@ -172,16 +171,16 @@ class ParseScenarioOutlinesTests: TestParseBase {
 
 	func test_threeKeysInThreeStepsTwoExamples() {
 		when_parsingFeature([
-			"Feature: feature title          ",
-			"Scenario Outline: scenario title",
-			"    Given alpha <k1>            ",
-			"    When beta <k2>              ",
-			"    Then gamma <k3>             ",
-			"                                ",
-			"    Examples:                   ",
-			"        | k1   | k2   | k3   |  ",
-			"        | v1_1 | v1_2 | v1_3 |  ",
-			"        | v2_1 | v2_2 | v2_3 |  "])
+			"Feature: feature name          ",
+			"Scenario Outline: scenario name",
+			"    Given alpha <k1>           ",
+			"    When beta <k2>             ",
+			"    Then gamma <k3>            ",
+			"                               ",
+			"    Examples:                  ",
+			"        | k1   | k2   | k3   | ",
+			"        | v1_1 | v1_2 | v1_3 | ",
+			"        | v2_1 | v2_2 | v2_3 | "])
 		
 		then_shouldReturnTwoScenariosWithSteps(
 			[
