@@ -20,9 +20,8 @@
 //  Created by Dan Waltin on 2016-06-30.
 //
 // ------------------------------------------------------------------------
-
 import Foundation
-
+import GherkinSwift
 
 class FeatureScanner {
 	var featureTags = [String]()

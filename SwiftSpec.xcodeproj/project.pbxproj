@@ -18,7 +18,6 @@
 		37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */; };
 		37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B391DFD55CF00CD80F9 /* TestParseBase.swift */; };
 		37993B451DFD55FE00CD80F9 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B401DFD55FE00CD80F9 /* Feature.swift */; };
-		37993B471DFD55FE00CD80F9 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B421DFD55FE00CD80F9 /* Scenario.swift */; };
 		37993B541DFD563B00CD80F9 /* FeatureParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4B1DFD563B00CD80F9 /* FeatureParser.swift */; };
 		37993B551DFD563B00CD80F9 /* FeatureScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4C1DFD563B00CD80F9 /* FeatureScanner.swift */; };
 		37993B561DFD563B00CD80F9 /* GherkinFeatureParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4D1DFD563B00CD80F9 /* GherkinFeatureParser.swift */; };
@@ -101,7 +100,6 @@
 		37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseTagsTest.swift; sourceTree = "<group>"; };
 		37993B391DFD55CF00CD80F9 /* TestParseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestParseBase.swift; sourceTree = "<group>"; };
 		37993B401DFD55FE00CD80F9 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
-		37993B421DFD55FE00CD80F9 /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
 		37993B4B1DFD563B00CD80F9 /* FeatureParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureParser.swift; sourceTree = "<group>"; };
 		37993B4C1DFD563B00CD80F9 /* FeatureScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureScanner.swift; sourceTree = "<group>"; };
 		37993B4D1DFD563B00CD80F9 /* GherkinFeatureParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GherkinFeatureParser.swift; sourceTree = "<group>"; };
@@ -247,7 +245,6 @@
 			isa = PBXGroup;
 			children = (
 				37993B401DFD55FE00CD80F9 /* Feature.swift */,
-				37993B421DFD55FE00CD80F9 /* Scenario.swift */,
 				37E9E854249CFCD10015FAC2 /* PickledFeature.swift */,
 			);
 			path = Entities;
@@ -573,7 +570,6 @@
 				37993B7D1DFD584C00CD80F9 /* BindingsParameters.swift in Sources */,
 				3799BB581EFE8DCA00E98071 /* StringExtensions.swift in Sources */,
 				37993B7C1DFD584C00CD80F9 /* Bindings.swift in Sources */,
-				37993B471DFD55FE00CD80F9 /* Scenario.swift in Sources */,
 				37993B7F1DFD584C00CD80F9 /* BindingsRegistryImplementation.swift in Sources */,
 				37993B861DFD584C00CD80F9 /* TestRunner.swift in Sources */,
 				37993B581DFD563B00CD80F9 /* ScenarioOutlineScanner.swift in Sources */,
