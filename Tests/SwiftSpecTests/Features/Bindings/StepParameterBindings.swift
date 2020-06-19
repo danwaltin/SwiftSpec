@@ -8,6 +8,7 @@
 
 import SwiftSpec
 import XCTest
+import GherkinSwift
 
 class StepParameterBindings : Bindings {
 	override func defineBindings() {

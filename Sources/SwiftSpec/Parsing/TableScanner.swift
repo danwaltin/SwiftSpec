@@ -20,7 +20,7 @@
 //  Created by Dan Waltin on 2016-07-31.
 //
 // ------------------------------------------------------------------------
-
+import GherkinSwift
 
 class TableScanner {
 	

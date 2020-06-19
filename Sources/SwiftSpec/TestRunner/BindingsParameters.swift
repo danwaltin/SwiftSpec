@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import GherkinSwift
+
 public struct BindingsParameters : Equatable {
 	public let table: Table?
 	public let matchedParameters: [String]

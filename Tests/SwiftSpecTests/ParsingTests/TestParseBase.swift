@@ -23,6 +23,7 @@
 
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class TestParseBase: XCTestCase {
 	var actualFeature: Feature!

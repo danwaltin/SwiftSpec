@@ -23,6 +23,7 @@
 
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class TableRowsTests : XCTestCase {
 	// MARK: - Adding row with values

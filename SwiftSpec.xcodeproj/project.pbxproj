@@ -11,8 +11,6 @@
 		37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */; };
 		37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */; };
 		37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B291DFD51D200CD80F9 /* TableRowsTests.swift */; };
-		37993B301DFD52F100CD80F9 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B2F1DFD52F100CD80F9 /* Table.swift */; };
-		37993B321DFD53FF00CD80F9 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B311DFD53FF00CD80F9 /* TableRow.swift */; };
 		37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */; };
 		37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */; };
 		37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */; };
@@ -99,8 +97,6 @@
 		37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableColumnsTests.swift; sourceTree = "<group>"; };
 		37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableEqualityTests.swift; sourceTree = "<group>"; };
 		37993B291DFD51D200CD80F9 /* TableRowsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowsTests.swift; sourceTree = "<group>"; };
-		37993B2F1DFD52F100CD80F9 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
-		37993B311DFD53FF00CD80F9 /* TableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
 		37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFeatureInformationTests.swift; sourceTree = "<group>"; };
 		37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenarioOutlinesTests.swift; sourceTree = "<group>"; };
 		37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenariosTests.swift; sourceTree = "<group>"; };
@@ -260,8 +256,6 @@
 				37993B411DFD55FE00CD80F9 /* HasTitle.swift */,
 				37993B421DFD55FE00CD80F9 /* Scenario.swift */,
 				37993B431DFD55FE00CD80F9 /* Step.swift */,
-				37993B2F1DFD52F100CD80F9 /* Table.swift */,
-				37993B311DFD53FF00CD80F9 /* TableRow.swift */,
 				37993B441DFD55FE00CD80F9 /* Taggable.swift */,
 				37E9E854249CFCD10015FAC2 /* PickledFeature.swift */,
 			);
@@ -573,7 +567,6 @@
 				3799842B1ECBA16000784AB7 /* main.swift in Sources */,
 				37993B5C1DFD563B00CD80F9 /* TagScanner.swift in Sources */,
 				37993B831DFD584C00CD80F9 /* StepBinding.swift in Sources */,
-				37993B301DFD52F100CD80F9 /* Table.swift in Sources */,
 				37993B7E1DFD584C00CD80F9 /* BindingsRegistry.swift in Sources */,
 				37993B811DFD584C00CD80F9 /* BindingsRepositoryImplementation.swift in Sources */,
 				37993B821DFD584C00CD80F9 /* Ignore.swift in Sources */,
@@ -581,7 +574,6 @@
 				37993B881DFD589400CD80F9 /* Reflection.swift in Sources */,
 				37993B571DFD563B00CD80F9 /* ScanningStringExtension.swift in Sources */,
 				37993B801DFD584C00CD80F9 /* BindingsRepository.swift in Sources */,
-				37993B321DFD53FF00CD80F9 /* TableRow.swift in Sources */,
 				37993B591DFD563B00CD80F9 /* ScenarioScanner.swift in Sources */,
 				37993B491DFD55FE00CD80F9 /* Taggable.swift in Sources */,
 				37993B851DFD584C00CD80F9 /* TestExecutionError.swift in Sources */,

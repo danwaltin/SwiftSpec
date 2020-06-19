@@ -20,7 +20,7 @@
 //  Created by Dan Waltin on 2016-08-08.
 //
 // ------------------------------------------------------------------------
-
+import GherkinSwift
 
 class ScenarioOutlineScanner : ScenarioScanner {
 	var isScanningExamples = false

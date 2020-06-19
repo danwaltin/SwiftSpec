@@ -23,11 +23,6 @@
 
 import Foundation
 import GherkinSwift
-//public enum StepType {
-//	case Given
-//	case When
-//	case Then
-//}
 
 struct Step : Equatable {
 	let type: StepType

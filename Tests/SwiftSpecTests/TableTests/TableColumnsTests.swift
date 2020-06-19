@@ -23,6 +23,7 @@
 
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class TableColumnsTests : XCTestCase {
 	func test_zeroColumns() {

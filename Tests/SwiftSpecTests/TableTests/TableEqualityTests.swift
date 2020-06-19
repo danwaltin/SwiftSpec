@@ -23,6 +23,7 @@
 
 import XCTest
 @testable import SwiftSpec
+import GherkinSwift
 
 class TableEqualityTests : XCTestCase {
 	func test_equalWhenTwoColumns() {
