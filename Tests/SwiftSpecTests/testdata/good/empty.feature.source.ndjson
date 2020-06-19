@@ -1,6 +1,0 @@
-{
-  "source": {
-    "mediaType": "text/x.cucumber.gherkin+plain",
-    "uri": "testdata/good/empty.feature"
-  }
-}

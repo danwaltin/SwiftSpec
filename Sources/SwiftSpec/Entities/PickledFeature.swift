@@ -8,6 +8,10 @@
 import Foundation
 import GherkinSwift
 
+struct GherkinFeatureFile : Decodable {
+	let gherkinDocument: GherkinDocument
+}
+
 struct GherkinDocument : Equatable, Decodable {
 	static func from(feature: Feature) -> GherkinDocument {
 		

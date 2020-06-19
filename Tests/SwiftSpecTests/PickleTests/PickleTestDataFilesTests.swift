@@ -8,12 +8,7 @@
 import XCTest
 @testable import SwiftSpec
 
-class PickleTestDataFilesTests: XCTestCase {
-
-	struct GherkinFeatureFile : Decodable {
-		let gherkinDocument: GherkinDocument
-	}
-	
+class PickleTestDataFilesTests: XCTestCase {	
 	func test_goodTestDataFiles() {
 		let test = "background"
 		let goodPath = "testdata/good"
