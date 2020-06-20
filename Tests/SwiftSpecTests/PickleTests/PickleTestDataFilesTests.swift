@@ -9,27 +9,32 @@ import XCTest
 @testable import SwiftSpec
 @testable import GherkinSwift
 
-class PickleTestDataFilesTests: XCTestCase {	
+class PickleTestDataFilesTests: XCTestCase {
+	let goodTests = ["incomplete_feature_2"]
 	func test_goodTestDataFiles() {
-		let test = "incomplete_feature_2"
+
 		let goodPath = "testdata/good"
 
-		let expectedJsonString = expectedJson(path: goodPath, test: test)
-		let actualJsonString = parseAndGetJson(path: goodPath, test: test)
-
-		XCTAssertEqual(actualJsonString, expectedJsonString)
+		for test in goodTests {
+			let expected = expectedJson(path: goodPath, test: test)
+				.trim()
+			
+			let actual = parseAndGetJson(path: goodPath, test: test)
+				.replacingOccurrences(of: " :", with: ":")
+				.trim()
+			
+			XCTAssertEqual(actual, expected, "Wrong json for '\(test)'")
+		}
 	}
 	
 	private func expectedJson(path: String, test: String) -> String {
-		return stringContent(of: test + ".feature.ast.ndjson", inDirectory: path).trim()
+		return stringContent(of: test + ".feature.ast.ndjson", inDirectory: path)
 	}
 	
 	private func parseAndGetJson(path: String, test: String) -> String {
 		let pickledFile = gherkinFile(path: path, test: test)
 
-		let actualJsonString = getJson(from: pickledFile)
-		
-		return actualJsonString.replacingOccurrences(of: " :", with: ":").trim()
+		return getJson(from: pickledFile)
 	}
 	
 	private func getJson(from pickledFile: GherkinFile) -> String {
