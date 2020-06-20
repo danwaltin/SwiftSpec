@@ -23,8 +23,8 @@ class PickleTestDataFilesTests: XCTestCase {
 		
 		let actual = GherkinFile(gherkinDocument: GherkinDocument(feature: f))
 
-		var encoder = JSONEncoder()
-		encoder.outputFormatting = .prettyPrinted
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
 		let actualJson = try! encoder.encode(actual)
 		
 		let expectedJsonString = String(data: expectedJson, encoding: .utf8)
@@ -83,12 +83,18 @@ extension GherkinDocument : Encodable {
 
 extension Feature : Encodable {
 	enum CodingKeys: String, CodingKey {
+		case keyword
+		case language
+		case location
 		case name
 	}
 
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
+		try container.encode("Feature", forKey: .keyword)
+		try container.encode("en", forKey: .language)
+		try container.encode(location, forKey: .location)
 		try container.encode(name, forKey: .name)
 	}
 }
