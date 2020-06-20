@@ -14,26 +14,43 @@ class PickleTestDataFilesTests: XCTestCase {
 		let test = "incomplete_feature_2"
 		let goodPath = "testdata/good"
 
-		let testFileContent = content(of: test + ".feature", inDirectory: goodPath)
-		let expectedJson = content(of: test + ".feature.ast.ndjson", inDirectory: goodPath)
+		let expectedJsonString = expectedJson(path: goodPath, test: test)
+		let actualJsonString = parseAndGetJson(path: goodPath, test: test)
+
+		XCTAssertEqual(actualJsonString, expectedJsonString)
+	}
+	
+	private func expectedJson(path: String, test: String) -> String {
+		return stringContent(of: test + ".feature.ast.ndjson", inDirectory: path).trim()
+	}
+	
+	private func parseAndGetJson(path: String, test: String) -> String {
+		let pickledFile = gherkinFile(path: path, test: test)
+
+		let actualJsonString = getJson(from: pickledFile)
+		
+		return actualJsonString.replacingOccurrences(of: " :", with: ":").trim()
+	}
+	
+	private func getJson(from pickledFile: GherkinFile) -> String {
+		let encoder = JSONEncoder()
+		encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
+		let actualJson = try! encoder.encode(pickledFile)
+
+		return String(data: actualJson, encoding: .utf8)!
+	}
+	
+	private func gherkinFile(path: String, test: String) -> GherkinFile {
+		let testFileContent = stringContent(of: test + ".feature", inDirectory: path)
 
 		let lines = testFileContent.lines()
 
 		let f = parser().parse(lines: lines)
 		
-		let actual = GherkinFile(gherkinDocument: GherkinDocument(feature: f))
-
-		let encoder = JSONEncoder()
-		encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
-		let actualJson = try! encoder.encode(actual)
-		
-		let expectedJsonString = String(data: expectedJson, encoding: .utf8)?.trim()
-		let actualJsonString = String(data: actualJson, encoding: .utf8)?.replacingOccurrences(of: " :", with: ":").trim()
-
-		XCTAssertEqual(actualJsonString, expectedJsonString)
+		return GherkinFile(gherkinDocument: GherkinDocument(feature: f))
 	}
 	
-	private func content(of file: String, inDirectory directory: String) -> Data {
+	private func stringContent(of file: String, inDirectory directory: String) -> String {
 		let testFile = directory + "/" + file
 		
 		let thisSourceFile = URL(fileURLWithPath: #file)
@@ -41,7 +58,9 @@ class PickleTestDataFilesTests: XCTestCase {
 		let directoryAbove = thisDirectory.deletingLastPathComponent()
 		
 		let testFileURL = directoryAbove.appendingPathComponent(testFile)
-		return try! Data(contentsOf: testFileURL)
+		let data = try! Data(contentsOf: testFileURL)
+		
+		return String(data: data, encoding: .utf8)!
 	}
 	
 	private func parser() -> GherkinFeatureParser {
@@ -50,10 +69,9 @@ class PickleTestDataFilesTests: XCTestCase {
 	}
 }
 
-extension Data {
+extension String {
 	func lines() -> [String] {
-		let s = String(data: self, encoding: .utf8)!
-		return s.components(separatedBy: "\n")
+		return components(separatedBy: "\n")
 	}
 }
 
