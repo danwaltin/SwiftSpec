@@ -11,11 +11,11 @@ import XCTest
 
 class PickleTestDataFilesTests: XCTestCase {	
 	func test_goodTestDataFiles() {
-		let test = "minimal"
+		let test = "incomplete_feature_2"
 		let goodPath = "testdata/good"
 
 		let testFileContent = content(of: test + ".feature", inDirectory: goodPath)
-		let expectedFileContent = content(of: test + ".feature.ast.ndjson", inDirectory: goodPath)
+		let expectedJson = content(of: test + ".feature.ast.ndjson", inDirectory: goodPath)
 
 		let lines = testFileContent.lines()
 
@@ -23,9 +23,14 @@ class PickleTestDataFilesTests: XCTestCase {
 		
 		let actual = GherkinFile(gherkinDocument: GherkinDocument(feature: f))
 
-		let expected = try! JSONDecoder().decode(GherkinFile.self, from: expectedFileContent)
+		var encoder = JSONEncoder()
+		encoder.outputFormatting = .prettyPrinted
+		let actualJson = try! encoder.encode(actual)
 		
-		XCTAssertEqual(actual, expected)
+		let expectedJsonString = String(data: expectedJson, encoding: .utf8)
+		let actualJsonString = String(data: actualJson, encoding: .utf8)?.replacingOccurrences(of: " :", with: ":")
+
+		XCTAssertEqual(actualJsonString, expectedJsonString)
 	}
 	
 	private func content(of file: String, inDirectory directory: String) -> Data {
@@ -52,40 +57,38 @@ extension Data {
 	}
 }
 
-extension GherkinFile : Decodable {
+extension GherkinFile : Encodable {
 	enum CodingKeys: String, CodingKey {
 		case gherkinDocument
 	}
-	
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		let d = try container.decode(GherkinDocument.self, forKey: .gherkinDocument)
-		self.init(gherkinDocument: d)
+
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(gherkinDocument, forKey: .gherkinDocument)
 	}
 }
 
-extension GherkinDocument : Decodable {
+extension GherkinDocument : Encodable {
 	enum CodingKeys: String, CodingKey {
 		case feature
 	}
 
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		
-		let f = try container.decode(Feature.self, forKey: .feature)
-		self.init(feature: f)
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(feature, forKey: .feature)
 	}
 }
 
-extension Feature : Decodable {
+extension Feature : Encodable {
 	enum CodingKeys: String, CodingKey {
 		case name
 	}
 
-	public init(from decoder: Decoder) throws {
-		let container = try decoder.container(keyedBy: CodingKeys.self)
-		
-		let n = try container.decode(String.self, forKey: .name)
-		self.init(name: n)
+	public func encode(to encoder: Encoder) throws {
+		var container = encoder.container(keyedBy: CodingKeys.self)
+
+		try container.encode(name, forKey: .name)
 	}
 }
