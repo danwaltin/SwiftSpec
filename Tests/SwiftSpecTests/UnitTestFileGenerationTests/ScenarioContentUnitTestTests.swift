@@ -23,7 +23,7 @@
 
 import XCTest
 @testable import SwiftSpec
-import GherkinSwift
+@testable import GherkinSwift
 
 class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	

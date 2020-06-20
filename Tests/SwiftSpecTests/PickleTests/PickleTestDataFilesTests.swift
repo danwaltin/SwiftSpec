@@ -7,11 +7,11 @@
 
 import XCTest
 @testable import SwiftSpec
-import GherkinSwift
+@testable import GherkinSwift
 
 class PickleTestDataFilesTests: XCTestCase {	
 	func test_goodTestDataFiles() {
-		let test = "background"
+		let test = "minimal"
 		let goodPath = "testdata/good"
 
 		let testFileContent = content(of: test + ".feature", inDirectory: goodPath)
@@ -21,9 +21,9 @@ class PickleTestDataFilesTests: XCTestCase {
 
 		let f = parser().parse(lines: lines)
 		
-		let actual = GherkinDocument.from(feature: f)
+		let actual = GherkinFile(gherkinDocument: GherkinDocument(feature: f))
 
-		let expected = try! JSONDecoder().decode(GherkinFile.self, from: expectedFileContent).gherkinDocument
+		let expected = try! JSONDecoder().decode(GherkinFile.self, from: expectedFileContent)
 		
 		XCTAssertEqual(actual, expected)
 	}
@@ -49,5 +49,43 @@ extension Data {
 	func lines() -> [String] {
 		let s = String(data: self, encoding: .utf8)!
 		return s.components(separatedBy: "\n")
+	}
+}
+
+extension GherkinFile : Decodable {
+	enum CodingKeys: String, CodingKey {
+		case gherkinDocument
+	}
+	
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		let d = try container.decode(GherkinDocument.self, forKey: .gherkinDocument)
+		self.init(gherkinDocument: d)
+	}
+}
+
+extension GherkinDocument : Decodable {
+	enum CodingKeys: String, CodingKey {
+		case feature
+	}
+
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		
+		let f = try container.decode(Feature.self, forKey: .feature)
+		self.init(feature: f)
+	}
+}
+
+extension Feature : Decodable {
+	enum CodingKeys: String, CodingKey {
+		case name
+	}
+
+	public init(from decoder: Decoder) throws {
+		let container = try decoder.container(keyedBy: CodingKeys.self)
+		
+		let n = try container.decode(String.self, forKey: .name)
+		self.init(name: n)
 	}
 }

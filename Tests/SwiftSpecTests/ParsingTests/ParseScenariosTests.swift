@@ -22,7 +22,7 @@
 // ------------------------------------------------------------------------
 import XCTest
 @testable import SwiftSpec
-import GherkinSwift
+@testable import GherkinSwift
 
 class ParseScenariosTests: TestParseBase {
 	func test_oneScenarioShouldReturnScenarioWithName() {

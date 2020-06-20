@@ -22,7 +22,7 @@
 // ------------------------------------------------------------------------
 import XCTest
 @testable import SwiftSpec
-import GherkinSwift
+@testable import GherkinSwift
 
 class TestParseBase: XCTestCase {
 	var actualFeature: Feature!
