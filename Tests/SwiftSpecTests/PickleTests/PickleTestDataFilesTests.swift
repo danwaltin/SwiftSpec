@@ -24,11 +24,11 @@ class PickleTestDataFilesTests: XCTestCase {
 		let actual = GherkinFile(gherkinDocument: GherkinDocument(feature: f))
 
 		let encoder = JSONEncoder()
-		encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+		encoder.outputFormatting = [.prettyPrinted, .sortedKeys, .withoutEscapingSlashes]
 		let actualJson = try! encoder.encode(actual)
 		
-		let expectedJsonString = String(data: expectedJson, encoding: .utf8)
-		let actualJsonString = String(data: actualJson, encoding: .utf8)?.replacingOccurrences(of: " :", with: ":")
+		let expectedJsonString = String(data: expectedJson, encoding: .utf8)?.trim()
+		let actualJsonString = String(data: actualJson, encoding: .utf8)?.replacingOccurrences(of: " :", with: ":").trim()
 
 		XCTAssertEqual(actualJsonString, expectedJsonString)
 	}
@@ -72,12 +72,15 @@ extension GherkinFile : Encodable {
 extension GherkinDocument : Encodable {
 	enum CodingKeys: String, CodingKey {
 		case feature
+		case uri
 	}
 
 	public func encode(to encoder: Encoder) throws {
 		var container = encoder.container(keyedBy: CodingKeys.self)
 
 		try container.encode(feature, forKey: .feature)
+		let path = "testdata/good/incomplete_feature_2.feature"
+		try container.encode("\(path)", forKey: .uri)
 	}
 }
 

@@ -31,7 +31,7 @@ internal let singleWhitespace = " "
 public extension String {
 	
 	func trim() -> String {
-		return trimmingCharacters(in: NSCharacterSet.whitespaces)
+		return trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
 	}
 	
 	func appendLine() -> String {
