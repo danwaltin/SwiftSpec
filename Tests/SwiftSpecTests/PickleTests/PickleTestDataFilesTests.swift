@@ -14,7 +14,7 @@ class PickleTestDataFilesTests: XCTestCase {
 	func test_goodTestDataFiles() {
 
 		let goodPath = "testdata/good"
-
+		
 		for test in goodTests {
 			let expected = expectedJson(path: goodPath, test: test)
 				.trim()
@@ -28,7 +28,7 @@ class PickleTestDataFilesTests: XCTestCase {
 	}
 	
 	private func expectedJson(path: String, test: String) -> String {
-		return stringContent(of: test + ".feature.ast.ndjson", inDirectory: path)
+		return testFileContent(of: filePath(path, test + ".feature.ast.ndjson"))
 	}
 	
 	private func parseAndGetJson(path: String, test: String) -> String {
@@ -47,24 +47,25 @@ class PickleTestDataFilesTests: XCTestCase {
 	
 	private func gherkinFile(path: String, test: String) -> GherkinFile {
 		
-		let testFileContent = stringContent(of: test + ".feature", inDirectory: path)
+		let file = filePath(path, test + ".feature")
+		let lines = testFileContent(of: file).lines()
 
-		let lines = testFileContent.lines()
-
-		return parser().pickle(lines: lines, fileUri: path + "/" + test + ".feature")
+		return parser().pickle(lines: lines, fileUri: file)
 	}
 	
-	private func stringContent(of file: String, inDirectory directory: String) -> String {
-		let testFile = directory + "/" + file
-		
+	private func testFileContent(of file: String) -> String {
 		let thisSourceFile = URL(fileURLWithPath: #file)
-		let thisDirectory = thisSourceFile.deletingLastPathComponent()
-		let directoryAbove = thisDirectory.deletingLastPathComponent()
+		let currentDirectory = thisSourceFile.deletingLastPathComponent()
+		let parentDirectory = currentDirectory.deletingLastPathComponent()
 		
-		let testFileURL = directoryAbove.appendingPathComponent(testFile)
+		let testFileURL = parentDirectory.appendingPathComponent(file)
 		let data = try! Data(contentsOf: testFileURL)
 		
 		return String(data: data, encoding: .utf8)!
+	}
+
+	private func filePath(_ folder: String, _ file: String) -> String {
+		return folder + "/" + file
 	}
 	
 	private func parser() -> GherkinFeatureParser {
