@@ -8,9 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		371F3D9C2103467600F2B87E /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F3D9B2103467600F2B87E /* ReflectionTests.swift */; };
-		37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */; };
-		37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */; };
-		37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B291DFD51D200CD80F9 /* TableRowsTests.swift */; };
 		37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */; };
 		37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */; };
 		37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */; };
@@ -79,9 +76,6 @@
 /* Begin PBXFileReference section */
 		371F3D9B2103467600F2B87E /* ReflectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionTests.swift; sourceTree = "<group>"; };
 		37993B241DFD48DE00CD80F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableColumnsTests.swift; sourceTree = "<group>"; };
-		37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableEqualityTests.swift; sourceTree = "<group>"; };
-		37993B291DFD51D200CD80F9 /* TableRowsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowsTests.swift; sourceTree = "<group>"; };
 		37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFeatureInformationTests.swift; sourceTree = "<group>"; };
 		37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenarioOutlinesTests.swift; sourceTree = "<group>"; };
 		37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenariosTests.swift; sourceTree = "<group>"; };
@@ -260,16 +254,6 @@
 			children = (
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		37993B261DFD51A600CD80F9 /* TableTests */ = {
-			isa = PBXGroup;
-			children = (
-				37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */,
-				37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */,
-				37993B291DFD51D200CD80F9 /* TableRowsTests.swift */,
-			);
-			path = TableTests;
 			sourceTree = "<group>";
 		};
 		37993B2D1DFD52F100CD80F9 /* SwiftSpec */ = {
@@ -524,7 +508,6 @@
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
 				37993B651DFD583600CD80F9 /* TestExecutionTests */,
 				37993B331DFD55CF00CD80F9 /* ParsingTests */,
-				37993B261DFD51A600CD80F9 /* TableTests */,
 			);
 			name = SwiftSpecTests;
 			path = Tests/SwiftSpecTests;
@@ -677,7 +660,6 @@
 				37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */,
 				37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */,
 				37993B6F1DFD583600CD80F9 /* MockStepBinding.swift in Sources */,
-				37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */,
 				37993BBB1E06796000CD80F9 /* IgnoredFeatureTests.swift in Sources */,
 				37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */,
 				37993BBD1E06796000CD80F9 /* ScenarioContextTests.swift in Sources */,
@@ -686,12 +668,10 @@
 				37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */,
 				37993BBC1E06796000CD80F9 /* IgnoredScenarioTests.swift in Sources */,
 				37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */,
-				37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */,
 				37993B6C1DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift in Sources */,
 				37993B3D1DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift in Sources */,
 				37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */,
 				37993BBA1E06796000CD80F9 /* TagsBindings.swift in Sources */,
-				37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */,
 				37993B951DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift in Sources */,
 				37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */,
 				37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */,
