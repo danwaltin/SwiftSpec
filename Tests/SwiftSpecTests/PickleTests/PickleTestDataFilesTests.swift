@@ -48,7 +48,7 @@ class PickleTestDataFilesTests: XCTestCase {
 	private func gherkinFile(path: String, test: String) -> GherkinFile {
 		
 		let file = filePath(path, test + ".feature")
-		let lines = testFileContent(of: file).lines()
+		let lines = testFileContent(of: file).allLines()
 
 		return parser().pickle(lines: lines, fileUri: file)
 	}
@@ -71,12 +71,6 @@ class PickleTestDataFilesTests: XCTestCase {
 	private func parser() -> GherkinFeatureParser {
 		let scanner = FeatureScanner()
 		return GherkinFeatureParser(featureScanner: scanner)
-	}
-}
-
-extension String {
-	func lines() -> [String] {
-		return components(separatedBy: "\n")
 	}
 }
 

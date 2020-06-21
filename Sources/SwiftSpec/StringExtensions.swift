@@ -23,44 +23,8 @@
 
 import Foundation
 
-internal let newLine = "\n"
-internal let tripleWhitespace = "   "
-internal let doubleWhitespace = "  "
-internal let singleWhitespace = " "
-
 public extension String {
-	
-	func trim() -> String {
-		return trimmingCharacters(in: NSCharacterSet.whitespacesAndNewlines)
-	}
-	
-	func appendLine() -> String {
-		return self + newLine
-	}
-	
-	func appendLine(_ line: String) -> String {
-		if self == "" {
-			return self + line
-		}
-		return self + newLine + line
-	}
-	
-	func compactWhitespace() -> String {
-		return _remove(tripleWhitespace)._remove(doubleWhitespace)
-	}
-	
-	private func _remove(_ whitespace: String) -> String {
-		if count < whitespace.count {
-			return self
-		}
 		
-		if !contains(whitespace) {
-			return self
-		}
-		
-		return replacingOccurrences(of: whitespace, with: singleWhitespace)
-	}
-	
 	func camelCaseify() -> String {
 		let words = components(separatedBy: NSCharacterSet.whitespaces)
 		
@@ -70,18 +34,6 @@ public extension String {
 		}
 		
 		return output
-	}
-	
-	func allLines() -> [String] {
-		if self == "" {
-			return []
-		}
-		
-		return components(separatedBy: newLine)
-	}
-	
-	func deleteText(_ text: String) -> String {
-		return replacingOccurrences(of: text, with: "")
 	}
 }
 

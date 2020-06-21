@@ -22,6 +22,7 @@
 // ------------------------------------------------------------------------
 
 import Foundation
+import GherkinSwift
 
 public struct XBuilder {
 	public init() {
