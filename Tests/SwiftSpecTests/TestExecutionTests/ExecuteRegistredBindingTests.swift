@@ -23,6 +23,7 @@
 
 import XCTest
 @testable import SwiftSpec
+@testable import GherkinSwift
 
 class ExecuteRegistredBindingTests : XCTestCase {
 	

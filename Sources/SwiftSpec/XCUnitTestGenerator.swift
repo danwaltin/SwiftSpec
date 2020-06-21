@@ -20,9 +20,8 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
-
-
 import Foundation
+import GherkinSwift
 
 let ignoreTag = "ignore"
 
@@ -157,8 +156,8 @@ class XCUnitTestGenerator: UnitTestGenerator {
 		return s.appendLine()
 	}
 	
-	private func testEntityName(_ entity: HasTitle) -> String {
-		return replaceSpecialCharacters(entity.title).camelCaseify()
+	private func testEntityName(_ entity: HasName) -> String {
+		return replaceSpecialCharacters(entity.name).camelCaseify()
 	}
 	
 	private func ignorePrefix(_ entity: Taggable) -> String {

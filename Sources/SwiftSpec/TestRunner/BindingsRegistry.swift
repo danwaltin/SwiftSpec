@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import GherkinSwift
+
 protocol BindingsRegistry {
 	
 	// for the following step

@@ -20,6 +20,7 @@
 //  Created by Dan Waltin on 2016-07-09.
 //
 // ------------------------------------------------------------------------
+import GherkinSwift
 
 class BindingsRegistryImplementation : BindingsRegistry {
 	

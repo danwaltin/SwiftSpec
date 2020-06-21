@@ -3,36 +3,11 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 46;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		371F3D9C2103467600F2B87E /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F3D9B2103467600F2B87E /* ReflectionTests.swift */; };
-		37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */; };
-		37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */; };
-		37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B291DFD51D200CD80F9 /* TableRowsTests.swift */; };
-		37993B301DFD52F100CD80F9 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B2F1DFD52F100CD80F9 /* Table.swift */; };
-		37993B321DFD53FF00CD80F9 /* TableRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B311DFD53FF00CD80F9 /* TableRow.swift */; };
-		37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */; };
-		37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */; };
-		37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */; };
-		37993B3D1DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B371DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift */; };
-		37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */; };
-		37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B391DFD55CF00CD80F9 /* TestParseBase.swift */; };
-		37993B451DFD55FE00CD80F9 /* Feature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B401DFD55FE00CD80F9 /* Feature.swift */; };
-		37993B461DFD55FE00CD80F9 /* HasTitle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B411DFD55FE00CD80F9 /* HasTitle.swift */; };
-		37993B471DFD55FE00CD80F9 /* Scenario.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B421DFD55FE00CD80F9 /* Scenario.swift */; };
-		37993B481DFD55FE00CD80F9 /* Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B431DFD55FE00CD80F9 /* Step.swift */; };
-		37993B491DFD55FE00CD80F9 /* Taggable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B441DFD55FE00CD80F9 /* Taggable.swift */; };
-		37993B541DFD563B00CD80F9 /* FeatureParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4B1DFD563B00CD80F9 /* FeatureParser.swift */; };
-		37993B551DFD563B00CD80F9 /* FeatureScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4C1DFD563B00CD80F9 /* FeatureScanner.swift */; };
-		37993B561DFD563B00CD80F9 /* GherkinFeatureParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4D1DFD563B00CD80F9 /* GherkinFeatureParser.swift */; };
-		37993B571DFD563B00CD80F9 /* ScanningStringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4E1DFD563B00CD80F9 /* ScanningStringExtension.swift */; };
-		37993B581DFD563B00CD80F9 /* ScenarioOutlineScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B4F1DFD563B00CD80F9 /* ScenarioOutlineScanner.swift */; };
-		37993B591DFD563B00CD80F9 /* ScenarioScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B501DFD563B00CD80F9 /* ScenarioScanner.swift */; };
-		37993B5A1DFD563B00CD80F9 /* StepScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B511DFD563B00CD80F9 /* StepScanner.swift */; };
-		37993B5B1DFD563B00CD80F9 /* TableScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B521DFD563B00CD80F9 /* TableScanner.swift */; };
-		37993B5C1DFD563B00CD80F9 /* TagScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B531DFD563B00CD80F9 /* TagScanner.swift */; };
 		37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */; };
 		37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B631DFD577700CD80F9 /* ScenarioContext.swift */; };
 		37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B661DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift */; };
@@ -77,6 +52,7 @@
 		3799842B1ECBA16000784AB7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799842A1ECBA16000784AB7 /* main.swift */; };
 		3799842D1ECCCAE100784AB7 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799842C1ECCCAE100784AB7 /* Builder.swift */; };
 		3799BB581EFE8DCA00E98071 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB571EFE8DCA00E98071 /* StringExtensions.swift */; };
+		37E9E85C249D297F0015FAC2 /* GherkinSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37E9E85B249D297F0015FAC2 /* GherkinSwift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,31 +69,6 @@
 /* Begin PBXFileReference section */
 		371F3D9B2103467600F2B87E /* ReflectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionTests.swift; sourceTree = "<group>"; };
 		37993B241DFD48DE00CD80F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableColumnsTests.swift; sourceTree = "<group>"; };
-		37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableEqualityTests.swift; sourceTree = "<group>"; };
-		37993B291DFD51D200CD80F9 /* TableRowsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRowsTests.swift; sourceTree = "<group>"; };
-		37993B2F1DFD52F100CD80F9 /* Table.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
-		37993B311DFD53FF00CD80F9 /* TableRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableRow.swift; sourceTree = "<group>"; };
-		37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFeatureInformationTests.swift; sourceTree = "<group>"; };
-		37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenarioOutlinesTests.swift; sourceTree = "<group>"; };
-		37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenariosTests.swift; sourceTree = "<group>"; };
-		37993B371DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSeveralFeaturesWithSameInstance.swift; sourceTree = "<group>"; };
-		37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseTagsTest.swift; sourceTree = "<group>"; };
-		37993B391DFD55CF00CD80F9 /* TestParseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestParseBase.swift; sourceTree = "<group>"; };
-		37993B401DFD55FE00CD80F9 /* Feature.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Feature.swift; sourceTree = "<group>"; };
-		37993B411DFD55FE00CD80F9 /* HasTitle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HasTitle.swift; sourceTree = "<group>"; };
-		37993B421DFD55FE00CD80F9 /* Scenario.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scenario.swift; sourceTree = "<group>"; };
-		37993B431DFD55FE00CD80F9 /* Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Step.swift; sourceTree = "<group>"; };
-		37993B441DFD55FE00CD80F9 /* Taggable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Taggable.swift; sourceTree = "<group>"; };
-		37993B4B1DFD563B00CD80F9 /* FeatureParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureParser.swift; sourceTree = "<group>"; };
-		37993B4C1DFD563B00CD80F9 /* FeatureScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeatureScanner.swift; sourceTree = "<group>"; };
-		37993B4D1DFD563B00CD80F9 /* GherkinFeatureParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GherkinFeatureParser.swift; sourceTree = "<group>"; };
-		37993B4E1DFD563B00CD80F9 /* ScanningStringExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScanningStringExtension.swift; sourceTree = "<group>"; };
-		37993B4F1DFD563B00CD80F9 /* ScenarioOutlineScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioOutlineScanner.swift; sourceTree = "<group>"; };
-		37993B501DFD563B00CD80F9 /* ScenarioScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioScanner.swift; sourceTree = "<group>"; };
-		37993B511DFD563B00CD80F9 /* StepScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepScanner.swift; sourceTree = "<group>"; };
-		37993B521DFD563B00CD80F9 /* TableScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableScanner.swift; sourceTree = "<group>"; };
-		37993B531DFD563B00CD80F9 /* TagScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TagScanner.swift; sourceTree = "<group>"; };
 		37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAndGetScenarioContextValuesTests.swift; sourceTree = "<group>"; };
 		37993B631DFD577700CD80F9 /* ScenarioContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContext.swift; sourceTree = "<group>"; };
 		37993B661DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteRegistredBindingTests.swift; sourceTree = "<group>"; };
@@ -170,6 +121,7 @@
 		3799BB571EFE8DCA00E98071 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		37A7F6471E165E8900DDB78B /* Todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Todo.txt; sourceTree = "<group>"; };
 		37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftSpecPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		37E9E861249D29B90015FAC2 /* GherkinSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GherkinSwift; path = ../GherkinSwift; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -180,6 +132,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
+				37E9E85C249D297F0015FAC2 /* GherkinSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,16 +154,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		37993B261DFD51A600CD80F9 /* TableTests */ = {
-			isa = PBXGroup;
-			children = (
-				37993B271DFD51D200CD80F9 /* TableColumnsTests.swift */,
-				37993B281DFD51D200CD80F9 /* TableEqualityTests.swift */,
-				37993B291DFD51D200CD80F9 /* TableRowsTests.swift */,
-			);
-			path = TableTests;
-			sourceTree = "<group>";
-		};
 		37993B2D1DFD52F100CD80F9 /* SwiftSpec */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,54 +166,9 @@
 				37993B631DFD577700CD80F9 /* ScenarioContext.swift */,
 				37993BA01DFD5BAD00CD80F9 /* TestFileWriter.swift */,
 				37993B701DFD584C00CD80F9 /* TestRunner */,
-				37993B2E1DFD52F100CD80F9 /* Entities */,
-				37993B4A1DFD563B00CD80F9 /* Parsing */,
 				3799BB571EFE8DCA00E98071 /* StringExtensions.swift */,
 			);
 			path = SwiftSpec;
-			sourceTree = "<group>";
-		};
-		37993B2E1DFD52F100CD80F9 /* Entities */ = {
-			isa = PBXGroup;
-			children = (
-				37993B401DFD55FE00CD80F9 /* Feature.swift */,
-				37993B411DFD55FE00CD80F9 /* HasTitle.swift */,
-				37993B421DFD55FE00CD80F9 /* Scenario.swift */,
-				37993B431DFD55FE00CD80F9 /* Step.swift */,
-				37993B2F1DFD52F100CD80F9 /* Table.swift */,
-				37993B311DFD53FF00CD80F9 /* TableRow.swift */,
-				37993B441DFD55FE00CD80F9 /* Taggable.swift */,
-			);
-			path = Entities;
-			sourceTree = "<group>";
-		};
-		37993B331DFD55CF00CD80F9 /* ParsingTests */ = {
-			isa = PBXGroup;
-			children = (
-				37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */,
-				37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */,
-				37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */,
-				37993B371DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift */,
-				37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */,
-				37993B391DFD55CF00CD80F9 /* TestParseBase.swift */,
-			);
-			path = ParsingTests;
-			sourceTree = "<group>";
-		};
-		37993B4A1DFD563B00CD80F9 /* Parsing */ = {
-			isa = PBXGroup;
-			children = (
-				37993B4B1DFD563B00CD80F9 /* FeatureParser.swift */,
-				37993B4C1DFD563B00CD80F9 /* FeatureScanner.swift */,
-				37993B4D1DFD563B00CD80F9 /* GherkinFeatureParser.swift */,
-				37993B4E1DFD563B00CD80F9 /* ScanningStringExtension.swift */,
-				37993B4F1DFD563B00CD80F9 /* ScenarioOutlineScanner.swift */,
-				37993B501DFD563B00CD80F9 /* ScenarioScanner.swift */,
-				37993B511DFD563B00CD80F9 /* StepScanner.swift */,
-				37993B521DFD563B00CD80F9 /* TableScanner.swift */,
-				37993B531DFD563B00CD80F9 /* TagScanner.swift */,
-			);
-			path = Parsing;
 			sourceTree = "<group>";
 		};
 		37993B651DFD583600CD80F9 /* TestExecutionTests */ = {
@@ -373,8 +271,6 @@
 				371F3D9B2103467600F2B87E /* ReflectionTests.swift */,
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
 				37993B651DFD583600CD80F9 /* TestExecutionTests */,
-				37993B331DFD55CF00CD80F9 /* ParsingTests */,
-				37993B261DFD51A600CD80F9 /* TableTests */,
 			);
 			name = SwiftSpecTests;
 			path = Tests/SwiftSpecTests;
@@ -392,6 +288,7 @@
 		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
+				37E9E861249D29B90015FAC2 /* GherkinSwift */,
 				37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */,
 				37A7F6471E165E8900DDB78B /* Todo.txt */,
 				37993B241DFD48DE00CD80F9 /* README.md */,
@@ -427,6 +324,9 @@
 			dependencies = (
 			);
 			name = SwiftSpec;
+			packageProductDependencies = (
+				37E9E85B249D297F0015FAC2 /* GherkinSwift */,
+			);
 			productName = SwiftSpec;
 			productReference = OBJ_14 /* SwiftSpec.framework */;
 			productType = "com.apple.product-type.framework";
@@ -473,6 +373,9 @@
 				en,
 			);
 			mainGroup = OBJ_5;
+			packageReferences = (
+				37E9E85A249D297F0015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */,
+			);
 			productRefGroup = OBJ_13 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -488,42 +391,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				37993B451DFD55FE00CD80F9 /* Feature.swift in Sources */,
 				37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */,
 				3799842B1ECBA16000784AB7 /* main.swift in Sources */,
-				37993B5C1DFD563B00CD80F9 /* TagScanner.swift in Sources */,
 				37993B831DFD584C00CD80F9 /* StepBinding.swift in Sources */,
-				37993B301DFD52F100CD80F9 /* Table.swift in Sources */,
 				37993B7E1DFD584C00CD80F9 /* BindingsRegistry.swift in Sources */,
 				37993B811DFD584C00CD80F9 /* BindingsRepositoryImplementation.swift in Sources */,
 				37993B821DFD584C00CD80F9 /* Ignore.swift in Sources */,
 				37993B881DFD589400CD80F9 /* Reflection.swift in Sources */,
-				37993B571DFD563B00CD80F9 /* ScanningStringExtension.swift in Sources */,
 				37993B801DFD584C00CD80F9 /* BindingsRepository.swift in Sources */,
-				37993B321DFD53FF00CD80F9 /* TableRow.swift in Sources */,
-				37993B591DFD563B00CD80F9 /* ScenarioScanner.swift in Sources */,
-				37993B491DFD55FE00CD80F9 /* Taggable.swift in Sources */,
 				37993B851DFD584C00CD80F9 /* TestExecutionError.swift in Sources */,
 				37993B9E1DFD5AF300CD80F9 /* UnitTestGenerator.swift in Sources */,
-				37993B551DFD563B00CD80F9 /* FeatureScanner.swift in Sources */,
 				37993B9D1DFD5AF300CD80F9 /* FileSystem.swift in Sources */,
 				37993B7D1DFD584C00CD80F9 /* BindingsParameters.swift in Sources */,
 				3799BB581EFE8DCA00E98071 /* StringExtensions.swift in Sources */,
 				37993B7C1DFD584C00CD80F9 /* Bindings.swift in Sources */,
-				37993B471DFD55FE00CD80F9 /* Scenario.swift in Sources */,
 				37993B7F1DFD584C00CD80F9 /* BindingsRegistryImplementation.swift in Sources */,
-				37993B461DFD55FE00CD80F9 /* HasTitle.swift in Sources */,
 				37993B861DFD584C00CD80F9 /* TestRunner.swift in Sources */,
-				37993B481DFD55FE00CD80F9 /* Step.swift in Sources */,
-				37993B581DFD563B00CD80F9 /* ScenarioOutlineScanner.swift in Sources */,
-				37993B5B1DFD563B00CD80F9 /* TableScanner.swift in Sources */,
-				37993B561DFD563B00CD80F9 /* GherkinFeatureParser.swift in Sources */,
 				37993B9C1DFD5AF300CD80F9 /* CocoaFileSystem.swift in Sources */,
 				3799842D1ECCCAE100784AB7 /* Builder.swift in Sources */,
 				37993B841DFD584C00CD80F9 /* StepBindingImplementation.swift in Sources */,
-				37993B5A1DFD563B00CD80F9 /* StepScanner.swift in Sources */,
 				37993B9F1DFD5AF300CD80F9 /* XCUnitTestGenerator.swift in Sources */,
-				37993B541DFD563B00CD80F9 /* FeatureParser.swift in Sources */,
 				37993BA11DFD5BAD00CD80F9 /* TestFileWriter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -533,25 +420,16 @@
 			buildActionMask = 0;
 			files = (
 				37993BB91E06796000CD80F9 /* StepParameterBindings.swift in Sources */,
-				37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */,
 				37993B6F1DFD583600CD80F9 /* MockStepBinding.swift in Sources */,
-				37993B2A1DFD51D200CD80F9 /* TableColumnsTests.swift in Sources */,
 				37993BBB1E06796000CD80F9 /* IgnoredFeatureTests.swift in Sources */,
 				37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */,
 				37993BBD1E06796000CD80F9 /* ScenarioContextTests.swift in Sources */,
 				37993B961DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift in Sources */,
 				37993B931DFD5A9A00CD80F9 /* MockFeatureParser.swift in Sources */,
-				37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */,
 				37993BBC1E06796000CD80F9 /* IgnoredScenarioTests.swift in Sources */,
-				37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */,
-				37993B2C1DFD51D200CD80F9 /* TableRowsTests.swift in Sources */,
 				37993B6C1DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift in Sources */,
-				37993B3D1DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift in Sources */,
-				37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */,
 				37993BBA1E06796000CD80F9 /* TagsBindings.swift in Sources */,
-				37993B2B1DFD51D200CD80F9 /* TableEqualityTests.swift in Sources */,
 				37993B951DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift in Sources */,
-				37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */,
 				37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */,
 				37993B971DFD5A9A00CD80F9 /* TestFileGenerationBase.swift in Sources */,
 				37993BBE1E06796000CD80F9 /* StepParametersTests.swift in Sources */,
@@ -587,6 +465,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SwiftSpec.xcodeproj/SwiftSpec_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = SwiftSpec;
@@ -607,6 +486,7 @@
 				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = SwiftSpec.xcodeproj/SwiftSpec_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				PRODUCT_BUNDLE_IDENTIFIER = SwiftSpec;
@@ -664,7 +544,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_NS_ASSERTIONS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -682,7 +562,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				MACOSX_DEPLOYMENT_TARGET = 10.15;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
@@ -722,6 +602,25 @@
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		37E9E85A249D297F0015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/danwaltin/GherkinSwift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		37E9E85B249D297F0015FAC2 /* GherkinSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 37E9E85A249D297F0015FAC2 /* XCRemoteSwiftPackageReference "GherkinSwift" */;
+			productName = GherkinSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = OBJ_1 /* Project object */;
 }

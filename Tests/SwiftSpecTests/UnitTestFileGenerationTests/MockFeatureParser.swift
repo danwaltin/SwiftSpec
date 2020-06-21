@@ -20,10 +20,14 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
-
 @testable import SwiftSpec
+import  GherkinSwift
 
 class MockFeatureParser : FeatureParser {
+	func pickle(lines: [String], fileUri: String) -> GherkinFile {
+		return GherkinFile(gherkinDocument: GherkinDocument(feature: Feature(name: ""), uri: ""))
+	}
+	
 	var parsedLines: [String] = []
 	var featureToReturn: Feature!
 

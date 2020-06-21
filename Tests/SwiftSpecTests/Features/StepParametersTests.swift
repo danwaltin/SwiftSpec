@@ -9,6 +9,7 @@
 
 import XCTest
 import SwiftSpec
+import GherkinSwift
 
 class StepsParametersArePassedToTheBindingMethodsTests : XCTestCase {
 var testRunner:TestRunner!

@@ -21,6 +21,8 @@
 //
 // ------------------------------------------------------------------------
 
+import GherkinSwift
+
 public struct BindingsParameters : Equatable {
 	public let table: Table?
 	public let matchedParameters: [String]
@@ -29,8 +31,4 @@ public struct BindingsParameters : Equatable {
 		self.table = table
 		self.matchedParameters = matchedParameters
 	}
-}
-
-public func ==(lhs: BindingsParameters, rhs: BindingsParameters) -> Bool {
-	return lhs.table == rhs.table && lhs.matchedParameters == rhs.matchedParameters
 }

@@ -20,9 +20,9 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
-
 import XCTest
 @testable import SwiftSpec
+import  GherkinSwift
 
 class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 
@@ -53,32 +53,32 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	}
 
 	// MARK: - Feature test class name
-	func test_featureClass_oneWordTitle_ShouldReturnTestFileInterface() {
-		given_featureWithTitle("Title")
+	func test_featureClass_oneWordName_ShouldReturnTestFileInterface() {
+		given_featureWithName("Name")
 		
-		then_featureClassShouldBe("class TitleTests : XCTestCase {")
+		then_featureClassShouldBe("class NameTests : XCTestCase {")
 	}
 	
-	func test_featureClass_twoWordsTitle_ShouldReturnTestFileInterface() {
-		given_featureWithTitle("Feature title")
+	func test_featureClass_twoWordsName_ShouldReturnTestFileInterface() {
+		given_featureWithName("Feature name")
 		
-		then_featureClassShouldBe("class FeatureTitleTests : XCTestCase {")
+		then_featureClassShouldBe("class FeatureNameTests : XCTestCase {")
 	}
 	
-	func test_featureClass_whenFeatureWithDashInTitle_ShouldReturnTestFileInterface() {
-		given_featureWithTitle("Feature-title")
+	func test_featureClass_whenFeatureWithDashInName_ShouldReturnTestFileInterface() {
+		given_featureWithName("Feature-name")
 		
-		then_featureClassShouldBe("class FeatureTitleTests : XCTestCase {")
+		then_featureClassShouldBe("class FeatureNameTests : XCTestCase {")
 	}
 	
 	func test_featureClass_WhenFeatureWithIgnoreTag_ShouldReturnTestFileInterface() {
-		given_featureWithTitle("Feature title", hasIgnoreTag:true)
+		given_featureWithName("Feature name", hasIgnoreTag:true)
 		
-		then_featureClassShouldBe("class IGNORE_FeatureTitleTests : Ignore {")
+		then_featureClassShouldBe("class IGNORE_FeatureNameTests : Ignore {")
 	}
 	
 	func test_featureClass_WhenFeatureWithSwedishCharacters_ShouldReplacesWithAscii() {
-		given_featureWithTitle("Xå Xä Xö Åx Äx Öx")
+		given_featureWithName("Xå Xä Xö Åx Äx Öx")
 		
 		then_featureClassShouldBe("class XaXaXoAxAxOxTests : XCTestCase {")
 	}
@@ -144,12 +144,12 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	}
 
 	// MARK: - givens, whens thens
-	func given_featureWithTitle(_ title: String, hasIgnoreTag: Bool = false) {
-		given_feature(Feature(title: title, tags: tags(hasIgnoreTag)))
+	func given_featureWithName(_ name: String, hasIgnoreTag: Bool = false) {
+		given_feature(Feature(name: name, tags: tags(hasIgnoreTag)))
 	}
 
 	func given_featureWithTags(_ tags: [String]) {
-		given_feature(Feature(title: "title", tags: tags))
+		given_feature(Feature(name: "name", tags: tags))
 	}
 
 	private func given_feature(_ feature: Feature) {
@@ -165,7 +165,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	// MARK: - Factory methods
 
 	private func defaultFeature() -> Feature {
-		return Feature(title: "default title")
+		return Feature(name: "default name")
 	}
 
 	private func instanceToTest() -> XCUnitTestGenerator {

@@ -20,9 +20,9 @@
 //  Created by Dan Waltin on 2016-06-26.
 //
 // ------------------------------------------------------------------------
-
 import XCTest
 @testable import SwiftSpec
+import  GherkinSwift
 
 class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 
@@ -37,7 +37,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		mockFeatureParser = MockFeatureParser()
 		mockUnitTestGenerator = MockUnitTestGenerator()
 		
-		given_parsedFeature(Feature(title: "default feature"))
+		given_parsedFeature(Feature(name: "default feature"))
 	}
 	
 	override func tearDown() {
@@ -118,11 +118,11 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		given_files(
 			["Specification.feature"]
 		)
-		given_parsedFeature(Feature(title: "parsed feature title"))
+		given_parsedFeature(Feature(name: "parsed feature name"))
 		
 		when_generateUnitTests()
 
-		then_theFeatureFromWhichContentIsGeneratedShouldBe(Feature(title: "parsed feature title"))
+		then_theFeatureFromWhichContentIsGeneratedShouldBe(Feature(name: "parsed feature name"))
 	}
 	
 	func test_shouldWriteUnitTestContentFromGenerator() {

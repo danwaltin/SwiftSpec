@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "GherkinSwift",
+        "repositoryURL": "https://github.com/danwaltin/GherkinSwift",
+        "state": {
+          "branch": "master",
+          "revision": "3075fc942594fc07a5ea631e644412fbd71e87bd",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
