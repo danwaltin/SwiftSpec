@@ -52,7 +52,6 @@
 		3799842B1ECBA16000784AB7 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799842A1ECBA16000784AB7 /* main.swift */; };
 		3799842D1ECCCAE100784AB7 /* Builder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799842C1ECCCAE100784AB7 /* Builder.swift */; };
 		3799BB581EFE8DCA00E98071 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3799BB571EFE8DCA00E98071 /* StringExtensions.swift */; };
-		37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */; };
 		37E9E85C249D297F0015FAC2 /* GherkinSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 37E9E85B249D297F0015FAC2 /* GherkinSwift */; };
 		OBJ_30 /* SwiftSpec.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SwiftSpec.framework */; };
 /* End PBXBuildFile section */
@@ -122,96 +121,7 @@
 		3799BB571EFE8DCA00E98071 /* StringExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
 		37A7F6471E165E8900DDB78B /* Todo.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Todo.txt; sourceTree = "<group>"; };
 		37ABCE56210F116F00B47B23 /* SwiftSpecPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = SwiftSpecPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
-		37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PickleTestDataFilesTests.swift; sourceTree = "<group>"; };
-		37E9E851249CEB9F0015FAC2 /* background.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E853249CEC7E0015FAC2 /* background.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = background.feature; sourceTree = "<group>"; };
 		37E9E861249D29B90015FAC2 /* GherkinSwift */ = {isa = PBXFileReference; lastKnownFileType = folder; name = GherkinSwift; path = ../GherkinSwift; sourceTree = "<group>"; };
-		37E9E862249D53A30015FAC2 /* multiple_parser_errors.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multiple_parser_errors.feature; sourceTree = "<group>"; };
-		37E9E863249D53A30015FAC2 /* whitespace_in_tags.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = whitespace_in_tags.feature.errors.ndjson; sourceTree = "<group>"; };
-		37E9E864249D53A30015FAC2 /* multiple_parser_errors.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = multiple_parser_errors.feature.errors.ndjson; sourceTree = "<group>"; };
-		37E9E865249D53A30015FAC2 /* invalid_language.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid_language.feature; sourceTree = "<group>"; };
-		37E9E866249D53A30015FAC2 /* single_parser_error.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = single_parser_error.feature; sourceTree = "<group>"; };
-		37E9E867249D53A30015FAC2 /* invalid_language.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = invalid_language.feature.errors.ndjson; sourceTree = "<group>"; };
-		37E9E868249D53A30015FAC2 /* whitespace_in_tags.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = whitespace_in_tags.feature; sourceTree = "<group>"; };
-		37E9E869249D53A30015FAC2 /* unexpected_eof.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unexpected_eof.feature.errors.ndjson; sourceTree = "<group>"; };
-		37E9E86A249D53A30015FAC2 /* unexpected_eof.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = unexpected_eof.feature; sourceTree = "<group>"; };
-		37E9E86B249D53A30015FAC2 /* inconsistent_cell_count.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = inconsistent_cell_count.feature; sourceTree = "<group>"; };
-		37E9E86C249D53A30015FAC2 /* single_parser_error.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = single_parser_error.feature.errors.ndjson; sourceTree = "<group>"; };
-		37E9E86D249D53A30015FAC2 /* not_gherkin.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = not_gherkin.feature.errors.ndjson; sourceTree = "<group>"; };
-		37E9E86E249D53A30015FAC2 /* inconsistent_cell_count.feature.errors.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = inconsistent_cell_count.feature.errors.ndjson; sourceTree = "<group>"; };
-		37E9E86F249D53A30015FAC2 /* not_gherkin.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = not_gherkin.feature; sourceTree = "<group>"; };
-		37E9E870249D548E0015FAC2 /* i18n_fr.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = i18n_fr.feature; sourceTree = "<group>"; };
-		37E9E871249D548E0015FAC2 /* scenario_outline_with_docstring.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline_with_docstring.feature; sourceTree = "<group>"; };
-		37E9E872249D548E0015FAC2 /* incomplete_scenario.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_scenario.feature; sourceTree = "<group>"; };
-		37E9E873249D548E0015FAC2 /* i18n_emoji.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = i18n_emoji.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E874249D548E0015FAC2 /* incomplete_scenario_outline.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_scenario_outline.feature; sourceTree = "<group>"; };
-		37E9E875249D548E0015FAC2 /* language.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = language.feature; sourceTree = "<group>"; };
-		37E9E876249D548E0015FAC2 /* incomplete_feature_1.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_feature_1.feature; sourceTree = "<group>"; };
-		37E9E877249D548E0015FAC2 /* example_token_multiple.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_token_multiple.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E878249D548E0015FAC2 /* docstrings.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = docstrings.feature; sourceTree = "<group>"; };
-		37E9E879249D548E0015FAC2 /* several_examples.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = several_examples.feature; sourceTree = "<group>"; };
-		37E9E87A249D548E0015FAC2 /* complex_background.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = complex_background.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E87B249D548E0015FAC2 /* descriptions.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptions.feature; sourceTree = "<group>"; };
-		37E9E87C249D548E0015FAC2 /* complex_background.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = complex_background.feature; sourceTree = "<group>"; };
-		37E9E87D249D548E0015FAC2 /* incomplete_background_1.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_background_1.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E87E249D548E0015FAC2 /* incomplete_scenario_outline.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_scenario_outline.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E87F249D548E0015FAC2 /* incomplete_feature_3.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_feature_3.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E880249D548E0015FAC2 /* incomplete_background_1.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_background_1.feature; sourceTree = "<group>"; };
-		37E9E881249D548E0015FAC2 /* scenario_outline_with_docstring.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline_with_docstring.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E882249D548E0015FAC2 /* scenario_outline.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E883249D548E0015FAC2 /* i18n_fr.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = i18n_fr.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E884249D548E0015FAC2 /* escaped_pipes.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = escaped_pipes.feature; sourceTree = "<group>"; };
-		37E9E885249D548E0015FAC2 /* datatables.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = datatables.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E886249D548E0015FAC2 /* datatables.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = datatables.feature; sourceTree = "<group>"; };
-		37E9E887249D548F0015FAC2 /* tagged_feature_with_scenario_outline.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tagged_feature_with_scenario_outline.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E888249D548F0015FAC2 /* language.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = language.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E889249D548F0015FAC2 /* empty.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = empty.feature; sourceTree = "<group>"; };
-		37E9E88A249D548F0015FAC2 /* rule_without_name_and_description.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rule_without_name_and_description.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E88B249D548F0015FAC2 /* incomplete_background_2.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_background_2.feature; sourceTree = "<group>"; };
-		37E9E88C249D548F0015FAC2 /* escaped_pipes.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = escaped_pipes.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E88D249D548F0015FAC2 /* rule.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rule.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E88E249D548F0015FAC2 /* incomplete_scenario.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_scenario.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E88F249D548F0015FAC2 /* several_examples.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = several_examples.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E890249D548F0015FAC2 /* spaces_in_language.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spaces_in_language.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E891249D548F0015FAC2 /* minimal.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = minimal.feature; sourceTree = "<group>"; };
-		37E9E892249D548F0015FAC2 /* minimal-example.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "minimal-example.feature"; sourceTree = "<group>"; };
-		37E9E893249D548F0015FAC2 /* very_long.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = very_long.feature; sourceTree = "<group>"; };
-		37E9E894249D548F0015FAC2 /* example_tokens_everywhere.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_tokens_everywhere.feature; sourceTree = "<group>"; };
-		37E9E895249D548F0015FAC2 /* very_long.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = very_long.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E896249D548F0015FAC2 /* scenario_outlines_with_tags.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outlines_with_tags.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E897249D548F0015FAC2 /* incomplete_background_2.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_background_2.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E898249D548F0015FAC2 /* readme_example.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme_example.feature; sourceTree = "<group>"; };
-		37E9E899249D548F0015FAC2 /* descriptions.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = descriptions.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E89A249D548F0015FAC2 /* spaces_in_language.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = spaces_in_language.feature; sourceTree = "<group>"; };
-		37E9E89B249D548F0015FAC2 /* i18n_no.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = i18n_no.feature; sourceTree = "<group>"; };
-		37E9E89C249D548F0015FAC2 /* tags.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tags.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E89D249D548F0015FAC2 /* datatables_with_new_lines.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = datatables_with_new_lines.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E89E249D548F0015FAC2 /* scenario_outline_no_newline.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline_no_newline.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E89F249D548F0015FAC2 /* incomplete_feature_2.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_feature_2.feature; sourceTree = "<group>"; };
-		37E9E8A0249D548F0015FAC2 /* example_token_multiple.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_token_multiple.feature; sourceTree = "<group>"; };
-		37E9E8A1249D548F0015FAC2 /* incomplete_feature_3.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_feature_3.feature; sourceTree = "<group>"; };
-		37E9E8A2249D548F0015FAC2 /* datatables_with_new_lines.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = datatables_with_new_lines.feature; sourceTree = "<group>"; };
-		37E9E8A3249D548F0015FAC2 /* docstrings.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = docstrings.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8A4249D548F0015FAC2 /* incomplete_feature_2.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_feature_2.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8A5249D548F0015FAC2 /* scenario_outlines_with_tags.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outlines_with_tags.feature; sourceTree = "<group>"; };
-		37E9E8A6249D548F0015FAC2 /* scenario_outline_with_value_with_dollar_sign.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline_with_value_with_dollar_sign.feature; sourceTree = "<group>"; };
-		37E9E8A7249D548F0015FAC2 /* incomplete_feature_1.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = incomplete_feature_1.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8A8249D54900015FAC2 /* minimal-example.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "minimal-example.feature.ast.ndjson"; sourceTree = "<group>"; };
-		37E9E8A9249D54900015FAC2 /* rule.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rule.feature; sourceTree = "<group>"; };
-		37E9E8AA249D54900015FAC2 /* scenario_outline_no_newline.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline_no_newline.feature; sourceTree = "<group>"; };
-		37E9E8AB249D54900015FAC2 /* scenario_outline.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline.feature; sourceTree = "<group>"; };
-		37E9E8AC249D54900015FAC2 /* tagged_feature_with_scenario_outline.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tagged_feature_with_scenario_outline.feature; sourceTree = "<group>"; };
-		37E9E8AD249D54900015FAC2 /* rule_without_name_and_description.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rule_without_name_and_description.feature; sourceTree = "<group>"; };
-		37E9E8AE249D54900015FAC2 /* tags.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tags.feature; sourceTree = "<group>"; };
-		37E9E8AF249D54900015FAC2 /* readme_example.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = readme_example.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8B0249D54900015FAC2 /* empty.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = empty.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8B1249D54900015FAC2 /* padded_example.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = padded_example.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8B2249D54900015FAC2 /* i18n_emoji.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = i18n_emoji.feature; sourceTree = "<group>"; };
-		37E9E8B3249D54900015FAC2 /* padded_example.feature */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = padded_example.feature; sourceTree = "<group>"; };
-		37E9E8B4249D54900015FAC2 /* i18n_no.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = i18n_no.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8B5249D54900015FAC2 /* scenario_outline_with_value_with_dollar_sign.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = scenario_outline_with_value_with_dollar_sign.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8B6249D54900015FAC2 /* minimal.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = minimal.feature.ast.ndjson; sourceTree = "<group>"; };
-		37E9E8B7249D54900015FAC2 /* example_tokens_everywhere.feature.ast.ndjson */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = example_tokens_everywhere.feature.ast.ndjson; sourceTree = "<group>"; };
 		OBJ_14 /* SwiftSpec.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SwiftSpec.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_15 /* SwiftSpecTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = SwiftSpecTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
@@ -345,125 +255,6 @@
 			path = SwiftSpecConsole;
 			sourceTree = "<group>";
 		};
-		37E9E783249CEA710015FAC2 /* PickleTests */ = {
-			isa = PBXGroup;
-			children = (
-				37E9E784249CEA850015FAC2 /* PickleTestDataFilesTests.swift */,
-			);
-			path = PickleTests;
-			sourceTree = "<group>";
-		};
-		37E9E786249CEB7A0015FAC2 /* testdata */ = {
-			isa = PBXGroup;
-			children = (
-				37E9E787249CEB7A0015FAC2 /* bad */,
-				37E9E796249CEB7A0015FAC2 /* good */,
-			);
-			path = testdata;
-			sourceTree = "<group>";
-		};
-		37E9E787249CEB7A0015FAC2 /* bad */ = {
-			isa = PBXGroup;
-			children = (
-				37E9E86B249D53A30015FAC2 /* inconsistent_cell_count.feature */,
-				37E9E86E249D53A30015FAC2 /* inconsistent_cell_count.feature.errors.ndjson */,
-				37E9E865249D53A30015FAC2 /* invalid_language.feature */,
-				37E9E867249D53A30015FAC2 /* invalid_language.feature.errors.ndjson */,
-				37E9E862249D53A30015FAC2 /* multiple_parser_errors.feature */,
-				37E9E864249D53A30015FAC2 /* multiple_parser_errors.feature.errors.ndjson */,
-				37E9E86F249D53A30015FAC2 /* not_gherkin.feature */,
-				37E9E86D249D53A30015FAC2 /* not_gherkin.feature.errors.ndjson */,
-				37E9E866249D53A30015FAC2 /* single_parser_error.feature */,
-				37E9E86C249D53A30015FAC2 /* single_parser_error.feature.errors.ndjson */,
-				37E9E86A249D53A30015FAC2 /* unexpected_eof.feature */,
-				37E9E869249D53A30015FAC2 /* unexpected_eof.feature.errors.ndjson */,
-				37E9E868249D53A30015FAC2 /* whitespace_in_tags.feature */,
-				37E9E863249D53A30015FAC2 /* whitespace_in_tags.feature.errors.ndjson */,
-			);
-			path = bad;
-			sourceTree = "<group>";
-		};
-		37E9E796249CEB7A0015FAC2 /* good */ = {
-			isa = PBXGroup;
-			children = (
-				37E9E853249CEC7E0015FAC2 /* background.feature */,
-				37E9E851249CEB9F0015FAC2 /* background.feature.ast.ndjson */,
-				37E9E87C249D548E0015FAC2 /* complex_background.feature */,
-				37E9E87A249D548E0015FAC2 /* complex_background.feature.ast.ndjson */,
-				37E9E8A2249D548F0015FAC2 /* datatables_with_new_lines.feature */,
-				37E9E89D249D548F0015FAC2 /* datatables_with_new_lines.feature.ast.ndjson */,
-				37E9E886249D548E0015FAC2 /* datatables.feature */,
-				37E9E885249D548E0015FAC2 /* datatables.feature.ast.ndjson */,
-				37E9E87B249D548E0015FAC2 /* descriptions.feature */,
-				37E9E899249D548F0015FAC2 /* descriptions.feature.ast.ndjson */,
-				37E9E878249D548E0015FAC2 /* docstrings.feature */,
-				37E9E8A3249D548F0015FAC2 /* docstrings.feature.ast.ndjson */,
-				37E9E889249D548F0015FAC2 /* empty.feature */,
-				37E9E8B0249D54900015FAC2 /* empty.feature.ast.ndjson */,
-				37E9E884249D548E0015FAC2 /* escaped_pipes.feature */,
-				37E9E88C249D548F0015FAC2 /* escaped_pipes.feature.ast.ndjson */,
-				37E9E8A0249D548F0015FAC2 /* example_token_multiple.feature */,
-				37E9E877249D548E0015FAC2 /* example_token_multiple.feature.ast.ndjson */,
-				37E9E894249D548F0015FAC2 /* example_tokens_everywhere.feature */,
-				37E9E8B7249D54900015FAC2 /* example_tokens_everywhere.feature.ast.ndjson */,
-				37E9E8B2249D54900015FAC2 /* i18n_emoji.feature */,
-				37E9E873249D548E0015FAC2 /* i18n_emoji.feature.ast.ndjson */,
-				37E9E870249D548E0015FAC2 /* i18n_fr.feature */,
-				37E9E883249D548E0015FAC2 /* i18n_fr.feature.ast.ndjson */,
-				37E9E89B249D548F0015FAC2 /* i18n_no.feature */,
-				37E9E8B4249D54900015FAC2 /* i18n_no.feature.ast.ndjson */,
-				37E9E880249D548E0015FAC2 /* incomplete_background_1.feature */,
-				37E9E87D249D548E0015FAC2 /* incomplete_background_1.feature.ast.ndjson */,
-				37E9E88B249D548F0015FAC2 /* incomplete_background_2.feature */,
-				37E9E897249D548F0015FAC2 /* incomplete_background_2.feature.ast.ndjson */,
-				37E9E876249D548E0015FAC2 /* incomplete_feature_1.feature */,
-				37E9E8A7249D548F0015FAC2 /* incomplete_feature_1.feature.ast.ndjson */,
-				37E9E89F249D548F0015FAC2 /* incomplete_feature_2.feature */,
-				37E9E8A4249D548F0015FAC2 /* incomplete_feature_2.feature.ast.ndjson */,
-				37E9E8A1249D548F0015FAC2 /* incomplete_feature_3.feature */,
-				37E9E87F249D548E0015FAC2 /* incomplete_feature_3.feature.ast.ndjson */,
-				37E9E874249D548E0015FAC2 /* incomplete_scenario_outline.feature */,
-				37E9E87E249D548E0015FAC2 /* incomplete_scenario_outline.feature.ast.ndjson */,
-				37E9E872249D548E0015FAC2 /* incomplete_scenario.feature */,
-				37E9E88E249D548F0015FAC2 /* incomplete_scenario.feature.ast.ndjson */,
-				37E9E875249D548E0015FAC2 /* language.feature */,
-				37E9E888249D548F0015FAC2 /* language.feature.ast.ndjson */,
-				37E9E892249D548F0015FAC2 /* minimal-example.feature */,
-				37E9E8A8249D54900015FAC2 /* minimal-example.feature.ast.ndjson */,
-				37E9E891249D548F0015FAC2 /* minimal.feature */,
-				37E9E8B6249D54900015FAC2 /* minimal.feature.ast.ndjson */,
-				37E9E8B3249D54900015FAC2 /* padded_example.feature */,
-				37E9E8B1249D54900015FAC2 /* padded_example.feature.ast.ndjson */,
-				37E9E898249D548F0015FAC2 /* readme_example.feature */,
-				37E9E8AF249D54900015FAC2 /* readme_example.feature.ast.ndjson */,
-				37E9E8AD249D54900015FAC2 /* rule_without_name_and_description.feature */,
-				37E9E88A249D548F0015FAC2 /* rule_without_name_and_description.feature.ast.ndjson */,
-				37E9E8A9249D54900015FAC2 /* rule.feature */,
-				37E9E88D249D548F0015FAC2 /* rule.feature.ast.ndjson */,
-				37E9E8AA249D54900015FAC2 /* scenario_outline_no_newline.feature */,
-				37E9E89E249D548F0015FAC2 /* scenario_outline_no_newline.feature.ast.ndjson */,
-				37E9E871249D548E0015FAC2 /* scenario_outline_with_docstring.feature */,
-				37E9E881249D548E0015FAC2 /* scenario_outline_with_docstring.feature.ast.ndjson */,
-				37E9E8A6249D548F0015FAC2 /* scenario_outline_with_value_with_dollar_sign.feature */,
-				37E9E8B5249D54900015FAC2 /* scenario_outline_with_value_with_dollar_sign.feature.ast.ndjson */,
-				37E9E8AB249D54900015FAC2 /* scenario_outline.feature */,
-				37E9E882249D548E0015FAC2 /* scenario_outline.feature.ast.ndjson */,
-				37E9E8A5249D548F0015FAC2 /* scenario_outlines_with_tags.feature */,
-				37E9E896249D548F0015FAC2 /* scenario_outlines_with_tags.feature.ast.ndjson */,
-				37E9E879249D548E0015FAC2 /* several_examples.feature */,
-				37E9E88F249D548F0015FAC2 /* several_examples.feature.ast.ndjson */,
-				37E9E89A249D548F0015FAC2 /* spaces_in_language.feature */,
-				37E9E890249D548F0015FAC2 /* spaces_in_language.feature.ast.ndjson */,
-				37E9E8AC249D54900015FAC2 /* tagged_feature_with_scenario_outline.feature */,
-				37E9E887249D548F0015FAC2 /* tagged_feature_with_scenario_outline.feature.ast.ndjson */,
-				37E9E8AE249D54900015FAC2 /* tags.feature */,
-				37E9E89C249D548F0015FAC2 /* tags.feature.ast.ndjson */,
-				37E9E893249D548F0015FAC2 /* very_long.feature */,
-				37E9E895249D548F0015FAC2 /* very_long.feature.ast.ndjson */,
-			);
-			path = good;
-			sourceTree = "<group>";
-		};
 		OBJ_10 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -476,8 +267,6 @@
 		OBJ_11 /* SwiftSpecTests */ = {
 			isa = PBXGroup;
 			children = (
-				37E9E786249CEB7A0015FAC2 /* testdata */,
-				37E9E783249CEA710015FAC2 /* PickleTests */,
 				37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */,
 				371F3D9B2103467600F2B87E /* ReflectionTests.swift */,
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
@@ -631,7 +420,6 @@
 			buildActionMask = 0;
 			files = (
 				37993BB91E06796000CD80F9 /* StepParameterBindings.swift in Sources */,
-				37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */,
 				37993B6F1DFD583600CD80F9 /* MockStepBinding.swift in Sources */,
 				37993BBB1E06796000CD80F9 /* IgnoredFeatureTests.swift in Sources */,
 				37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */,
