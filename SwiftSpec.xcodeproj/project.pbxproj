@@ -8,12 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		371F3D9C2103467600F2B87E /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F3D9B2103467600F2B87E /* ReflectionTests.swift */; };
-		37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */; };
-		37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */; };
-		37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */; };
-		37993B3D1DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B371DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift */; };
-		37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */; };
-		37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B391DFD55CF00CD80F9 /* TestParseBase.swift */; };
 		37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */; };
 		37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B631DFD577700CD80F9 /* ScenarioContext.swift */; };
 		37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B661DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift */; };
@@ -76,12 +70,6 @@
 /* Begin PBXFileReference section */
 		371F3D9B2103467600F2B87E /* ReflectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionTests.swift; sourceTree = "<group>"; };
 		37993B241DFD48DE00CD80F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseFeatureInformationTests.swift; sourceTree = "<group>"; };
-		37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenarioOutlinesTests.swift; sourceTree = "<group>"; };
-		37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseScenariosTests.swift; sourceTree = "<group>"; };
-		37993B371DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseSeveralFeaturesWithSameInstance.swift; sourceTree = "<group>"; };
-		37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseTagsTest.swift; sourceTree = "<group>"; };
-		37993B391DFD55CF00CD80F9 /* TestParseBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TestParseBase.swift; sourceTree = "<group>"; };
 		37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAndGetScenarioContextValuesTests.swift; sourceTree = "<group>"; };
 		37993B631DFD577700CD80F9 /* ScenarioContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContext.swift; sourceTree = "<group>"; };
 		37993B661DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExecuteRegistredBindingTests.swift; sourceTree = "<group>"; };
@@ -271,19 +259,6 @@
 				3799BB571EFE8DCA00E98071 /* StringExtensions.swift */,
 			);
 			path = SwiftSpec;
-			sourceTree = "<group>";
-		};
-		37993B331DFD55CF00CD80F9 /* ParsingTests */ = {
-			isa = PBXGroup;
-			children = (
-				37993B341DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift */,
-				37993B351DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift */,
-				37993B361DFD55CF00CD80F9 /* ParseScenariosTests.swift */,
-				37993B371DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift */,
-				37993B381DFD55CF00CD80F9 /* ParseTagsTest.swift */,
-				37993B391DFD55CF00CD80F9 /* TestParseBase.swift */,
-			);
-			path = ParsingTests;
 			sourceTree = "<group>";
 		};
 		37993B651DFD583600CD80F9 /* TestExecutionTests */ = {
@@ -507,7 +482,6 @@
 				371F3D9B2103467600F2B87E /* ReflectionTests.swift */,
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
 				37993B651DFD583600CD80F9 /* TestExecutionTests */,
-				37993B331DFD55CF00CD80F9 /* ParsingTests */,
 			);
 			name = SwiftSpecTests;
 			path = Tests/SwiftSpecTests;
@@ -658,22 +632,16 @@
 			files = (
 				37993BB91E06796000CD80F9 /* StepParameterBindings.swift in Sources */,
 				37E9E785249CEA850015FAC2 /* PickleTestDataFilesTests.swift in Sources */,
-				37993B3E1DFD55CF00CD80F9 /* ParseTagsTest.swift in Sources */,
 				37993B6F1DFD583600CD80F9 /* MockStepBinding.swift in Sources */,
 				37993BBB1E06796000CD80F9 /* IgnoredFeatureTests.swift in Sources */,
 				37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */,
 				37993BBD1E06796000CD80F9 /* ScenarioContextTests.swift in Sources */,
 				37993B961DFD5A9A00CD80F9 /* ScenarioContentUnitTestTests.swift in Sources */,
 				37993B931DFD5A9A00CD80F9 /* MockFeatureParser.swift in Sources */,
-				37993B3A1DFD55CF00CD80F9 /* ParseFeatureInformationTests.swift in Sources */,
 				37993BBC1E06796000CD80F9 /* IgnoredScenarioTests.swift in Sources */,
-				37993B3F1DFD55CF00CD80F9 /* TestParseBase.swift in Sources */,
 				37993B6C1DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift in Sources */,
-				37993B3D1DFD55CF00CD80F9 /* ParseSeveralFeaturesWithSameInstance.swift in Sources */,
-				37993B3C1DFD55CF00CD80F9 /* ParseScenariosTests.swift in Sources */,
 				37993BBA1E06796000CD80F9 /* TagsBindings.swift in Sources */,
 				37993B951DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift in Sources */,
-				37993B3B1DFD55CF00CD80F9 /* ParseScenarioOutlinesTests.swift in Sources */,
 				37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */,
 				37993B971DFD5A9A00CD80F9 /* TestFileGenerationBase.swift in Sources */,
 				37993BBE1E06796000CD80F9 /* StepParametersTests.swift in Sources */,
