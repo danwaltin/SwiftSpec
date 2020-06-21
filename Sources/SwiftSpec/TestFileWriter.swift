@@ -50,7 +50,7 @@ class TestFileWriterImplementation : TestFileWriter {
 			
 			let path = unitTestFileName(featureFile: featureFile)
 			let lines = try! fileSystem.readAllLines(atPath: featureFile)
-			let feature = featureParser.parse(lines: lines)
+			let feature = featureParser.pickle(lines: lines, fileUri: "").gherkinDocument.feature
 			let content = unitTestGenerator.generateUnitTest(feature: feature)
 			
 			try! fileSystem.writeFile(
