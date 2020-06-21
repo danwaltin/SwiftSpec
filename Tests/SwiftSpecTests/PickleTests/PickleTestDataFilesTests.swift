@@ -46,13 +46,12 @@ class PickleTestDataFilesTests: XCTestCase {
 	}
 	
 	private func gherkinFile(path: String, test: String) -> GherkinFile {
+		
 		let testFileContent = stringContent(of: test + ".feature", inDirectory: path)
 
 		let lines = testFileContent.lines()
 
-		let f = parser().parse(lines: lines)
-		
-		return GherkinFile(gherkinDocument: GherkinDocument(feature: f))
+		return parser().pickle(lines: lines, fileUri: path + "/" + test + ".feature")
 	}
 	
 	private func stringContent(of file: String, inDirectory directory: String) -> String {
