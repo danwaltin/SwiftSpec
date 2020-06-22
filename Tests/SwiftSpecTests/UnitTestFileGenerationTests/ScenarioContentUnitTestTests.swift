@@ -306,7 +306,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 	
 	private func scenario(_ name: String, tags: [String] = []) -> Scenario {
-		return Scenario(name: name, tags: tags, steps: [])
+		return Scenario(name: name, tags: tags, location: Location.zero(), steps: [])
 	}
 
 	private func scenario(_ name: String, _ steps: [Step] = []) -> Scenario {
@@ -314,7 +314,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	private func scenario(_ name: String, _ hasIgnoreTag: Bool, _ steps: [Step] = []) -> Scenario {
-		return Scenario(name: name, tags: tags(hasIgnoreTag), steps: steps)
+		return Scenario(name: name, tags: tags(hasIgnoreTag), location: Location.zero(), steps: steps)
 	}
 	
 	private func given(_ text: String, _ table: Table? = nil) -> Step {
