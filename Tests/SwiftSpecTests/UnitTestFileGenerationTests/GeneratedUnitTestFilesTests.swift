@@ -37,7 +37,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		mockFeatureParser = MockFeatureParser()
 		mockUnitTestGenerator = MockUnitTestGenerator()
 		
-		given_parsedFeature(Feature(name: "default feature"))
+		given_parsedFeature(Feature(name: "default feature", description: nil, location: Location(column: 1, line: 1)))
 	}
 	
 	override func tearDown() {
@@ -118,11 +118,11 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		given_files(
 			["Specification.feature"]
 		)
-		given_parsedFeature(Feature(name: "parsed feature name"))
+		given_parsedFeature(Feature(name: "parsed feature name", description: nil, location: Location(column: 1, line: 1)))
 		
 		when_generateUnitTests()
 
-		then_theFeatureFromWhichContentIsGeneratedShouldBe(Feature(name: "parsed feature name"))
+		then_theFeatureFromWhichContentIsGeneratedShouldBe(Feature(name: "parsed feature name", description: nil, location: Location(column: 1, line: 1)))
 	}
 	
 	func test_shouldWriteUnitTestContentFromGenerator() {
