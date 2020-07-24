@@ -1,5 +1,5 @@
 // ------------------------------------------------------------------------
-// Copyright 2017 Dan Waltin
+// Copyright 2020 Dan Waltin
 //
 // Licensed under the Apache License, Version 2.0 (the "License");
 // you may not use this file except in compliance with the License.
@@ -14,29 +14,29 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  TestFileGenerationBase.swift
+//  StepExtensions.swift
 //  SwiftSpec
 //
-//  Created by Dan Waltin on 2016-07-26.
+//  Created by Dan Waltin on 2020-07-24.
 //
 // ------------------------------------------------------------------------
 
-import XCTest
-@testable import SwiftSpec
-import  GherkinSwift
+import GherkinSwift
 
-class TestFileGenerationBase : XCTestCase {
-
-	// MARK: - Factory methods
-	
-	func feature(name: String, tags: [Tag] = []) -> Feature {
-		return Feature(name: name, description: nil, background: nil, tags: tags, location: Location.zero(), language: "en", localizedKeyword: "Feature")
+extension Step {
+	static func given(_ text: String, _ table: Table? = nil) -> Step {
+		return step(.given, text, table)
 	}
 
-	func tags(_ hasIgnoreTag: Bool) -> [Tag] {
-		if hasIgnoreTag {
-			return [Tag(name: ignoreTag, location: Location.zero())]
-		}
-		return []
+	static func when(_ text: String, _ table: Table? = nil) -> Step {
+		return step(.when, text, table)
+	}
+
+	static func then(_ text: String, _ table: Table? = nil) -> Step {
+		return step(.then, text, table)
+	}
+
+	private static func step(_ stepType: StepType, _ text: String, _ table: Table? = nil) -> Step {
+		return Step(stepType, text, location: Location.zero(), tableParameter: table, docStringParameter: nil, localizedKeyword: "Localized keyword")
 	}
 }

@@ -14,41 +14,32 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  ExecuteStepBindingFunctionTests.swift
+//  TableParameterColumnsTests.swift
 //  SwiftSpec
 //
-//  Created by Dan Waltin on 2016-07-23.
+//  Created by Dan Waltin on 2016-07-29.
 //
 // ------------------------------------------------------------------------
 
 import XCTest
 @testable import SwiftSpec
-@testable import GherkinSwift
 
-class ExecuteStepBindingFunctionTests : XCTestCase {
-
-	func test_functionIsExecuted() {
-		var hasBeenExecuted = false
-		let s = step {_ in 
-			hasBeenExecuted = true
-		}
-		try! s.execute(BindingsParameters())
+class TableParameterColumnsTests : XCTestCase {
+	func test_zeroColumns() {
+		let table = TableParameter(columns: [])
 		
-		XCTAssertTrue(hasBeenExecuted)
+		XCTAssertEqual(table.columns, [])
 	}
-
-	func test_bindingsParametersAreSet() {
-		var parameters: BindingsParameters?
-		let s = step {
-			parameters = $0
-		}
-		try! s.execute(BindingsParameters(tableParameter: TableParameter(columns: ["c"])))
+	
+	func test_oneColumn() {
+		let table = TableParameter(columns: ["column"])
 		
-		XCTAssertEqual(parameters, BindingsParameters(tableParameter: TableParameter(columns: ["c"])))
+		XCTAssertEqual(table.columns, ["column"])
 	}
-
-	// MARK: - Factory methods
-	private func step(_ function: @escaping (BindingsParameters) -> ()) -> StepBindingImplementation {
-		return StepBindingImplementation(stepText: "text", function: function)
+	
+	func test_twoColumns() {
+		let table = TableParameter(columns: ["one", "two"])
+		
+		XCTAssertEqual(table.columns, ["one", "two"])
 	}
 }

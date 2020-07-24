@@ -14,29 +14,24 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  TestFileGenerationBase.swift
+//  TableParameterRow.swift
 //  SwiftSpec
 //
-//  Created by Dan Waltin on 2016-07-26.
+//  Created by Dan Waltin on 2016-12-11.
 //
 // ------------------------------------------------------------------------
 
-import XCTest
-@testable import SwiftSpec
-import  GherkinSwift
+import Foundation
 
-class TestFileGenerationBase : XCTestCase {
-
-	// MARK: - Factory methods
+public struct TableParameterRow : Equatable {
 	
-	func feature(name: String, tags: [Tag] = []) -> Feature {
-		return Feature(name: name, description: nil, background: nil, tags: tags, location: Location.zero(), language: "en", localizedKeyword: "Feature")
+	internal let cells: [String: String]
+	
+	internal init(cells: [String: String]) {
+		self.cells = cells
 	}
-
-	func tags(_ hasIgnoreTag: Bool) -> [Tag] {
-		if hasIgnoreTag {
-			return [Tag(name: ignoreTag, location: Location.zero())]
-		}
-		return []
+	
+	public subscript(column: String) -> String {
+		return cells[column]!
 	}
 }

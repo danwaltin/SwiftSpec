@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		371F3D9C2103467600F2B87E /* ReflectionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 371F3D9B2103467600F2B87E /* ReflectionTests.swift */; };
+		378EF9F124CB479D00E4557B /* TableParameter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EF9EF24CB479D00E4557B /* TableParameter.swift */; };
+		378EF9F224CB479D00E4557B /* TableParameterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EF9F024CB479D00E4557B /* TableParameterRow.swift */; };
+		378EF9F624CB484500E4557B /* TableParameterRowsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EF9F424CB484500E4557B /* TableParameterRowsTests.swift */; };
+		378EF9F724CB484500E4557B /* TableParameterColumnsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EF9F524CB484500E4557B /* TableParameterColumnsTests.swift */; };
+		378EF9F924CB5BFF00E4557B /* StepExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378EF9F824CB5BFF00E4557B /* StepExtensions.swift */; };
 		37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */; };
 		37993B641DFD577700CD80F9 /* ScenarioContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B631DFD577700CD80F9 /* ScenarioContext.swift */; };
 		37993B6B1DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37993B661DFD583600CD80F9 /* ExecuteRegistredBindingTests.swift */; };
@@ -68,6 +73,11 @@
 
 /* Begin PBXFileReference section */
 		371F3D9B2103467600F2B87E /* ReflectionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectionTests.swift; sourceTree = "<group>"; };
+		378EF9EF24CB479D00E4557B /* TableParameter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableParameter.swift; sourceTree = "<group>"; };
+		378EF9F024CB479D00E4557B /* TableParameterRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableParameterRow.swift; sourceTree = "<group>"; };
+		378EF9F424CB484500E4557B /* TableParameterRowsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableParameterRowsTests.swift; sourceTree = "<group>"; };
+		378EF9F524CB484500E4557B /* TableParameterColumnsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableParameterColumnsTests.swift; sourceTree = "<group>"; };
+		378EF9F824CB5BFF00E4557B /* StepExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepExtensions.swift; sourceTree = "<group>"; };
 		37993B241DFD48DE00CD80F9 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetAndGetScenarioContextValuesTests.swift; sourceTree = "<group>"; };
 		37993B631DFD577700CD80F9 /* ScenarioContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScenarioContext.swift; sourceTree = "<group>"; };
@@ -154,9 +164,20 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		378EF9F324CB484500E4557B /* TableParameterTests */ = {
+			isa = PBXGroup;
+			children = (
+				378EF9F424CB484500E4557B /* TableParameterRowsTests.swift */,
+				378EF9F524CB484500E4557B /* TableParameterColumnsTests.swift */,
+			);
+			path = TableParameterTests;
+			sourceTree = "<group>";
+		};
 		37993B2D1DFD52F100CD80F9 /* SwiftSpec */ = {
 			isa = PBXGroup;
 			children = (
+				378EF9EF24CB479D00E4557B /* TableParameter.swift */,
+				378EF9F024CB479D00E4557B /* TableParameterRow.swift */,
 				3799842C1ECCCAE100784AB7 /* Builder.swift */,
 				37993B981DFD5AF300CD80F9 /* CocoaFileSystem.swift */,
 				37993B991DFD5AF300CD80F9 /* FileSystem.swift */,
@@ -267,10 +288,12 @@
 		OBJ_11 /* SwiftSpecTests */ = {
 			isa = PBXGroup;
 			children = (
+				378EF9F324CB484500E4557B /* TableParameterTests */,
 				37993B5F1DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift */,
 				371F3D9B2103467600F2B87E /* ReflectionTests.swift */,
 				37993B891DFD5A9A00CD80F9 /* UnitTestFileGenerationTests */,
 				37993B651DFD583600CD80F9 /* TestExecutionTests */,
+				378EF9F824CB5BFF00E4557B /* StepExtensions.swift */,
 			);
 			name = SwiftSpecTests;
 			path = Tests/SwiftSpecTests;
@@ -395,6 +418,8 @@
 				3799842B1ECBA16000784AB7 /* main.swift in Sources */,
 				37993B831DFD584C00CD80F9 /* StepBinding.swift in Sources */,
 				37993B7E1DFD584C00CD80F9 /* BindingsRegistry.swift in Sources */,
+				378EF9F224CB479D00E4557B /* TableParameterRow.swift in Sources */,
+				378EF9F124CB479D00E4557B /* TableParameter.swift in Sources */,
 				37993B811DFD584C00CD80F9 /* BindingsRepositoryImplementation.swift in Sources */,
 				37993B821DFD584C00CD80F9 /* Ignore.swift in Sources */,
 				37993B881DFD589400CD80F9 /* Reflection.swift in Sources */,
@@ -428,9 +453,12 @@
 				37993B931DFD5A9A00CD80F9 /* MockFeatureParser.swift in Sources */,
 				37993BBC1E06796000CD80F9 /* IgnoredScenarioTests.swift in Sources */,
 				37993B6C1DFD583600CD80F9 /* ExecuteStepBindingFunctionTests.swift in Sources */,
+				378EF9F924CB5BFF00E4557B /* StepExtensions.swift in Sources */,
 				37993BBA1E06796000CD80F9 /* TagsBindings.swift in Sources */,
 				37993B951DFD5A9A00CD80F9 /* MockUnitTestGenerator.swift in Sources */,
 				37993B611DFD574C00CD80F9 /* SetAndGetScenarioContextValuesTests.swift in Sources */,
+				378EF9F724CB484500E4557B /* TableParameterColumnsTests.swift in Sources */,
+				378EF9F624CB484500E4557B /* TableParameterRowsTests.swift in Sources */,
 				37993B971DFD5A9A00CD80F9 /* TestFileGenerationBase.swift in Sources */,
 				37993BBE1E06796000CD80F9 /* StepParametersTests.swift in Sources */,
 				37993B6E1DFD583600CD80F9 /* MockBindingsRepository.swift in Sources */,

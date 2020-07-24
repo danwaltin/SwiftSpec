@@ -13,7 +13,7 @@ import GherkinSwift
 class StepParameterBindings : Bindings {
 	override func defineBindings() {
 		addBinding(stepText: "the following accounts") {
-			self.accounts = self.tableToAccounts($0.table!)
+			self.accounts = self.tableToAccounts($0.tableParameter!)
 		}
 		
 		addBinding(stepText: "the balance of account '(.*)' is changed to (.*)") {
@@ -23,7 +23,7 @@ class StepParameterBindings : Bindings {
 		}
 
 		addBinding(stepText: "should accounts as follows exist") {
-			let expected = self.tableToAccounts($0.table!)
+			let expected = self.tableToAccounts($0.tableParameter!)
 			
 			let actual = self.accounts
 			
@@ -56,11 +56,11 @@ class StepParameterBindings : Bindings {
 		}
 	}
 	
-	private func tableToAccounts(_ table: Table) -> [Account] {
+	private func tableToAccounts(_ table: TableParameter) -> [Account] {
 		return table.rows.map {row in rowToAccount(row)}
 	}
 	
-	private func rowToAccount(_ row: TableRow) -> Account {
+	private func rowToAccount(_ row: TableParameterRow) -> Account {
 		var a = Account()
 		a.name = row["Name"]
 		a.balance = Int(row["Balance"])!

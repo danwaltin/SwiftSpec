@@ -306,7 +306,8 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 	
 	private func scenario(_ name: String, tags: [String] = []) -> Scenario {
-		return Scenario(name: name, description: nil, tags: tags, location: Location.zero(), steps: [])
+		let tagTags = tags.map { Tag(name: $0, location: Location.zero())}
+		return Scenario(name: name, description: nil, tags: tagTags, location: Location.zero(), steps: [], examples: [], isScenarioOutline: false, localizedKeyword: "Localized")
 	}
 
 	private func scenario(_ name: String, _ steps: [Step] = []) -> Scenario {
@@ -314,7 +315,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	private func scenario(_ name: String, _ hasIgnoreTag: Bool, _ steps: [Step] = []) -> Scenario {
-		return Scenario(name: name, description: nil, tags: tags(hasIgnoreTag), location: Location.zero(), steps: steps)
+		return Scenario(name: name, description: nil, tags: tags(hasIgnoreTag), location: Location.zero(), steps: steps, examples: [], isScenarioOutline: false, localizedKeyword: "Localized")
 	}
 	
 	private func given(_ text: String, _ table: Table? = nil) -> Step {
@@ -330,15 +331,44 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	private func table(_ columnName: String, _ r1c1: String) -> Table {
-		return Table(columns: [columnName]).addingRow(cells: [r1c1])
+		return table(
+			r([h(columnName)]),
+			[
+				r([d(r1c1, columnName)])
+			])
 	}
 	
 	private func table(_ columnName: String, _ r1c1: String, _ r2c1: String) -> Table {
-		return Table(columns: [columnName]).addingRow(cells: [r1c1]).addingRow(cells: [r2c1])
+		return table(
+			r([h(columnName)]),
+			[
+				r([d(r1c1, columnName)]),
+				r([d(r2c1, columnName)])
+			])
 	}
 	
 	private func table(_ c1: String, _ c2: String, _ r1c1: String, _ r1c2: String) -> Table {
-		return Table(columns: [c1, c2]).addingRow(cells: [r1c1, r1c2])
+		return table(
+			r([h(c1), h(c2)]),
+			[
+				r([d(r1c1, c1), d(r1c2, c2)])
+			])
+	}
+
+	private func table(_ header: TableRow, _ rows: [TableRow]) -> Table {
+		return Table(header: header, rows: rows, headerLocation: Location.zero())
+	}
+	
+	private func h(_ columnName: String) -> TableCell {
+		return TableCell(value: columnName, location: Location.zero(), header: columnName)
+	}
+	
+	private func d(_ value: String, _ columnName: String) -> TableCell {
+		return TableCell(value: value, location: Location.zero(), header: columnName)
+	}
+	
+	private func r(_ cells: [TableCell]) -> TableRow {
+		return TableRow(cells: cells, location: Location.zero())
 	}
 	
 	func stringWithLines(_ lines: [String]) -> String {

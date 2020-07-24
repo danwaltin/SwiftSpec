@@ -39,9 +39,9 @@ public class TestRunner {
 		self.scenarioContext = scenarioContext
 	}
 	
-	public func executeStep(_ type: StepType, _ text: String, _ table: Table? = nil) throws {
+	public func executeStep(_ type: StepType, _ text: String, _ table: TableParameter? = nil) throws {
 		let stepBinding = try registry.bindingForStep(stepType: type, stepText: text, scenarionContext: scenarioContext)
 		let matchedParameters = stepBinding.matchParameters(text: text)
-		try stepBinding.execute(BindingsParameters(table: table, matchedParameters: matchedParameters))
+		try stepBinding.execute(BindingsParameters(tableParameter: table, matchedParameters: matchedParameters))
 	}
 }

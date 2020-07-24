@@ -21,14 +21,12 @@
 //
 // ------------------------------------------------------------------------
 
-import GherkinSwift
-
 public struct BindingsParameters : Equatable {
-	public let table: Table?
+	public let tableParameter: TableParameter?
 	public let matchedParameters: [String]
 	
-	init(table: Table? = nil, matchedParameters: [String] = []) {
-		self.table = table
+	init(tableParameter: TableParameter? = nil, matchedParameters: [String] = []) {
+		self.tableParameter = tableParameter
 		self.matchedParameters = matchedParameters
 	}
 }

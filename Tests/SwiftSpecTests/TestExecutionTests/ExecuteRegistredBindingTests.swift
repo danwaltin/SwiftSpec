@@ -50,7 +50,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 	func test_zeroExistingBinding_shouldThrowStepBindingNotFound() {
 		given_zeroStepBindings()
 		
-		when_executeStep(.Given, "any text")
+		when_executeStep(.given, "any text")
 		
 		then_shouldThrowStepNotFoundError(forText: "any text")
 	}
@@ -59,7 +59,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		given_stepBindings(
 			nonMatching())
 		
-		when_executeStep(.Given, "non matchtext")
+		when_executeStep(.given, "non matchtext")
 		
 		then_shouldThrowStepNotFoundError(forText: "non matchtext")
 	}
@@ -69,7 +69,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 			nonMatching(),
 			nonMatching())
 		
-		when_executeStep(.Given, "non matchtext")
+		when_executeStep(.given, "non matchtext")
 		
 		then_shouldThrowStepNotFoundError(forText: "non matchtext")
 	}
@@ -79,7 +79,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 			matching(),
 			matching())
 		
-		when_executeStep(.Given, "matchtext")
+		when_executeStep(.given, "matchtext")
 		
 		then_shouldThrowStepNotFoundError(forText: "matchtext")
 	}
@@ -93,7 +93,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		given_stepBindings(
 			stepBinding)
 
-		when_executeStep(.Given, "text")
+		when_executeStep(.given, "text")
 		
 		XCTAssertTrue(stepBinding.hasBeenExecuted)
 	}
@@ -107,7 +107,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 			one,
 			two)
 		
-		when_executeStep(.Given, "text")
+		when_executeStep(.given, "text")
 		
 		XCTAssertFalse(one.hasBeenExecuted)
 		XCTAssertTrue(two.hasBeenExecuted)
@@ -122,10 +122,10 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		given_stepBindings(
 			stepBinding)
 		
-		when_executeStep(.Given, "text", Table(columns: ["col"]))
+		when_executeStep(.given, "text", TableParameter(columns: ["col"]))
 		
 		XCTAssertEqual(stepBinding.passedParameters, BindingsParameters(
-			table: Table(columns: ["col"])))
+			tableParameter: TableParameter(columns: ["col"])))
 	}
 	
 	func test_oneMatchingBinding_evaluatedValuesIsSentToBinding() {
@@ -134,7 +134,7 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		given_stepBindings(
 			stepBinding)
 		
-		when_executeStep(.Given, "text")
+		when_executeStep(.given, "text")
 		
 		XCTAssertEqual(stepBinding.passedParameters, BindingsParameters(
 			matchedParameters: ["42", "foo"]))
@@ -146,10 +146,10 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		given_stepBindings(
 			stepBinding)
 		
-		when_executeStep(.Given, "text", Table(columns: ["col"]))
+		when_executeStep(.given, "text", TableParameter(columns: ["col"]))
 		
 		XCTAssertEqual(stepBinding.passedParameters, BindingsParameters(
-			table: Table(columns: ["col"]),
+			tableParameter: TableParameter(columns: ["col"]),
 			matchedParameters: ["42", "foo"]))
 	}
 
@@ -171,9 +171,9 @@ class ExecuteRegistredBindingTests : XCTestCase {
 		mockBindingsRepository.stepBindings = bindings
 	}
 	
-	private func when_executeStep(_ type: StepType, _ text: String, _ table: Table? = nil) {
+	private func when_executeStep(_ type: StepType, _ text: String, _ table: TableParameter? = nil) {
 		do {
-			try instance().executeStep(.Given, text, table)
+			try instance().executeStep(.given, text, table)
 			
 		} catch StepExecutionError.NoStepBindingFoundForStep(let stepText){
 			stepNotFoundText = stepText

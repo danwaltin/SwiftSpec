@@ -145,12 +145,12 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 
 	// MARK: - givens, whens thens
 	func given_featureWithName(_ name: String, hasIgnoreTag: Bool = false) {
-		given_feature(Feature(name: name, description: nil, tags: tags(hasIgnoreTag), location: Location(column: 1, line: 1)))
+		given_feature(feature(name: name, tags: tags(hasIgnoreTag)))
 	}
 
 	func given_featureWithTags(_ tagNames: [String]) {
 		let tags = tagNames.map {Tag(name: $0, location: Location.zero())}
-		given_feature(Feature(name: "name", description: nil, tags: tags, location: Location(column: 1, line: 1)))
+		given_feature(feature(name: "name", tags: tags))
 	}
 
 	private func given_feature(_ feature: Feature) {
@@ -166,7 +166,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	// MARK: - Factory methods
 
 	private func defaultFeature() -> Feature {
-		return Feature(name: "default name", description: nil, location: Location(column: 1, line: 1))
+		return feature(name: "default name")
 	}
 
 	private func instanceToTest() -> XCUnitTestGenerator {
