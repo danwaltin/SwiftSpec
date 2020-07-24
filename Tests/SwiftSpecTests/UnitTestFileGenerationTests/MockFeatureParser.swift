@@ -24,9 +24,9 @@
 @testable import GherkinSwift
 
 class MockFeatureParser : FeatureParser {
-	func pickle(lines: [String], fileUri: String) -> GherkinFile {
+	func pickle(lines: [String], fileUri: String) -> PickleResult {
 		parsedLines = lines
-		return GherkinFile(gherkinDocument: GherkinDocument(comments: [], feature: featureToReturn, uri: ""))
+		return .success(GherkinDocument(comments: [], feature: featureToReturn, uri: ""))
 	}
 	
 	var parsedLines: [String] = []

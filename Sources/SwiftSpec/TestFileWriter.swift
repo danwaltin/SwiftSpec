@@ -33,12 +33,12 @@ public protocol TestFileWriter {
 class TestFileWriterImplementation : TestFileWriter {
 	
 	private let fileSystem: FileSystem
-	private let featureParser: GherkinFeatureParser
+	private let featureParser: FeatureParser
 	private let unitTestGenerator: UnitTestGenerator
 	
 	init(
 		fileSystem: FileSystem,
-		featureParser: GherkinFeatureParser,
+		featureParser: FeatureParser,
 		unitTestGenerator: UnitTestGenerator) {
 		self.fileSystem = fileSystem
 		self.featureParser = featureParser
