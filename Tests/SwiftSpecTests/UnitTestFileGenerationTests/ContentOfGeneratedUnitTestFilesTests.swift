@@ -148,7 +148,8 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		given_feature(Feature(name: name, description: nil, tags: tags(hasIgnoreTag), location: Location(column: 1, line: 1)))
 	}
 
-	func given_featureWithTags(_ tags: [String]) {
+	func given_featureWithTags(_ tagNames: [String]) {
+		let tags = tagNames.map {Tag(name: $0, location: Location.zero())}
 		given_feature(Feature(name: "name", description: nil, tags: tags, location: Location(column: 1, line: 1)))
 	}
 

@@ -7,39 +7,3 @@
 // if the file is regenerated.
 //
 
-import XCTest
-import SwiftSpec
-
-class FeaturesAndScenariosCanHaveAssociatedTagsTests : XCTestCase {
-var testRunner:TestRunner!
-var scenarioContext:ScenarioContext!
-
-override func setUp() {
-super.setUp()
-scenarioContext = ScenarioContextImplementation()
-scenarioContext.featureTags = ["featureTag"]
-testRunner = TestRunner(scenarioContext: scenarioContext)
-}
-
-override func tearDown() {
-testRunner = nil
-scenarioContext = nil
-super.tearDown()
-}
-
-func testAFeatureCanHaveTagsTests() {
-do {
-try testRunner.executeStep(.Then, "this feature has the tag 'featureTag'")
-} catch {
-XCTFail("\(error)")
-}
-}
-func testAScenarioCanHaveTagsTests() {
-scenarioContext.tags = ["one", "two", "three"]
-do {
-try testRunner.executeStep(.Then, "this scenario have the tags 'one', 'two' and 'three'")
-} catch {
-XCTFail("\(error)")
-}
-}
-}

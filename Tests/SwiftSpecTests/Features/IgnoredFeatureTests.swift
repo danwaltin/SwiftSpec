@@ -7,38 +7,3 @@
 // if the file is regenerated.
 //
 
-import XCTest
-import SwiftSpec
-
-class IGNORE_FeaturesWithIgnoreTagAreNotExecutedTests : Ignore {
-var testRunner:TestRunner!
-var scenarioContext:ScenarioContext!
-
-override func setUp() {
-super.setUp()
-scenarioContext = ScenarioContextImplementation()
-scenarioContext.featureTags = ["ignore"]
-testRunner = TestRunner(scenarioContext: scenarioContext)
-}
-
-override func tearDown() {
-testRunner = nil
-scenarioContext = nil
-super.tearDown()
-}
-
-func testThisScenarioWouldFailIfExecutedTests() {
-do {
-try testRunner.executeStep(.When, "executing a step that fails")
-} catch {
-XCTFail("\(error)")
-}
-}
-func testThisScenarioWouldAlsoFailIfExecutedTests() {
-do {
-try testRunner.executeStep(.When, "executing a step that fails")
-} catch {
-XCTFail("\(error)")
-}
-}
-}
