@@ -132,12 +132,11 @@ class XCUnitTestGenerator: UnitTestGenerator {
 	}
 	
 	private func tableParameterColumns(_ table: Table) -> String {
-		return arrayParameter(table.columns)
+		return arrayParameter(table.header.cells.map { $0.value })
 	}
 	
 	private func tableRowCells(_ table: Table, _ row: TableRow) -> String {
-		let cellValues = table.columns.map { row[$0] }
-		return arrayParameter(cellValues)
+		return arrayParameter(row.cells.map {$0.value})
 	}
 	
 	private func executeStep(_ parameters: String) -> String {
@@ -161,19 +160,23 @@ class XCUnitTestGenerator: UnitTestGenerator {
 	}
 	
 	private func ignorePrefix(_ entity: Taggable) -> String {
-		if (entity.tags.contains(ignoreTag)) {
+		if containsIgnore(tags: entity.tags) {
 			return "IGNORE_"
 		}
 		return ""
 	}
 
 	private func superClass(_ feature: Feature) -> String {
-		if (feature.tags.contains(ignoreTag)) {
+		if containsIgnore(tags: feature.tags) {
 			return " : Ignore"
 		}
 		return " : XCTestCase"
 	}
 
+	private func containsIgnore(tags: [Tag]) -> Bool {
+		return tags.map {$0.name}.contains(ignoreTag)
+	}
+	
 	private func featureTags(_ taggable: Taggable) -> String {
 		if taggable.tags.count == 0 {
 			return "[]"
@@ -191,7 +194,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 	}
 	
 	private func tagsArray(_ taggable: Taggable) -> String {
-		return arrayParameter(taggable.tags)
+		return arrayParameter(taggable.tags.map { $0.name})
 	}
 	
 	private func arrayParameter(_ items: [String]) -> String {

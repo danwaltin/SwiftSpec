@@ -32,7 +32,8 @@ public struct XBuilder {
 	public func buildTestFileWriter() -> TestFileWriter {
 		let writer = TestFileWriterImplementation(
 		 	fileSystem: CocoaFileSystem(),
-		 	featureParser: GherkinFeatureParser(),
+			 featureParser: GherkinFeatureParser(configuration: ParseConfiguration(),
+												 languages: LanguagesConfiguration(defaultLanguageKey: "en")),
 		 	unitTestGenerator: XCUnitTestGenerator())
 
 		return writer

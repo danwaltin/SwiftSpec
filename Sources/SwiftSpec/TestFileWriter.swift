@@ -33,12 +33,12 @@ public protocol TestFileWriter {
 class TestFileWriterImplementation : TestFileWriter {
 	
 	private let fileSystem: FileSystem
-	private let featureParser: FeatureParser
+	private let featureParser: GherkinFeatureParser
 	private let unitTestGenerator: UnitTestGenerator
 	
 	init(
 		fileSystem: FileSystem,
-		featureParser: FeatureParser,
+		featureParser: GherkinFeatureParser,
 		unitTestGenerator: UnitTestGenerator) {
 		self.fileSystem = fileSystem
 		self.featureParser = featureParser
@@ -50,12 +50,20 @@ class TestFileWriterImplementation : TestFileWriter {
 			
 			let path = unitTestFileName(featureFile: featureFile)
 			let lines = try! fileSystem.readAllLines(atPath: featureFile)
-			let feature = featureParser.pickle(lines: lines, fileUri: "").gherkinDocument.feature!
-			let content = unitTestGenerator.generateUnitTest(feature: feature)
+			let result = featureParser.pickle(lines: lines, fileUri: "")
 			
-			try! fileSystem.writeFile(
-				path: path,
-				content: content)
+			switch result {
+			case .success(let document):
+				let feature = document.feature!
+				let content = unitTestGenerator.generateUnitTest(feature: feature)
+				
+				try! fileSystem.writeFile(
+					path: path,
+					content: content)
+			case .error( _):
+				// do nothing
+				break
+			}
 		}
 	}
 

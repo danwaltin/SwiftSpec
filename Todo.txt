@@ -3,3 +3,4 @@
 * Handle background
 * Handle languages
 
+* Config for default language
