@@ -32,7 +32,7 @@ let package = Package(
             targets: ["SwiftSpec"]),
     ],
     dependencies: [
-		.package(url: "https://github.com/danwaltin/GherkinSwift", .branch("master"))
+		.package(url: "https://github.com/danwaltin/GherkinSwift", from: "1.0.0")
     ],
     targets: [
         .target(

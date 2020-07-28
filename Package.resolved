@@ -5,9 +5,9 @@
         "package": "GherkinSwift",
         "repositoryURL": "https://github.com/danwaltin/GherkinSwift",
         "state": {
-          "branch": "master",
+          "branch": null,
           "revision": "9b81b48edc48954f29baaf067b10f864b12b4813",
-          "version": null
+          "version": "1.0.0"
         }
       }
     ]
