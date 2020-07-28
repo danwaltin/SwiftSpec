@@ -25,12 +25,21 @@
 import PackageDescription
 
 let package = Package(
-	name: "SwiftSpec",
-	dependencies: [
+    name: "SwiftSpec",
+    products: [
+        .library(
+            name: "SwiftSpec",
+            targets: ["SwiftSpec"]),
+    ],
+    dependencies: [
 		.package(url: "https://github.com/danwaltin/GherkinSwift", .branch("master"))
-	],
+    ],
     targets: [
-      .target(name: "SwiftSpec"),
-      .target(name: "SwiftSpecConsole", dependencies: ["SwiftSpec"]),
-      .testTarget(name: "SwiftSpecTests", dependencies: ["SwiftSpec"])]
+        .target(
+            name: "SwiftSpec",
+            dependencies: ["GherkinSwift"]),
+        .testTarget(
+            name: "SwiftSpecTests",
+            dependencies: ["SwiftSpec"]),
+    ]
 )
