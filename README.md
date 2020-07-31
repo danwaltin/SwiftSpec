@@ -8,38 +8,27 @@ A [Swift][1] package for [BDD][2]/[Specification by example][3] à la [Gherkin][
 
 ## Setup
 
-This section describes setup for using SwiftSpec in an XCode 8 project.
+This section describes setup for using SwiftSpec in an Xcode 11 project.
 
-1. Download
-2. Compile
-3. Use in the XCode project
+1. Download and Compile
+3. Use in the Xcode project
 
-### Download
-Download SwiftSpec, eihter by cloning the repository or by downloading a specific [release][5].
-
-### Compile
-
-Compile and archive the framework, either from the SwiftSpec.xcodeproj project, or from command line using  
-
-	xcodebuild -scheme SwiftSpec archive
+### Download and Compile
+Download SwiftSpec, either by cloning the repository or by downloading a specific [release][5].
 
 Build the command line tool, which is used to generate XCTest files from .feature files, using
 
 	swift build
 
-### Use in the XCode project
+### Use in the Xcode project
 
-Export the archived framework, SwiftSpec.framework, which is available in the XCode organizer.
-
-In the test target of your project
-1. add a build phase `Link Binary With Frameworks`, and add the SwiftSpec.framework
-2. add a build phase `Copy Files`, with destination `Frameworks`, and add the SwiftSpec.framework 
+Add SwiftSpec as a Package Manager dependency in Xcode.
 
 ## Usage
 
 1. Write feature files
-2. Generate XCTest test files using the SwiftSpec command line tool, found under `.build/debug/SwiftSpecConsole`
-3. Add the test files to the XCode project
+2. Generate (or update) XCTest test files using the SwiftSpec command line tool, found under `.build/debug/SwiftSpecConsole`
+3. Add the test files to the Xcode project
 4. Write bindings
 5. Implement the code
 
