@@ -83,7 +83,7 @@ class TestFileWriterImplementation : TestFileWriter {
 
 	private func unitTestFileName(featureFile: String) -> String {
 		let firstPart = featureFile.stringByDeletingPathExtension()
-		let unitTestFileURL = "\(firstPart)Tests.swift"
+		let unitTestFileURL = "\(firstPart).feature.swift"
 		
 		return unitTestFileURL
 	}

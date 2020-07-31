@@ -1,6 +1,6 @@
 * Handle parallell testing
 * Show error on correct line in correct file
 * Handle background
-* Handle languages
+* Handle DocString
 
 * Config for default language

@@ -77,7 +77,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		when_generateUnitTests(baseDirectory: "/base/directory")
 		
 		then_theFollowingUnitTestFilesShouldBeCreated(
-			["/base/directory/SpecificationTests.swift"]
+			["/base/directory/Specification.feature.swift"]
 		)
 	}
 
@@ -90,8 +90,8 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		when_generateUnitTests(baseDirectory: "/base/directory")
 		
 		then_theFollowingUnitTestFilesShouldBeCreated(
-			["/base/directory/OneTests.swift",
-			 "/base/directory/TwoTests.swift"]
+			["/base/directory/One.feature.swift",
+			 "/base/directory/Two.feature.swift"]
 		)
 	}
 
