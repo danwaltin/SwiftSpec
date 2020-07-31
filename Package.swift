@@ -30,6 +30,7 @@ let package = Package(
         .library(
             name: "SwiftSpec",
             targets: ["SwiftSpec"]),
+		.executable(name: "SwiftSpecConsole", targets: ["SwiftSpecConsole"])
     ],
     dependencies: [
 		.package(url: "https://github.com/danwaltin/GherkinSwift", from: "1.0.0")
@@ -38,6 +39,9 @@ let package = Package(
         .target(
             name: "SwiftSpec",
             dependencies: ["GherkinSwift"]),
+        .target(
+            name: "SwiftSpecConsole",
+            dependencies: ["SwiftSpec"]),
         .testTarget(
             name: "SwiftSpecTests",
             dependencies: ["SwiftSpec"]),
