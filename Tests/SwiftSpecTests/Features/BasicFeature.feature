@@ -7,6 +7,7 @@ Scenario: Basic Scenario
 
 	Then something should happen
 
+@ignore
 Scenario Outline: A scenario which is actually several examples
 	When adding '<arg1>' and '<arg2>'
 

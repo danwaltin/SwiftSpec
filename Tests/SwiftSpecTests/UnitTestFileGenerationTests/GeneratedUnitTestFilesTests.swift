@@ -48,8 +48,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		super.tearDown()
 	}
 
-	// MARK:
-	// MARK: created files
+	// MARK: - created files
 
 	func test_zeroFiles() {
 		given_zeroFiles()

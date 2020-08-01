@@ -123,7 +123,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 	}
 	
 	private func tableDeclaration(_ table: Table, _ parameterName: String) -> String {
-		var t = line("let \(parameterName) = Table(columns: \(tableParameterColumns(table)))")
+		var t = line("let \(parameterName) = TableParameter(columns: \(tableParameterColumns(table)))")
 		for row in table.rows {
 			t += line(".addingRow(cells: \(tableRowCells(table, row)))")
 		}

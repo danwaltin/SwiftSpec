@@ -206,7 +206,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		then_scenarioShouldBe([
 			"func testNameTests() {",
 			"do {",
-			"let table1 = Table(columns: [\"col\"])",
+			"let table1 = TableParameter(columns: [\"col\"])",
 			".addingRow(cells: [\"r1c1\"])",
 			"try testRunner.executeStep(.given, \"a\", table1)",
 			"} catch {",
@@ -226,7 +226,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		then_scenarioShouldBe([
 			"func testNameTests() {",
 			"do {",
-			"let table1 = Table(columns: [\"col\"])",
+			"let table1 = TableParameter(columns: [\"col\"])",
 			".addingRow(cells: [\"r1c1\"])",
 			".addingRow(cells: [\"r2c1\"])",
 			"try testRunner.executeStep(.when, \"a\", table1)",
@@ -247,7 +247,7 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		then_scenarioShouldBe([
 			"func testNameTests() {",
 			"do {",
-			"let table1 = Table(columns: [\"c1\", \"c2\"])",
+			"let table1 = TableParameter(columns: [\"c1\", \"c2\"])",
 			".addingRow(cells: [\"r1c1\", \"r1c2\"])",
 			"try testRunner.executeStep(.then, \"a\", table1)",
 			"} catch {",
@@ -269,11 +269,11 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		then_scenarioShouldBe([
 			"func testNameTests() {",
 			"do {",
-			"let table1 = Table(columns: [\"c1\"])",
+			"let table1 = TableParameter(columns: [\"c1\"])",
 			".addingRow(cells: [\"v1\"])",
 			"try testRunner.executeStep(.given, \"g\", table1)",
 			"try testRunner.executeStep(.when, \"w\")",
-			"let table2 = Table(columns: [\"c2\"])",
+			"let table2 = TableParameter(columns: [\"c2\"])",
 			".addingRow(cells: [\"v2\"])",
 			"try testRunner.executeStep(.then, \"t\", table2)",
 			"} catch {",
