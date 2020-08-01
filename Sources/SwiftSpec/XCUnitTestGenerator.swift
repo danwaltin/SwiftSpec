@@ -34,10 +34,11 @@ class XCUnitTestGenerator: UnitTestGenerator {
 	}
 	
 	func generateUnitTest(result: PickleResult) -> String {
+		var t = ""
+		t = t.appendLine(builder.header())
+
 		switch result {
 		case .success(let document):
-			var t = ""
-			t = t.appendLine(builder.header())
 			if let feature = document.feature {
 				t = t.appendLine(builder.featureClass(feature: feature))
 				t = t.appendLine(builder.setupAndTearDown(feature: feature))
@@ -46,14 +47,12 @@ class XCUnitTestGenerator: UnitTestGenerator {
 				}
 				t = t.appendLine(builder.footer())
 			}
-			return t
 
 		case .error( _):
-			var t = ""
-			t = t.appendLine(builder.header())
 			t = t.appendLine(builder.unknownError())
-			return t
 		}
+
+		return t
 	}
 }
 
