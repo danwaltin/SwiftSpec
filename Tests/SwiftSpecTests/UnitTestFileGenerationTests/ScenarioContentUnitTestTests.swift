@@ -40,7 +40,18 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			"""
 		)
 	}
-	
+
+	func test_twoScenarios() {
+		given_scenarioWithName("one two")
+		
+		then_scenarioShouldBe(
+			"""
+			func testOneTwoTests() {
+			}
+			"""
+		)
+	}
+
 	func test_twoWordsName() {
 		given_scenarioWithName("one two")
 		
