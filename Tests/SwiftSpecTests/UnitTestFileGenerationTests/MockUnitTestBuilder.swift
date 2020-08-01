@@ -30,7 +30,10 @@ class MockUnitTestBuilder : UnitTestBuilder {
 	var builtSetupAndTearDown = ""
 	var builtScenarios = [String]()
 	var builtFooter = ""
-	
+
+	var builtUnknownError = ""
+	var builtErrors = [String]()
+
 	func header() -> String {
 		return builtHeader
 	}
@@ -53,5 +56,16 @@ class MockUnitTestBuilder : UnitTestBuilder {
 	
 	func footer() -> String {
 		return builtFooter
+	}
+	
+	func unknownError() -> String {
+		return builtUnknownError
+	}
+
+	private var errorIndex = 0
+	func error(parseError: ParseError) -> String {
+		let error = builtErrors[errorIndex]
+		errorIndex += 1
+		return error
 	}
 }

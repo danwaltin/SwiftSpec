@@ -33,5 +33,8 @@ protocol UnitTestBuilder {
 	func setupAndTearDown(feature: Feature) -> String
 	func scenario(scenario: Scenario) -> String
 	func footer() -> String
+
+	func unknownError() -> String
+	func error(parseError: ParseError) -> String
 }
 

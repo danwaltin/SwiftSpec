@@ -49,7 +49,10 @@ class XCUnitTestGenerator: UnitTestGenerator {
 			return t
 
 		case .error( _):
-			return ""
+			var t = ""
+			t = t.appendLine(builder.header())
+			t = t.appendLine(builder.unknownError())
+			return t
 		}
 	}
 }
@@ -105,6 +108,20 @@ class UnitTestBuilderImp : UnitTestBuilder {
 			steps(scenario) +
 			"}"
 	}
+	
+	func footer() -> String {
+		return "}"
+	}
+
+	func unknownError() -> String {
+		return ""
+	}
+
+	func error(parseError: ParseError) -> String {
+		return ""
+	}
+
+	// MARK: - helpers
 	
 	private func steps(_ scenario: Scenario) -> String {
 		if scenario.steps.count == 0 {
@@ -162,11 +179,7 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	private func executeStep(_ parameters: String) -> String {
 		return "try testRunner.executeStep(\(parameters))"
 	}
-	
-	func footer() -> String {
-		return "}"
-	}
-
+		
 	private func lines(_ lines: [String]) -> String {
 		return lines.reduce("") {$0.appendLine($1)}
 	}
