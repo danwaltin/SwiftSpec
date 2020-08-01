@@ -37,7 +37,7 @@ XCTFail("\(error)")
 func testAScenarioCanHaveTagsTests() {
 scenarioContext.tags = ["one", "two", "three"]
 do {
-try testRunner.executeStep(.then, "this scenario have the tags 'one', 'two' and 'three'")
+try testRunner.executeStep(.then, "this scenario has the tags 'one', 'two' and 'three'")
 } catch {
 XCTFail("\(error)")
 }

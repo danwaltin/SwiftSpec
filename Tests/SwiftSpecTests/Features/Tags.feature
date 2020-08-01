@@ -7,5 +7,5 @@ Scenario: A feature can have tags
 @one
 @two @three
 Scenario: A scenario can have tags
-	Then this scenario have the tags 'one', 'two' and 'three'
+	Then this scenario has the tags 'one', 'two' and 'three'
 
