@@ -52,18 +52,11 @@ class TestFileWriterImplementation : TestFileWriter {
 			let lines = try! fileSystem.readAllLines(atPath: featureFile)
 			let result = featureParser.pickle(lines: lines, fileUri: "")
 			
-			switch result {
-			case .success(let document):
-				let feature = document.feature!
-				let content = unitTestGenerator.generateUnitTest(feature: feature)
-				
-				try! fileSystem.writeFile(
-					path: path,
-					content: content)
-			case .error( _):
-				// do nothing
-				break
-			}
+			let content = unitTestGenerator.generateUnitTest(result: result)
+			
+			try! fileSystem.writeFile(
+				path: path,
+				content: content)
 		}
 	}
 

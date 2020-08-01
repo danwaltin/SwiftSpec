@@ -28,8 +28,13 @@ class MockUnitTestGenerator : UnitTestGenerator {
 	var generatedUnitTest = ""
 	var lastParsedFeature: Feature!
 	
-	func generateUnitTest(feature: Feature) -> String {
-		lastParsedFeature = feature
+	func generateUnitTest(result: PickleResult) -> String {
+		switch result {
+		case .success(let document):
+			lastParsedFeature = document.feature!
+		case .error( _):
+			break
+		}
 		return generatedUnitTest
 	}
 }

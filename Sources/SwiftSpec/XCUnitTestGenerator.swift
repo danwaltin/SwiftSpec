@@ -27,16 +27,23 @@ let ignoreTag = "ignore"
 
 class XCUnitTestGenerator: UnitTestGenerator {
 	
-	func generateUnitTest(feature: Feature) -> String {
-		var t = ""
-		t = t.appendLine(header())
-		t = t.appendLine(featureClass(feature: feature))
-		t = t.appendLine(setupAndTearDown(feature: feature))
-		for s in feature.scenarios {
-			t = t.appendLine(scenario(scenario: s))
+	func generateUnitTest(result: PickleResult) -> String {
+		switch result {
+		case .success(let document):
+			let feature: Feature = document.feature!
+			var t = ""
+			t = t.appendLine(header())
+			t = t.appendLine(featureClass(feature: feature))
+			t = t.appendLine(setupAndTearDown(feature: feature))
+			for s in feature.scenarios {
+				t = t.appendLine(scenario(scenario: s))
+			}
+			t = t.appendLine(footer())
+			return t
+
+		case .error( _):
+			return ""
 		}
-		t = t.appendLine(footer())
-		return t
 	}
 	
 	func header() -> String {
