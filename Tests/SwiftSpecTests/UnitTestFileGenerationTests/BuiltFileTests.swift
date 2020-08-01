@@ -25,7 +25,7 @@ import XCTest
 import  GherkinSwift
 
 class BuiltFileTests: TestFileGenerationBase {
-
+	
 	private var mockBuilder: MockUnitTestBuilder!
 	
 	override func setUp() {
@@ -35,28 +35,18 @@ class BuiltFileTests: TestFileGenerationBase {
 	}
 	
 	func test_shouldReturnBuiltTestFile() {
-	
+		
 		mockBuilder.builtHeader = "header"
 		mockBuilder.builtFeatureClass = "feature"
 		mockBuilder.builtSetupAndTearDown = "setupAndTearDown"
 		mockBuilder.builtScenarios = ["scenario1", "scenario2"]
 		mockBuilder.builtFooter = "footer"
 		
-		let s1 = Scenario(name: "s1", description: nil, tags: [], location: Location.zero(), steps: [], examples: [], isScenarioOutline: false, localizedKeyword: "Scenario")
-		let s2 = Scenario(name: "s2", description: nil, tags: [], location: Location.zero(), steps: [], examples: [], isScenarioOutline: false, localizedKeyword: "Scenario")
-		let feature = Feature(name: "feature",
-							  description: nil,
-							  background: nil,
-							  location: Location.zero(),
-							  scenarios: [s1, s2],
-							  language: "en",
-							  localizedKeyword: "Feature")
+		let pickleResult = success(feature: feature(scenarios: [scenario(), scenario()]))
 		
-		let pickleResult: PickleResult = .success(GherkinDocument(comments: [], feature: feature, uri: "path/to/feature"))
-
 		let actual = instanceToTest().generateUnitTest(result: pickleResult)
 		let expected =
-			"""
+		"""
 			header
 			feature
 			setupAndTearDown
@@ -70,5 +60,31 @@ class BuiltFileTests: TestFileGenerationBase {
 	
 	private func instanceToTest() -> XCUnitTestGenerator {
 		return XCUnitTestGenerator(builder: mockBuilder)
+	}
+	
+	private func success(feature: Feature?) -> PickleResult {
+		return .success(GherkinDocument(comments: [], feature: feature, uri: "path/to/feature"))
+	}
+	
+	private func feature(scenarios: [Scenario]) -> Feature {
+		return Feature(name: "feature",
+					   description: nil,
+					   background: nil,
+					   location: Location.zero(),
+					   scenarios: scenarios,
+					   language: "en",
+					   localizedKeyword: "Feature")
+		
+	}
+	
+	private func scenario() -> Scenario {
+		return Scenario(name: "scenario",
+						description: nil,
+						tags: [],
+						location: Location.zero(),
+						steps: [],
+						examples: [],
+						isScenarioOutline: false,
+						localizedKeyword: "Scenario")
 	}
 }
