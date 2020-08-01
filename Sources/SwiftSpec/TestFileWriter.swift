@@ -22,7 +22,7 @@
 // ------------------------------------------------------------------------
 
 import Foundation
-@testable import GherkinSwift
+import GherkinSwift
 
 let FEATURE_FILE_EXTENSION = "feature"
 
