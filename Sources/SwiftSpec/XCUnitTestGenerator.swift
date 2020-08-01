@@ -113,7 +113,12 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	}
 
 	func unknownError() -> String {
-		return ""
+		return
+			"""
+			func testUnknownErrorOccurred() {
+			XCTFail(\"An unknown error occurred when parsing feature file")
+			}
+			"""
 	}
 
 	func error(parseError: ParseError) -> String {
