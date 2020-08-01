@@ -36,15 +36,16 @@ class XCUnitTestGenerator: UnitTestGenerator {
 	func generateUnitTest(result: PickleResult) -> String {
 		switch result {
 		case .success(let document):
-			let feature: Feature = document.feature!
 			var t = ""
 			t = t.appendLine(builder.header())
-			t = t.appendLine(builder.featureClass(feature: feature))
-			t = t.appendLine(builder.setupAndTearDown(feature: feature))
-			for s in feature.scenarios {
-				t = t.appendLine(builder.scenario(scenario: s))
+			if let feature = document.feature {
+				t = t.appendLine(builder.featureClass(feature: feature))
+				t = t.appendLine(builder.setupAndTearDown(feature: feature))
+				for s in feature.scenarios {
+					t = t.appendLine(builder.scenario(scenario: s))
+				}
+				t = t.appendLine(builder.footer())
 			}
-			t = t.appendLine(builder.footer())
 			return t
 
 		case .error( _):

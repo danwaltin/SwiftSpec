@@ -34,7 +34,7 @@ class BuiltFileTests: TestFileGenerationBase {
 		mockBuilder = MockUnitTestBuilder()
 	}
 	
-	func test_shouldReturnBuiltTestFile() {
+	func test_successfulResultWithFeature_shouldReturnBuiltTestFile() {
 		
 		mockBuilder.builtHeader = "header"
 		mockBuilder.builtFeatureClass = "feature"
@@ -47,17 +47,36 @@ class BuiltFileTests: TestFileGenerationBase {
 		let actual = instanceToTest().generateUnitTest(result: pickleResult)
 		let expected =
 		"""
-			header
-			feature
-			setupAndTearDown
-			scenario1
-			scenario2
-			footer
-			"""
+		header
+		feature
+		setupAndTearDown
+		scenario1
+		scenario2
+		footer
+		"""
 		
 		XCTAssertEqual(actual, expected)
 	}
-	
+
+	func test_successfulResultWithoutFeature_shouldReturnOnlyBuiltHeader() {
+		
+		mockBuilder.builtHeader = "header"
+		mockBuilder.builtFeatureClass = "feature"
+		mockBuilder.builtSetupAndTearDown = "setupAndTearDown"
+		mockBuilder.builtScenarios = ["scenario1", "scenario2"]
+		mockBuilder.builtFooter = "footer"
+		
+		let pickleResult = success(feature: nil)
+		
+		let actual = instanceToTest().generateUnitTest(result: pickleResult)
+		let expected =
+		"""
+		header
+		"""
+		
+		XCTAssertEqual(actual, expected)
+	}
+
 	private func instanceToTest() -> XCUnitTestGenerator {
 		return XCUnitTestGenerator(builder: mockBuilder)
 	}
