@@ -175,7 +175,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		return feature(name: "default name")
 	}
 
-	private func instanceToTest() -> XCUnitTestGenerator {
-		return XCUnitTestGenerator()
+	private func instanceToTest() -> UnitTestBuilderImp {
+		return UnitTestBuilderImp()
 	}
 }

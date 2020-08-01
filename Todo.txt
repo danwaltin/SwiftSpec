@@ -1,7 +1,8 @@
+* Handle parse error
+* Show error on correct line in correct file
 * Handle scenario outline
 * Handle background
 * Handle DocString
-* Show error on correct line in correct file
 * Handle parallell testing
-
-* Config for default language
+* Delete old code behind files before generating new
+* Config for default language?

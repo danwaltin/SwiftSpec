@@ -343,8 +343,8 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	
 	// MARK: - Factory methods
 	
-	private func instanceToTest() -> XCUnitTestGenerator {
-		return XCUnitTestGenerator()
+	private func instanceToTest() -> UnitTestBuilderImp {
+		return UnitTestBuilderImp()
 	}
 	
 	private func scenario(_ name: String, tags: [String] = []) -> Scenario {
