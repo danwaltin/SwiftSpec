@@ -39,4 +39,17 @@ class TestFileGenerationBase : XCTestCase {
 		}
 		return []
 	}
+	
+	func trimmedLines(_ s: String) -> String {
+		return stringWithTrimmedLines(s.allLines())
+	}
+
+	func stringWithTrimmedLines(_ lines: [String]) -> String {
+		var s = ""
+		for line in lines {
+			s = s.appendLine(line.trim())
+		}
+		return s
+	}
+
 }

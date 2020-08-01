@@ -33,46 +33,56 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	func test_oneWordName() {
 		given_scenarioWithName("Name")
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			}
+			"""
 		)
 	}
 	
 	func test_twoWordsName() {
 		given_scenarioWithName("one two")
 		
-		then_scenarioShouldBe([
-			"func testOneTwoTests() {",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testOneTwoTests() {
+			}
+			"""
 		)
 	}
 	
 	func test_scenarioWithDashInName() {
 		given_scenarioWithName("Scenario-name")
 		
-		then_scenarioShouldBe([
-			"func testScenarioNameTests() {",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testScenarioNameTests() {
+			}
+			"""
 		)
 	}
 	
 	func test_scenarioWithSwedishCharacters_ShouldReplaceWithAscii() {
 		given_scenarioWithName("Xå Xä Xö Åx Äx Öx")
 		
-		then_scenarioShouldBe([
-			"func testXaXaXoAxAxOxTests() {",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testXaXaXoAxAxOxTests() {
+			}
+			"""
 		)
 	}
 	
 	func test_ignoredScenario() {
 		given_scenarioWithName("Name", hasIgnoreTag: true)
 		
-		then_scenarioShouldBe([
-			"func IGNORE_testNameTests() {",
-			"scenarioContext.tags = [\"\(ignoreTag)\"]",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func IGNORE_testNameTests() {
+			scenarioContext.tags = [\"\(ignoreTag)\"]
+			}
+			"""
 		)
 	}
 	
@@ -83,10 +93,11 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"}"]
-		)
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			}
+			""")
 	}
 
 	func test_scenarioWithOneTag() {
@@ -96,10 +107,12 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"scenarioContext.tags = [\"tag\"]",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			scenarioContext.tags = [\"tag\"]
+			}
+			"""
 		)
 	}
 
@@ -111,10 +124,12 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"scenarioContext.tags = [\"one\", \"two\"]",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			scenarioContext.tags = [\"one\", \"two\"]
+			}
+			"""
 		)
 	}
 
@@ -126,14 +141,16 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"try testRunner.executeStep(.given, \"something\")",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			try testRunner.executeStep(.given, \"something\")
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -144,14 +161,16 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"try testRunner.executeStep(.when, \"something\")",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			try testRunner.executeStep(.when, \"something\")
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -162,14 +181,16 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"try testRunner.executeStep(.then, \"something\")",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			try testRunner.executeStep(.then, \"something\")
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -182,16 +203,18 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"try testRunner.executeStep(.given, \"a\")",
-			"try testRunner.executeStep(.when, \"b\")",
-			"try testRunner.executeStep(.then, \"c\")",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			try testRunner.executeStep(.given, \"a\")
+			try testRunner.executeStep(.when, \"b\")
+			try testRunner.executeStep(.then, \"c\")
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -203,16 +226,18 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"let table1 = TableParameter(columns: [\"col\"])",
-			".addingRow(cells: [\"r1c1\"])",
-			"try testRunner.executeStep(.given, \"a\", table1)",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			let table1 = TableParameter(columns: [\"col\"])
+			.addingRow(cells: [\"r1c1\"])
+			try testRunner.executeStep(.given, \"a\", table1)
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -223,17 +248,19 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"let table1 = TableParameter(columns: [\"col\"])",
-			".addingRow(cells: [\"r1c1\"])",
-			".addingRow(cells: [\"r2c1\"])",
-			"try testRunner.executeStep(.when, \"a\", table1)",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			let table1 = TableParameter(columns: [\"col\"])
+			.addingRow(cells: [\"r1c1\"])
+			.addingRow(cells: [\"r2c1\"])
+			try testRunner.executeStep(.when, \"a\", table1)
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -244,16 +271,18 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"let table1 = TableParameter(columns: [\"c1\", \"c2\"])",
-			".addingRow(cells: [\"r1c1\", \"r1c2\"])",
-			"try testRunner.executeStep(.then, \"a\", table1)",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			let table1 = TableParameter(columns: [\"c1\", \"c2\"])
+			.addingRow(cells: [\"r1c1\", \"r1c2\"])
+			try testRunner.executeStep(.then, \"a\", table1)
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -266,20 +295,22 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 			)
 		)
 		
-		then_scenarioShouldBe([
-			"func testNameTests() {",
-			"do {",
-			"let table1 = TableParameter(columns: [\"c1\"])",
-			".addingRow(cells: [\"v1\"])",
-			"try testRunner.executeStep(.given, \"g\", table1)",
-			"try testRunner.executeStep(.when, \"w\")",
-			"let table2 = TableParameter(columns: [\"c2\"])",
-			".addingRow(cells: [\"v2\"])",
-			"try testRunner.executeStep(.then, \"t\", table2)",
-			"} catch {",
-			"XCTFail(\"\\(error)\")",
-			"}",
-			"}"]
+		then_scenarioShouldBe(
+			"""
+			func testNameTests() {
+			do {
+			let table1 = TableParameter(columns: [\"c1\"])
+			.addingRow(cells: [\"v1\"])
+			try testRunner.executeStep(.given, \"g\", table1)
+			try testRunner.executeStep(.when, \"w\")
+			let table2 = TableParameter(columns: [\"c2\"])
+			.addingRow(cells: [\"v2\"])
+			try testRunner.executeStep(.then, \"t\", table2)
+			} catch {
+			XCTFail(\"\\(error)\")
+			}
+			}
+			"""
 		)
 	}
 
@@ -292,10 +323,10 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		self.scenarioToUse = scenario
 	}
 	
-	private func then_scenarioShouldBe(_ lines: [String], file: StaticString = #file, line: UInt = #line) {
-		let expected = stringWithLines(lines)
+	private func then_scenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
+		let expected = trimmedLines(lines)
 		let actual = instanceToTest().scenario(scenario: scenarioToUse)
-		
+
 		XCTAssertEqual(actual, expected, file: file, line: line)
 	}
 	
@@ -369,13 +400,5 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	
 	private func r(_ cells: [TableCell]) -> TableRow {
 		return TableRow(cells: cells, location: Location.zero())
-	}
-	
-	func stringWithLines(_ lines: [String]) -> String {
-		var s = ""
-		for line in lines {
-			s = s.appendLine(line)
-		}
-		return s
 	}
 }
