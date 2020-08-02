@@ -32,13 +32,29 @@ class ContentOfParseErrorUnitTestFilesTests: TestFileGenerationBase {
 		let expected =
 		"""
 		func testUnknownErrorOccurred() {
-		XCTFail(\"An unknown error occurred when parsing feature file")
+		XCTFail("An unknown error occurred when parsing feature file")
 		}
 		"""
 		
 		XCTAssertEqual(actual, expected)
 	}
 	
+	// MARK: - Parse error
+	func test_parseError() {
+		let parseError = ParseError(message: "parse error message",
+									source: ParseErrorSource(location: Location(column: 13, line: 7),
+															 uri: "path/to/file"))
+		let actual = instanceToTest().error(index: 3, parseError: parseError)
+		let expected =
+		"""
+		func testParseErrorOccurred3() {
+		XCTFail("parse error message", file: "path/to/file", line: 7)
+		}
+		"""
+		
+		XCTAssertEqual(actual, expected)
+	}
+
 	// MARK: - Factory methods
 	private func instanceToTest() -> UnitTestBuilderImp {
 		return UnitTestBuilderImp()

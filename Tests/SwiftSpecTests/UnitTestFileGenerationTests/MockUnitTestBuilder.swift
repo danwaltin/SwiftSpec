@@ -63,7 +63,7 @@ class MockUnitTestBuilder : UnitTestBuilder {
 	}
 
 	private var errorIndex = 0
-	func error(parseError: ParseError) -> String {
+	func error(index: Int, parseError: ParseError) -> String {
 		let error = builtErrors[errorIndex]
 		errorIndex += 1
 		return error

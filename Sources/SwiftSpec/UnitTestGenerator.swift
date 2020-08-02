@@ -35,6 +35,6 @@ protocol UnitTestBuilder {
 	func footer() -> String
 
 	func unknownError() -> String
-	func error(parseError: ParseError) -> String
+	func error(index: Int, parseError: ParseError) -> String
 }
 

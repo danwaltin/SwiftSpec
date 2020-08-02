@@ -52,8 +52,10 @@ class XCUnitTestGenerator: UnitTestGenerator {
 			if errors.count == 0 {
 				t = t.appendLine(builder.unknownError())
 			} else {
+				var index = 0
 				for error in errors {
-					t = t.appendLine(builder.error(parseError: error))
+					t = t.appendLine(builder.error(index: index, parseError: error))
+					index += 1
 				}
 			}
 		}
@@ -127,7 +129,7 @@ class UnitTestBuilderImp : UnitTestBuilder {
 			"""
 	}
 
-	func error(parseError: ParseError) -> String {
+	func error(index: Int, parseError: ParseError) -> String {
 		return ""
 	}
 
