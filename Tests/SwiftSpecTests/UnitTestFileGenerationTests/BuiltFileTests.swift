@@ -27,6 +27,7 @@ import  GherkinSwift
 class BuiltFileTests: TestFileGenerationBase {
 	
 	private var mockBuilder: MockUnitTestBuilder!
+	private var actual = ""
 	
 	override func setUp() {
 		super.setUp()
@@ -35,70 +36,77 @@ class BuiltFileTests: TestFileGenerationBase {
 	}
 	
 	func test_successfulResultWithFeature_shouldReturnBuiltTestFile() {
+		given_builtParts(header: "header",
+						 featureClass: "feature",
+						 setupAndTearDown: "setupAndTearDown",
+						 scenarios: ["scenario1", "scenario2"],
+						 footer: "footer")
 		
-		mockBuilder.builtHeader = "header"
-		mockBuilder.builtFeatureClass = "feature"
-		mockBuilder.builtSetupAndTearDown = "setupAndTearDown"
-		mockBuilder.builtScenarios = ["scenario1", "scenario2"]
-		mockBuilder.builtFooter = "footer"
-		
-		let pickleResult = success(feature: feature(scenarios: [scenario(), scenario()]))
-		
-		let actual = instanceToTest().generateUnitTest(result: pickleResult)
-		let expected =
-		"""
-		header
-		feature
-		setupAndTearDown
-		scenario1
-		scenario2
-		footer
-		"""
-		
-		XCTAssertEqual(actual, expected)
+		when_generateUnitTestFrom(success(feature: feature(scenarios: [scenario(), scenario()])))
+
+		then_shouldGenerateUnitTestCode(
+			"""
+			header
+			feature
+			setupAndTearDown
+			scenario1
+			scenario2
+			footer
+			"""
+		)
 	}
 
 	func test_successfulResultWithoutFeature_shouldReturnOnlyBuiltHeader() {
+		given_builtParts(header: "header")
 		
-		mockBuilder.builtHeader = "header"
-		mockBuilder.builtFeatureClass = "feature should not be included"
-		mockBuilder.builtSetupAndTearDown = "setupAndTearDown should not be included"
-		mockBuilder.builtScenarios = ["scenario should not be included"]
-		mockBuilder.builtFooter = "footer should not be included"
-		
-		let pickleResult = success(feature: nil)
-		
-		let actual = instanceToTest().generateUnitTest(result: pickleResult)
-		let expected =
-		"""
-		header
-		"""
-		
-		XCTAssertEqual(actual, expected)
+		when_generateUnitTestFrom(success(feature: nil))
+
+		then_shouldGenerateUnitTestCode(
+			"""
+			header
+			"""
+		)
 	}
 	
 	func test_errorResult_butZeroParseErrors_shouldIncludeHeaderAndUnknownError() {
-		mockBuilder.builtHeader = "header"
-		mockBuilder.builtFeatureClass = "feature should not be included"
-		mockBuilder.builtSetupAndTearDown = "setupAndTearDown should not be included"
-		mockBuilder.builtScenarios = ["scenario should not be included"]
-		mockBuilder.builtFooter = "footer should not be included"
+		given_builtParts(header: "header",
+						 unknownError: "unknown error")
 
-		mockBuilder.builtUnknownError = "unknown error"
-		mockBuilder.builtErrors = ["error should not be included"]
+		when_generateUnitTestFrom(error(parseErrors: []))
 		
-		let pickleResult = error(parseErrors: [])
-		
-		let actual = instanceToTest().generateUnitTest(result: pickleResult)
-		let expected =
-		"""
-		header
-		unknown error
-		"""
-		
-		XCTAssertEqual(actual, expected)
+		then_shouldGenerateUnitTestCode(
+			"""
+			header
+			unknown error
+			"""
+		)
 	}
 	
+	// MARK: - helpers, givens, whens and thens
+	private func given_builtParts(header: String = "header should not be included",
+								  featureClass: String = "feature should not be included",
+								  setupAndTearDown: String = "setupAndTearDown should not be included",
+								  scenarios: [String] = ["scenario should not be included"],
+								  footer: String = "footer should not be included",
+								  unknownError: String = "unknown error should not be included",
+								  errors: [String] = ["error should not be included"]) {
+		mockBuilder.builtHeader = header
+		mockBuilder.builtFeatureClass = featureClass
+		mockBuilder.builtSetupAndTearDown = setupAndTearDown
+		mockBuilder.builtScenarios = scenarios
+		mockBuilder.builtFooter = footer
+		mockBuilder.builtUnknownError = unknownError
+		mockBuilder.builtErrors = errors
+	}
+	
+	private func when_generateUnitTestFrom(_ pickleResult: PickleResult) {
+		actual = instanceToTest().generateUnitTest(result: pickleResult)
+	}
+	
+	private func then_shouldGenerateUnitTestCode(_ expected: String,
+												 file: StaticString = #file, line: UInt = #line) {
+		XCTAssertEqual(actual, expected, file: file, line: line)
+	}
 
 	private func instanceToTest() -> XCUnitTestGenerator {
 		return XCUnitTestGenerator(builder: mockBuilder)
