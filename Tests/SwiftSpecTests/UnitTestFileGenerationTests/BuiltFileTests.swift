@@ -35,7 +35,45 @@ class BuiltFileTests: TestFileGenerationBase {
 		mockBuilder = MockUnitTestBuilder()
 	}
 	
-	func test_successfulResultWithFeature_shouldReturnBuiltTestFile() {
+	func test_successfulResultWithFeatureAndZeroScenarios_shouldReturnBuiltTestFile() {
+		given_builtParts(header: "header",
+						 featureClass: "feature",
+						 setupAndTearDown: "setupAndTearDown",
+						 footer: "footer")
+		
+		when_generateUnitTestFrom(success(feature: feature(scenarios: [])))
+
+		then_shouldGenerateUnitTestCode(
+			"""
+			header
+			feature
+			setupAndTearDown
+			footer
+			"""
+		)
+	}
+
+	func test_successfulResultWithFeatureOneScenario_shouldReturnBuiltTestFile() {
+		given_builtParts(header: "header",
+						 featureClass: "feature",
+						 setupAndTearDown: "setupAndTearDown",
+						 scenarios: ["scenario"],
+						 footer: "footer")
+		
+		when_generateUnitTestFrom(success(feature: feature(scenarios: [scenario()])))
+
+		then_shouldGenerateUnitTestCode(
+			"""
+			header
+			feature
+			setupAndTearDown
+			scenario
+			footer
+			"""
+		)
+	}
+
+	func test_successfulResultWithFeatureTwoScenarios_shouldReturnBuiltTestFile() {
 		given_builtParts(header: "header",
 						 featureClass: "feature",
 						 setupAndTearDown: "setupAndTearDown",
@@ -81,7 +119,36 @@ class BuiltFileTests: TestFileGenerationBase {
 			"""
 		)
 	}
-	
+
+	func test_errorResult_oneParseError_shouldIncludeHeaderAndParseError() {
+		given_builtParts(header: "header",
+						 errors: ["parse error"])
+
+		when_generateUnitTestFrom(error(parseErrors: [error()]))
+		
+		then_shouldGenerateUnitTestCode(
+			"""
+			header
+			parse error
+			"""
+		)
+	}
+
+	func test_errorResult_twoParseErrors_shouldIncludeHeaderAndParseErrors() {
+		given_builtParts(header: "header",
+						 errors: ["error one", "error two"])
+
+		when_generateUnitTestFrom(error(parseErrors: [error(), error()]))
+		
+		then_shouldGenerateUnitTestCode(
+			"""
+			header
+			error one
+			error two
+			"""
+		)
+	}
+
 	// MARK: - helpers, givens, whens and thens
 	private func given_builtParts(header: String = "header should not be included",
 								  featureClass: String = "feature should not be included",
