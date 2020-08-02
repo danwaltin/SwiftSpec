@@ -48,8 +48,14 @@ class XCUnitTestGenerator: UnitTestGenerator {
 				t = t.appendLine(builder.footer())
 			}
 
-		case .error( _):
-			t = t.appendLine(builder.unknownError())
+		case .error(let errors):
+			if errors.count == 0 {
+				t = t.appendLine(builder.unknownError())
+			} else {
+				for error in errors {
+					t = t.appendLine(builder.error(parseError: error))
+				}
+			}
 		}
 
 		return t
