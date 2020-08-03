@@ -67,6 +67,9 @@ class XCUnitTestGenerator: UnitTestGenerator {
 }
 
 class UnitTestBuilderImp : UnitTestBuilder {
+	let ignoreTestBaseClass = "Ignore"
+	let testCaseBaseClass = "XCTestCase"
+	
 	func header() -> String {
 		return
 			"""
@@ -86,7 +89,8 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	}
 	
 	func featureClass(feature: Feature) -> String {
-		return "class \(ignorePrefix(feature))\(testEntityName(feature))Tests\(superClass(feature)) {"
+		let className = "\(ignorePrefix(feature))\(testEntityName(feature))"
+		return testClassDeclaration(name: className, baseClass: superClass(feature))
 	}
 
 	func setupAndTearDown(feature: Feature) -> String {
@@ -123,7 +127,7 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	}
 
 	func parseErrorFeatureClass(featureFilePath: String) -> String {
-		return "class \(testEntityName(featureFilePath))Tests : XCTestCase {"
+		return testClassDeclaration(name: testEntityName(featureFilePath), baseClass: testCaseBaseClass)
 	}
 
 	func unknownError() -> String {
@@ -146,6 +150,9 @@ class UnitTestBuilderImp : UnitTestBuilder {
 
 	// MARK: - helpers
 	
+	private func testClassDeclaration(name: String, baseClass: String) -> String {
+		return "class \(name)Tests : \(baseClass) {"
+	}
 	private func steps(_ scenario: Scenario) -> String {
 		if scenario.steps.count == 0 {
 			return ""
@@ -212,11 +219,15 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	}
 	
 	private func testEntityName(_ entity: HasName) -> String {
-		return replaceSpecialCharacters(entity.name).camelCaseify()
+		return cleanedTestEntityName(entity.name)
 	}
 
 	private func testEntityName(_ path: String) -> String {
 		let name = path.lastPathComponent().stringByDeletingPathExtension()
+		return cleanedTestEntityName(name)
+	}
+
+	private func cleanedTestEntityName(_ name: String) -> String {
 		return replaceSpecialCharacters(name).camelCaseify()
 	}
 
@@ -229,9 +240,9 @@ class UnitTestBuilderImp : UnitTestBuilder {
 
 	private func superClass(_ feature: Feature) -> String {
 		if containsIgnore(tags: feature.tags) {
-			return " : Ignore"
+			return ignoreTestBaseClass
 		}
-		return " : XCTestCase"
+		return testCaseBaseClass
 	}
 
 	private func containsIgnore(tags: [Tag]) -> Bool {
