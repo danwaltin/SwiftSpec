@@ -49,6 +49,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 			}
 
 		case .error(let errors):
+			t = t.appendLine(builder.parseErrorFeatureClass(featureFilePath: fromFeatureFilePath))
 			if errors.count == 0 {
 				t = t.appendLine(builder.unknownError())
 			} else {
@@ -58,6 +59,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 					index += 1
 				}
 			}
+			t = t.appendLine(builder.footer())
 		}
 
 		return t
@@ -118,6 +120,10 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	
 	func footer() -> String {
 		return "}"
+	}
+
+	func parseErrorFeatureClass(featureFilePath: String) -> String {
+		return ""
 	}
 
 	func unknownError() -> String {

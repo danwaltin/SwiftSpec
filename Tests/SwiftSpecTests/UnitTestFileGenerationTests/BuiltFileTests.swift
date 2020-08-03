@@ -108,6 +108,8 @@ class BuiltFileTests: TestFileGenerationBase {
 	
 	func test_errorResult_butZeroParseErrors_shouldIncludeHeaderAndUnknownError() {
 		given_builtParts(header: "header",
+						 footer: "footer",
+						 parseErrorFeatureClass: "parseErrorClass",
 						 unknownError: "unknown error")
 
 		when_generateUnitTestFrom(error(parseErrors: []))
@@ -115,13 +117,17 @@ class BuiltFileTests: TestFileGenerationBase {
 		then_shouldGenerateUnitTestCode(
 			"""
 			header
+			parseErrorClass
 			unknown error
+			footer
 			"""
 		)
 	}
 
 	func test_errorResult_oneParseError_shouldIncludeHeaderAndParseError() {
 		given_builtParts(header: "header",
+						 footer: "footer",
+						 parseErrorFeatureClass: "parseErrorClass",
 						 errors: ["parse error"])
 
 		when_generateUnitTestFrom(error(parseErrors: [error()]))
@@ -129,13 +135,17 @@ class BuiltFileTests: TestFileGenerationBase {
 		then_shouldGenerateUnitTestCode(
 			"""
 			header
+			parseErrorClass
 			parse error
+			footer
 			"""
 		)
 	}
 
 	func test_errorResult_twoParseErrors_shouldIncludeHeaderAndParseErrors() {
 		given_builtParts(header: "header",
+						 footer: "footer",
+						 parseErrorFeatureClass: "parseErrorClass",
 						 errors: ["error one", "error two"])
 
 		when_generateUnitTestFrom(error(parseErrors: [error(), error()]))
@@ -143,8 +153,10 @@ class BuiltFileTests: TestFileGenerationBase {
 		then_shouldGenerateUnitTestCode(
 			"""
 			header
+			parseErrorClass
 			error one
 			error two
+			footer
 			"""
 		)
 	}
@@ -155,6 +167,7 @@ class BuiltFileTests: TestFileGenerationBase {
 								  setupAndTearDown: String = "setupAndTearDown should not be included",
 								  scenarios: [String] = ["scenario should not be included"],
 								  footer: String = "footer should not be included",
+								  parseErrorFeatureClass: String = "parse error feature should not be included",
 								  unknownError: String = "unknown error should not be included",
 								  errors: [String] = ["error should not be included"]) {
 		mockBuilder.builtHeader = header
@@ -162,6 +175,8 @@ class BuiltFileTests: TestFileGenerationBase {
 		mockBuilder.builtSetupAndTearDown = setupAndTearDown
 		mockBuilder.builtScenarios = scenarios
 		mockBuilder.builtFooter = footer
+
+		mockBuilder.builtParseErrorFeatureClass = parseErrorFeatureClass
 		mockBuilder.builtUnknownError = unknownError
 		mockBuilder.builtErrors = errors
 	}

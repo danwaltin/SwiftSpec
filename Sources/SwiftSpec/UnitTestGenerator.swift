@@ -34,6 +34,7 @@ protocol UnitTestBuilder {
 	func scenario(scenario: Scenario) -> String
 	func footer() -> String
 
+	func parseErrorFeatureClass(featureFilePath: String) -> String
 	func unknownError() -> String
 	func error(index: Int, parseError: ParseError) -> String
 }
