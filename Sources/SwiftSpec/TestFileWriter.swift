@@ -52,7 +52,7 @@ class TestFileWriterImplementation : TestFileWriter {
 			let lines = try! fileSystem.readAllLines(atPath: featureFilePath)
 			let result = featureParser.pickle(lines: lines, fileUri: featureFilePath)
 			
-			let content = unitTestGenerator.generateUnitTest(result: result)
+			let content = unitTestGenerator.generateUnitTest(result: result, fromFeatureFilePath: featureFilePath)
 			
 			try! fileSystem.writeFile(
 				path: path,

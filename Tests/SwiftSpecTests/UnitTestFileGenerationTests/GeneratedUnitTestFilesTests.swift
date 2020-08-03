@@ -123,7 +123,7 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		)
 	}
 	
-	func test_shouldGenerateContentFromFeatureParser() {
+	func test_shouldGenerateContentFromPickleResultFromFeatureParser() {
 		given_files(
 			["Specification.feature"]
 		)
@@ -133,7 +133,17 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 		
 		then_theFeatureFromWhichContentIsGeneratedShouldBe(feature(name: "parsed feature name"))
 	}
-	
+
+	func test_shouldGenerateContentFromFeaturePath() {
+		given_files(
+			["Specification.feature"]
+		)
+		
+		when_generateUnitTests(baseDirectory: "base/directory")
+		
+		then_pathFromWhichContentIsGeneratedShouldBe("base/directory/Specification.feature")
+	}
+
 	func test_shouldWriteUnitTestContentFromGenerator() {
 		given_files(
 			["Specification.feature"]
@@ -196,9 +206,18 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 	
 	private func then_theFeatureFromWhichContentIsGeneratedShouldBe(_ feature: Feature,
 																	file: StaticString = #file, line: UInt = #line) {
-		XCTAssertEqual(mockUnitTestGenerator.lastParsedFeature, feature, file: file, line: line)
+		if case let .success(document) = mockUnitTestGenerator.lastPickledResult {
+			XCTAssertEqual(document.feature!, feature, file: file, line: line)
+		} else {
+			XCTFail("No feature", file: file, line: line)
+		}		
 	}
-	
+
+	private func then_pathFromWhichContentIsGeneratedShouldBe(_ path: String,
+															  file: StaticString = #file, line: UInt = #line) {
+		XCTAssertEqual(mockUnitTestGenerator.lastPickledFeaturePath, path, file: file, line: line)
+	}
+
 	private func then_linesFromWhichFeatureIsParsedShouldBe(_ lines: [String],
 															file: StaticString = #file, line: UInt = #line) {
 		XCTAssertEqual(mockFeatureParser.parsedLines, lines, file: file, line: line)

@@ -33,7 +33,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 		self.builder = builder
 	}
 	
-	func generateUnitTest(result: PickleResult) -> String {
+	func generateUnitTest(result: PickleResult, fromFeatureFilePath: String) -> String {
 		var t = ""
 		t = t.appendLine(builder.header())
 

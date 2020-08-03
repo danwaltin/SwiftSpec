@@ -26,15 +26,12 @@ import  GherkinSwift
 
 class MockUnitTestGenerator : UnitTestGenerator {
 	var generatedUnitTest = ""
-	var lastParsedFeature: Feature!
+	var lastPickledResult: PickleResult!
+	var lastPickledFeaturePath = ""
 	
-	func generateUnitTest(result: PickleResult) -> String {
-		switch result {
-		case .success(let document):
-			lastParsedFeature = document.feature!
-		case .error( _):
-			break
-		}
+	func generateUnitTest(result: PickleResult, fromFeatureFilePath: String) -> String {
+		lastPickledResult = result
+		lastPickledFeaturePath = fromFeatureFilePath
 		return generatedUnitTest
 	}
 }

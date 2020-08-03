@@ -167,7 +167,7 @@ class BuiltFileTests: TestFileGenerationBase {
 	}
 	
 	private func when_generateUnitTestFrom(_ pickleResult: PickleResult) {
-		actual = instanceToTest().generateUnitTest(result: pickleResult)
+		actual = instanceToTest().generateUnitTest(result: pickleResult, fromFeatureFilePath: "")
 	}
 	
 	private func then_shouldGenerateUnitTestCode(_ expected: String,

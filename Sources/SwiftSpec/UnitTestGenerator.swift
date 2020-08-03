@@ -24,7 +24,7 @@ import Foundation
 import GherkinSwift
 
 protocol UnitTestGenerator {
-	func generateUnitTest(result: PickleResult) -> String
+	func generateUnitTest(result: PickleResult, fromFeatureFilePath: String) -> String
 }
 
 protocol UnitTestBuilder {
