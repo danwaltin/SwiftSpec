@@ -21,8 +21,21 @@
 //
 // ------------------------------------------------------------------------
 import Foundation
-import  GherkinSwift
+import GherkinSwift
 
 protocol UnitTestGenerator {
-	func generateUnitTest(feature: Feature) -> String
+	func generateUnitTest(result: PickleResult, fromFeatureFilePath: String) -> String
 }
+
+protocol UnitTestBuilder {
+	func header() -> String
+	func featureClass(feature: Feature) -> String
+	func setupAndTearDown(feature: Feature) -> String
+	func scenario(scenario: Scenario) -> String
+	func footer() -> String
+
+	func parseErrorFeatureClass(featureFilePath: String) -> String
+	func unknownError() -> String
+	func error(index: Int, parseError: ParseError) -> String
+}
+

@@ -34,7 +34,7 @@ public struct XBuilder {
 		 	fileSystem: CocoaFileSystem(),
 			 featureParser: GherkinFeatureParser(configuration: ParseConfiguration(),
 												 languages: LanguagesConfiguration(defaultLanguageKey: "en")),
-		 	unitTestGenerator: XCUnitTestGenerator())
+			 unitTestGenerator: XCUnitTestGenerator(builder: UnitTestBuilderImp()))
 
 		return writer
 	}
