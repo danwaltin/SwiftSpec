@@ -45,7 +45,11 @@ public extension String {
 	func stringByDeletingPathExtension() -> String {
 		return asNSString().deletingPathExtension
 	}
-	
+
+	func lastPathComponent() -> String {
+		return asNSString().lastPathComponent
+	}
+
 	func asNSString() -> NSString {
 		return NSString(string: self)
 	}

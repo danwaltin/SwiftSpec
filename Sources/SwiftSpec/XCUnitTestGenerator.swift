@@ -123,7 +123,7 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	}
 
 	func parseErrorFeatureClass(featureFilePath: String) -> String {
-		return ""
+		return "class \(testEntityName(featureFilePath))Tests : XCTestCase {"
 	}
 
 	func unknownError() -> String {
@@ -214,7 +214,12 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	private func testEntityName(_ entity: HasName) -> String {
 		return replaceSpecialCharacters(entity.name).camelCaseify()
 	}
-	
+
+	private func testEntityName(_ path: String) -> String {
+		let name = path.lastPathComponent().stringByDeletingPathExtension()
+		return replaceSpecialCharacters(name).camelCaseify()
+	}
+
 	private func ignorePrefix(_ entity: Taggable) -> String {
 		if containsIgnore(tags: entity.tags) {
 			return "IGNORE_"

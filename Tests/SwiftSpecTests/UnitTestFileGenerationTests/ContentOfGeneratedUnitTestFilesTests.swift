@@ -64,6 +64,12 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		then_featureClassShouldBe("class NameTests : XCTestCase {")
 	}
 
+	func test_featureClass_oneWordNameLowerCase_ShouldReturnTestFileInterface() {
+		given_featureWithName("name")
+		
+		then_featureClassShouldBe("class NameTests : XCTestCase {")
+	}
+
 	func test_featureClass_withSpace_ShouldReturnTestFileInterface() {
 		given_featureWithName(" Name ")
 		
@@ -95,6 +101,12 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	}
 
 	// MARK: - Parse error feature test class name
+
+	func test_featureFilePath_lowerCaseOneWord() {
+		given_featureFilePathWithName("path/to/feature/word.feature")
+		
+		then_parseErrorFeatureClassShouldBe("class WordTests : XCTestCase {")
+	}
 
 	func test_featureFilePath_oneWord() {
 		given_featureFilePathWithName("path/to/feature/Name.feature")
