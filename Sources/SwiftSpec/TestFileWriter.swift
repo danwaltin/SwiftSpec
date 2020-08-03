@@ -46,11 +46,11 @@ class TestFileWriterImplementation : TestFileWriter {
 	}
 	
 	func generateUnitTestsFromFeatureFiles(baseDirectory: String) {
-		for featureFile in featureFiles(baseDirectory) {
+		for featureFilePath in featureFiles(baseDirectory) {
 			
-			let path = unitTestFileName(featureFile: featureFile)
-			let lines = try! fileSystem.readAllLines(atPath: featureFile)
-			let result = featureParser.pickle(lines: lines, fileUri: "")
+			let path = unitTestFilePath(featureFilePath: featureFilePath)
+			let lines = try! fileSystem.readAllLines(atPath: featureFilePath)
+			let result = featureParser.pickle(lines: lines, fileUri: featureFilePath)
 			
 			let content = unitTestGenerator.generateUnitTest(result: result)
 			
@@ -74,8 +74,8 @@ class TestFileWriterImplementation : TestFileWriter {
 		return files
 	}
 
-	private func unitTestFileName(featureFile: String) -> String {
-		let firstPart = featureFile.stringByDeletingPathExtension()
+	private func unitTestFilePath(featureFilePath: String) -> String {
+		let firstPart = featureFilePath.stringByDeletingPathExtension()
 		let unitTestFileURL = "\(firstPart).feature.swift"
 		
 		return unitTestFileURL

@@ -26,9 +26,11 @@
 class MockFeatureParser : FeatureParser {
 	func pickle(lines: [String], fileUri: String) -> PickleResult {
 		parsedLines = lines
+		parsedPath = fileUri
 		return .success(GherkinDocument(comments: [], feature: featureToReturn, uri: ""))
 	}
 	
-	var parsedLines: [String] = []
+	var parsedLines = [String]()
+	var parsedPath = ""
 	var featureToReturn: Feature!
 }
