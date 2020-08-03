@@ -27,8 +27,10 @@ import  GherkinSwift
 class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 
 	private var feature: Feature!
+	private var featureFilePath: String!
 	
 	// MARK: - header
+	
 	func test_header() {
 		given_feature(defaultFeature())
 		
@@ -55,12 +57,19 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	}
 
 	// MARK: - Feature test class name
+	
 	func test_featureClass_oneWordName_ShouldReturnTestFileInterface() {
 		given_featureWithName("Name")
 		
 		then_featureClassShouldBe("class NameTests : XCTestCase {")
 	}
-	
+
+	func test_featureClass_withSpace_ShouldReturnTestFileInterface() {
+		given_featureWithName(" Name ")
+		
+		then_featureClassShouldBe("class NameTests : XCTestCase {")
+	}
+
 	func test_featureClass_twoWordsName_ShouldReturnTestFileInterface() {
 		given_featureWithName("Feature name")
 		
@@ -83,6 +92,38 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		given_featureWithName("Xå Xä Xö Åx Äx Öx")
 		
 		then_featureClassShouldBe("class XaXaXoAxAxOxTests : XCTestCase {")
+	}
+
+	// MARK: - Parse error feature test class name
+
+	func test_featureFilePath_oneWord() {
+		given_featureFilePathWithName("path/to/feature/Name.feature")
+		
+		then_parseErrorFeatureClassShouldBe("class NameTests : XCTestCase {")
+	}
+
+	func test_featureFilePath_withSpace() {
+		given_featureFilePathWithName("path/to/feature/ Name .feature")
+		
+		then_parseErrorFeatureClassShouldBe("class NameTests : XCTestCase {")
+	}
+
+	func test_featureFilePath_twoWords() {
+		given_featureFilePathWithName("path/to/feature/Feature name.feature")
+		
+		then_parseErrorFeatureClassShouldBe("class FeatureNameTests : XCTestCase {")
+	}
+
+	func test_featureFilePath_whenDashInName() {
+		given_featureFilePathWithName("path/Feature-name.feature")
+		
+		then_parseErrorFeatureClassShouldBe("class FeatureNameTests : XCTestCase {")
+	}
+
+	func test_featureFilePath_withSwedishCharacters() {
+		given_featureFilePathWithName("the/path/to/Xå Xä Xö Åx Äx Öx.feature")
+		
+		then_parseErrorFeatureClassShouldBe("class XaXaXoAxAxOxTests : XCTestCase {")
 	}
 
 	// MARK: - Setup and tear down
@@ -154,6 +195,10 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		given_feature(feature(name: name, tags: tags(hasIgnoreTag)))
 	}
 
+	func given_featureFilePathWithName(_ path: String) {
+		featureFilePath = path
+	}
+
 	func given_featureWithTags(_ tagNames: [String]) {
 		let tags = tagNames.map {Tag(name: $0, location: Location.zero())}
 		given_feature(feature(name: "name", tags: tags))
@@ -163,12 +208,18 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 		self.feature = feature
 	}
 
-	private func then_featureClassShouldBe(_ expected: String) {
+	private func then_featureClassShouldBe(_ expected: String, file: StaticString = #file, line: UInt = #line) {
 		let actual = instanceToTest().featureClass(feature: feature)
 		
-		XCTAssertEqual(expected, actual)
+		XCTAssertEqual(actual, expected, file: file, line: line)
 	}
 
+	private func then_parseErrorFeatureClassShouldBe(_ expected: String, file: StaticString = #file, line: UInt = #line) {
+		let actual = instanceToTest().parseErrorFeatureClass(featureFilePath: featureFilePath)
+		
+		XCTAssertEqual(actual, expected, file: file, line: line)
+	}
+	
 	// MARK: - Factory methods
 
 	private func defaultFeature() -> Feature {
