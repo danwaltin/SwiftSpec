@@ -22,12 +22,22 @@
 // ------------------------------------------------------------------------
 
 import Foundation
-
-// Importing SwiftSpec is needed for command line "swift build", but not within xcode
 import SwiftSpec
+import ArgumentParser
 
-let builder = XBuilder()
-let writer = builder.buildTestFileWriter()
-let path = CommandLine.arguments[1]
+struct GenerateUnitTests: ParsableCommand {
+	static var configuration = CommandConfiguration(
+		commandName: "SwiftSpecConsole", abstract: "Generate unit test files from .feature files")
+	
+    @Argument(help: "Path to the feature files, relative to the current directory.")
+    var path: String
 
-writer.generateUnitTestsFromFeatureFiles(baseDirectory: path)
+    mutating func run() throws {
+		let builder = XBuilder()
+		let writer = builder.buildTestFileWriter()
+
+		writer.generateUnitTestsFromFeatureFiles(baseDirectory: path)
+    }
+}
+
+GenerateUnitTests.main()

@@ -33,7 +33,8 @@ let package = Package(
 		.executable(name: "SwiftSpecConsole", targets: ["SwiftSpecConsole"])
     ],
     dependencies: [
-		.package(url: "https://github.com/danwaltin/GherkinSwift", from: "1.0.1")
+		.package(url: "https://github.com/danwaltin/GherkinSwift", from: "1.0.1"),
+		.package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "0.2.0"))
     ],
     targets: [
         .target(
@@ -41,7 +42,8 @@ let package = Package(
             dependencies: ["GherkinSwift"]),
         .target(
             name: "SwiftSpecConsole",
-            dependencies: ["SwiftSpec"]),
+            dependencies: ["SwiftSpec",
+						   .product(name: "ArgumentParser", package: "swift-argument-parser")]),
         .testTarget(
             name: "SwiftSpecTests",
             dependencies: ["SwiftSpec"]),
