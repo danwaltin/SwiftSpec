@@ -10,14 +10,14 @@
 import XCTest
 import SwiftSpec
 
-class ScenarioOutlineTests : XCTestCase {
+class IGNORE_ScenarioOutlineTests : Ignore {
 var testRunner:TestRunner!
 var scenarioContext:ScenarioContext!
 
 override func setUp() {
 super.setUp()
 scenarioContext = ScenarioContextImplementation()
-scenarioContext.featureTags = []
+scenarioContext.featureTags = ["ignore"]
 testRunner = TestRunner(scenarioContext: scenarioContext)
 }
 
