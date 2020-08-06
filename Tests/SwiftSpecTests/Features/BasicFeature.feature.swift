@@ -36,13 +36,4 @@ try testRunner.executeStep(.then, "something should happen")
 XCTFail("\(error)")
 }
 }
-func IGNORE_testAScenarioWhichIsActuallySeveralExamplesTests() {
-scenarioContext.tags = ["ignore"]
-do {
-try testRunner.executeStep(.when, "adding '<arg1>' and '<arg2>'")
-try testRunner.executeStep(.then, "the result should be '<result>'")
-} catch {
-XCTFail("\(error)")
-}
-}
 }
