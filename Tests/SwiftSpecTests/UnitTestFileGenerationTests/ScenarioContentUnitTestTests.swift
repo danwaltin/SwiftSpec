@@ -31,9 +31,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	
 	// MARK: - Scenario test method name
 	func test_oneWordName() {
-		given_scenarioWithName("Name")
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: Name
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			}
@@ -41,21 +45,14 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 	}
 
-	func test_twoScenarios() {
-		given_scenarioWithName("one two")
-		
-		then_scenarioShouldBe(
-			"""
-			func testOneTwoTests() {
-			}
-			"""
-		)
-	}
-
 	func test_twoWordsName() {
-		given_scenarioWithName("one two")
-		
-		then_scenarioShouldBe(
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: one two
+			""")
+
+		then_generatedScenarioShouldBe(
 			"""
 			func testOneTwoTests() {
 			}
@@ -64,9 +61,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 	
 	func test_scenarioWithDashInName() {
-		given_scenarioWithName("Scenario-name")
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: Scenario-name
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testScenarioNameTests() {
 			}
@@ -75,9 +76,13 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 	
 	func test_scenarioWithSwedishCharacters_ShouldReplaceWithAscii() {
-		given_scenarioWithName("Xå Xä Xö Åx Äx Öx")
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: Xå Xä Xö Åx Äx Öx
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testXaXaXoAxAxOxTests() {
 			}
@@ -86,9 +91,14 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 	
 	func test_ignoredScenario() {
-		given_scenarioWithName("Name", hasIgnoreTag: true)
+		when_parsing(
+			"""
+			Feature: f
+			@ignore
+			Scenario: Name
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func IGNORE_testNameTests() {
 			scenarioContext.tags = [\"\(ignoreTag)\"]
@@ -98,27 +108,16 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 	
 	// MARK: - Tags
-	func test_scenarioWithZeroTags() {
-		given_scenario(
-			scenario("name", tags: []
-			)
-		)
-		
-		then_scenarioShouldBe(
-			"""
-			func testNameTests() {
-			}
-			""")
-	}
 
 	func test_scenarioWithOneTag() {
-		given_scenario(
-			scenario("name", tags: [
-				"tag"]
-			)
-		)
+		when_parsing(
+			"""
+			Feature: f
+			@tag
+			Scenario: Name
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			scenarioContext.tags = [\"tag\"]
@@ -128,14 +127,14 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	func test_scenarioWithTwoTags() {
-		given_scenario(
-			scenario("name", tags: [
-				"one",
-				"two"]
-			)
-		)
+		when_parsing(
+			"""
+			Feature: f
+			@one @two
+			Scenario: Name
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			scenarioContext.tags = [\"one\", \"two\"]
@@ -146,13 +145,14 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	// MARK: - Steps
 	func test_scenarioWithOneGivenStep() {
-		given_scenario(
-			scenario("name", [
-				given("something")]
-			)
-		)
-		
-		then_scenarioShouldBe(
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				Given something
+			""")
+
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
@@ -166,13 +166,14 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	func test_scenarioWithOneWhenStep() {
-		given_scenario(
-			scenario("name", [
-				when("something")]
-			)
-		)
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				When something
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
@@ -186,13 +187,14 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	func test_scenarioWithOneThenStep() {
-		given_scenario(
-			scenario("name", [
-				then("something")]
-			)
-		)
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				Then something
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
@@ -205,22 +207,27 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 		)
 	}
 
-	func test_scenarioWithGivenWhenThenSteps() {
-		given_scenario(
-			scenario("name", [
-				given("a"),
-				when("b"),
-				then("c")]
-			)
-		)
+	func test_scenarioWithMultipleSteps() {
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				Given a
+				And b
+				When c
+				Then d
+				But e
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
 			try testRunner.executeStep(.given, \"a\")
-			try testRunner.executeStep(.when, \"b\")
-			try testRunner.executeStep(.then, \"c\")
+			try testRunner.executeStep(.and, \"b\")
+			try testRunner.executeStep(.when, \"c\")
+			try testRunner.executeStep(.then, \"d\")
+			try testRunner.executeStep(.but, \"e\")
 			} catch {
 			XCTFail(\"\\(error)\")
 			}
@@ -231,13 +238,16 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	// MARK: - Steps with table arguments
 	func test_scenarioWithGivenStep_withTableArgumentWithOneRow() {
-		given_scenario(
-			scenario("name", [
-				given("a", table("col", "r1c1"))]
-			)
-		)
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				Given a
+					| col  |
+					| r1c1 |
+			""")
 
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
@@ -253,13 +263,17 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	func test_scenarioWithWhenStep_withTableArgumentWithTwoRows() {
-		given_scenario(
-			scenario("name", [
-				when("a", table("col", "r1c1", "r2c1"))]
-			)
-		)
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				When a
+					| col  |
+					| r1c1 |
+					| r2c1 |
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
@@ -276,13 +290,16 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	func test_scenarioWithThenStep_withTableArgumentWithTwoColumns() {
-		given_scenario(
-			scenario("name", [
-				then("a", table("c1", "c2", "r1c1", "r1c2"))]
-			)
-		)
-		
-		then_scenarioShouldBe(
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				Then a
+					| c1   | c2   |
+					| r1c1 | r1c2 |
+			""")
+
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
@@ -298,15 +315,20 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	func test_scenarioWithThreeSteps_firstAndLastWithTableParameters() {
-		given_scenario(
-			scenario("name", [
-				given("g", table("c1", "v1")),
-				when("w"),
-				then("t", table("c2", "v2"))]
-			)
-		)
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: name
+				Given g
+					| c1 |
+					| v1 |
+				When w
+				Then t
+					| c2 |
+					| v2 |
+			""")
 		
-		then_scenarioShouldBe(
+		then_generatedScenarioShouldBe(
 			"""
 			func testNameTests() {
 			do {
@@ -326,15 +348,19 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	}
 
 	// MARK: - givens, whens thens
-	func given_scenarioWithName(_ name: String, hasIgnoreTag: Bool = false) {
-		given_scenario(scenario(name, hasIgnoreTag))
-	}
 	
-	private func given_scenario(_ scenario: Scenario) {
-		self.scenarioToUse = scenario
-	}
+	func when_parsing(_ feature: String) {
+		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
+												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
+		let lines = feature.allLines()
+		let result = featureParser.pickle(lines: lines, fileUri: "feature/file/path")
 	
-	private func then_scenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
+		if case .success(let document) = result {
+			scenarioToUse = document.feature!.scenarios.first!
+		}
+	}
+		
+	private func then_generatedScenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
 		let expected = trimmedLines(lines)
 		let actual = instanceToTest().scenario(scenario: scenarioToUse)
 
@@ -345,71 +371,5 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	
 	private func instanceToTest() -> UnitTestBuilderImp {
 		return UnitTestBuilderImp()
-	}
-	
-	private func scenario(_ name: String, tags: [String] = []) -> Scenario {
-		let tagTags = tags.map { Tag(name: $0, location: Location.zero())}
-		return Scenario(name: name, description: nil, tags: tagTags, location: Location.zero(), steps: [], examples: [], isScenarioOutline: false, localizedKeyword: "Localized")
-	}
-
-	private func scenario(_ name: String, _ steps: [Step] = []) -> Scenario {
-		return scenario(name, false, steps)
-	}
-
-	private func scenario(_ name: String, _ hasIgnoreTag: Bool, _ steps: [Step] = []) -> Scenario {
-		return Scenario(name: name, description: nil, tags: tags(hasIgnoreTag), location: Location.zero(), steps: steps, examples: [], isScenarioOutline: false, localizedKeyword: "Localized")
-	}
-	
-	private func given(_ text: String, _ table: Table? = nil) -> Step {
-		return Step.given(text, table)
-	}
-
-	private func when(_ text: String, _ table: Table? = nil) -> Step {
-		return Step.when(text, table)
-	}
-
-	private func then(_ text: String, _ table: Table? = nil) -> Step {
-		return Step.then(text, table)
-	}
-
-	private func table(_ columnName: String, _ r1c1: String) -> Table {
-		return table(
-			r([h(columnName)]),
-			[
-				r([d(r1c1, columnName)])
-			])
-	}
-	
-	private func table(_ columnName: String, _ r1c1: String, _ r2c1: String) -> Table {
-		return table(
-			r([h(columnName)]),
-			[
-				r([d(r1c1, columnName)]),
-				r([d(r2c1, columnName)])
-			])
-	}
-	
-	private func table(_ c1: String, _ c2: String, _ r1c1: String, _ r1c2: String) -> Table {
-		return table(
-			r([h(c1), h(c2)]),
-			[
-				r([d(r1c1, c1), d(r1c2, c2)])
-			])
-	}
-
-	private func table(_ header: TableRow, _ rows: [TableRow]) -> Table {
-		return Table(header: header, rows: rows, headerLocation: Location.zero())
-	}
-	
-	private func h(_ columnName: String) -> TableCell {
-		return TableCell(value: columnName, location: Location.zero(), header: columnName)
-	}
-	
-	private func d(_ value: String, _ columnName: String) -> TableCell {
-		return TableCell(value: value, location: Location.zero(), header: columnName)
-	}
-	
-	private func r(_ cells: [TableCell]) -> TableRow {
-		return TableRow(cells: cells, location: Location.zero())
-	}
+	}	
 }
