@@ -186,7 +186,7 @@ class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 			""")
 
 		let i = instanceToTest()
-		let s = i.setupAndTearDown(feature: pickledDocument.feature!)
+		let s = i.setupAndTearDown(feature: pickledDocument!.feature!)
 		XCTAssertEqual(s, expected)
 	}
 	
@@ -218,7 +218,7 @@ class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 			""")
 
 		let i = instanceToTest()
-		let s = i.setupAndTearDown(feature: pickledDocument.feature!)
+		let s = i.setupAndTearDown(feature: pickledDocument!.feature!)
 		XCTAssertEqual(s, expected)
 		
 	}
@@ -234,7 +234,7 @@ class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 	}
 
 	private func then_featureClassShouldBe(_ expected: String, file: StaticString = #file, line: UInt = #line) {
-		let actual = instanceToTest().featureClass(feature: pickledDocument.feature!)
+		let actual = instanceToTest().featureClass(feature: pickledDocument!.feature!)
 		
 		XCTAssertEqual(actual, expected, file: file, line: line)
 	}

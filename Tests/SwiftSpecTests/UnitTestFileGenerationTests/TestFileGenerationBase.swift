@@ -26,7 +26,7 @@ import XCTest
 import  GherkinSwift
 
 class TestFileGenerationBase : XCTestCase {
-	var pickledDocument: GherkinDocument!
+	var pickledDocument: GherkinDocument?
 	
 	func when_parsing(_ feature: String) {
 		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
@@ -40,7 +40,7 @@ class TestFileGenerationBase : XCTestCase {
 	}
 
 	func then_generatedScenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
-		guard let scenario = pickledDocument.feature?.scenarios.first else {
+		guard let scenario = pickledDocument?.feature?.scenarios.first else {
 			XCTFail("No scenario found", file: file, line: line)
 			return
 		}
