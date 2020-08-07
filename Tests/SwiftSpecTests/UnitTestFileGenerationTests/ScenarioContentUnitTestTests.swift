@@ -27,8 +27,6 @@ import XCTest
 
 class ScenarioContentUnitTestTests : TestFileGenerationBase {
 	
-	var scenarioToUse: Scenario!
-	
 	// MARK: - Scenario test method name
 	func test_oneWordName() {
 		when_parsing(
@@ -349,20 +347,9 @@ class ScenarioContentUnitTestTests : TestFileGenerationBase {
 
 	// MARK: - givens, whens thens
 	
-	func when_parsing(_ feature: String) {
-		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
-												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
-		let lines = feature.allLines()
-		let result = featureParser.pickle(lines: lines, fileUri: "feature/file/path")
-	
-		if case .success(let document) = result {
-			scenarioToUse = document.feature!.scenarios.first!
-		}
-	}
-		
 	private func then_generatedScenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
 		let expected = trimmedLines(lines)
-		let actual = instanceToTest().scenario(scenario: scenarioToUse)
+		let actual = instanceToTest().scenario(scenario: (pickledDocument.feature?.scenarios.first!)!)
 
 		XCTAssertEqual(actual, expected, file: file, line: line)
 	}

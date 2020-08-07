@@ -26,14 +26,11 @@ import  GherkinSwift
 
 class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 
-	private var feature: Feature!
 	private var featureFilePath: String!
 	
 	// MARK: - header
 	
 	func test_header() {
-		given_feature(defaultFeature())
-		
 		let actual = instanceToTest().header()
 		
 		let expected = trimmedLines(
@@ -59,43 +56,65 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	// MARK: - Feature test class name
 	
 	func test_featureClass_oneWordName_ShouldReturnTestFileInterface() {
-		given_featureWithName("Name")
+		when_parsing(
+			"""
+			Feature: Name
+			""")
 		
 		then_featureClassShouldBe("class NameTests : XCTestCase {")
 	}
 
 	func test_featureClass_oneWordNameLowerCase_ShouldReturnTestFileInterface() {
-		given_featureWithName("name")
+		when_parsing(
+			"""
+			Feature: name
+			""")
 		
 		then_featureClassShouldBe("class NameTests : XCTestCase {")
 	}
 
 	func test_featureClass_withSpace_ShouldReturnTestFileInterface() {
-		given_featureWithName(" Name ")
+		when_parsing(
+			"""
+			Feature:   Name \t
+			""")
 		
 		then_featureClassShouldBe("class NameTests : XCTestCase {")
 	}
 
 	func test_featureClass_twoWordsName_ShouldReturnTestFileInterface() {
-		given_featureWithName("Feature name")
+		when_parsing(
+			"""
+			Feature: Feature name
+			""")
 		
 		then_featureClassShouldBe("class FeatureNameTests : XCTestCase {")
 	}
 	
 	func test_featureClass_whenFeatureWithDashInName_ShouldReturnTestFileInterface() {
-		given_featureWithName("Feature-name")
+		when_parsing(
+			"""
+			Feature: Feature-name
+			""")
 		
 		then_featureClassShouldBe("class FeatureNameTests : XCTestCase {")
 	}
 	
 	func test_featureClass_WhenFeatureWithIgnoreTag_ShouldReturnTestFileInterface() {
-		given_featureWithName("Feature name", hasIgnoreTag:true)
+		when_parsing(
+			"""
+			@ignore
+			Feature: Feature name
+			""")
 		
 		then_featureClassShouldBe("class IGNORE_FeatureNameTests : Ignore {")
 	}
 	
 	func test_featureClass_WhenFeatureWithSwedishCharacters_ShouldReplacesWithAscii() {
-		given_featureWithName("Xå Xä Xö Åx Äx Öx")
+		when_parsing(
+			"""
+			Feature: Xå Xä Xö Åx Äx Öx
+			""")
 		
 		then_featureClassShouldBe("class XaXaXoAxAxOxTests : XCTestCase {")
 	}
@@ -141,7 +160,10 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	// MARK: - Setup and tear down
 
 	func testSetupAndTearDown() {
-		given_featureWithTags([])
+		when_parsing(
+			"""
+			Feature: feature
+			""")
 
 		let expected = trimmedLines(
 			"""
@@ -164,13 +186,17 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 			""")
 
 		let i = instanceToTest()
-		let s = i.setupAndTearDown(feature: feature)
+		let s = i.setupAndTearDown(feature: pickledDocument.feature!)
 		XCTAssertEqual(s, expected)
 	}
 	
 	func testSetupAndTearDownWhenFeatureHasTwoTags() {
-		given_featureWithTags(["one", "two"])
-		
+		when_parsing(
+			"""
+			@one @two
+			Feature: feature
+			""")
+
 		let expected = trimmedLines(
 			"""
 			var testRunner:TestRunner!
@@ -192,7 +218,7 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 			""")
 
 		let i = instanceToTest()
-		let s = i.setupAndTearDown(feature: feature)
+		let s = i.setupAndTearDown(feature: pickledDocument.feature!)
 		XCTAssertEqual(s, expected)
 		
 	}
@@ -203,25 +229,12 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	}
 
 	// MARK: - givens, whens thens
-	func given_featureWithName(_ name: String, hasIgnoreTag: Bool = false) {
-		given_feature(feature(name: name, tags: tags(hasIgnoreTag)))
-	}
-
 	func given_featureFilePathWithName(_ path: String) {
 		featureFilePath = path
 	}
 
-	func given_featureWithTags(_ tagNames: [String]) {
-		let tags = tagNames.map {Tag(name: $0, location: Location.zero())}
-		given_feature(feature(name: "name", tags: tags))
-	}
-
-	private func given_feature(_ feature: Feature) {
-		self.feature = feature
-	}
-
 	private func then_featureClassShouldBe(_ expected: String, file: StaticString = #file, line: UInt = #line) {
-		let actual = instanceToTest().featureClass(feature: feature)
+		let actual = instanceToTest().featureClass(feature: pickledDocument.feature!)
 		
 		XCTAssertEqual(actual, expected, file: file, line: line)
 	}
@@ -233,10 +246,6 @@ class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
 	}
 	
 	// MARK: - Factory methods
-
-	private func defaultFeature() -> Feature {
-		return feature(name: "default name")
-	}
 
 	private func instanceToTest() -> UnitTestBuilderImp {
 		return UnitTestBuilderImp()

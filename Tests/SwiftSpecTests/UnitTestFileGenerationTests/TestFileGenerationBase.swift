@@ -26,6 +26,18 @@ import XCTest
 import  GherkinSwift
 
 class TestFileGenerationBase : XCTestCase {
+	var pickledDocument: GherkinDocument!
+	
+	func when_parsing(_ feature: String) {
+		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
+												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
+		let lines = feature.allLines()
+		let result = featureParser.pickle(lines: lines, fileUri: "feature/file/path")
+	
+		if case .success(let document) = result {
+			pickledDocument = document
+		}
+	}
 
 	// MARK: - Factory methods
 	
