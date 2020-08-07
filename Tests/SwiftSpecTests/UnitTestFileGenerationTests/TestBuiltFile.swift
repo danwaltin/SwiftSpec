@@ -37,59 +37,59 @@ class TestBuiltFile: TestFileGenerationBase {
 	
 	func test_successfulResultWithFeatureAndZeroScenarios_shouldReturnBuiltTestFile() {
 		given_builtParts(header: "header",
-						 featureClass: "feature",
+						 featureClass: "featureClass",
 						 setupAndTearDown: "setupAndTearDown",
-						 footer: "footer")
+						 endClass: "endClass")
 		
 		when_generateUnitTestFrom(success(feature: feature(scenarios: [])))
 
 		then_shouldGenerateUnitTestCode(
 			"""
 			header
-			feature
+			featureClass
 			setupAndTearDown
-			footer
+			endClass
 			"""
 		)
 	}
 
 	func test_successfulResultWithFeatureOneScenario_shouldReturnBuiltTestFile() {
 		given_builtParts(header: "header",
-						 featureClass: "feature",
+						 featureClass: "featureClass",
 						 setupAndTearDown: "setupAndTearDown",
 						 scenarios: ["scenario"],
-						 footer: "footer")
+						 endClass: "endClass")
 		
 		when_generateUnitTestFrom(success(feature: feature(scenarios: [scenario()])))
 
 		then_shouldGenerateUnitTestCode(
 			"""
 			header
-			feature
+			featureClass
 			setupAndTearDown
 			scenario
-			footer
+			endClass
 			"""
 		)
 	}
 
 	func test_successfulResultWithFeatureTwoScenarios_shouldReturnBuiltTestFile() {
 		given_builtParts(header: "header",
-						 featureClass: "feature",
+						 featureClass: "featureClass",
 						 setupAndTearDown: "setupAndTearDown",
 						 scenarios: ["scenario1", "scenario2"],
-						 footer: "footer")
+						 endClass: "endClass")
 		
 		when_generateUnitTestFrom(success(feature: feature(scenarios: [scenario(), scenario()])))
 
 		then_shouldGenerateUnitTestCode(
 			"""
 			header
-			feature
+			featureClass
 			setupAndTearDown
 			scenario1
 			scenario2
-			footer
+			endClass
 			"""
 		)
 	}
@@ -108,7 +108,7 @@ class TestBuiltFile: TestFileGenerationBase {
 	
 	func test_errorResult_butZeroParseErrors_shouldIncludeHeaderAndUnknownError() {
 		given_builtParts(header: "header",
-						 footer: "footer",
+						 endClass: "endClass",
 						 parseErrorFeatureClass: "parseErrorClass",
 						 unknownError: "unknown error")
 
@@ -119,14 +119,14 @@ class TestBuiltFile: TestFileGenerationBase {
 			header
 			parseErrorClass
 			unknown error
-			footer
+			endClass
 			"""
 		)
 	}
 
 	func test_errorResult_oneParseError_shouldIncludeHeaderAndParseError() {
 		given_builtParts(header: "header",
-						 footer: "footer",
+						 endClass: "endClass",
 						 parseErrorFeatureClass: "parseErrorClass",
 						 errors: ["parse error"])
 
@@ -137,14 +137,14 @@ class TestBuiltFile: TestFileGenerationBase {
 			header
 			parseErrorClass
 			parse error
-			footer
+			endClass
 			"""
 		)
 	}
 
 	func test_errorResult_twoParseErrors_shouldIncludeHeaderAndParseErrors() {
 		given_builtParts(header: "header",
-						 footer: "footer",
+						 endClass: "endClass",
 						 parseErrorFeatureClass: "parseErrorClass",
 						 errors: ["error one", "error two"])
 
@@ -156,7 +156,7 @@ class TestBuiltFile: TestFileGenerationBase {
 			parseErrorClass
 			error one
 			error two
-			footer
+			endClass
 			"""
 		)
 	}
@@ -166,7 +166,7 @@ class TestBuiltFile: TestFileGenerationBase {
 								  featureClass: String = "feature should not be included",
 								  setupAndTearDown: String = "setupAndTearDown should not be included",
 								  scenarios: [String] = ["scenario should not be included"],
-								  footer: String = "footer should not be included",
+								  endClass: String = "end class should not be included",
 								  parseErrorFeatureClass: String = "parse error feature should not be included",
 								  unknownError: String = "unknown error should not be included",
 								  errors: [String] = ["error should not be included"]) {
@@ -174,7 +174,7 @@ class TestBuiltFile: TestFileGenerationBase {
 		mockBuilder.builtFeatureClass = featureClass
 		mockBuilder.builtSetupAndTearDown = setupAndTearDown
 		mockBuilder.builtScenarios = scenarios
-		mockBuilder.builtFooter = footer
+		mockBuilder.builtEndClass = endClass
 
 		mockBuilder.builtParseErrorFeatureClass = parseErrorFeatureClass
 		mockBuilder.builtUnknownError = unknownError

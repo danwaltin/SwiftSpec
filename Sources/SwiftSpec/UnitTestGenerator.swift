@@ -32,7 +32,7 @@ protocol UnitTestBuilder {
 	func featureClass(feature: Feature) -> String
 	func setupAndTearDown(feature: Feature) -> String
 	func scenario(scenario: Scenario) -> String
-	func footer() -> String
+	func endClass() -> String
 
 	func parseErrorFeatureClass(featureFilePath: String) -> String
 	func unknownError() -> String

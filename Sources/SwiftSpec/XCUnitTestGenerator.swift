@@ -45,7 +45,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 				for s in feature.scenarios {
 					t = t.appendLine(builder.scenario(scenario: s))
 				}
-				t = t.appendLine(builder.footer())
+				t = t.appendLine(builder.endClass())
 			}
 
 		case .error(let errors):
@@ -59,7 +59,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 					index += 1
 				}
 			}
-			t = t.appendLine(builder.footer())
+			t = t.appendLine(builder.endClass())
 		}
 
 		return t
@@ -122,7 +122,7 @@ class UnitTestBuilderImp : UnitTestBuilder {
 			"}"
 	}
 	
-	func footer() -> String {
+	func endClass() -> String {
 		return "}"
 	}
 

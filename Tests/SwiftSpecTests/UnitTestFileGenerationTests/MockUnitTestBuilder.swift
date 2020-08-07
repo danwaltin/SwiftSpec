@@ -29,7 +29,7 @@ class MockUnitTestBuilder : UnitTestBuilder {
 	var builtFeatureClass = ""
 	var builtSetupAndTearDown = ""
 	var builtScenarios = [String]()
-	var builtFooter = ""
+	var builtEndClass = ""
 
 	var builtParseErrorFeatureClass = ""
 	var builtUnknownError = ""
@@ -55,8 +55,8 @@ class MockUnitTestBuilder : UnitTestBuilder {
 		return scenario
 	}
 	
-	func footer() -> String {
-		return builtFooter
+	func endClass() -> String {
+		return builtEndClass
 	}
 	
 	func parseErrorFeatureClass(featureFilePath: String) -> String {

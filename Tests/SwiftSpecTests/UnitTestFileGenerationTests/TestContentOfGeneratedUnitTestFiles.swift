@@ -223,9 +223,9 @@ class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 		
 	}
 	
-	// MARK: - Footer
-	func testFooter_ShouldReturnEndTestClass() {
-		XCTAssertEqual("}", instanceToTest().footer())
+	// MARK: - dndClass
+	func testEndClass_ShouldReturnEndTestClass() {
+		XCTAssertEqual("}", instanceToTest().endClass())
 	}
 
 	// MARK: - givens, whens thens
