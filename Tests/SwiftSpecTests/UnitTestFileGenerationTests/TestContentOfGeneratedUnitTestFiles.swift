@@ -14,7 +14,7 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  ContentOfGeneratedUnitTestFilesTests.swift
+//  TestContentOfGeneratedUnitTestFiles.swift
 //  SwiftSpec
 //
 //  Created by Dan Waltin on 2016-06-26.
@@ -24,7 +24,7 @@ import XCTest
 @testable import SwiftSpec
 import  GherkinSwift
 
-class ContentOfGeneratedUnitTestFilesTests: TestFileGenerationBase {
+class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 
 	private var featureFilePath: String!
 	

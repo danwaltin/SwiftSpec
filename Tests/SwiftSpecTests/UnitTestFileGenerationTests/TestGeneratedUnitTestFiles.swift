@@ -14,7 +14,7 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  TestUnitTestFiles.swift
+//  TestGeneratedUnitTestFiles.swift
 //  SwiftSpec
 //
 //  Created by Dan Waltin on 2016-06-26.
@@ -24,7 +24,7 @@ import XCTest
 @testable import SwiftSpec
 import  GherkinSwift
 
-class GeneratedUnitTestFilesTests : TestFileGenerationBase {
+class TestGeneratedUnitTestFiles : TestFileGenerationBase {
 	
 	var mockFileSystem: MockFileSystem!
 	var mockFeatureParser: MockFeatureParser!
@@ -227,4 +227,10 @@ class GeneratedUnitTestFilesTests : TestFileGenerationBase {
 														   file: StaticString = #file, line: UInt = #line) {
 		XCTAssertEqual(mockFeatureParser.parsedPath, path, file: file, line: line)
 	}
+	
+	private func feature(name: String, tags: [Tag] = []) -> Feature {
+		return Feature(name: name, description: nil, background: nil, tags: tags, location: Location.zero(), language: "en", localizedKeyword: "Feature")
+	}
+
+
 }

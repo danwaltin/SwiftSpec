@@ -14,7 +14,7 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  BuiltFileTests.swift
+//  TestBuiltFile.swift
 //  SwiftSpec
 //
 //  Created by Dan Waltin on 2020-08-01.
@@ -24,7 +24,7 @@ import XCTest
 @testable import SwiftSpec
 import  GherkinSwift
 
-class BuiltFileTests: TestFileGenerationBase {
+class TestBuiltFile: TestFileGenerationBase {
 	
 	private var mockBuilder: MockUnitTestBuilder!
 	private var actual = ""

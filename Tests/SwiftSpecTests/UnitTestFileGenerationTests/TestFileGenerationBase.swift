@@ -39,29 +39,28 @@ class TestFileGenerationBase : XCTestCase {
 		}
 	}
 
+	func then_generatedScenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
+		guard let scenario = pickledDocument.feature?.scenarios.first else {
+			XCTFail("No scenario found", file: file, line: line)
+			return
+		}
+		let expected = trimmedLines(lines)
+		let actual = instanceToTest().scenario(scenario: scenario)
+
+		XCTAssertEqual(actual, expected, file: file, line: line)
+	}
+
 	// MARK: - Factory methods
 	
-	func feature(name: String, tags: [Tag] = []) -> Feature {
-		return Feature(name: name, description: nil, background: nil, tags: tags, location: Location.zero(), language: "en", localizedKeyword: "Feature")
+	private func instanceToTest() -> UnitTestBuilderImp {
+		return UnitTestBuilderImp()
 	}
 
-	func tags(_ hasIgnoreTag: Bool) -> [Tag] {
-		if hasIgnoreTag {
-			return [Tag(name: ignoreTag, location: Location.zero())]
-		}
-		return []
-	}
-	
 	func trimmedLines(_ s: String) -> String {
-		return stringWithTrimmedLines(s.allLines())
-	}
-
-	func stringWithTrimmedLines(_ lines: [String]) -> String {
-		var s = ""
-		for line in lines {
-			s = s.appendLine(line.trim())
+		var trimmed = ""
+		for line in s.allLines() {
+			trimmed = trimmed.appendLine(line.trim())
 		}
-		return s
+		return trimmed
 	}
-
 }
