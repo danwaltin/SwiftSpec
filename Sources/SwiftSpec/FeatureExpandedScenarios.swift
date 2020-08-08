@@ -39,9 +39,11 @@ extension Feature {
 			} else {
 				for examples in outline.examples {
 					if let table = examples.table {
-						if table.rows.count > 0  {
-							
+						var names = [String]()
+						for (index, _) in table.rows.enumerated()  {
+							names.append("\(outline.name)_\(index)")
 						}
+						expanded.append(contentsOf: names.map { scenario(withName: $0)})
 					}
 				}
 			}

@@ -102,7 +102,7 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 		)
 	}
 
-	func test_oneScenarioWithUnnamedExamplesAndNamedExamlesWithOneTableRowEach() {
+	func test_oneScenarioWithUnnamedExamplesAndNamedExamplesWithOneTableRowEach() {
 		when_parsing(
 			"""
 			Feature: f
@@ -122,7 +122,7 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 		)
 	}
 
-	func test_oneScenarioWithUnnamedExamplesAndNamedExamlesWithTwoAndThreeTableRows() {
+	func test_oneScenarioWithUnnamedExamplesAndNamedExamplesWithTwoAndThreeTableRows() {
 		when_parsing(
 			"""
 			Feature: f
