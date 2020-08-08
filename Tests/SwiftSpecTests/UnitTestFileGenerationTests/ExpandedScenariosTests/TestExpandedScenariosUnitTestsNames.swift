@@ -204,7 +204,7 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 
 	// MARK: - Givens whens and thens
 	private func then_expandedScenarioNamesShouldBe(_ expected: [String], file: StaticString = #file, line: UInt = #line) {
-		assertFeature(file, line) {
+		assert.feature(file, line) {
 			let scenarios = $0.expandedScenarios()
 			
 			let actual = scenarios.map { $0.name}

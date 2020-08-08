@@ -27,14 +27,15 @@ import  GherkinSwift
 
 class TestFileGenerationBase : XCTestCase {
 	var pickledDocument: GherkinDocument?
+	var actualPickleResult: PickleResult!
 	
 	func when_parsing(_ feature: String) {
 		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
 												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
 		let lines = feature.allLines()
-		let result = featureParser.pickle(lines: lines, fileUri: "feature/file/path")
+		actualPickleResult = featureParser.pickle(lines: lines, fileUri: "feature/file/path")
 	
-		if case .success(let document) = result {
+		if case .success(let document) = actualPickleResult {
 			pickledDocument = document
 		}
 	}
@@ -50,19 +51,11 @@ class TestFileGenerationBase : XCTestCase {
 		XCTAssertEqual(actual, expected, file: file, line: line)
 	}
 
-	// MARK: - Assert helpers
-	func assertFeature(_ file: StaticString, _ line: UInt, assert: (Feature) -> Void) {
-		guard let feature = feature() else {
-			XCTFail("No feature found", file: file, line: line)
-			return
-		}
-
-		assert(feature)
+	// MARK: - Assertions
+	var assert: Asserter {
+		return Asserter(actualPickleResult: actualPickleResult)
 	}
 
-	private func feature() -> Feature? {
-		return pickledDocument?.feature
-	}
 	// MARK: - Factory methods
 	
 	private func instanceToTest() -> UnitTestBuilderImp {

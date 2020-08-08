@@ -14,7 +14,7 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  TestExpandedScenariosOnlyScenarios.swift
+//  Asserter.swift
 //  SwiftSpec
 //
 //  Created by Dan Waltin on 2020-08-08.
@@ -25,41 +25,28 @@ import XCTest
 @testable import SwiftSpec
 import GherkinSwift
 
-class TestExpandedScenariosOnlyScenarios : TestFileGenerationBase {
-	func test_featureWithOnlyScenarios_expandedScenariosShouldEqualScenarios() {
-		when_parsing(
-			"""
-			Feature: f
-			@someTag
-			Scenario: Scenario One
-				This is a description of the scenario
-				Given something
-				And something else
-
-				When the following
-					| Foo    |
-					| bar    |
-					| qwerty |
-
-				Then good stuff happens
-				But not bad stuff
-
-			Scenario: Another scenario
-				Given given
-				When when
-				Then then
-			""")
-		
-		then_expandedScenariosShouldEqualScenarios()
-	}
-
-	// MARK: - Givens whens and thens
-	private func then_expandedScenariosShouldEqualScenarios(file: StaticString = #file, line: UInt = #line) {
-		assert.feature(file, line) {
-			let expandedScenarios = $0.expandedScenarios()
-			let scenarios = $0.scenarios
+struct Asserter {
+	let actualPickleResult: PickleResult
+	
+	func gherkinDocument(_ file: StaticString, _ line: UInt, assert: (GherkinDocument) -> Void ) {
+		switch actualPickleResult {
+		case .success(let document):
+			assert(document)
 			
-			XCTAssertEqual(scenarios, expandedScenarios, file: file, line: line)
+		case .error(let error):
+			let messages = error.map{$0.message}
+			XCTFail("No gherkin document found. Parse error(-s) occurred with message '\(String(describing: messages))'", file: file, line: line)
+		}
+	}
+	
+	func feature(_ file: StaticString, _ line: UInt, assert: (Feature) -> Void ) {
+		gherkinDocument(file, line) {
+			guard let feature = $0.feature else {
+				XCTFail("No feature found", file: file, line: line)
+				return
+			}
+			
+			assert(feature)
 		}
 	}
 }
