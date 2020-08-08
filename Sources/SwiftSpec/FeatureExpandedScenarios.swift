@@ -69,7 +69,7 @@ extension Feature {
 		return Scenario(name: name,
 						description: scenario.description,
 						tags: scenario.tags,
-						location: Location.zero(),
+						location: scenario.location,
 						steps: [],
 						examples: [],
 						localizedKeyword: "")
