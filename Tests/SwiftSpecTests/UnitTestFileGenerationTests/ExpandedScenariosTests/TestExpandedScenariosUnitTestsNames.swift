@@ -207,8 +207,7 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			"""
 			Feature: f
 			Scenario Outline: scenario name
-				Examples: One
-					| header |
+				Examples:
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
@@ -222,10 +221,30 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			Feature: f
 			Scenario Outline: scenario name
 				Examples:
+					| header |
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
 			"ScenarioName"]
+		)
+	}
+
+	func test_twoScenarioWithExamplesFirstWithTableWithoutRows() {
+		when_parsing(
+			"""
+			Feature: f
+			Scenario Outline: scenario name
+				Examples:
+					| header |
+				Examples: named
+					| header |
+					| value1 |
+					| value2 |
+			""")
+		
+		then_expandedScenarioNamesShouldBe([
+			"ScenarioName_Named_0",
+			"ScenarioName_Named_1"]
 		)
 	}
 
