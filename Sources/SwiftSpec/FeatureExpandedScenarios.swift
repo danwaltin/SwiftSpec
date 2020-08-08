@@ -26,25 +26,27 @@ import GherkinSwift
 extension Feature {
 	func expandedScenarios() -> [Scenario] {
 		// first, are there any outlines
-		let outlines = scenarios.filter{ $0.isScenarioOutline}
-		if outlines.count == 0 {
-			return scenarios
-		}
+//		let outlines = scenarios.filter{ $0.isScenarioOutline}
+//		if outlines.count == 0 {
+//			return scenarios
+//		}
 		
 		var expanded = [Scenario]()
 		
-		for outline in outlines {
-			if !hasExampleRows(outline) {
-				expanded.append(scenario(withName: outline.name))
+		for scenario in scenarios {
+			if !scenario.isScenarioOutline {
+				expanded.append(scenario)
+			} else if !hasExampleRows(scenario) {
+				expanded.append(cloneScenario(scenario, withName: scenario.name))
 			} else {
-				for examples in outline.examples {
+				for examples in scenario.examples {
 					let examplesName = examples.name.count == 0 ? "" : "_" + examples.name
 					if let table = examples.table {
 						var names = [String]()
 						for (index, _) in table.rows.enumerated()  {
-							names.append("\(outline.name)\(examplesName)_\(index)")
+							names.append("\(scenario.name)\(examplesName)_\(index)")
 						}
-						expanded.append(contentsOf: names.map { scenario(withName: $0)})
+						expanded.append(contentsOf: names.map { cloneScenario(scenario, withName: $0)})
 					}
 				}
 			}
@@ -63,7 +65,7 @@ extension Feature {
 		return rows.count > 0
 	}
 	
-	private func scenario(withName name: String) -> Scenario {
-		return Scenario(name: name, description: nil, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: "")
+	private func cloneScenario(_ scenario: Scenario, withName name: String) -> Scenario {
+		return Scenario(name: name, description: scenario.description, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: "")
 	}
 }

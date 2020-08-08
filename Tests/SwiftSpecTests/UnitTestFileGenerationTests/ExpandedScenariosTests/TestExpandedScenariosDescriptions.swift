@@ -31,17 +31,25 @@ class TestExpandedScenariosDescriptions : TestFileGenerationBase {
 			"""
 			Feature: f
 			Scenario: One
-				First description
+			First description
 
 			Scenario Outline: Two
-				Second description
+			Second description
 
 			Scenario Outline: Three
+
+			Scenario Outline: Four
+			Lorem Ipsum
+
+				Examples:
+					| header |
+					| value  |
 			""")
 
-		then_description(forScenario: 0, shouldBe: "\tFirst description")
-		then_description(forScenario: 1, shouldBe: "\tSecond description")
+		then_description(forScenario: 0, shouldBe: "First description")
+		then_description(forScenario: 1, shouldBe: "Second description")
 		then_description(forScenario: 2, shouldBe: nil)
+		then_description(forScenario: 3, shouldBe: "Lorem Ipsum")
 	}
 	
 	// MARK: - Givens, whens and thens
