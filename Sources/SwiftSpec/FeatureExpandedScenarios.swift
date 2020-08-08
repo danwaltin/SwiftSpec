@@ -34,10 +34,8 @@ extension Feature {
 		var expanded = [Scenario]()
 		
 		for scenario in scenarios {
-			if !scenario.isScenarioOutline {
+			if !scenario.isScenarioOutline || !hasExampleRows(scenario) {
 				expanded.append(scenario)
-			} else if !hasExampleRows(scenario) {
-				expanded.append(cloneScenario(scenario, withName: scenario.name))
 			} else {
 				for examples in scenario.examples {
 					let examplesName = examples.name.count == 0 ? "" : "_" + examples.name
