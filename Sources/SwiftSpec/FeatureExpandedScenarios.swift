@@ -25,6 +25,27 @@ import GherkinSwift
 
 extension Feature {
 	func expandedScenarios() -> [Scenario] {
-		return scenarios
+		// first, are there any outlines
+		let outlines = scenarios.filter{ $0.isScenarioOutline}
+		if outlines.count == 0 {
+			return scenarios
+		}
+		
+		var expanded = [Scenario]()
+		
+		for outline in outlines {
+			if outline.examples.count == 0 {
+				expanded.append(Scenario(name: outline.name, description: nil, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: ""))
+			} else {
+				for examples in outline.examples {
+					if let table = examples.table {
+						if table.rows.count > 0  {
+							
+						}
+					}
+				}
+			}
+		}
+		return expanded
 	}
 }
