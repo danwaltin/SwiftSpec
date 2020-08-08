@@ -38,10 +38,11 @@ extension Feature {
 				expanded.append(scenario(withName: outline.name))
 			} else {
 				for examples in outline.examples {
+					let examplesName = examples.name.count == 0 ? "" : "_" + examples.name
 					if let table = examples.table {
 						var names = [String]()
 						for (index, _) in table.rows.enumerated()  {
-							names.append("\(outline.name)_\(index)")
+							names.append("\(outline.name)\(examplesName)_\(index)")
 						}
 						expanded.append(contentsOf: names.map { scenario(withName: $0)})
 					}
