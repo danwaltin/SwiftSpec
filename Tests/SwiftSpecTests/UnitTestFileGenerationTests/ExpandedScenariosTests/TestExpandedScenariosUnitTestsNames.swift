@@ -14,7 +14,7 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  TestUnitTestsNames.swift
+//  TestExpandedScenariosUnitTestsNames.swift
 //  SwiftSpec
 //
 //  Created by Dan Waltin on 2020-08-07.
@@ -25,7 +25,7 @@ import XCTest
 @testable import SwiftSpec
 import GherkinSwift
 
-class TestUnitTestsNames : TestFileGenerationBase {
+class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 	func test_oneScenario() {
 		when_parsing(
 			"""
@@ -204,20 +204,13 @@ class TestUnitTestsNames : TestFileGenerationBase {
 
 	// MARK: - Givens whens and thens
 	private func then_expandedScenarioNamesShouldBe(_ expected: [String], file: StaticString = #file, line: UInt = #line) {
-		guard let feature = feature() else {
-			XCTFail("No scenario found", file: file, line: line)
-			return
-		}
+		assertFeature(file, line) {
+			let scenarios = $0.expandedScenarios()
+			
+			let actual = scenarios.map { $0.name}
+			
+			XCTAssertEqual(actual, expected, file: file, line: line)
 
-		let scenarios = feature.expandedScenarios()
-		
-		let actual = scenarios.map { $0.name}
-		
-		XCTAssertEqual(actual, expected, file: file, line: line)
-	}
-	
-	// MARK: - Helpers
-	private func feature() -> Feature? {
-		return pickledDocument?.feature
+		}
 	}
 }

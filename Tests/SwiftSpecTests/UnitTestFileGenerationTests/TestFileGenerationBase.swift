@@ -50,6 +50,19 @@ class TestFileGenerationBase : XCTestCase {
 		XCTAssertEqual(actual, expected, file: file, line: line)
 	}
 
+	// MARK: - Assert helpers
+	func assertFeature(_ file: StaticString, _ line: UInt, assert: (Feature) -> Void) {
+		guard let feature = feature() else {
+			XCTFail("No feature found", file: file, line: line)
+			return
+		}
+
+		assert(feature)
+	}
+
+	private func feature() -> Feature? {
+		return pickledDocument?.feature
+	}
 	// MARK: - Factory methods
 	
 	private func instanceToTest() -> UnitTestBuilderImp {
@@ -63,4 +76,6 @@ class TestFileGenerationBase : XCTestCase {
 		}
 		return trimmed
 	}
+	
+	
 }
