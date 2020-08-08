@@ -50,14 +50,31 @@ struct Asserter {
 		}
 	}
 	
-	func firstScenario(_ file: StaticString, _ line: UInt, assert: (Scenario) -> Void ) {
+	func scenario(atIndex index: Int = 0, _ file: StaticString, _ line: UInt, assert: (Scenario) -> Void ) {
 		feature(file, line) {
-			guard let scenario = $0.scenarios.first else {
-				XCTFail("No scenario found", file: file, line: line)
+			let scenarios = $0.scenarios
+			if scenarios.count < index {
+				XCTFail("No scenario at index '\(index)'. Number of scenarios: '\(scenarios.count)'", file: file, line: line)
 				return
 			}
-			
-			assert(scenario)
+
+			assert(scenarios[index])
 		}
+	}
+
+	func expandedScenario(atIndex index: Int = 0, _ file: StaticString, _ line: UInt, assert: (Scenario) -> Void ) {
+		feature(file, line) {
+			let scenarios = $0.expandedScenarios()
+			if index >= scenarios.count {
+				XCTFail("No scenario at index '\(index)'. Number of scenarios: '\(scenarios.count)'", file: file, line: line)
+				return
+			}
+
+			assert(scenarios[index])
+		}
+	}
+	
+	func firstScenario(_ file: StaticString, _ line: UInt, assert: (Scenario) -> Void ) {
+		scenario(atIndex: 0, file, line, assert: assert)
 	}
 }
