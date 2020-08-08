@@ -110,6 +110,28 @@ class TestExpandedScenariosAttributes : TestFileGenerationBase {
 		then_location(forScenario: 4, shouldBe: Location(column: 1, line: 13))
 	}
 
+	func test_examplesShouldBeEmpty() {
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: One
+
+			Scenario Outline: Two
+
+			Scenario Outline: Three
+
+				Examples:
+					| header |
+					| value1 |
+					| value2 |
+			""")
+
+		then_examplesShouldBeEmpty(forScenario: 0)
+		then_examplesShouldBeEmpty(forScenario: 1)
+		then_examplesShouldBeEmpty(forScenario: 2)
+		then_examplesShouldBeEmpty(forScenario: 3)
+	}
+
 	// MARK: - Givens, whens and thens
 	
 	func then_description(forScenario index: Int, shouldBe expected: String?,
@@ -128,10 +150,17 @@ class TestExpandedScenariosAttributes : TestFileGenerationBase {
 	}
 	
 	func then_location(forScenario index: Int, shouldBe expected: Location,
-	file: StaticString = #file, line: UInt = #line) {
+					   file: StaticString = #file, line: UInt = #line) {
 		assert.expandedScenario(atIndex: index, file, line) {
 			XCTAssertEqual($0.location, expected, file: file, line: line)
 		}
 	}
 
+	func then_examplesShouldBeEmpty(forScenario index: Int,
+									file: StaticString = #file, line: UInt = #line) {
+		
+		assert.expandedScenario(atIndex: index, file, line) {
+			XCTAssertEqual($0.examples, [], file: file, line: line)
+		}
+	}
 }
