@@ -34,19 +34,9 @@ extension Feature {
 		var expanded = [Scenario]()
 		
 		for outline in outlines {
-			if outline.examples.count == 0 {
-				expanded.append(Scenario(name: outline.name, description: nil, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: ""))
+			if !hasExampleRows(outline) {
+				expanded.append(scenario(withName: outline.name))
 			} else {
-				var rows = [TableRow]()
-				for examples in outline.examples {
-					if let table = examples.table {
-						rows.append(contentsOf: table.rows)
-					}
-				}
-				
-				if rows.count == 0 {
-					expanded.append(Scenario(name: outline.name, description: nil, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: ""))
-				}
 				for examples in outline.examples {
 					if let table = examples.table {
 						if table.rows.count > 0  {
@@ -57,5 +47,20 @@ extension Feature {
 			}
 		}
 		return expanded
+	}
+	
+	private func hasExampleRows(_ scenario: Scenario) -> Bool {
+		var rows = [TableRow]()
+		for examples in scenario.examples {
+			if let table = examples.table {
+				rows.append(contentsOf: table.rows)
+			}
+		}
+		
+		return rows.count > 0
+	}
+	
+	private func scenario(withName name: String) -> Scenario {
+		return Scenario(name: name, description: nil, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: "")
 	}
 }
