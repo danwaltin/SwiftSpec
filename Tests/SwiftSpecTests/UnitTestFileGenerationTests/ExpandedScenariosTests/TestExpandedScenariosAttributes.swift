@@ -14,7 +14,7 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  TestExpandedScenariosDescriptions.swift
+//  TestExpandedScenariosAttributes.swift
 //  SwiftSpec
 //
 //  Created by Dan Waltin on 2020-08-08.
@@ -25,7 +25,7 @@ import XCTest
 @testable import SwiftSpec
 import GherkinSwift
 
-class TestExpandedScenariosDescriptions : TestFileGenerationBase {
+class TestExpandedScenariosAttributes : TestFileGenerationBase {
 	func test_descriptions() {
 		when_parsing(
 			"""
@@ -51,13 +51,50 @@ class TestExpandedScenariosDescriptions : TestFileGenerationBase {
 		then_description(forScenario: 2, shouldBe: nil)
 		then_description(forScenario: 3, shouldBe: "Lorem Ipsum")
 	}
-	
+
+	func test_tags() {
+		when_parsing(
+			"""
+			Feature: f
+			Scenario: One
+
+			@tag
+			Scenario Outline: Two
+
+			@tag @another
+			Scenario Outline: Three
+
+			Scenario Outline: Four
+
+				Examples:
+					| header |
+					| value  |
+
+			@thirdTag
+			Scenario: Five
+			""")
+
+		then_tags(forScenario: 0, shouldBe: [])
+		then_tags(forScenario: 1, shouldBe: ["tag"])
+		then_tags(forScenario: 2, shouldBe: ["tag", "another"])
+		then_tags(forScenario: 3, shouldBe: [])
+		then_tags(forScenario: 4, shouldBe: ["thirdTag"])
+	}
+
 	// MARK: - Givens, whens and thens
 	
 	func then_description(forScenario index: Int, shouldBe expected: String?,
 						  file: StaticString = #file, line: UInt = #line) {
 		assert.expandedScenario(atIndex: index, file, line) {
 			XCTAssertEqual($0.description, expected, file: file, line: line)
+		}
+	}
+
+	func then_tags(forScenario index: Int, shouldBe expected: [String],
+						  file: StaticString = #file, line: UInt = #line) {
+		assert.expandedScenario(atIndex: index, file, line) {
+			let actual = $0.tags.map { $0.name }
+			XCTAssertEqual(actual, expected, file: file, line: line)
 		}
 	}
 }
