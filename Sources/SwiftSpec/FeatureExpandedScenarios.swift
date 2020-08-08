@@ -37,6 +37,16 @@ extension Feature {
 			if outline.examples.count == 0 {
 				expanded.append(Scenario(name: outline.name, description: nil, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: ""))
 			} else {
+				var rows = [TableRow]()
+				for examples in outline.examples {
+					if let table = examples.table {
+						rows.append(contentsOf: table.rows)
+					}
+				}
+				
+				if rows.count == 0 {
+					expanded.append(Scenario(name: outline.name, description: nil, tags: [], location: Location.zero(), steps: [], examples: [], localizedKeyword: ""))
+				}
 				for examples in outline.examples {
 					if let table = examples.table {
 						if table.rows.count > 0  {

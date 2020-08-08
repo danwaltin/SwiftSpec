@@ -65,6 +65,26 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 		)
 	}
 
+	func test_twoScenariosWithExamplesWithOneTableRow() {
+		when_parsing(
+			"""
+			Feature: f
+			Scenario Outline: One
+				Examples:
+					| header |
+					| value1 |
+			Scenario Outline: Two
+				Examples:
+					| header |
+					| value2 |
+			""")
+		
+		then_expandedScenarioNamesShouldBe([
+			"One_0",
+			"Two_0"]
+		)
+	}
+
 	func test_oneScenarioWithExamplesWithTwoTableRows() {
 		when_parsing(
 			"""
@@ -98,7 +118,7 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 		
 		then_expandedScenarioNamesShouldBe([
 			"Name_0",
-			"Name_Named_0"]
+			"Name_named_0"]
 		)
 	}
 
@@ -120,11 +140,11 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
-			"ScenarioName_0",
-			"ScenarioName_1",
-			"ScenarioName_named_0",
-			"ScenarioName_named_1",
-			"ScenarioName_named_2"]
+			"scenario name_0",
+			"scenario name_1",
+			"scenario name_named_0",
+			"scenario name_named_1",
+			"scenario name_named_2"]
 		)
 	}
 
@@ -140,7 +160,7 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
-			"Name_FooBar_0"]
+			"Name_foo bar_0"]
 		)
 	}
 
@@ -156,26 +176,10 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
-			"Name_FooBar_0"]
+			"Name_foo-bar_0"]
 		)
 	}
 
-	func test_oneScenarioWithOneNamedExamplesWithSwedishCharactersInNameWithOneTableRow() {
-		when_parsing(
-			"""
-			Feature: f
-			Scenario Outline: Name
-
-				Examples: Xå Xä Xö Åx Äx Öx
-					| header |
-					| v2     |
-			""")
-		
-		then_expandedScenarioNamesShouldBe([
-			"Name_XaXaXoAxAxOx_0"]
-		)
-	}
-	
 	func test_oneScenarioWithTwoNamedExamplesWithTwoAndThreeTableRows() {
 		when_parsing(
 			"""
@@ -194,11 +198,11 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
-			"ScenarioName_One_0",
-			"ScenarioName_One_1",
-			"ScenarioName_Two_0",
-			"ScenarioName_Two_1",
-			"ScenarioName_Two_2"]
+			"scenario name_One_0",
+			"scenario name_One_1",
+			"scenario name_Two_0",
+			"scenario name_Two_1",
+			"scenario name_Two_2"]
 		)
 	}
 
@@ -211,7 +215,7 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
-			"ScenarioName"]
+			"scenario name"]
 		)
 	}
 
@@ -225,26 +229,37 @@ class TestExpandedScenariosUnitTestsNames : TestFileGenerationBase {
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
-			"ScenarioName"]
+			"scenario name"]
 		)
 	}
 
-	func test_twoScenarioWithExamplesFirstWithTableWithoutRows() {
+	func test_twoScenariosWithExamples() {
 		when_parsing(
 			"""
 			Feature: f
-			Scenario Outline: scenario name
+
+			Scenario Outline: scenario one
 				Examples:
 					| header |
 				Examples: named
 					| header |
 					| value1 |
 					| value2 |
+
+			Scenario Outline: scenario two
+				Examples: qwerty
+					| lorem  |
+					| ipsum1 |
+					| ipsum2 |
+					| ipsum3 |
 			""")
 		
 		then_expandedScenarioNamesShouldBe([
-			"ScenarioName_Named_0",
-			"ScenarioName_Named_1"]
+			"scenario one_named_0",
+			"scenario one_named_1",
+			"scenario two_qwerty_0",
+			"scenario two_qwerty_1",
+			"scenario two_qwerty_2"]
 		)
 	}
 
