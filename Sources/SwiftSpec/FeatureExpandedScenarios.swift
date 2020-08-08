@@ -25,31 +25,37 @@ import GherkinSwift
 
 extension Feature {
 	func expandedScenarios() -> [Scenario] {
-		// first, are there any outlines
-//		let outlines = scenarios.filter{ $0.isScenarioOutline}
-//		if outlines.count == 0 {
-//			return scenarios
-//		}
-		
+		return scenarios.flatMap { expand($0) }
+	}
+	
+	private func expand(_ scenario: Scenario) -> [Scenario] {
+		let shouldExpand = scenario.isScenarioOutline && hasExampleRows(scenario)
+		if !shouldExpand {
+			return [scenario]
+		}
+
 		var expanded = [Scenario]()
-		
-		for scenario in scenarios {
-			if !scenario.isScenarioOutline || !hasExampleRows(scenario) {
-				expanded.append(scenario)
-			} else {
-				for examples in scenario.examples {
-					let examplesName = examples.name.count == 0 ? "" : "_" + examples.name
-					if let table = examples.table {
-						var names = [String]()
-						for (index, _) in table.rows.enumerated()  {
-							names.append("\(scenario.name)\(examplesName)_\(index)")
-						}
-						expanded.append(contentsOf: names.map { cloneScenario(scenario, withName: $0)})
-					}
-				}
+
+		for examples in scenario.examples {
+			let names = expandedNames(from: examples, scenarioName: scenario.name)
+			if names.count > 0 {
+				expanded.append(contentsOf: names.map { cloneScenario(scenario, withName: $0)})
 			}
 		}
+		
 		return expanded
+	}
+	
+	private func expandedNames(from examples: ScenarioOutlineExamples, scenarioName: String) -> [String] {
+		let examplesName = examples.name.count == 0 ? "" : "_" + examples.name
+		var names = [String]()
+		if let table = examples.table {
+			for (index, _) in table.rows.enumerated()  {
+				names.append("\(scenarioName)\(examplesName)_\(index)")
+			}
+		}
+
+		return names
 	}
 	
 	private func hasExampleRows(_ scenario: Scenario) -> Bool {
