@@ -43,13 +43,15 @@ class TestExpandedScenariosAttributes : TestFileGenerationBase {
 
 				Examples:
 					| header |
-					| value  |
+					| value1 |
+					| value2 |
 			""")
 
 		then_description(forScenario: 0, shouldBe: "First description")
 		then_description(forScenario: 1, shouldBe: "Second description")
 		then_description(forScenario: 2, shouldBe: nil)
 		then_description(forScenario: 3, shouldBe: "Lorem Ipsum")
+		then_description(forScenario: 4, shouldBe: "Lorem Ipsum")
 	}
 
 	func test_tags() {
@@ -61,14 +63,15 @@ class TestExpandedScenariosAttributes : TestFileGenerationBase {
 			@tag
 			Scenario Outline: Two
 
-			@tag @another
 			Scenario Outline: Three
 
+			@tag @another
 			Scenario Outline: Four
 
 				Examples:
 					| header |
-					| value  |
+					| value1 |
+					| value2 |
 
 			@thirdTag
 			Scenario: Five
@@ -76,9 +79,10 @@ class TestExpandedScenariosAttributes : TestFileGenerationBase {
 
 		then_tags(forScenario: 0, shouldBe: [])
 		then_tags(forScenario: 1, shouldBe: ["tag"])
-		then_tags(forScenario: 2, shouldBe: ["tag", "another"])
-		then_tags(forScenario: 3, shouldBe: [])
-		then_tags(forScenario: 4, shouldBe: ["thirdTag"])
+		then_tags(forScenario: 2, shouldBe: [])
+		then_tags(forScenario: 3, shouldBe: ["tag", "another"])
+		then_tags(forScenario: 4, shouldBe: ["tag", "another"])
+		then_tags(forScenario: 5, shouldBe: ["thirdTag"])
 	}
 
 	// MARK: - Givens, whens and thens

@@ -66,6 +66,12 @@ extension Feature {
 	}
 	
 	private func cloneScenario(_ scenario: Scenario, withName name: String) -> Scenario {
-		return Scenario(name: name, description: scenario.description, tags: scenario.tags, location: Location.zero(), steps: [], examples: [], localizedKeyword: "")
+		return Scenario(name: name,
+						description: scenario.description,
+						tags: scenario.tags,
+						location: Location.zero(),
+						steps: [],
+						examples: [],
+						localizedKeyword: "")
 	}
 }
