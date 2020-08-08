@@ -49,4 +49,15 @@ struct Asserter {
 			assert(feature)
 		}
 	}
+	
+	func firstScenario(_ file: StaticString, _ line: UInt, assert: (Scenario) -> Void ) {
+		feature(file, line) {
+			guard let scenario = $0.scenarios.first else {
+				XCTFail("No scenario found", file: file, line: line)
+				return
+			}
+			
+			assert(scenario)
+		}
+	}
 }

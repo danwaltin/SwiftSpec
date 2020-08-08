@@ -185,9 +185,7 @@ class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 
 			""")
 
-		let i = instanceToTest()
-		let s = i.setupAndTearDown(feature: pickledDocument!.feature!)
-		XCTAssertEqual(s, expected)
+		assertSetupAndTeardown(is: expected)
 	}
 	
 	func testSetupAndTearDownWhenFeatureHasTwoTags() {
@@ -217,13 +215,18 @@ class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 			
 			""")
 
-		let i = instanceToTest()
-		let s = i.setupAndTearDown(feature: pickledDocument!.feature!)
-		XCTAssertEqual(s, expected)
-		
+		assertSetupAndTeardown(is: expected)
 	}
 	
-	// MARK: - dndClass
+	private func assertSetupAndTeardown(is expected: String, file: StaticString = #file, line: UInt = #line) {
+		assert.feature(file, line) {
+			let i = instanceToTest()
+			let s = i.setupAndTearDown(feature: $0)
+			XCTAssertEqual(s, expected, file: file, line: line)
+		}
+	}
+	
+	// MARK: - endClass
 	func testEndClass_ShouldReturnEndTestClass() {
 		XCTAssertEqual("}", instanceToTest().endClass())
 	}
@@ -234,9 +237,11 @@ class TestContentOfGeneratedUnitTestFiles: TestFileGenerationBase {
 	}
 
 	private func then_featureClassShouldBe(_ expected: String, file: StaticString = #file, line: UInt = #line) {
-		let actual = instanceToTest().featureClass(feature: pickledDocument!.feature!)
-		
-		XCTAssertEqual(actual, expected, file: file, line: line)
+		assert.feature(file, line) {
+			let actual = instanceToTest().featureClass(feature: $0)
+			
+			XCTAssertEqual(actual, expected, file: file, line: line)
+		}
 	}
 
 	private func then_parseErrorFeatureClassShouldBe(_ expected: String, file: StaticString = #file, line: UInt = #line) {

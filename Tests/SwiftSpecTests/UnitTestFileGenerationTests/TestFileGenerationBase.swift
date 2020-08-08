@@ -26,7 +26,6 @@ import XCTest
 import  GherkinSwift
 
 class TestFileGenerationBase : XCTestCase {
-	var pickledDocument: GherkinDocument?
 	var actualPickleResult: PickleResult!
 	
 	func when_parsing(_ feature: String) {
@@ -34,21 +33,15 @@ class TestFileGenerationBase : XCTestCase {
 												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
 		let lines = feature.allLines()
 		actualPickleResult = featureParser.pickle(lines: lines, fileUri: "feature/file/path")
-	
-		if case .success(let document) = actualPickleResult {
-			pickledDocument = document
-		}
 	}
 
 	func then_generatedScenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
-		guard let scenario = pickledDocument?.feature?.scenarios.first else {
-			XCTFail("No scenario found", file: file, line: line)
-			return
-		}
-		let expected = trimmedLines(lines)
-		let actual = instanceToTest().scenario(scenario: scenario)
+		assert.firstScenario(file, line) {
+			let expected = trimmedLines(lines)
+			let actual = instanceToTest().scenario(scenario: $0)
 
-		XCTAssertEqual(actual, expected, file: file, line: line)
+			XCTAssertEqual(actual, expected, file: file, line: line)
+		}
 	}
 
 	// MARK: - Assertions
