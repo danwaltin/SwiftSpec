@@ -64,6 +64,34 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 			""")
 	}
 
+	func test_severalStepsExamplesRowsAndColumns() {
+		when_parsingScenarioOutline(
+			"""
+			Given account balance 100
+			When buying food for <amount>
+			Then the account balance is <new balance>
+
+			Examples:
+				| amount | new balance |
+				| 12     | 78          |
+				| 34     | 66          |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Given account balance 100
+			When buying food for 12
+			Then the account balance is 78
+			""")
+
+		then_stepsForExpandedScenario(1, shouldBe:
+			"""
+			Given account balance 100
+			When buying food for 34
+			Then the account balance is 66
+			""")
+	}
+
 	// MARK: - Givens, whens and thens
 	private func when_parsingScenarioOutline(_ scenarioOutlineSteps: String) {
 		when_parsing(featureWithSteps(scenarioOutlineSteps))
@@ -73,7 +101,7 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 											   file: StaticString = #file, line: UInt = #line) {
 		let expectedPickleResult = pickle(featureWithSteps(expected))
 		
-		guard let scenario = getScenario(atIndex: index, from: expectedPickleResult) else {
+		guard let scenario = getFirstScenario(from: expectedPickleResult) else {
 			XCTFail("Test data error, could not create a scenario from the given test data", file: file, line: line)
 			return
 		}
@@ -85,15 +113,11 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 		}
 	}
 	
-	private func getScenario(atIndex scenarioIndex: Int, from pickleResult: PickleResult) -> Scenario? {
+	private func getFirstScenario(from pickleResult: PickleResult) -> Scenario? {
 		switch pickleResult {
 		case .success(let doc):
 			if let feature = doc.feature {
-				let expandedScenarios = feature.expandedScenarios()
-				if expandedScenarios.count <= scenarioIndex {
-					return nil
-				}
-				return expandedScenarios[scenarioIndex]
+				return feature.scenarios.first
 			} else {
 				return nil
 			}
