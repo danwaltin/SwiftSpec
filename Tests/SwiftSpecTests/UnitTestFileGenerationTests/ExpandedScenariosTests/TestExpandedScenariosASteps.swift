@@ -26,69 +26,146 @@ import XCTest
 import GherkinSwift
 
 class TestExpandedScenariosSteps : TestFileGenerationBase {
-	func test_oneGivenStepOneExamplesRow() {
+	// MARK: - Replacing keys with example values in steps
+	func test_oneKeyOneGivenStepOneExamplesRow() {
 		when_parsingScenarioOutline(
 			"""
-			Given given '<something>'
+			Given the key '<key>'
 
 			Examples:
-				| something |
-				| value     |
+				| key   |
+				| value |
 			""")
 
 		then_stepsForExpandedScenario(0, shouldBe:
 			"""
-			Given given 'value'
+			Given the key 'value'
 			""")
 	}
 
-	func test_oneWhenStepTwoExamplesRows() {
+	func test_oneKeyInTwoInstancesOneWhenStepOneExamplesRow() {
 		when_parsingScenarioOutline(
 			"""
-			When when '<something>'
+			When foo <key> bar '<key>'
 
 			Examples:
-				| something |
-				| value one |
-				| value two |
+				| key   |
+				| value |
 			""")
 
 		then_stepsForExpandedScenario(0, shouldBe:
 			"""
-			When when 'value one'
+			When foo value bar 'value'
+			""")
+	}
+
+	func test_twoKeysInTwoInstancesOneThenStepOneExamplesRow() {
+		when_parsingScenarioOutline(
+			"""
+			Then foo <key one> bar '<key one>'
+
+			Examples:
+				| key one     | key two      |
+				| first value | second value |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Then foo first value bar 'second value'
+			""")
+	}
+
+	func test_oneKeyInTwoInstancesTwoStepsOneExamplesRow() {
+		when_parsingScenarioOutline(
+			"""
+			Given foo <key>
+			When <key> bar
+
+			Examples:
+				| key   |
+				| value |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Given foo value
+			When value bar
+			""")
+	}
+
+	func test_threeKeysInThreeStepsOneExamplesRow() {
+		when_parsingScenarioOutline(
+			"""
+			Given foo <key one>
+			When <key two> bar
+			Then <key three>
+
+			Examples:
+				| key one | key two | key three |
+				| v1      | v2      | v3        |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Given foo v1
+			When v2 bar
+			Then v3
+			""")
+	}
+
+	func test_threeKeysInThreeStepsThreeExamplesRowsInTwoGroups() {
+		when_parsingScenarioOutline(
+			"""
+			Given alpha <k1>
+			When beta <k2>
+			Then gamma <k3>
+
+			Examples: One
+				| k1   | k2   | k3   |
+				| v1_1 | v1_2 | v1_3 |
+			Examples: Two
+				| k1   | k2   | k3   |
+				| v2_1 | v2_2 | v2_3 |
+				| v2_1 | v2_2 | v2_3 |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Given alpha v1_1
+			When beta v1_2
+			Then gamma v1_3
 			""")
 
 		then_stepsForExpandedScenario(1, shouldBe:
 			"""
-			When when 'value two'
+			Given alpha v2_1
+			When beta v2_2
+			Then gamma v2_3
+			""")
+
+		then_stepsForExpandedScenario(2, shouldBe:
+			"""
+			Given alpha v3_1
+			When beta v3_2
+			Then gamma v3_3
 			""")
 	}
 
-	func test_severalStepsExamplesRowsAndColumns() {
+
+	// MARK: - Replacing keys with example values in step table parameters
+	func test_oneKeyOneGivenStepOneExamplesRow() {
 		when_parsingScenarioOutline(
 			"""
-			Given account balance 100
-			When buying food for <amount>
-			Then the account balance is <new balance>
+			Given the key '<key>'
 
 			Examples:
-				| amount | new balance |
-				| 12     | 78          |
-				| 34     | 66          |
+				| key   |
+				| value |
 			""")
 
 		then_stepsForExpandedScenario(0, shouldBe:
 			"""
-			Given account balance 100
-			When buying food for 12
-			Then the account balance is 78
-			""")
-
-		then_stepsForExpandedScenario(1, shouldBe:
-			"""
-			Given account balance 100
-			When buying food for 34
-			Then the account balance is 66
+			Given the key 'value'
 			""")
 	}
 
