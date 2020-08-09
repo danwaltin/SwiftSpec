@@ -1,4 +1,3 @@
-* Handle Scenario outline
 * Display errors in the feature files
 * Handle Background
 * Handle DocString

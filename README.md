@@ -2,6 +2,11 @@
 
 A [Swift][1] package for [BDD][2]/[Specification by example][3] à la [Gherkin][4]. 
 
+## Limitations
+Does not (yet) handle
+* Backgound
+* DocStrings
+
 ## Table of Contents
 1. [Setup](#setup)
 2. [Usage](#usage)
