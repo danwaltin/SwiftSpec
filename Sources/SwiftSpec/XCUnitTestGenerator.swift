@@ -42,7 +42,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 			if let feature = document.feature {
 				t = t.appendLine(builder.featureClass(feature: feature))
 				t = t.appendLine(builder.setupAndTearDown(feature: feature))
-				for s in feature.scenarios {
+				for s in feature.expandedScenarios() {
 					t = t.appendLine(builder.scenario(scenario: s))
 				}
 				t = t.appendLine(builder.endClass())

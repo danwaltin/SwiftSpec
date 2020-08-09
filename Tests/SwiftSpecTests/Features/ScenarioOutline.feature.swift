@@ -10,14 +10,14 @@
 import XCTest
 import SwiftSpec
 
-class IGNORE_ScenarioOutlineTests : Ignore {
+class ScenarioOutlineTests : XCTestCase {
 var testRunner:TestRunner!
 var scenarioContext:ScenarioContext!
 
 override func setUp() {
 super.setUp()
 scenarioContext = ScenarioContextImplementation()
-scenarioContext.featureTags = ["ignore"]
+scenarioContext.featureTags = []
 testRunner = TestRunner(scenarioContext: scenarioContext)
 }
 
@@ -27,28 +27,82 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testTheSumOfTwoNumbersTests() {
+func testTheSumOfTwoNumbers_0Tests() {
 do {
-try testRunner.executeStep(.when, "adding '<arg1>' and '<arg2>'")
-try testRunner.executeStep(.then, "the result should be '<result>'")
+try testRunner.executeStep(.when, "adding '1' and '1'")
+try testRunner.executeStep(.then, "the result should be '2'")
 } catch {
 XCTFail("\(error)")
 }
 }
-func testMathUsingReversePolishNotationTests() {
+func testTheSumOfTwoNumbers_1Tests() {
 do {
-try testRunner.executeStep(.given, "that operand '<operand1>' has been entered")
-try testRunner.executeStep(.and, "that operand '<operand2>' has been entered")
-try testRunner.executeStep(.when, "entering operator '<operator>'")
-try testRunner.executeStep(.then, "the result should be '<result>'")
+try testRunner.executeStep(.when, "adding '10' and '20'")
+try testRunner.executeStep(.then, "the result should be '30'")
 } catch {
 XCTFail("\(error)")
 }
 }
-func testAddingANumberToItselfTests() {
+func testTheSumOfTwoNumbers_2Tests() {
 do {
-try testRunner.executeStep(.when, "adding '<arg>' and '<arg>'")
-try testRunner.executeStep(.then, "the result should be '<result>'")
+try testRunner.executeStep(.when, "adding '42' and '17'")
+try testRunner.executeStep(.then, "the result should be '59'")
+} catch {
+XCTFail("\(error)")
+}
+}
+func testMathUsingReversePolishNotation_Addition_0Tests() {
+do {
+try testRunner.executeStep(.given, "that operand '1' has been entered")
+try testRunner.executeStep(.and, "that operand '1' has been entered")
+try testRunner.executeStep(.when, "entering operator 'add'")
+try testRunner.executeStep(.then, "the result should be '2'")
+} catch {
+XCTFail("\(error)")
+}
+}
+func testMathUsingReversePolishNotation_Addition_1Tests() {
+do {
+try testRunner.executeStep(.given, "that operand '10' has been entered")
+try testRunner.executeStep(.and, "that operand '20' has been entered")
+try testRunner.executeStep(.when, "entering operator 'add'")
+try testRunner.executeStep(.then, "the result should be '30'")
+} catch {
+XCTFail("\(error)")
+}
+}
+func testMathUsingReversePolishNotation_Subtraction_0Tests() {
+do {
+try testRunner.executeStep(.given, "that operand '1' has been entered")
+try testRunner.executeStep(.and, "that operand '1' has been entered")
+try testRunner.executeStep(.when, "entering operator 'subtract'")
+try testRunner.executeStep(.then, "the result should be '0'")
+} catch {
+XCTFail("\(error)")
+}
+}
+func testMathUsingReversePolishNotation_Subtraction_1Tests() {
+do {
+try testRunner.executeStep(.given, "that operand '10' has been entered")
+try testRunner.executeStep(.and, "that operand '20' has been entered")
+try testRunner.executeStep(.when, "entering operator 'subtract'")
+try testRunner.executeStep(.then, "the result should be '-10'")
+} catch {
+XCTFail("\(error)")
+}
+}
+func testAddingANumberToItself_0Tests() {
+do {
+try testRunner.executeStep(.when, "adding '1' and '1'")
+try testRunner.executeStep(.then, "the result should be '2'")
+} catch {
+XCTFail("\(error)")
+}
+}
+func testAddingANumberToItself_1Tests() {
+do {
+try testRunner.executeStep(.when, "adding '42' and '42'")
+try testRunner.executeStep(.then, "the result should be '84'")
 } catch {
 XCTFail("\(error)")
 }

@@ -1,4 +1,3 @@
-@ignore
 Feature: Scenario Outline
 	A scenario outline is a scenario
 	which is actually several examples
