@@ -80,49 +80,60 @@ extension Step {
 	func replacePlaceholders(from examplesRow: TableRow) -> Step {
 		return  Step(
 			type,
-			replacePlaceHolders(text, examplesRow),
+			text.replacePlaceHolders(from: examplesRow),
 			location: location,
-			tableParameter: replacePlaceHolders(tableParameter, examplesRow),
+			tableParameter: replacePlaceHolders(in: tableParameter, from: examplesRow),
 			docStringParameter: nil,
 			localizedKeyword: localizedKeyword)
 	}
 	
-	private func replacePlaceHolders(_ table: Table?, _ examplesRow: TableRow) -> Table? {
+	private func replacePlaceHolders(in table: Table?, from examplesRow: TableRow) -> Table? {
 		guard let table = table else {
 			return nil
 		}
 
-		let newRows = table.rows.map { tableRowWithReplacedValues($0, from: examplesRow)}
-		let newHeader = tableRowWithReplacedValues(table.header, from: examplesRow)
-		
-		return Table(header: newHeader, rows: newRows, headerLocation: table.header.location)
+		return table.replacePlaceHolders(from: examplesRow)
 	}
-	
-	private func tableRowWithReplacedValues(_ row: TableRow, from examplesRow: TableRow) -> TableRow {
-		return TableRow(cells: cellsWithReplacedValues(row.cells, from: examplesRow), location: row.location)
+}
+
+extension Table {
+	func replacePlaceHolders(from examplesRow: TableRow) -> Table {
+		let newRows = rows.map { $0.replacePlaceHolders(from: examplesRow) }
+		let newHeader = header.replacePlaceHolders(from: examplesRow)
+		
+		return Table(header: newHeader,
+					 rows: newRows,
+					 headerLocation: header.location)
 	}
-	
-	private func cellsWithReplacedValues(_ cells: [TableCell], from examplesRow: TableRow) -> [TableCell] {
-		var newCells = [TableCell]()
-		
-		for cell in cells {
-			let newCell = TableCell(value: replacePlaceHolders(cell.value, examplesRow),
-									location: cell.location,
-									header: replacePlaceHolders(cell.header, examplesRow))
-			newCells.append(newCell)
-		}
-		return newCells
+}
+
+extension TableRow {
+	func replacePlaceHolders(from examplesRow: TableRow) -> TableRow {
+		let newCells = cells.map { $0.replacePlaceHolders(from: examplesRow)}
+
+		return TableRow(cells: newCells,
+						location: location)
 	}
+}
+
+extension TableCell {
+	func replacePlaceHolders(from examplesRow: TableRow) -> TableCell {
+		return TableCell(value: value.replacePlaceHolders(from: examplesRow),
+						 location: location,
+						 header: header.replacePlaceHolders(from: examplesRow))
+	}
+}
+
+extension String {
+	func replacePlaceHolders(from examplesRow: TableRow) -> String {
 		
-	private func replacePlaceHolders(_ value: String, _ examplesRow: TableRow) -> String {
-		
-		var newText = value
+		var newText = self
 		
 		for cell in examplesRow.cells {
 			let column = cell.header
 			let placeHolder = "<\(column)>"
 			
-			if value.contains(placeHolder) {
+			if self.contains(placeHolder) {
 				let value = "\(examplesRow[column].value)"
 				newText = newText.replacingOccurrences(of: placeHolder, with: value)
 			}
@@ -130,4 +141,5 @@ extension Step {
 		
 		return newText
 	}
+
 }
