@@ -36,24 +36,18 @@ extension Scenario {
 			return [self]
 		}
 
-		var expanded = [Scenario]()
-
-		for examples in examples {
-			let names = expandedNames(from: examples, scenarioName: name)
-			if names.count > 0 {
-				expanded.append(contentsOf: names.map { clone(withName: $0)})
-			}
-		}
-		
-		return expanded
+		return examples.flatMap { examples in
+			namesAndPlaceholders(from: examples, scenarioName: name)
+				.map { t in
+					clone(withName: t.name, examplesRow: t.row)}}
 	}
 	
-	private func expandedNames(from examples: ScenarioOutlineExamples, scenarioName: String) -> [String] {
+	private func namesAndPlaceholders(from examples: ScenarioOutlineExamples, scenarioName: String) -> [(name: String, row: TableRow)] {
 		let examplesName = examples.name.count == 0 ? "" : "_" + examples.name
-		var names = [String]()
+		var names = [(String, TableRow)]()
 		if let table = examples.table {
-			for (index, _) in table.rows.enumerated()  {
-				names.append("\(scenarioName)\(examplesName)_\(index)")
+			for (index, row) in table.rows.enumerated()  {
+				names.append(("\(scenarioName)\(examplesName)_\(index)", row))
 			}
 		}
 
@@ -71,13 +65,19 @@ extension Scenario {
 		return rows.count > 0
 	}
 	
-	private func clone(withName newName: String) -> Scenario {
+	private func clone(withName newName: String, examplesRow row: TableRow) -> Scenario {
 		return Scenario(name: newName,
 						description: description,
 						tags: tags,
 						location: location,
-						steps: [],
+						steps: steps.map { $0.replacePlaceholders(from: row)},
 						examples: [],
 						localizedKeyword: localizedKeyword)
+	}
+}
+
+extension Step {
+	func replacePlaceholders(from examplesRow: TableRow) -> Step {
+		return self
 	}
 }
