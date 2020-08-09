@@ -25,21 +25,23 @@ import GherkinSwift
 
 extension Feature {
 	func expandedScenarios() -> [Scenario] {
-		return scenarios.flatMap { expand($0) }
+		return scenarios.flatMap { $0.expand() }
 	}
-	
-	private func expand(_ scenario: Scenario) -> [Scenario] {
-		let shouldExpand = scenario.isScenarioOutline && hasExampleRows(scenario)
+}
+
+extension Scenario {
+	func expand() -> [Scenario] {
+		let shouldExpand = isScenarioOutline && hasExampleRows()
 		if !shouldExpand {
-			return [scenario]
+			return [self]
 		}
 
 		var expanded = [Scenario]()
 
-		for examples in scenario.examples {
-			let names = expandedNames(from: examples, scenarioName: scenario.name)
+		for examples in examples {
+			let names = expandedNames(from: examples, scenarioName: name)
 			if names.count > 0 {
-				expanded.append(contentsOf: names.map { cloneScenario(scenario, withName: $0)})
+				expanded.append(contentsOf: names.map { clone(withName: $0)})
 			}
 		}
 		
@@ -58,9 +60,9 @@ extension Feature {
 		return names
 	}
 	
-	private func hasExampleRows(_ scenario: Scenario) -> Bool {
+	private func hasExampleRows() -> Bool {
 		var rows = [TableRow]()
-		for examples in scenario.examples {
+		for examples in examples {
 			if let table = examples.table {
 				rows.append(contentsOf: table.rows)
 			}
@@ -69,11 +71,11 @@ extension Feature {
 		return rows.count > 0
 	}
 	
-	private func cloneScenario(_ scenario: Scenario, withName name: String) -> Scenario {
-		return Scenario(name: name,
-						description: scenario.description,
-						tags: scenario.tags,
-						location: scenario.location,
+	private func clone(withName newName: String) -> Scenario {
+		return Scenario(name: newName,
+						description: description,
+						tags: tags,
+						location: location,
 						steps: [],
 						examples: [],
 						localizedKeyword: "")
