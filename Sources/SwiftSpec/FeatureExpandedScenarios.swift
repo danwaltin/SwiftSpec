@@ -93,7 +93,9 @@ extension Step {
 		}
 
 		let newRows = table.rows.map { tableRowWithReplacedValues($0, from: examplesRow)}
-		return Table(header: table.header, rows: newRows, headerLocation: table.header.location)
+		let newHeader = tableRowWithReplacedValues(table.header, from: examplesRow)
+		
+		return Table(header: newHeader, rows: newRows, headerLocation: table.header.location)
 	}
 	
 	private func tableRowWithReplacedValues(_ row: TableRow, from examplesRow: TableRow) -> TableRow {
@@ -104,7 +106,9 @@ extension Step {
 		var newCells = [TableCell]()
 		
 		for cell in cells {
-			let newCell = TableCell(value: replacePlaceHolders(cell.value, examplesRow), location: cell.location, header: cell.header)
+			let newCell = TableCell(value: replacePlaceHolders(cell.value, examplesRow),
+									location: cell.location,
+									header: replacePlaceHolders(cell.header, examplesRow))
 			newCells.append(newCell)
 		}
 		return newCells
