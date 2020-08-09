@@ -62,7 +62,7 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 	func test_twoKeysInTwoInstancesOneThenStepOneExamplesRow() {
 		when_parsingScenarioOutline(
 			"""
-			Then foo <key one> bar '<key one>'
+			Then foo <key one> bar '<key two>'
 
 			Examples:
 				| key one     | key two      |
@@ -126,7 +126,7 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 			Examples: Two
 				| k1   | k2   | k3   |
 				| v2_1 | v2_2 | v2_3 |
-				| v2_1 | v2_2 | v2_3 |
+				| v3_1 | v3_2 | v3_3 |
 			""")
 
 		then_stepsForExpandedScenario(0, shouldBe:

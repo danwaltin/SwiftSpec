@@ -78,6 +78,30 @@ extension Scenario {
 
 extension Step {
 	func replacePlaceholders(from examplesRow: TableRow) -> Step {
+		return  Step(
+			type,
+			replacePlaceHolders(text, examplesRow),
+			location: location,
+			tableParameter: tableParameter,
+			docStringParameter: nil,
+			localizedKeyword: localizedKeyword)
 		return self
+	}
+	
+	private func replacePlaceHolders(_ value: String, _ examplesRow: TableRow) -> String {
+		
+		var newText = value
+		
+		for cell in examplesRow.cells {
+			let column = cell.header
+			let placeHolder = "<\(column)>"
+			
+			if value.contains(placeHolder) {
+				let value = "\(examplesRow[column].value)"
+				newText = newText.replacingOccurrences(of: placeHolder, with: value)
+			}
+		}
+		
+		return newText
 	}
 }
