@@ -92,20 +92,12 @@ extension Step {
 			return nil
 		}
 
-		let newRows = table.rows.map { TableRow(cells: cellsWithReplacedValues($0.cells, from: examplesRow), location: $0.location)}
-		let nt = Table(header: table.header, rows: newRows, headerLocation: table.header.location)
-		return nt
+		let newRows = table.rows.map { tableRowWithReplacedValues($0, from: examplesRow)}
+		return Table(header: table.header, rows: newRows, headerLocation: table.header.location)
 	}
 	
-	private func cellsWithReplacedKeys(_ row: TableRow, _ examplesRow: TableRow) -> [TableCell] {
-		var rowCellsWithReplacedKeys = [TableCell]()
-		for oldCell in row.cells {
-			let newKey = replacePlaceHolders(oldCell.header, examplesRow)
-			let cell = row[oldCell.header]
-			rowCellsWithReplacedKeys.append(TableCell(value: cell.value, location: cell.location, header: newKey))
-		}
-
-		return rowCellsWithReplacedKeys
+	private func tableRowWithReplacedValues(_ row: TableRow, from examplesRow: TableRow) -> TableRow {
+		return TableRow(cells: cellsWithReplacedValues(row.cells, from: examplesRow), location: row.location)
 	}
 	
 	private func cellsWithReplacedValues(_ cells: [TableCell], from examplesRow: TableRow) -> [TableCell] {
@@ -117,26 +109,7 @@ extension Step {
 		}
 		return newCells
 	}
-	
-	private func replacePlaceHolders(_ cells: [String: String], _ examplesRow: TableRow) -> [String: String] {
-		var replaced = [String: String]()
-
-		for cell in cells {
-			let newValue = replacePlaceHolders(cell.value, examplesRow)
-			replaced[cell.key] = newValue
-		}
-		return replaced
-	}
-	
-	private func replacePlaceHolders(_ items: [String], _ examplesRow: TableRow) -> [String] {
-		var replaced = [String]()
-		for item in items {
-			replaced.append(replacePlaceHolders(item, examplesRow))
-		}
 		
-		return replaced
-	}
-	
 	private func replacePlaceHolders(_ value: String, _ examplesRow: TableRow) -> String {
 		
 		var newText = value
