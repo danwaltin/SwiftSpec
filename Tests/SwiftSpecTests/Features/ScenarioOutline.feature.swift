@@ -27,7 +27,7 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testTheSumOfTwoNumbers_0Tests() {
+func testTheSumOfTwoNumbers_0() {
 do {
 try testRunner.executeStep(.when, "adding '1' and '1'")
 try testRunner.executeStep(.then, "the result should be '2'")
@@ -35,7 +35,7 @@ try testRunner.executeStep(.then, "the result should be '2'")
 XCTFail("\(error)")
 }
 }
-func testTheSumOfTwoNumbers_1Tests() {
+func testTheSumOfTwoNumbers_1() {
 do {
 try testRunner.executeStep(.when, "adding '10' and '20'")
 try testRunner.executeStep(.then, "the result should be '30'")
@@ -43,7 +43,7 @@ try testRunner.executeStep(.then, "the result should be '30'")
 XCTFail("\(error)")
 }
 }
-func testTheSumOfTwoNumbers_2Tests() {
+func testTheSumOfTwoNumbers_2() {
 do {
 try testRunner.executeStep(.when, "adding '42' and '17'")
 try testRunner.executeStep(.then, "the result should be '59'")
@@ -51,7 +51,7 @@ try testRunner.executeStep(.then, "the result should be '59'")
 XCTFail("\(error)")
 }
 }
-func testMathUsingReversePolishNotation_Addition_0Tests() {
+func testMathUsingReversePolishNotation_Addition_0() {
 do {
 try testRunner.executeStep(.given, "that operand '1' has been entered")
 try testRunner.executeStep(.and, "that operand '1' has been entered")
@@ -61,7 +61,7 @@ try testRunner.executeStep(.then, "the result should be '2'")
 XCTFail("\(error)")
 }
 }
-func testMathUsingReversePolishNotation_Addition_1Tests() {
+func testMathUsingReversePolishNotation_Addition_1() {
 do {
 try testRunner.executeStep(.given, "that operand '10' has been entered")
 try testRunner.executeStep(.and, "that operand '20' has been entered")
@@ -71,7 +71,7 @@ try testRunner.executeStep(.then, "the result should be '30'")
 XCTFail("\(error)")
 }
 }
-func testMathUsingReversePolishNotation_Subtraction_0Tests() {
+func testMathUsingReversePolishNotation_Subtraction_0() {
 do {
 try testRunner.executeStep(.given, "that operand '1' has been entered")
 try testRunner.executeStep(.and, "that operand '1' has been entered")
@@ -81,7 +81,7 @@ try testRunner.executeStep(.then, "the result should be '0'")
 XCTFail("\(error)")
 }
 }
-func testMathUsingReversePolishNotation_Subtraction_1Tests() {
+func testMathUsingReversePolishNotation_Subtraction_1() {
 do {
 try testRunner.executeStep(.given, "that operand '10' has been entered")
 try testRunner.executeStep(.and, "that operand '20' has been entered")
@@ -91,7 +91,7 @@ try testRunner.executeStep(.then, "the result should be '-10'")
 XCTFail("\(error)")
 }
 }
-func testAddingANumberToItself_0Tests() {
+func testAddingANumberToItself_0() {
 do {
 try testRunner.executeStep(.when, "adding '1' and '1'")
 try testRunner.executeStep(.then, "the result should be '2'")
@@ -99,7 +99,7 @@ try testRunner.executeStep(.then, "the result should be '2'")
 XCTFail("\(error)")
 }
 }
-func testAddingANumberToItself_1Tests() {
+func testAddingANumberToItself_1() {
 do {
 try testRunner.executeStep(.when, "adding '42' and '42'")
 try testRunner.executeStep(.then, "the result should be '84'")

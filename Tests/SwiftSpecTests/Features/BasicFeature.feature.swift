@@ -27,7 +27,7 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testBasicScenarioTests() {
+func testBasicScenario() {
 do {
 try testRunner.executeStep(.given, "there is something")
 try testRunner.executeStep(.when, "I do something")

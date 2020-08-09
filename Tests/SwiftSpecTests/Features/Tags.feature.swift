@@ -27,14 +27,14 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testAFeatureCanHaveTagsTests() {
+func testAFeatureCanHaveTags() {
 do {
 try testRunner.executeStep(.then, "this feature has the tag 'featureTag'")
 } catch {
 XCTFail("\(error)")
 }
 }
-func testAScenarioCanHaveTagsTests() {
+func testAScenarioCanHaveTags() {
 scenarioContext.tags = ["one", "two", "three"]
 do {
 try testRunner.executeStep(.then, "this scenario has the tags 'one', 'two' and 'three'")

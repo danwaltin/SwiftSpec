@@ -36,7 +36,7 @@ class TestScenarioContentUnitTestName : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			}
 			"""
 		)
@@ -51,7 +51,7 @@ class TestScenarioContentUnitTestName : TestFileGenerationBase {
 
 		then_generatedScenarioShouldBe(
 			"""
-			func testOneTwoTests() {
+			func testOneTwo() {
 			}
 			"""
 		)
@@ -66,7 +66,7 @@ class TestScenarioContentUnitTestName : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testScenarioNameTests() {
+			func testScenarioName() {
 			}
 			"""
 		)
@@ -81,7 +81,7 @@ class TestScenarioContentUnitTestName : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testXaXaXoAxAxOxTests() {
+			func testXaXaXoAxAxOx() {
 			}
 			"""
 		)
@@ -97,7 +97,7 @@ class TestScenarioContentUnitTestName : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func IGNORE_testNameTests() {
+			func IGNORE_testName() {
 			scenarioContext.tags = [\"\(ignoreTag)\"]
 			}
 			"""

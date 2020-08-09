@@ -37,7 +37,7 @@ class TestScenarioContentUnitTestTags : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			scenarioContext.tags = [\"tag\"]
 			}
 			"""
@@ -54,7 +54,7 @@ class TestScenarioContentUnitTestTags : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			scenarioContext.tags = [\"one\", \"two\"]
 			}
 			"""

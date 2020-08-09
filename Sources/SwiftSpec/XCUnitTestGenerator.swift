@@ -116,7 +116,7 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	}
 	
 	func scenario(scenario: Scenario) -> String {
-		return "func \(ignorePrefix(scenario))test\(testEntityName(scenario))Tests() {\n" +
+		return "func \(ignorePrefix(scenario))test\(testEntityName(scenario))() {\n" +
 			scenarioTags(scenario) +
 			steps(scenario) +
 			"}"

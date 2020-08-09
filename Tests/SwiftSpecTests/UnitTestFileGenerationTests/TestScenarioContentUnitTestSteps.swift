@@ -36,7 +36,7 @@ class TestScenarioContentUnitTestSteps : TestFileGenerationBase {
 
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			try testRunner.executeStep(.given, \"something\")
 			} catch {
@@ -57,7 +57,7 @@ class TestScenarioContentUnitTestSteps : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			try testRunner.executeStep(.when, \"something\")
 			} catch {
@@ -78,7 +78,7 @@ class TestScenarioContentUnitTestSteps : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			try testRunner.executeStep(.then, \"something\")
 			} catch {
@@ -103,7 +103,7 @@ class TestScenarioContentUnitTestSteps : TestFileGenerationBase {
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			try testRunner.executeStep(.given, \"a\")
 			try testRunner.executeStep(.and, \"b\")

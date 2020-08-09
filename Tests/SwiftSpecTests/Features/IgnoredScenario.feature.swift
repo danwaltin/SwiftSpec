@@ -27,7 +27,7 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func IGNORE_testThisScenarioWouldFailIfExecutedTests() {
+func IGNORE_testThisScenarioWouldFailIfExecuted() {
 scenarioContext.tags = ["ignore"]
 do {
 try testRunner.executeStep(.when, "executing a step that fails")
@@ -35,7 +35,7 @@ try testRunner.executeStep(.when, "executing a step that fails")
 XCTFail("\(error)")
 }
 }
-func testThisScenarioWillSucceedWhenExecutedTests() {
+func testThisScenarioWillSucceedWhenExecuted() {
 do {
 try testRunner.executeStep(.when, "executing a step that succeedes")
 } catch {

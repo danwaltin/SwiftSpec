@@ -27,14 +27,14 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testThisScenarioWouldFailIfExecutedTests() {
+func testThisScenarioWouldFailIfExecuted() {
 do {
 try testRunner.executeStep(.when, "executing a step that fails")
 } catch {
 XCTFail("\(error)")
 }
 }
-func testThisScenarioWouldAlsoFailIfExecutedTests() {
+func testThisScenarioWouldAlsoFailIfExecuted() {
 do {
 try testRunner.executeStep(.when, "executing a step that fails")
 } catch {

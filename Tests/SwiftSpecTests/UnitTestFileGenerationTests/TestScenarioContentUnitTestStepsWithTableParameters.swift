@@ -38,7 +38,7 @@ class TestScenarioContentUnitTestStepsWithTableParameters : TestFileGenerationBa
 
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			let table1 = TableParameter(columns: [\"col\"])
 			.addingRow(cells: [\"r1c1\"])
@@ -64,7 +64,7 @@ class TestScenarioContentUnitTestStepsWithTableParameters : TestFileGenerationBa
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			let table1 = TableParameter(columns: [\"col\"])
 			.addingRow(cells: [\"r1c1\"])
@@ -90,7 +90,7 @@ class TestScenarioContentUnitTestStepsWithTableParameters : TestFileGenerationBa
 
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			let table1 = TableParameter(columns: [\"c1\", \"c2\"])
 			.addingRow(cells: [\"r1c1\", \"r1c2\"])
@@ -119,7 +119,7 @@ class TestScenarioContentUnitTestStepsWithTableParameters : TestFileGenerationBa
 		
 		then_generatedScenarioShouldBe(
 			"""
-			func testNameTests() {
+			func testName() {
 			do {
 			let table1 = TableParameter(columns: [\"c1\"])
 			.addingRow(cells: [\"v1\"])
