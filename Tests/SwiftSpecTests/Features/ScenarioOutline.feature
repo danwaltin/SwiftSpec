@@ -18,8 +18,8 @@ Scenario Outline: The sum of two numbers
 Scenario Outline: Math using reverse polish notation
 	The examples can be grouped and named
 	
-	Given that operand '<operand1>' has been entered
-	And that operand '<operand2>' has been entered
+	Given that operand1 '<operand1>' has been entered
+	And that operand2 '<operand2>' has been entered
 	
 	When entering operator '<operator>'
 	

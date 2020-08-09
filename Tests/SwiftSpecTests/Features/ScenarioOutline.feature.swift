@@ -53,8 +53,8 @@ XCTFail("\(error)")
 }
 func testMathUsingReversePolishNotation_Addition_0() {
 do {
-try testRunner.executeStep(.given, "that operand '1' has been entered")
-try testRunner.executeStep(.and, "that operand '1' has been entered")
+try testRunner.executeStep(.given, "that operand1 '1' has been entered")
+try testRunner.executeStep(.and, "that operand2 '1' has been entered")
 try testRunner.executeStep(.when, "entering operator 'add'")
 try testRunner.executeStep(.then, "the result should be '2'")
 } catch {
@@ -63,8 +63,8 @@ XCTFail("\(error)")
 }
 func testMathUsingReversePolishNotation_Addition_1() {
 do {
-try testRunner.executeStep(.given, "that operand '10' has been entered")
-try testRunner.executeStep(.and, "that operand '20' has been entered")
+try testRunner.executeStep(.given, "that operand1 '10' has been entered")
+try testRunner.executeStep(.and, "that operand2 '20' has been entered")
 try testRunner.executeStep(.when, "entering operator 'add'")
 try testRunner.executeStep(.then, "the result should be '30'")
 } catch {
@@ -73,8 +73,8 @@ XCTFail("\(error)")
 }
 func testMathUsingReversePolishNotation_Subtraction_0() {
 do {
-try testRunner.executeStep(.given, "that operand '1' has been entered")
-try testRunner.executeStep(.and, "that operand '1' has been entered")
+try testRunner.executeStep(.given, "that operand1 '1' has been entered")
+try testRunner.executeStep(.and, "that operand2 '1' has been entered")
 try testRunner.executeStep(.when, "entering operator 'subtract'")
 try testRunner.executeStep(.then, "the result should be '0'")
 } catch {
@@ -83,8 +83,8 @@ XCTFail("\(error)")
 }
 func testMathUsingReversePolishNotation_Subtraction_1() {
 do {
-try testRunner.executeStep(.given, "that operand '10' has been entered")
-try testRunner.executeStep(.and, "that operand '20' has been entered")
+try testRunner.executeStep(.given, "that operand1 '10' has been entered")
+try testRunner.executeStep(.and, "that operand2 '20' has been entered")
 try testRunner.executeStep(.when, "entering operator 'subtract'")
 try testRunner.executeStep(.then, "the result should be '-10'")
 } catch {
