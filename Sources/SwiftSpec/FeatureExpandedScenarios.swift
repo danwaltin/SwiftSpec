@@ -82,9 +82,59 @@ extension Step {
 			type,
 			replacePlaceHolders(text, examplesRow),
 			location: location,
-			tableParameter: tableParameter,
+			tableParameter: replacePlaceHolders(tableParameter, examplesRow),
 			docStringParameter: nil,
 			localizedKeyword: localizedKeyword)
+	}
+	
+	private func replacePlaceHolders(_ table: Table?, _ examplesRow: TableRow) -> Table? {
+		guard let table = table else {
+			return nil
+		}
+
+		let newRows = table.rows.map { TableRow(cells: cellsWithReplacedValues($0.cells, from: examplesRow), location: $0.location)}
+		let nt = Table(header: table.header, rows: newRows, headerLocation: table.header.location)
+		return nt
+	}
+	
+	private func cellsWithReplacedKeys(_ row: TableRow, _ examplesRow: TableRow) -> [TableCell] {
+		var rowCellsWithReplacedKeys = [TableCell]()
+		for oldCell in row.cells {
+			let newKey = replacePlaceHolders(oldCell.header, examplesRow)
+			let cell = row[oldCell.header]
+			rowCellsWithReplacedKeys.append(TableCell(value: cell.value, location: cell.location, header: newKey))
+		}
+
+		return rowCellsWithReplacedKeys
+	}
+	
+	private func cellsWithReplacedValues(_ cells: [TableCell], from examplesRow: TableRow) -> [TableCell] {
+		var newCells = [TableCell]()
+		
+		for cell in cells {
+			let newCell = TableCell(value: replacePlaceHolders(cell.value, examplesRow), location: cell.location, header: cell.header)
+			newCells.append(newCell)
+		}
+		return newCells
+	}
+	
+	private func replacePlaceHolders(_ cells: [String: String], _ examplesRow: TableRow) -> [String: String] {
+		var replaced = [String: String]()
+
+		for cell in cells {
+			let newValue = replacePlaceHolders(cell.value, examplesRow)
+			replaced[cell.key] = newValue
+		}
+		return replaced
+	}
+	
+	private func replacePlaceHolders(_ items: [String], _ examplesRow: TableRow) -> [String] {
+		var replaced = [String]()
+		for item in items {
+			replaced.append(replacePlaceHolders(item, examplesRow))
+		}
+		
+		return replaced
 	}
 	
 	private func replacePlaceHolders(_ value: String, _ examplesRow: TableRow) -> String {
