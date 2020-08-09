@@ -85,7 +85,6 @@ extension Step {
 			tableParameter: tableParameter,
 			docStringParameter: nil,
 			localizedKeyword: localizedKeyword)
-		return self
 	}
 	
 	private func replacePlaceHolders(_ value: String, _ examplesRow: TableRow) -> String {
