@@ -78,6 +78,6 @@ extension Scenario {
 						location: location,
 						steps: [],
 						examples: [],
-						localizedKeyword: "")
+						localizedKeyword: localizedKeyword)
 	}
 }
