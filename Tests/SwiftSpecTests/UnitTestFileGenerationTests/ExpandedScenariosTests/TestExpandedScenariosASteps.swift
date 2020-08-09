@@ -153,10 +153,12 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 
 
 	// MARK: - Replacing keys with example values in step table parameters
-	func test_oneKeyOneGivenStepOneExamplesRow() {
+	func test_oneColumnOneRow_oneKeyOneExample_replaceCell() {
 		when_parsingScenarioOutline(
 			"""
-			Given the key '<key>'
+			Given x
+				| Column |
+				| <key>  |
 
 			Examples:
 				| key   |
@@ -165,9 +167,103 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 
 		then_stepsForExpandedScenario(0, shouldBe:
 			"""
-			Given the key 'value'
+			Given x
+				| Column |
+				| value  |
 			""")
 	}
+	
+	func test_oneColumnOneRow_twoKeysOneExample_replaceCell() {
+		when_parsingScenarioOutline(
+			"""
+			Given x
+				| Column      |
+				| <one> <two> |
+
+			Examples:
+				| one | two |
+				| v1  | v2  |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Given x
+				| Column |
+				| v1 v2  |
+			""")
+	}
+
+	func test_oneColumnOneRow_oneKeyOneExample_replaceColumn() {
+		when_parsingScenarioOutline(
+			"""
+			Given x
+				| <key>      |
+				| cell value |
+
+			Examples:
+				| key         |
+				| Column name |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Given x
+				| Column name |
+				| cell value  |
+			""")
+	}
+	
+	func test_oneColumnOneRow_twoKeysOneExample_replaceColumn() {
+		when_parsingScenarioOutline(
+			"""
+			When x
+				| <keyOne> <keyTwo> |
+				| cell value        |
+
+			Examples:
+				| keyOne | keyTwo |
+				| c1     | c2     |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			When x
+				| c1 c2      |
+				| cell value |
+			""")
+	}
+
+	func test_twoColumnsTwoRows_fourKeysTwoSameTwoExamples_replaceColumnAndCells() {
+		when_parsingScenarioOutline(
+			"""
+			Then x
+				| Constant Column | <key alfa>     |
+				| <same key>      | constant value |
+				| <key beta>      | <same key>     |
+
+			Examples:
+				| key alfa | key beta | same key |
+				| XX       | YY       | ZZ       |
+				| AA       | BB       | CC       |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			Then x
+				| Constant Column | XX             |
+				| ZZ              | constant value |
+				| YY              | ZZ             |
+			""")
+
+		then_stepsForExpandedScenario(1, shouldBe:
+			"""
+			Then x
+				| Constant Column | AA             |
+				| CC              | constant value |
+				| BB              | CC             |
+			""")
+	}
+
 
 	// MARK: - Givens, whens and thens
 	private func when_parsingScenarioOutline(_ scenarioOutlineSteps: String) {
