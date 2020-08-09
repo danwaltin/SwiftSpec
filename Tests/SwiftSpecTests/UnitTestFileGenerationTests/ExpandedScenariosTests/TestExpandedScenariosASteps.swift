@@ -41,7 +41,29 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 			Given given 'value'
 			""")
 	}
-	
+
+	func test_oneWhenStepTwoExamplesRows() {
+		when_parsingScenarioOutline(
+			"""
+			When when '<something>'
+
+			Examples:
+				| something |
+				| value one |
+				| value two |
+			""")
+
+		then_stepsForExpandedScenario(0, shouldBe:
+			"""
+			When when 'value one'
+			""")
+
+		then_stepsForExpandedScenario(1, shouldBe:
+			"""
+			When when 'value two'
+			""")
+	}
+
 	// MARK: - Givens, whens and thens
 	private func when_parsingScenarioOutline(_ scenarioOutlineSteps: String) {
 		when_parsing(featureWithSteps(scenarioOutlineSteps))
@@ -58,7 +80,7 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 		
 		let expectedSteps = scenario.steps
 		
-		assert.scenario(file, line) {
+		assert.expandedScenario(atIndex: index, file, line) {
 			XCTAssertEqual($0.steps, expectedSteps, file: file, line: line)
 		}
 	}
@@ -67,10 +89,11 @@ class TestExpandedScenariosSteps : TestFileGenerationBase {
 		switch pickleResult {
 		case .success(let doc):
 			if let feature = doc.feature {
-				if feature.scenarios.count <= scenarioIndex {
+				let expandedScenarios = feature.expandedScenarios()
+				if expandedScenarios.count <= scenarioIndex {
 					return nil
 				}
-				return feature.scenarios[scenarioIndex]
+				return expandedScenarios[scenarioIndex]
 			} else {
 				return nil
 			}
