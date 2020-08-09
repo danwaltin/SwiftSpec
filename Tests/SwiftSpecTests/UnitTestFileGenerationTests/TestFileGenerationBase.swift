@@ -29,10 +29,7 @@ class TestFileGenerationBase : XCTestCase {
 	var actualPickleResult: PickleResult!
 	
 	func when_parsing(_ feature: String) {
-		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
-												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
-		let lines = feature.allLines()
-		actualPickleResult = featureParser.pickle(lines: lines, fileUri: "feature/file/path")
+		actualPickleResult = pickle(feature)
 	}
 
 	func then_generatedScenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
@@ -49,8 +46,15 @@ class TestFileGenerationBase : XCTestCase {
 		return Asserter(actualPickleResult: actualPickleResult)
 	}
 
-	// MARK: - Factory methods
+	// MARK: - Helpers and factory methods
 	
+	func pickle(_ feature: String) -> PickleResult {
+		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
+												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
+		let lines = feature.allLines()
+		return featureParser.pickle(lines: lines, fileUri: "feature/file/path")
+	}
+
 	private func instanceToTest() -> UnitTestBuilderImp {
 		return UnitTestBuilderImp()
 	}

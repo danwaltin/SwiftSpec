@@ -142,7 +142,7 @@ class TestExpandedScenariosAttributes : TestFileGenerationBase {
 	}
 
 	func then_tags(forScenario index: Int, shouldBe expected: [String],
-						  file: StaticString = #file, line: UInt = #line) {
+				   file: StaticString = #file, line: UInt = #line) {
 		assert.expandedScenario(atIndex: index, file, line) {
 			let actual = $0.tags.map { $0.name }
 			XCTAssertEqual(actual, expected, file: file, line: line)
