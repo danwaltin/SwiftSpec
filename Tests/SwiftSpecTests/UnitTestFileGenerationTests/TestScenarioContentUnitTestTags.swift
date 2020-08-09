@@ -14,28 +14,50 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  UnitTestGenerator.swift
+//  TestScenarioContentUnitTestTags.swift
 //  SwiftSpec
 //
-//  Created by Dan Waltin on 2016-06-26.
+//  Created by Dan Waltin on 2020-08-07.
 //
 // ------------------------------------------------------------------------
-import Foundation
+
+import XCTest
+@testable import SwiftSpec
 import GherkinSwift
 
-protocol UnitTestGenerator {
-	func generateUnitTest(result: PickleResult, fromFeatureFilePath: String) -> String
+class TestScenarioContentUnitTestTags : TestFileGenerationBase {
+	
+	func test_scenarioWithOneTag() {
+		when_parsing(
+			"""
+			Feature: f
+			@tag
+			Scenario: Name
+			""")
+		
+		then_generatedScenarioShouldBe(
+			"""
+			func testName() {
+			scenarioContext.tags = [\"tag\"]
+			}
+			"""
+		)
+	}
+
+	func test_scenarioWithTwoTags() {
+		when_parsing(
+			"""
+			Feature: f
+			@one @two
+			Scenario: Name
+			""")
+		
+		then_generatedScenarioShouldBe(
+			"""
+			func testName() {
+			scenarioContext.tags = [\"one\", \"two\"]
+			}
+			"""
+		)
+	}
 }
-
-protocol UnitTestBuilder {
-	func header() -> String
-	func featureClass(feature: Feature) -> String
-	func setupAndTearDown(feature: Feature) -> String
-	func scenario(scenario: Scenario) -> String
-	func endClass() -> String
-
-	func parseErrorFeatureClass(featureFilePath: String) -> String
-	func unknownError() -> String
-	func error(index: Int, parseError: ParseError) -> String
-}
-

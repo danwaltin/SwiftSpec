@@ -27,7 +27,7 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testDataAddedToTheScenarioContextIsAvailableInSubsequentStepsTests() {
+func testDataAddedToTheScenarioContextIsAvailableInSubsequentSteps() {
 do {
 try testRunner.executeStep(.given, "that the value 'foo' is added to the current scenario context using the key 'bar'")
 try testRunner.executeStep(.then, "the current scenario context returns the value 'foo' for the key 'bar'")
@@ -35,7 +35,7 @@ try testRunner.executeStep(.then, "the current scenario context returns the valu
 XCTFail("\(error)")
 }
 }
-func testTheScenarioContextIsClearedForEachScenarioTests() {
+func testTheScenarioContextIsClearedForEachScenario() {
 do {
 try testRunner.executeStep(.given, "a new scenario")
 try testRunner.executeStep(.then, "the current scenario context returns nil for the key 'bar'")

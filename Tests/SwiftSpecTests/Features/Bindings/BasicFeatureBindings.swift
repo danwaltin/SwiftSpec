@@ -9,7 +9,7 @@
 import SwiftSpec
 import XCTest
 
-class BasicFeatureBindings: Bindings {
+class MathBindings: Bindings {
 	
 	override func defineBindings() {
 		addBinding(stepText: "there is something") {_ in 
@@ -22,20 +22,6 @@ class BasicFeatureBindings: Bindings {
 
 		addBinding(stepText: "something should happen") {_ in 
 			XCTAssertTrue(true)
-		}
-		
-		addBinding(stepText: "adding '(.*)' and '(.*)'") {
-			let arg1 = Int($0.matchedParameters[0])!
-			let arg2 = Int($0.matchedParameters[1])!
-			
-			self.scenarioContext["addResult"] = arg1 + arg2
-		}
-		
-		addBinding(stepText: "the result should be '(.*)'") {
-			let result = Int($0.matchedParameters[0])!
-			let actual: Int = self.scenarioContext.get("addResult")
-			
-			XCTAssertEqual(actual, result)
 		}
 	}
 }

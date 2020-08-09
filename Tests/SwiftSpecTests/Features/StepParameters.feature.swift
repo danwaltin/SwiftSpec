@@ -27,7 +27,7 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testTableParametersTests() {
+func testTableParameters() {
 do {
 let table1 = TableParameter(columns: ["Name", "Balance"])
 .addingRow(cells: ["Coffee", "1111"])

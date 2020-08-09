@@ -1,5 +1,6 @@
-* Handle scenario outline
-* Handle background
+* Handle Scenario outline
+* Display errors in the feature files
+* Handle Background
 * Handle DocString
 * Handle parallell testing
 * Delete old code behind files before generating new

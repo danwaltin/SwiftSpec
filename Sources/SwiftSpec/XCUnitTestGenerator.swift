@@ -42,10 +42,10 @@ class XCUnitTestGenerator: UnitTestGenerator {
 			if let feature = document.feature {
 				t = t.appendLine(builder.featureClass(feature: feature))
 				t = t.appendLine(builder.setupAndTearDown(feature: feature))
-				for s in feature.scenarios {
+				for s in feature.expandedScenarios() {
 					t = t.appendLine(builder.scenario(scenario: s))
 				}
-				t = t.appendLine(builder.footer())
+				t = t.appendLine(builder.endClass())
 			}
 
 		case .error(let errors):
@@ -59,7 +59,7 @@ class XCUnitTestGenerator: UnitTestGenerator {
 					index += 1
 				}
 			}
-			t = t.appendLine(builder.footer())
+			t = t.appendLine(builder.endClass())
 		}
 
 		return t
@@ -116,13 +116,13 @@ class UnitTestBuilderImp : UnitTestBuilder {
 	}
 	
 	func scenario(scenario: Scenario) -> String {
-		return "func \(ignorePrefix(scenario))test\(testEntityName(scenario))Tests() {\n" +
+		return "func \(ignorePrefix(scenario))test\(testEntityName(scenario))() {\n" +
 			scenarioTags(scenario) +
 			steps(scenario) +
 			"}"
 	}
 	
-	func footer() -> String {
+	func endClass() -> String {
 		return "}"
 	}
 

@@ -14,7 +14,7 @@
 // limitations under the License.
 // ------------------------------------------------------------------------
 //
-//  ContentOfParseErrorUnitTestFilesTests.swift
+//  TestContentOfParseErrorUnitTestFiles.swift
 //  SwiftSpec
 //
 //  Created by Dan Waltin on 2020-08-01.
@@ -24,7 +24,7 @@ import XCTest
 @testable import SwiftSpec
 import  GherkinSwift
 
-class ContentOfParseErrorUnitTestFilesTests: TestFileGenerationBase {
+class TestContentOfParseErrorUnitTestFiles: TestFileGenerationBase {
 
 	// MARK: - Unknown error
 	func test_unknownError() {

@@ -33,7 +33,7 @@ let package = Package(
 		.executable(name: "SwiftSpecConsole", targets: ["SwiftSpecConsole"])
     ],
     dependencies: [
-		.package(url: "https://github.com/danwaltin/GherkinSwift", from: "1.0.1"),
+		.package(url: "https://github.com/danwaltin/GherkinSwift", from: "1.0.3"),
 		.package(url: "https://github.com/apple/swift-argument-parser", .upToNextMinor(from: "0.2.0"))
     ],
     targets: [

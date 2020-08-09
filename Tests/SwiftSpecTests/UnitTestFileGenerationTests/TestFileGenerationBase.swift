@@ -26,30 +26,46 @@ import XCTest
 import  GherkinSwift
 
 class TestFileGenerationBase : XCTestCase {
-
-	// MARK: - Factory methods
+	var actualPickleResult: PickleResult!
 	
-	func feature(name: String, tags: [Tag] = []) -> Feature {
-		return Feature(name: name, description: nil, background: nil, tags: tags, location: Location.zero(), language: "en", localizedKeyword: "Feature")
+	func when_parsing(_ feature: String) {
+		actualPickleResult = pickle(feature)
 	}
 
-	func tags(_ hasIgnoreTag: Bool) -> [Tag] {
-		if hasIgnoreTag {
-			return [Tag(name: ignoreTag, location: Location.zero())]
+	func then_generatedScenarioShouldBe(_ lines: String, file: StaticString = #file, line: UInt = #line) {
+		assert.firstScenario(file, line) {
+			let expected = trimmedLines(lines)
+			let actual = instanceToTest().scenario(scenario: $0)
+
+			XCTAssertEqual(actual, expected, file: file, line: line)
 		}
-		return []
 	}
+
+	// MARK: - Assertions
+	var assert: Asserter {
+		return Asserter(actualPickleResult: actualPickleResult)
+	}
+
+	// MARK: - Helpers and factory methods
 	
+	func pickle(_ feature: String) -> PickleResult {
+		let featureParser = GherkinFeatureParser(configuration: ParseConfiguration(),
+												 languages: LanguagesConfiguration(defaultLanguageKey: "en"))
+		let lines = feature.allLines()
+		return featureParser.pickle(lines: lines, fileUri: "feature/file/path")
+	}
+
+	private func instanceToTest() -> UnitTestBuilderImp {
+		return UnitTestBuilderImp()
+	}
+
 	func trimmedLines(_ s: String) -> String {
-		return stringWithTrimmedLines(s.allLines())
-	}
-
-	func stringWithTrimmedLines(_ lines: [String]) -> String {
-		var s = ""
-		for line in lines {
-			s = s.appendLine(line.trim())
+		var trimmed = ""
+		for line in s.allLines() {
+			trimmed = trimmed.appendLine(line.trim())
 		}
-		return s
+		return trimmed
 	}
-
+	
+	
 }

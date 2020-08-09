@@ -27,20 +27,11 @@ scenarioContext = nil
 super.tearDown()
 }
 
-func testBasicScenarioTests() {
+func testBasicScenario() {
 do {
 try testRunner.executeStep(.given, "there is something")
 try testRunner.executeStep(.when, "I do something")
 try testRunner.executeStep(.then, "something should happen")
-} catch {
-XCTFail("\(error)")
-}
-}
-func IGNORE_testAScenarioWhichIsActuallySeveralExamplesTests() {
-scenarioContext.tags = ["ignore"]
-do {
-try testRunner.executeStep(.when, "adding '<arg1>' and '<arg2>'")
-try testRunner.executeStep(.then, "the result should be '<result>'")
 } catch {
 XCTFail("\(error)")
 }
